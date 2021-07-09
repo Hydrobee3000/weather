@@ -1,0 +1,17 @@
+.card-item {
+    margin: 3em;
+    border-radius: 15%;
+    padding-right: 0.9em;
+    padding-bottom: 5em;
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
+.card-item h2 {
+    font-family: "roboto";
+    padding-bottom: 1.2em;
+}
+
+.card-item h3 {
+    padding-bottom: 1em;
+}
