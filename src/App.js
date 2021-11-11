@@ -18,7 +18,7 @@ const App = () => {
         </Button>
       ))}
 
-      <WeatherDisplay key={activePlace} name={places[activePlace]} />
+      <WeatherDisplay key={activePlace} city={places[activePlace]} />
     </div>
   )
 }
