@@ -1,37 +1,26 @@
-import './App.css';
-import WeatherDisplay from "./components/WeatherDisplay/WeatherDisplay";
-import {Component} from "react";
-import Button from '@material-ui/core/Button';
+import './App.css'
+import WeatherDisplay from './components/WeatherDisplay/WeatherDisplay'
+import Button from '@mui/material/Button'
+import { useState } from 'react'
 
 const places = ['Omsk', 'Novosibirsk', 'Moscow', 'Tomsk', 'Ekaterinburg', 'Altay']
 
+const App = () => {
+  const [state, setState] = useState({ activePlace: 0 })
 
-class App extends Component {
-     state = {
-        activePlace: 0,
-    }
-    render() {
-        const activePlace = this.state.activePlace;
-        return (
-            <div className="App">
+  const activePlace = state.activePlace
 
-                {places.map((place, index) => (
-                    <Button
-                        key={index}
-                        onClick={() => {
-                            this.setState({activePlace: index });
-                        }} >
-                        {place}
-                    </Button>
-                ))}
+  return (
+    <div className='App'>
+      {places.map((place, index) => (
+        <Button key={index} onClick={() => setState({ activePlace: index })}>
+          {place}
+        </Button>
+      ))}
 
-                <WeatherDisplay
-                    key={activePlace}
-                    name={places[activePlace]} />
-            </div>
+      <WeatherDisplay key={activePlace} name={places[activePlace]} />
+    </div>
+  )
+}
 
-        )
-    }
-};
-
-export default App;
+export default App
