@@ -1,8 +1,7 @@
-import './WeatherDisplay.css'
-import WeekContainer from './WeekContainer/WeekContainer'
 import { useEffect, useState } from 'react'
+import WeekContainer from '../WeekWeather/WeekContainer'
 
-const WeatherDisplay = (props) => {
+const DayWeather = (props) => {
   const [state, setState] = useState({ weatherData: null })
 
   useEffect(() => {
@@ -47,4 +46,4 @@ const WeatherDisplay = (props) => {
   )
 }
 
-export default WeatherDisplay
+export default DayWeather

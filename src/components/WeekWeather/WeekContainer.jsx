@@ -1,6 +1,5 @@
-import Card from '../Card/Card'
 import { Component } from 'react'
-import './WeekContainer.css'
+import Card from './Card'
 
 class WeekContainer extends Component {
   state = {

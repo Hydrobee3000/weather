@@ -1,5 +1,4 @@
-import './App.css'
-import WeatherDisplay from './components/WeatherDisplay/WeatherDisplay'
+import DayWeather from './components/DayWeather/DayWeather'
 import Button from '@mui/material/Button'
 import { useState } from 'react'
 
@@ -18,7 +17,7 @@ const App = () => {
         </Button>
       ))}
 
-      <WeatherDisplay key={activePlace} city={places[activePlace]} />
+      <DayWeather key={activePlace} city={places[activePlace]} />
     </div>
   )
 }
