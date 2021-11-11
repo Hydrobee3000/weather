@@ -1,0 +1,21 @@
+.toolbar {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.active_link {
+  font-weight: bold;
+}
+
+.link {
+  text-decoration: none;
+}
+.breadcrumbs {
+}
+.select {
+  margin-left: 1em;
+  width: 10em;
+  height: 2em;
+  background-color: white;
+}

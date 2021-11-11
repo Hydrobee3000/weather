@@ -1,11 +1,10 @@
-import { Breadcrumbs, Button, MenuItem, Select } from '@mui/material'
+import { Breadcrumbs, MenuItem, Select } from '@mui/material'
 import { AppBar, Toolbar } from '@mui/material'
-import { Box } from '@mui/system'
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import DayWeather from './../DayWeather/DayWeather'
 import { emphasize, styled } from '@mui/material/styles'
 import Chip from '@mui/material/Chip'
+import s from './Header.module.css'
 
 const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor = theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800]
@@ -24,65 +23,42 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   }
 })
 
-const places = ['Omsk', 'Novosibirsk', 'Moscow', 'Tomsk', 'Ekaterinburg', 'Altay']
-
-const Header = () => {
-  const [state, setState] = useState({ activePlace: 0 })
-
-  const activePlace = state.activePlace
-
+const Header = ({ places }) => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
-        <Toolbar style={{ display: 'flex', justifyContent: 'center', margin: '5px 0' }}>
-          <Breadcrumbs aria-label='breadcrumb'>
-            {/*   icon={<HomeIcon fontSize='small' />} */}
-            <NavLink
-              activeStyle={{
-                fontWeight: 'bold',
-              }}
-              style={{ textDecoration: 'none' }}
-              to='/current-weather'>
-              <StyledBreadcrumb label='Weather' />
-            </NavLink>
-            <NavLink
-              activeStyle={{
-                fontWeight: 'bold',
-              }}
-              style={{ textDecoration: 'none' }}
-              to='/weather-forecast'>
-              <StyledBreadcrumb label='Weather forecast' />
-            </NavLink>
-            <Select
-              style={{
-                width: '10em',
-                height: '2.5em',
-                // alignSelf: 'center',
-                backgroundColor: 'white',
-              }}
-              id='demo-simple-select'
-              // value={baseCurrency}
-              // onChange={(e) => dispatch(setBaseCurrency(e.target.value))}
-            >
-              <MenuItem value={'none'}>none</MenuItem>
-              <MenuItem value={'none'}>none </MenuItem>
-            </Select>
-          </Breadcrumbs>
-
+    <AppBar position='static'>
+      <Toolbar className={s.toolbar}>
+        <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
+          <NavLink activeClassName={s.active_link} className={s.link} to='/current-weather'>
+            <StyledBreadcrumb label='Weather' />
+          </NavLink>
+          <NavLink activeClassName={s.active_link} className={s.link} to='/weather-forecast'>
+            <StyledBreadcrumb label='Weather forecast' />
+          </NavLink>
+        </Breadcrumbs>
+        <Select
+          className={s.select}
+          id='demo-simple-select'
+          value={places[0]}
+          // onChange={(e) => dispatch(setBaseCurrency(e.target.value))}
+        >
           {/* {places.map((place, index) => (
+                <MenuItem key={index} value={place} onClick={() => setState({ activePlace: index })}>
+                  {place}
+                </MenuItem>
+              ))} */}
+        </Select>
+        {/* {places.map((place, index) => (
             <Button key={index} onClick={() => setState({ activePlace: index })}>
               {place}
             </Button>
           ))} */}
-
-          {/* 
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            News
-          </Typography> */}
-        </Toolbar>
-      </AppBar>
-      <DayWeather key={activePlace} city={places[activePlace]} />
-    </Box>
+        {/* <DayWeather key={activePlace} city={places[activePlace]} /> */}
+      </Toolbar>
+    </AppBar>
   )
 }
 export default Header
+
+{
+  /*   icon={<HomeIcon fontSize='small' />} */
+}
