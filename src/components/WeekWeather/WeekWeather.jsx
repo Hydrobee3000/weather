@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import Card from './Card'
 
-class WeekContainer extends Component {
+class WeekWeather extends Component {
   state = {
     days: [],
   }
@@ -36,4 +36,4 @@ class WeekContainer extends Component {
   }
 }
 
-export default WeekContainer
+export default WeekWeather

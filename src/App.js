@@ -1,24 +1,31 @@
+import { Grid, Paper } from '@mui/material'
+import Header from './components/Header/Header'
 import DayWeather from './components/DayWeather/DayWeather'
-import Button from '@mui/material/Button'
-import { useState } from 'react'
-
-const places = ['Omsk', 'Novosibirsk', 'Moscow', 'Tomsk', 'Ekaterinburg', 'Altay']
+import WeekWeather from './components/WeekWeather/WeekWeather'
+import { Route, Routes } from 'react-router'
+import { Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const App = () => {
-  const [state, setState] = useState({ activePlace: 0 })
-
-  const activePlace = state.activePlace
-
   return (
-    <div className='App'>
-      {places.map((place, index) => (
-        <Button key={index} onClick={() => setState({ activePlace: index })}>
-          {place}
-        </Button>
-      ))}
-
-      <DayWeather key={activePlace} city={places[activePlace]} />
-    </div>
+    <Grid container>
+      <Grid item xs={12}>
+        <Paper>
+          <Header />
+        </Paper>
+      </Grid>
+      <Grid item xs={12}>
+        <Paper color='#f6fdfc'>
+          <Routes>
+            {/* <Route exact path='/'>
+              <Redirect to='/current-weather' />
+            </Route> */}
+            <Route path='/current-weather' render={() => <DayWeather />} />
+            <Route path='/weather-forecast' render={() => <WeekWeather />} />
+          </Routes>
+        </Paper>
+      </Grid>
+    </Grid>
   )
 }
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import WeekContainer from '../WeekWeather/WeekContainer'
+import WeekContainer from '../WeekWeather/WeekWeather'
 
 const DayWeather = (props) => {
   const [state, setState] = useState({ weatherData: null })
