@@ -1,23 +1,15 @@
-import { useEffect, useState } from 'react'
-import { fetchWeatherData } from '../../redux/reducers/weatherReducer'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchWeatherData } from './../../redux/reducers/weatherReducer'
 
 const DayWeather = ({ places, activePlace }) => {
-  const [state, setState] = useState({ weatherData: null })
-
-  // useEffect(() => {
-  //   const URL = 'https://api.openweathermap.org/data/2.5/weather?q=' + places + '&appid=5712b8887160185aaa20b84fcd1da1c4'
-  //   fetch(URL)
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       setState({ weatherData: json })
-  //     })
-  // }, [props.places])
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    fetchWeatherData(activePlace)
+    dispatch(fetchWeatherData(activePlace))
   }, [activePlace])
 
-  const weatherData = state.weatherData
+  // const weatherData = state.weatherData
 
   // if (!weatherData) return <div>Loading</div>
 

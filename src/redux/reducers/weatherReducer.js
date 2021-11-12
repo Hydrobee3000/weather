@@ -5,7 +5,7 @@ const SET_WEATHER_DATA = 'SET_WEATHER_DATA'
 
 const initialState = {
   places: ['Omsk', 'Novosibirsk', 'Moscow', 'Tomsk', 'Ekaterinburg', 'Altay'],
-  activePlace: null,
+  activePlace: 'Omsk',
   weatherData: null,
 }
 

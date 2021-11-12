@@ -49,6 +49,3 @@ const Header = ({ places, activePlace }) => {
   )
 }
 export default Header
-
-{
-}
