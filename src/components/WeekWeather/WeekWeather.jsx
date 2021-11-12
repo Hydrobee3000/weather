@@ -28,7 +28,7 @@ class WeekWeather extends Component {
   render() {
     return (
       <div className={s.wrapper}>
-        <h1 className='title'>Прогноз погоды на 5 дней</h1>
+        <h1 className='title'>Weather forecast</h1>
         {/* <div className='cards'>{this.formatCards()}</div> */}
       </div>
     )
