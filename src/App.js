@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Route, Routes } from 'react-router-dom'
-import Header from './components/Header/Header'
-import DayWeather from './components/DayWeather/DayWeather'
-import WeekWeather from './components/WeekWeather/WeekWeather'
 import { useSelector } from 'react-redux'
+import Header from './components/Header/Header'
+import DayWeatherContainer from './components/DayWeatherContainer/DayWeatherContainer'
+import WeekWeather from './components/WeekWeather/WeekWeather'
 
 const App = () => {
   const places = useSelector((state) => state.weather.places)
@@ -18,8 +18,8 @@ const App = () => {
         </Grid>
         <Grid item xs={12}>
           <Routes>
-            <Route path='current-weather' element={<DayWeather places={places} activePlace={activePlace} />} />
-            <Route path='weather-forecast' element={<WeekWeather places={places} activePlace={activePlace} />} />
+            <Route path='current-weather' element={<DayWeatherContainer activePlace={activePlace} />} />
+            <Route path='weather-forecast' element={<WeekWeather activePlace={activePlace} />} />
           </Routes>
         </Grid>
       </Grid>

@@ -1,11 +1,11 @@
+import s from './Header.module.css'
 import { Breadcrumbs, MenuItem, Select } from '@mui/material'
+import Chip from '@mui/material/Chip'
+import { emphasize, styled } from '@mui/material/styles'
 import { AppBar, Toolbar } from '@mui/material'
 import { NavLink } from 'react-router-dom'
-import { emphasize, styled } from '@mui/material/styles'
-import Chip from '@mui/material/Chip'
-import s from './Header.module.css'
-import { setActivePlace } from './../../redux/reducers/weatherReducer'
 import { useDispatch } from 'react-redux'
+import { setActivePlace } from './../../redux/reducers/weatherReducer'
 
 const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor = theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800]
