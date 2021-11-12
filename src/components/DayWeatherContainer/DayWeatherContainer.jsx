@@ -15,6 +15,10 @@ const DayWeatherContainer = ({ activePlace }) => {
     dispatch(fetchWeatherData(activePlace))
   }, [dispatch, activePlace])
 
+  //display preloader, while data is empty
+  if (!weatherData) {
+    return <Preloader />
+  }
   return <DayWeather weatherData={weatherData} />
 }
 
