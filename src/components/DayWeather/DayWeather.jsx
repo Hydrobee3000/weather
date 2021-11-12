@@ -1,20 +1,31 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchWeatherData } from './../../redux/reducers/weatherReducer'
+import Preloader from './../common/Preloader/Preloader'
 
 const DayWeather = ({ places, activePlace }) => {
   const dispatch = useDispatch()
 
+  const weatherData = useSelector((state) => state.weather.weatherData)
+
   useEffect(() => {
     dispatch(fetchWeatherData(activePlace))
   }, [activePlace])
+
+  if (!weatherData) {
+    return <Preloader />
+  }
+  // const weather = useSelector((state) => state.weather.weatherData.weather[0])
+
+  console.log(weatherData)
+  // console.log(weather)
 
   // const weatherData = state.weatherData
 
   // if (!weatherData) return <div>Loading</div>
 
   // const weather = weatherData.weather[0]
-  // const iconUrl = 'http://openweathermap.org/img/w/' + weather.icon + '.png'
+  // const iconUrl = `http://openweathermap.org/img/w/${weather.icon}.png`
 
   return (
     <div className='wrapper'>
