@@ -6,6 +6,7 @@ import { AppBar, Toolbar } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setActivePlace } from './../../redux/reducers/weatherReducer'
+import CalendarViewWeekIcon from '@mui/icons-material/CalendarViewWeek'
 
 const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor = theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800]
@@ -31,7 +32,7 @@ const Header = ({ places, activePlace }) => {
       <Toolbar className={s.toolbar}>
         <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
           <NavLink className={s.link} to='/current-weather'>
-            <StyledBreadcrumb label='Weather' />
+            <StyledBreadcrumb label='Weather' icon={<CalendarViewWeekIcon fontSize='small' />} />
           </NavLink>
           <NavLink className={s.link} to='/weather-forecast'>
             <StyledBreadcrumb label='Weather forecast' />
