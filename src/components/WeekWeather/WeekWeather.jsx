@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import s from './WeekWeather.module.css'
 import Card from './Card'
 
 class WeekWeather extends Component {
@@ -7,13 +8,11 @@ class WeekWeather extends Component {
   }
 
   componentDidMount = () => {
-    const city = this.props.city
-
-    const weatherURL =
-      'https://api.openweathermap.org/data/2.5/forecast?q=' +
-      city +
-      '&lang=ru&units=metric&APPID=5712b8887160185aaa20b84fcd1da1c4'
-
+    // const city = this.props.city
+    // const weatherURL =
+    //   'https://api.openweathermap.org/data/2.5/forecast?q=' +
+    //   city +
+    //   '&lang=ru&units=metric&APPID=5712b8887160185aaa20b84fcd1da1c4'
     // fetch(weatherURL)
     //   .then((res) => res.json())
     //   .then((data) => {
@@ -28,7 +27,7 @@ class WeekWeather extends Component {
 
   render() {
     return (
-      <div>
+      <div className={s.wrapper}>
         <h1 className='title'>Прогноз погоды на 5 дней</h1>
         {/* <div className='cards'>{this.formatCards()}</div> */}
       </div>
