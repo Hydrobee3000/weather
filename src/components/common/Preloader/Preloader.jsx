@@ -1,4 +1,4 @@
-import preloader from '../../../assets/preloader.svg'
+import preloader from '../../../assets/preloader.gif'
 
 const style = {
   position: 'absolute',

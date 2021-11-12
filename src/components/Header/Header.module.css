@@ -1,7 +1,19 @@
+.wrapper {
+  width: 100%;
+}
+
 .toolbar {
+  /* display: flex; */
+  /* justify-content: center; */
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin: 5px 0;
+}
+
+.date {
+}
+
+.breadcrumbs {
 }
 
 .link {

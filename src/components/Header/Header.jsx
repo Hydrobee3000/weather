@@ -13,7 +13,7 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor = theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800]
   return {
     backgroundColor,
-    height: theme.spacing(3),
+    height: theme.spacing(4),
     color: theme.palette.text.primary,
     fontWeight: theme.typography.fontWeightRegular,
     '&:hover, &:focus': {
@@ -29,8 +29,12 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
 const Header = ({ places, activePlace }) => {
   const dispatch = useDispatch()
   return (
-    <AppBar position='static'>
+    <AppBar className={s.wrapper} position='static'>
       <Toolbar className={s.toolbar}>
+        <p className={s.date}>
+          {new Date().toLocaleString('en', { weekday: 'long' })} {new Date().getDate()}.{new Date().getMonth()}.
+          {new Date().getFullYear()}
+        </p>
         <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
           <NavLink className={s.link} to='/current-weather'>
             <StyledBreadcrumb label='Weather' icon={<BrightnessLowIcon fontSize='small' />} />
