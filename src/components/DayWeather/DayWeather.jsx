@@ -41,9 +41,7 @@ const DayWeather = (props) => {
         <p>Ветер: {weatherData.wind.speed} m/s</p>
         <p>Влажность: {weatherData.main.humidity}%</p> */}
       </div>
-      <div className='daily-weather'>
-        <WeekWeather city={props.city} />
-      </div>
+      <div className='daily-weather'>{/* <WeekWeather city={props.city} /> */}</div>
     </div>
   )
 }

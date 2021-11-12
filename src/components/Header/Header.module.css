@@ -4,15 +4,10 @@
   margin: 5px 0;
 }
 
-.active_link {
-  font-weight: bold;
-}
-
 .link {
   text-decoration: none;
 }
-.breadcrumbs {
-}
+
 .select {
   margin-left: 1em;
   width: 10em;

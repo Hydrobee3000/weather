@@ -16,17 +16,13 @@ const App = () => {
     <Router>
       <Grid container>
         <Grid item xs={12}>
-          <Paper>
-            <Header places={places} />
-          </Paper>
+          <Header places={places} />
         </Grid>
         <Grid item xs={12}>
-          <Paper color='#f6fdfc'>
-            <Routes>
-              <Route path='current-weather' element={<DayWeather />} />
-              <Route path='weather-forecast' element={<WeekWeather />} />
-            </Routes>
-          </Paper>
+          <Routes>
+            <Route path='current-weather' element={<DayWeather />} />
+            <Route path='weather-forecast' element={<WeekWeather />} />
+          </Routes>
         </Grid>
       </Grid>
     </Router>

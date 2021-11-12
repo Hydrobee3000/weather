@@ -28,10 +28,10 @@ const Header = ({ places }) => {
     <AppBar position='static'>
       <Toolbar className={s.toolbar}>
         <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
-          <NavLink activeClassName={s.active_link} className={s.link} to='/current-weather'>
+          <NavLink className={s.link} to='/current-weather'>
             <StyledBreadcrumb label='Weather' />
           </NavLink>
-          <NavLink activeClassName={s.active_link} className={s.link} to='/weather-forecast'>
+          <NavLink className={s.link} to='/weather-forecast'>
             <StyledBreadcrumb label='Weather forecast' />
           </NavLink>
         </Breadcrumbs>
