@@ -3,22 +3,12 @@ import s from './DayWeather.module.css'
 
 const DayWeather = ({ weatherData }) => {
   const weather = useSelector((state) => state.weather.weatherData.weather[0])
-  console.log(weatherData)
-  console.log(weather)
-
-  // const weatherData = state.weatherData
-
-  // if (!weatherData) return <div>Loading</div>
-
-  // const weather = weatherData.weather[0]
-  // const iconUrl = `http://openweathermap.org/img/w/${weather.icon}.png`
 
   return (
     <div className={s.wrapper}>
       <h1>
-        {/* current weather */}
         {weather.main} in {weatherData.name}
-        {/* <img src={iconUrl} alt={weatherData.description} /> */}
+        <img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} />
       </h1>
 
       <p>
