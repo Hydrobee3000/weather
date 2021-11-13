@@ -18,6 +18,7 @@ const DayWeather = ({ weatherData }) => {
       <Typography className={s.parameter} variant='h5' gutterBottom component='div'>
         Feels like: {(weatherData.main.feels_like - 273.15).toFixed(1)} °С
       </Typography>
+      {/* дополнительные параметры, которые, как мне кажется, рядовому пользователю не нужны) *}
       {/* <Typography className={s.parameter} variant='h5' gutterBottom component='div'>
         Min t: {(weatherData.main.temp_min - 273.15).toFixed(1)} °С
       </Typography>

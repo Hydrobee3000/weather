@@ -1,5 +1,6 @@
 import { Grid } from '@mui/material'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
+// import { BrowserRouter as Router } from 'react-router-dom'
 import { Route, Routes } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Header from './components/Header/Header'

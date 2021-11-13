@@ -38,7 +38,6 @@ const Header = ({ places, activePlace }) => {
         <Typography variant='p' gutterBottom component='div'>
           {today.toLocaleDateString('en-US', options)}
         </Typography>
-        {/* <p className={s.date}>{today.toLocaleDateString('en-US', options)}</p> */}
         {/* навигация */}
         <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
           <NavLink className={s.link} to='/current-weather'>
