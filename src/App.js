@@ -2,6 +2,7 @@ import { Grid } from '@mui/material'
 import { HashRouter as Router } from 'react-router-dom'
 // import { BrowserRouter as Router } from 'react-router-dom'
 import { Route, Routes } from 'react-router-dom'
+import { Navigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import Header from './components/Header/Header'
 import DayWeatherContainer from './components/DayWeatherContainer/DayWeatherContainer'
@@ -19,6 +20,8 @@ const App = () => {
         </Grid>
         <Grid item xs={12}>
           <Routes>
+            {/* redirect to first page */}
+            <Route path='/' element={<Navigate replace to='/current-weather' />} />
             <Route path='current-weather' element={<DayWeatherContainer activePlace={activePlace} />} />
             <Route path='weather-forecast' element={<WeekWeatherContainer activePlace={activePlace} />} />
           </Routes>
