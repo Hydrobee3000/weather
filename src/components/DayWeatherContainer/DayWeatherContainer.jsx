@@ -1,25 +1,23 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchWeatherData } from '../../redux/reducers/weatherReducer'
+import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer'
 import Preloader from '../common/Preloader/Preloader'
 import DayWeather from './DayWeather/DayWeather'
 
 const DayWeatherContainer = ({ activePlace }) => {
   const dispatch = useDispatch()
-
-  //get data
-  const weatherData = useSelector((state) => state.weather.weatherData)
+  const dayWeatherData = useSelector((state) => state.weather.dayWeatherData) //get data
 
   //fetch data
   useEffect(() => {
-    dispatch(fetchWeatherData(activePlace))
+    dispatch(fetchDayWeatherData(activePlace))
   }, [dispatch, activePlace])
 
   //display preloader, while data is empty
-  if (!weatherData) {
+  if (!dayWeatherData) {
     return <Preloader />
   }
-  return <DayWeather weatherData={weatherData} />
+  return <DayWeather weatherData={dayWeatherData} />
 }
 
 export default DayWeatherContainer

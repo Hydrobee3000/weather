@@ -35,6 +35,7 @@ const Header = ({ places, activePlace }) => {
           {new Date().toLocaleString('en', { weekday: 'long' })} {new Date().getDate()}.{new Date().getMonth()}.
           {new Date().getFullYear()}
         </p>
+        {/* навигация */}
         <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
           <NavLink className={s.link} to='/current-weather'>
             <StyledBreadcrumb label='Weather' icon={<BrightnessLowIcon fontSize='small' />} />

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import s from './DayWeather.module.css'
 
 const DayWeather = ({ weatherData }) => {
-  const weather = useSelector((state) => state.weather.weatherData.weather[0])
+  const weather = useSelector((state) => state.weather.dayWeatherData.weather[0])
 
   return (
     <div className={s.wrapper}>
