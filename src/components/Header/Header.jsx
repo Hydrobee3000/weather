@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { setActivePlace } from './../../redux/reducers/weatherReducer'
 import CalendarViewWeekIcon from '@mui/icons-material/CalendarViewWeek'
 import BrightnessLowIcon from '@mui/icons-material/BrightnessLow'
+import { Typography } from '@mui/material'
 
 const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor = theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800]
@@ -28,13 +29,16 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
 
 const Header = ({ places, activePlace }) => {
   const dispatch = useDispatch()
+  var today = new Date()
+  var options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }
+
   return (
     <AppBar className={s.wrapper} position='static'>
       <Toolbar className={s.toolbar}>
-        <p className={s.date}>
-          {new Date().toLocaleString('en', { weekday: 'long' })} {new Date().getDate()}.{new Date().getMonth()}.
-          {new Date().getFullYear()}
-        </p>
+        <Typography variant='p' gutterBottom component='div'>
+          {today.toLocaleDateString('en-US', options)}
+        </Typography>
+        {/* <p className={s.date}>{today.toLocaleDateString('en-US', options)}</p> */}
         {/* навигация */}
         <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
           <NavLink className={s.link} to='/current-weather'>
