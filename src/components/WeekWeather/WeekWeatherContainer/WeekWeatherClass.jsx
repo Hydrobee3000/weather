@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import s from './WeekWeather.module.css'
-import Card from './Card'
+import Card from '../Card'
 
 class WeekWeather extends Component {
   state = {

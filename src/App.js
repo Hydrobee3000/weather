@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Header from './components/Header/Header'
 import DayWeatherContainer from './components/DayWeatherContainer/DayWeatherContainer'
-import WeekWeather from './components/WeekWeather/WeekWeather'
+import WeekWeather from './components/WeekWeather/WeekWeatherContainer/WeekWeatherContainer'
 
 const App = () => {
   const places = useSelector((state) => state.weather.places)
