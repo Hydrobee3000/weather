@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchWeekWeatherData } from '../../../redux/reducers/weatherReducer'
+import { fetchWeekWeatherData } from './../../redux/reducers/weatherReducer'
+import Preloader from './../common/Preloader/Preloader'
 import WeekWeather from './WeekWeather/WeekWeather'
-import Preloader from './../../common/Preloader/Preloader'
 
 const WeekWeatherContainer = ({ activePlace }) => {
   const dispatch = useDispatch()

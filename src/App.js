@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Header from './components/Header/Header'
 import DayWeatherContainer from './components/DayWeatherContainer/DayWeatherContainer'
-import WeekWeather from './components/WeekWeather/WeekWeatherContainer/WeekWeatherContainer'
+import WeekWeatherContainer from './components/WeekWeatherContainer/WeekWeatherContainer'
 
 const App = () => {
   const places = useSelector((state) => state.weather.places)
@@ -19,7 +19,7 @@ const App = () => {
         <Grid item xs={12}>
           <Routes>
             <Route path='current-weather' element={<DayWeatherContainer activePlace={activePlace} />} />
-            <Route path='weather-forecast' element={<WeekWeather activePlace={activePlace} />} />
+            <Route path='weather-forecast' element={<WeekWeatherContainer activePlace={activePlace} />} />
           </Routes>
         </Grid>
       </Grid>

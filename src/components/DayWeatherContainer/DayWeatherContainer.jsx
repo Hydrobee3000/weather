@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer'
-import Preloader from '../common/Preloader/Preloader'
+import Preloader from './../common/Preloader/Preloader'
 import DayWeather from './DayWeather/DayWeather'
 
 const DayWeatherContainer = ({ activePlace }) => {
