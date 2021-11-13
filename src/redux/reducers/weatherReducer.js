@@ -32,12 +32,6 @@ const weatherReducer = (state = initialState, action) => {
         weekWeatherData: action.payload,
       }
     }
-    // case GET_DAY_WEATHER: {
-    // 	return {
-    // 	...state,
-    // 	dayWeather: action: dayWeather,
-    // 	}
-    // }
 
     default:
       return state
