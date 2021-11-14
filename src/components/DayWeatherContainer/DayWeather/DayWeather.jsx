@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import s from './DayWeather.module.css'
 
@@ -6,7 +6,7 @@ const DayWeather = ({ weatherData }) => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0])
 
   return (
-    <div className={s.wrapper}>
+    <Container className={s.wrapper}>
       <Typography className={s.title} variant='h2' gutterBottom component='div'>
         {weather.main} in {weatherData.name}
         <img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} />
@@ -41,7 +41,7 @@ const DayWeather = ({ weatherData }) => {
         {new Date().toLocaleString('en', { weekday: 'long' })} {new Date().getDate()}.{new Date().getMonth()}.
         {new Date().getFullYear()}
       </Typography> */}
-    </div>
+    </Container>
   )
 }
 

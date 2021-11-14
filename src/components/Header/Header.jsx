@@ -33,13 +33,13 @@ const Header = ({ places, activePlace }) => {
   const matches = useMediaQuery('(min-width:600px)') //media-query hook
 
   const today = new Date() //date now
-  //show full date on large screens
+  //show full date only on large screens
   const options = matches ? { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' } : { weekday: 'long' }
 
   return (
     <AppBar className={s.wrapper} position='static'>
       <Toolbar className={s.toolbar}>
-        <Typography variant='p' gutterBottom component='div'>
+        <Typography className={s.date} variant='p' gutterBottom component='div'>
           {today.toLocaleDateString('en-US', options)}
         </Typography>
         {/* navigation */}
@@ -49,9 +49,10 @@ const Header = ({ places, activePlace }) => {
               label={matches ? 'Weather' : null}
               icon={
                 <BrightnessLowIcon fontSize={matches ? 'small' : 'medium'} style={matches ? null : { paddingLeft: '0.5em' }} />
+                // show icon centered only on small screens
               }
             />
-            {/* show name of breadcrumb on large screens*/}
+            {/* show name of breadcrumb only on large screens*/}
           </NavLink>
           <NavLink className={s.link} to='/weather-forecast'>
             <StyledBreadcrumb
