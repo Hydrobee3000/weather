@@ -1,25 +1,26 @@
 import { Typography } from '@mui/material'
+import Card from '@mui/material/Card'
 
-const Card = ({ day }) => {
+const WeatherCard = ({ day }) => {
   const ms = day.dt * 1000
   const weekdayName = new Date(ms).toLocaleString('en', { weekday: 'long' })
 
   return (
-    <div>
+    <Card sx={{ maxWidth: 350, marginLeft: 'auto', marginRight: 'auto', marginTop: '1.5em' }}>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Typography style={{ marginTop: '1em', fontSize: '2.6em' }} variant='h2' gutterBottom component='div'>
+        <Typography style={{ marginTop: '0.3em', fontSize: '2.6em' }} variant='h2' gutterBottom component='div'>
           {weekdayName}
           {/* {<img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} />} */}
         </Typography>
-        <Typography style={{ marginBottom: '1em' }} variant='h5' gutterBottom component='div'>
+        <Typography style={{ marginBottom: '1em', marginTop: '0.2em' }} variant='h5' gutterBottom component='div'>
           {Math.round(day.main.temp)} °C
         </Typography>
-        <Typography style={{ fontSize: '0.9em' }} variant='h5' gutterBottom component='div'>
+        <Typography style={{ fontSize: '1em' }} variant='h5' gutterBottom component='div'>
           {day.weather[0].main}
         </Typography>
       </div>
-    </div>
+    </Card>
   )
 }
 
-export default Card
+export default WeatherCard

@@ -32,7 +32,7 @@ const Header = ({ places, activePlace }) => {
   const dispatch = useDispatch()
   const matches = useMediaQuery('(min-width:600px)') //media-query hook
 
-  const today = new Date() //date now
+  const today = new Date() //current date
   //show full date only on large screens
   const options = matches ? { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' } : { weekday: 'long' }
 
