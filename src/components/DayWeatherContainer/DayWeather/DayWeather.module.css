@@ -1,11 +1,11 @@
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
 }
 .title {
   padding-top: 2em;
+  padding-bottom: 0.4em;
+}
+.image {
   padding-bottom: 0.5em;
 }
 .date {
@@ -17,6 +17,6 @@
 
 @media (max-width: 600px) {
   .title {
-    padding-top: 0.6em;
+    padding-top: 0.7em;
   }
 }

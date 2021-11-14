@@ -7,7 +7,7 @@ const Card = ({ day }) => {
   return (
     <div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Typography style={{ marginTop: '1em' }} variant='h2' gutterBottom component='div'>
+        <Typography style={{ marginTop: '1em', fontSize: '2.6em' }} variant='h2' gutterBottom component='div'>
           {weekdayName}
           {/* {<img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} />} */}
         </Typography>

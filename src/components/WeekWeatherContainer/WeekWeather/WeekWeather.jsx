@@ -1,5 +1,7 @@
 import s from './WeekWeather.module.css'
 import Card from './Card/Card'
+import { Container } from '@mui/material'
+import { Box } from '@mui/system'
 
 const WeekWeather = ({ activePlace, weekWeatherData }) => {
   const dailyData = weekWeatherData.list.filter((reading) => reading.dt_txt.includes('12:00:00'))
@@ -9,9 +11,9 @@ const WeekWeather = ({ activePlace, weekWeatherData }) => {
   }
 
   return (
-    <div className={s.wrapper}>
-      <div className='cards'>{formatCards()}</div>
-    </div>
+    <Container className={s.wrapper}>
+      <Box className='cards'>{formatCards()}</Box>
+    </Container>
   )
 }
 

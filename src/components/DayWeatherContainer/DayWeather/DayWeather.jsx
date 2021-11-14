@@ -7,15 +7,15 @@ const DayWeather = ({ weatherData }) => {
 
   return (
     <Container className={s.wrapper}>
-      <Typography className={s.title} variant='h2' gutterBottom component='div'>
+      <Typography style={{ fontSize: '2.5em' }} className={s.title} variant='h2' gutterBottom component='div'>
         {weather.main} in {weatherData.name}
-        <img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} />
       </Typography>
+      <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} />
 
-      <Typography className={s.parameter} variant='h5' gutterBottom component='div'>
+      <Typography style={{ fontSize: '1.2em' }} className={s.parameter} variant='h5' gutterBottom component='div'>
         Temperature: {(weatherData.main.temp - 273.15).toFixed(1)} °С
       </Typography>
-      <Typography className={s.parameter} variant='h5' gutterBottom component='div'>
+      <Typography style={{ fontSize: '1.2em' }} className={s.parameter} variant='h5' gutterBottom component='div'>
         Feels like: {(weatherData.main.feels_like - 273.15).toFixed(1)} °С
       </Typography>
       {/* дополнительные параметры, которые, как мне кажется, рядовому пользователю не нужны) *}
