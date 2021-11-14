@@ -1,5 +1,8 @@
 # Weather project on `React/Redux`
 
+## Demo
+>https://hydrobee3000.github.io/weather/
+
 ## Technologies used
 
 >### `React`
