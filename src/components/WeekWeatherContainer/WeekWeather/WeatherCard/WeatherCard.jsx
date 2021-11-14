@@ -6,7 +6,7 @@ const WeatherCard = ({ day }) => {
   const weekdayName = new Date(ms).toLocaleString('en', { weekday: 'long' })
 
   return (
-    <Card sx={{ maxWidth: 350, marginLeft: 'auto', marginRight: 'auto', marginTop: '1.5em' }}>
+    <Card sx={{ maxWidth: 350, marginLeft: 'auto', marginRight: 'auto', marginTop: '2em', paddingBottom: '1em' }}>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Typography style={{ marginTop: '0.3em', fontSize: '2.6em' }} variant='h2' gutterBottom component='div'>
           {weekdayName}

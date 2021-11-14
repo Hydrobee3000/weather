@@ -4,7 +4,7 @@ const style = {
   position: 'absolute',
   left: '50%',
   top: '20%',
-  marginLeft: '-77px',
+  marginLeft: '-1.95em',
   width: '100px',
   height: '100px',
   zIndex: '999',
