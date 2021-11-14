@@ -42,10 +42,15 @@ const Header = ({ places, activePlace }) => {
         <Typography variant='p' gutterBottom component='div'>
           {today.toLocaleDateString('en-US', options)}
         </Typography>
-        {/* навигация */}
+        {/* navigation */}
         <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
           <NavLink className={s.link} to='/current-weather'>
-            <StyledBreadcrumb label={matches ? 'Weather' : null} icon={<BrightnessLowIcon fontSize='small' />} />
+            <StyledBreadcrumb
+              label={matches ? 'Weather' : null}
+              icon={
+                <BrightnessLowIcon fontSize={matches ? 'small' : 'medium'} style={matches ? null : { paddingLeft: '0.5em' }} />
+              }
+            />
             {/* show name of breadcrumb on large screens*/}
           </NavLink>
           <NavLink className={s.link} to='/weather-forecast'>
@@ -54,8 +59,8 @@ const Header = ({ places, activePlace }) => {
               icon={
                 <CalendarViewWeekIcon
                   color='inherit'
-                  fontSize='small'
-                  // style={{ paddingLeft: '10px' }}
+                  fontSize={matches ? 'small' : 'medium'}
+                  style={matches ? null : { paddingLeft: '0.5em' }}
                 />
               }
             />
