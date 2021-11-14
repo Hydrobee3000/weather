@@ -9,6 +9,7 @@ import { setActivePlace } from './../../redux/reducers/weatherReducer'
 import CalendarViewWeekIcon from '@mui/icons-material/CalendarViewWeek'
 import BrightnessLowIcon from '@mui/icons-material/BrightnessLow'
 import { Typography } from '@mui/material'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor = theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800]
@@ -29,8 +30,11 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
 
 const Header = ({ places, activePlace }) => {
   const dispatch = useDispatch()
-  var today = new Date()
-  var options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }
+  const matches = useMediaQuery('(min-width:600px)') //media-query hook
+
+  const today = new Date() //date now
+  //show full date on large screens
+  const options = matches ? { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' } : { weekday: 'long' }
 
   return (
     <AppBar className={s.wrapper} position='static'>
@@ -41,10 +45,20 @@ const Header = ({ places, activePlace }) => {
         {/* навигация */}
         <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
           <NavLink className={s.link} to='/current-weather'>
-            <StyledBreadcrumb label='Weather' icon={<BrightnessLowIcon fontSize='small' />} />
+            <StyledBreadcrumb label={matches ? 'Weather' : null} icon={<BrightnessLowIcon fontSize='small' />} />
+            {/* show name of breadcrumb on large screens*/}
           </NavLink>
           <NavLink className={s.link} to='/weather-forecast'>
-            <StyledBreadcrumb label='Forecast' icon={<CalendarViewWeekIcon color='inherit' fontSize='small' />} />
+            <StyledBreadcrumb
+              label={matches ? 'Forecast' : null}
+              icon={
+                <CalendarViewWeekIcon
+                  color='inherit'
+                  fontSize='small'
+                  // style={{ paddingLeft: '10px' }}
+                />
+              }
+            />
           </NavLink>
         </Breadcrumbs>
         <Select className={s.select} id='demo-simple-select' value={activePlace}>
@@ -58,4 +72,5 @@ const Header = ({ places, activePlace }) => {
     </AppBar>
   )
 }
+
 export default Header

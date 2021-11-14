@@ -9,6 +9,7 @@ const Card = ({ day }) => {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Typography style={{ marginTop: '1em' }} variant='h2' gutterBottom component='div'>
           {weekdayName}
+          {/* {<img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} />} */}
         </Typography>
         <Typography style={{ marginBottom: '1em' }} variant='h5' gutterBottom component='div'>
           {Math.round(day.main.temp)} °C
