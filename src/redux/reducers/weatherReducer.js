@@ -16,7 +16,7 @@ const weatherReducer = (state = initialState, action) => {
     case SET_ACTIVE_PLACE: {
       return {
         ...state,
-        activePlace: action.activePlace,
+        activePlace: action.payload,
       }
     }
 
@@ -38,7 +38,7 @@ const weatherReducer = (state = initialState, action) => {
   }
 }
 
-export const setActivePlace = (activePlace) => ({ type: SET_ACTIVE_PLACE, activePlace })
+export const setActivePlace = (activePlace) => ({ type: SET_ACTIVE_PLACE, payload: activePlace })
 export const setDayWeatherData = (dayWeatherData) => ({ type: SET_DAY_WEATHER_DATA, payload: dayWeatherData })
 export const setWeekWeatherData = (weekWeatherData) => ({ type: SET_WEEK_WEATHER_DATA, payload: weekWeatherData })
 

@@ -15,14 +15,13 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor = theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800]
   return {
     backgroundColor,
-    height: theme.spacing(4),
-    color: theme.palette.text.primary,
-    fontWeight: theme.typography.fontWeightRegular,
+    // height: theme.spacing(4),
+    // color: theme.palette.text.primary,
     '&:hover, &:focus': {
       backgroundColor: emphasize(backgroundColor, 0.06),
     },
     '&:active': {
-      boxShadow: theme.shadows[1],
+      // boxShadow: theme.shadows[1],
       backgroundColor: emphasize(backgroundColor, 0.12),
     },
   }
@@ -44,7 +43,13 @@ const Header = ({ places, activePlace }) => {
         </Typography>
         {/* navigation */}
         <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
-          <NavLink className={s.link} to='/current-weather'>
+          <NavLink
+            activeStyle={{
+              fontWeight: 'bold',
+            }}
+            // style={{ textDecoration: 'none' }}
+            className={({ isActive }) => (isActive ? s.link_active : s.link)}
+            to='/current-weather'>
             <StyledBreadcrumb
               label={matches ? 'Weather' : null}
               icon={
@@ -54,7 +59,7 @@ const Header = ({ places, activePlace }) => {
             />
             {/* show name of breadcrumb only on large screens*/}
           </NavLink>
-          <NavLink className={s.link} to='/weather-forecast'>
+          <NavLink className={({ isActive }) => (isActive ? s.link_active : s.link)} to='/weather-forecast'>
             <StyledBreadcrumb
               label={matches ? 'Forecast' : null}
               icon={
