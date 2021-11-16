@@ -36,7 +36,7 @@ const Header = ({ places, activePlace }) => {
   const options = matches ? { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' } : { weekday: 'long' }
 
   return (
-    <AppBar className={s.wrapper} position='static'>
+    <AppBar style={{ backgroundColor: '#2b7a78' }} className={s.wrapper} position='static'>
       <Toolbar className={s.toolbar}>
         <Typography className={s.date} variant='p' gutterBottom component='div'>
           {today.toLocaleDateString('en-US', options)}
