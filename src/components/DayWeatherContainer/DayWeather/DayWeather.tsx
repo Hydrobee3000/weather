@@ -2,7 +2,7 @@ import { Container, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import s from './DayWeather.module.css'
 
-type weatherDataType = {
+export type PropsType = {
   weatherData: {
     name: string
     main: {
@@ -13,7 +13,7 @@ type weatherDataType = {
   }
 }
 
-const DayWeather = ({ weatherData }: weatherDataType) => {
+const DayWeather: React.FC<PropsType> = ({ weatherData }) => {
   const weather: any = useSelector((state: any) => state.weather.dayWeatherData.weather[0])
   return (
     <Container className={s.wrapper}>

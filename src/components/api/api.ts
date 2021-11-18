@@ -1,4 +1,3 @@
-// import * as axios from 'axios'
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 
 const config: AxiosRequestConfig = {
