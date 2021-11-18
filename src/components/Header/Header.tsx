@@ -1,5 +1,4 @@
 import s from './Header.module.css'
-import CSS from 'csstype'
 import { Breadcrumbs, MenuItem, Select } from '@mui/material'
 import { emphasize, styled } from '@mui/material/styles'
 import { AppBar, Toolbar } from '@mui/material'

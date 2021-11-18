@@ -4,9 +4,11 @@ import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer'
 import Preloader from '../common/Preloader/Preloader'
 import DayWeather from './DayWeather/DayWeather'
 
+//type for props
 interface IProps {
   activePlace: string
 }
+//type for used part of state
 interface RootState {
   weather: {
     dayWeatherData: {

@@ -4,10 +4,11 @@ import { fetchWeekWeatherData } from './../../redux/reducers/weatherReducer'
 import Preloader from './../common/Preloader/Preloader'
 import WeekWeather from './WeekWeather/WeekWeather'
 
+//type for props
 type PropsType = {
   activePlace: string
 }
-
+//type for used part of state
 interface RootState {
   weather: {
     weekWeatherData: {

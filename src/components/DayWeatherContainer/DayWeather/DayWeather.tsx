@@ -2,6 +2,7 @@ import { Container, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import s from './DayWeather.module.css'
 
+//type for props
 export type PropsType = {
   weatherData: {
     name: string
@@ -20,8 +21,8 @@ const DayWeather: React.FC<PropsType> = ({ weatherData }) => {
       <Typography style={{ fontSize: '2.5em' }} className={s.title} variant='h2' gutterBottom component='div'>
         {weather.main} in {weatherData.name} {/* title */}
       </Typography>
-      <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} />{' '}
       {/* weather icon */}
+      <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} />
       <Typography style={{ fontSize: '1.2em' }} className={s.parameter} variant='h5' gutterBottom component='div'>
         Temperature: {(weatherData.main.temp - 273.15).toFixed(1)} °С
       </Typography>
