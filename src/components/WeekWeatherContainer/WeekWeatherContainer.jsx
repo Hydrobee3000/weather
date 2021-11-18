@@ -17,7 +17,7 @@ const WeekWeatherContainer = ({ activePlace }) => {
   if (!weekWeatherData) {
     return <Preloader />
   }
-  return <WeekWeather activePlace={activePlace} weekWeatherData={weekWeatherData} />
+  return <WeekWeather weekWeatherData={weekWeatherData} />
 }
 
 export default WeekWeatherContainer

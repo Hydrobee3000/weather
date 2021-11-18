@@ -1,7 +1,21 @@
 import { Typography } from '@mui/material'
 import Card from '@mui/material/Card'
 
-const WeatherCard = ({ day }) => {
+interface ICardProps {
+  day: {
+    dt: number
+    main: {
+      temp: number
+      feels_like?: number
+    }
+    weather: {
+      main: string
+      icon?: string
+    }[]
+  }
+}
+
+const WeatherCard: React.FC<ICardProps> = ({ day }) => {
   const ms = day.dt * 1000
   const weekdayName = new Date(ms).toLocaleString('en', { weekday: 'long' })
 
