@@ -18,7 +18,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <Grid container>
+      <Grid container style={{ backgroundColor: '#edfdfb' }}>
         <Grid item xs={12}>
           <Header places={places} activePlace={activePlace} />
         </Grid>
