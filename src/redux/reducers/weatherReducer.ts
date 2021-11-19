@@ -5,7 +5,7 @@ const SET_DAY_WEATHER_DATA = 'SET_DAY_WEATHER_DATA'
 const SET_WEEK_WEATHER_DATA = 'SET_WEEK_WEATHER_DATA'
 
 //type for state
-type initialStateType = {
+export type initialStateType = {
   places: Array<string>
   activePlace: string
   dayWeatherData: object | null

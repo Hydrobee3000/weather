@@ -10,7 +10,7 @@ let Preloader = () => {
         marginLeft: '-1.95em',
         width: '100px',
         height: '100px',
-        zIndex: '999',
+        zIndex: 999,
       }}>
       <img src={preloader} alt='preloader' />
     </div>
