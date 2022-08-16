@@ -1,28 +1,15 @@
-import s from './Header.module.css'
-import { Breadcrumbs, MenuItem, Select } from '@mui/material'
-import { emphasize, styled } from '@mui/material/styles'
-import { AppBar, Toolbar } from '@mui/material'
-import { Typography } from '@mui/material'
+import { Breadcrumbs, MenuItem, Select, Typography, AppBar, Toolbar } from '@mui/material'
 import Chip from '@mui/material/Chip'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import BrightnessLowIcon from '@mui/icons-material/BrightnessLow'
 import CalendarViewWeekIcon from '@mui/icons-material/CalendarViewWeek'
+import { emphasize, styled } from '@mui/material/styles'
 import { useDispatch } from 'react-redux'
 import { setActivePlace } from './../../redux/reducers/weatherReducer'
 import { NavLink } from 'react-router-dom'
+import s from './Header.module.css'
+import { IDateTimeFormatOptions, IProps } from './types'
 
-//type for props
-interface IProps {
-  places: Array<string>
-  activePlace: string
-}
-//type for date
-interface DateTimeFormatOptions {
-  weekday?: 'long' | 'short' | 'narrow'
-  year?: 'numeric' | '2-digit'
-  month?: 'numeric' | '2-digit' | 'long' | 'short' | 'narrow'
-  day?: 'numeric' | '2-digit'
-}
 //styled navigation component
 const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor = theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800]
@@ -46,20 +33,20 @@ const Header: React.FC<IProps> = ({ places, activePlace }) => {
   const today = new Date() //current date
 
   //show full date only on large screens
-  const options: DateTimeFormatOptions = matches
+  const options: IDateTimeFormatOptions = matches
     ? { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }
     : { weekday: 'long' }
 
   return (
-    <AppBar style={{ backgroundColor: '#2b7a78' }} className={s.wrapper} position='static'>
-      <Toolbar className={s.toolbar}>
-        <Typography className={s.date} variant='overline' gutterBottom component='div'>
+    <AppBar className={s.header__container} position='static'>
+      <Toolbar className={s.header}>
+        <Typography variant='overline' gutterBottom component='div'>
           {/* display date */}
           {today.toLocaleDateString('en-US', options)}
         </Typography>
         {/* navigation */}
-        <Breadcrumbs className={s.breadcrumbs} aria-label='breadcrumb'>
-          <NavLink className={({ isActive }) => (isActive ? s.link_active : s.link)} to='/current-weather'>
+        <Breadcrumbs aria-label='breadcrumb'>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/current-weather'>
             <StyledBreadcrumb
               label={matches ? 'Weather' : null} // hide label on small screens
               icon={
@@ -68,9 +55,9 @@ const Header: React.FC<IProps> = ({ places, activePlace }) => {
                 />
               }
             />
-            {/* show name of breadcrumb only on large screens*/}
+            {/* show name of breadcrumb only on large screens */}
           </NavLink>
-          <NavLink className={({ isActive }) => (isActive ? s.link_active : s.link)} to='/weather-forecast'>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/weather-forecast'>
             <StyledBreadcrumb
               label={matches ? 'Forecast' : null} // hide label on small screens
               icon={
@@ -81,8 +68,8 @@ const Header: React.FC<IProps> = ({ places, activePlace }) => {
             />
           </NavLink>
         </Breadcrumbs>
-        {/* select place mapped from store*/}
-        <Select className={s.select} id='demo-simple-select' value={activePlace}>
+        {/* select place mapped from store */}
+        <Select className={s.header__select} id='demo-simple-select' value={activePlace}>
           {places.map((place, index) => (
             <MenuItem key={index} value={place} onClick={() => dispatch(setActivePlace(place))}>
               {place}

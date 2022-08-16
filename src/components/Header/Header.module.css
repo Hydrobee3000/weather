@@ -1,22 +1,23 @@
-.wrapper {
+.header__container {
   width: 100%;
+  background-color: #2b7a78 !important;
 }
 
-.toolbar {
+.header {
   display: flex;
   justify-content: space-between;
   margin: 5px 0;
 }
 
-.link {
+.nav__link {
   text-decoration: none;
 }
-.link_active {
+.nav__link_active {
   text-decoration: none;
   font-weight: bold;
 }
 
-.select {
+.header__select {
   margin-left: 1em;
   width: 9em;
   height: 2em;
