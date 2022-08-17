@@ -9,19 +9,12 @@
   margin: 5px 0;
 }
 
-.nav__link {
-  text-decoration: none;
-}
-.nav__link_active {
-  text-decoration: none;
-  font-weight: bold;
+.header__select {
+  width: 10em;
 }
 
-.header__select {
-  margin-left: 1em;
-  width: 9em;
-  height: 2em;
-  background-color: white;
+.btn__menu_toggle:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 600px) {

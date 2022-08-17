@@ -1,60 +1,42 @@
-import * as React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { CloudOutlined, CompassOutlined, DashboardOutlined, ScheduleOutlined, HeartOutlined } from '@ant-design/icons'
 import { NavLink } from 'react-router-dom'
-import {
-  AppstoreOutlined,
-  ContainerOutlined,
-  DesktopOutlined,
-  MailOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  PieChartOutlined,
-} from '@ant-design/icons'
-import { Button, Menu, Layout } from 'antd'
-import { setCollapsedMenu } from '../../redux/reducers/weatherReducer'
+import { Menu, Layout } from 'antd'
+import s from './Menu.module.css'
+const { Sider } = Layout
 
-const { Header, Sider, Content } = Layout
+// menu component
 
 const MenuFC = () => {
-  const dispatch = useDispatch()
-  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu)
+  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is open menu or not
+
+  //if url has match path of NavLink - then firstly select needed Menu.Item
+  // and check nav.link methods
 
   return (
-    // <div
-    //   style={{
-    //     width: 200,
-    //   }}
-    // >
-
     <Sider trigger={null} collapsible collapsed={collapsedMenu}>
-      <div className='logo' />
-
-      <Menu
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode='inline'
-        theme='dark'
-        inlineCollapsed={collapsedMenu}
-        items={[
-          {
-            key: '1',
-            icon: <AppstoreOutlined />,
-            label: 'nav 1',
-          },
-          {
-            key: '2',
-            icon: <MailOutlined />,
-            label: 'nav 2',
-          },
-          {
-            key: '3',
-            icon: <PieChartOutlined />,
-            label: 'nav 3',
-          },
-        ]}
-      />
+      <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode='inline' theme='dark' collapsed={collapsedMenu}>
+        <Menu.Item key='today' icon={<CloudOutlined />}>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/current-weather'>
+            Today
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key='week' icon={<CompassOutlined />}>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/weather-forecast'>
+            Week
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key='dashboard' icon={<DashboardOutlined />}>
+          Dashboard
+        </Menu.Item>
+        <Menu.Item key='calendar' icon={<ScheduleOutlined />}>
+          Calendar
+        </Menu.Item>
+        <Menu.Item key='favorites' icon={<HeartOutlined />}>
+          Saved places
+        </Menu.Item>
+      </Menu>
     </Sider>
-    // </div>
   )
 }
 

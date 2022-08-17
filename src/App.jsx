@@ -15,39 +15,39 @@ const App = () => {
   const places = useSelector((state) => state.weather.places)
   const activePlace = useSelector((state) => state.weather.activePlace)
   return (
-    // <Router>
-    <>
-      <HeaderFC places={places} activePlace={activePlace} />
-      <Layout>
-        <MenuFC />
-        <Layout className='site-layout'>
-          <Content
-            className='site-layout-background'
-            style={{
-              padding: 0,
-            }}
-          ></Content>
-          <Content
-            className='site-layout-background'
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 280,
-            }}
-          >
-            Content
-          </Content>
+    <Router>
+      <>
+        <HeaderFC places={places} activePlace={activePlace} />
+        <Layout>
+          <MenuFC />
+          <Layout className='site-layout'>
+            <Content
+              className='site-layout-background'
+              style={{
+                padding: 0,
+              }}
+            ></Content>
+            <Content
+              className='site-layout-background'
+              style={{
+                margin: '20px 16px',
+                padding: 24,
+                minHeight: 280,
+                backgroundColor: 'brown',
+              }}
+            >
+              Content
+            </Content>
+          </Layout>
         </Layout>
-      </Layout>
 
-      {/*         
         <Routes>
           <Route path='/' element={<Navigate replace to='/current-weather' />} />
           <Route path='current-weather' element={<DayWeatherContainer activePlace={activePlace} />} />
           <Route path='weather-forecast' element={<WeekWeatherContainer activePlace={activePlace} />} />
-        </Routes> */}
-    </>
-    // </Router>
+        </Routes>
+      </>
+    </Router>
   )
 }
 
