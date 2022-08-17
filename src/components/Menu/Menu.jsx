@@ -10,67 +10,51 @@ import {
   MenuUnfoldOutlined,
   PieChartOutlined,
 } from '@ant-design/icons'
-import { Button, Menu } from 'antd'
+import { Button, Menu, Layout } from 'antd'
 import { setCollapsedMenu } from '../../redux/reducers/weatherReducer'
 
-function getItem(label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  }
-}
-const items = [
-  getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Option 2', '2', <DesktopOutlined />),
-  getItem('Option 3', '3', <ContainerOutlined />),
-  getItem('Navigation One', 'sub1', <MailOutlined />, [
-    getItem('Option 5', '5'),
-    getItem('Option 6', '6'),
-    getItem('Option 8', '8'),
-  ]),
-  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
-    getItem('Option 9', '9'),
-    getItem('Option 10', '10'),
-    getItem('Submenu', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
-  ]),
-]
+const { Header, Sider, Content } = Layout
 
 const MenuFC = () => {
   const dispatch = useDispatch()
   const collapsedMenu = useSelector((state) => state.weather.collapsedMenu)
-  console.log(collapsedMenu)
-
-  const toggleCollapsed = () => {
-    dispatch(setCollapsedMenu(!collapsedMenu))
-  }
 
   return (
-    <div
-      style={{
-        width: 200,
-      }}
-    >
-      <Button
-        type='primary'
-        onClick={toggleCollapsed}
-        style={{
-          marginBottom: 16,
-        }}
-      >
-        {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </Button>
+    // <div
+    //   style={{
+    //     width: 200,
+    //   }}
+    // >
+
+    <Sider trigger={null} collapsible collapsed={collapsedMenu}>
+      <div className='logo' />
+
       <Menu
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         mode='inline'
         theme='dark'
         inlineCollapsed={collapsedMenu}
-        items={items}
+        items={[
+          {
+            key: '1',
+            icon: <AppstoreOutlined />,
+            label: 'nav 1',
+          },
+          {
+            key: '2',
+            icon: <MailOutlined />,
+            label: 'nav 2',
+          },
+          {
+            key: '3',
+            icon: <PieChartOutlined />,
+            label: 'nav 3',
+          },
+        ]}
       />
-    </div>
+    </Sider>
+    // </div>
   )
 }
 

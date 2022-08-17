@@ -3,83 +3,24 @@
   background-color: #f3969a;
 }
 
-.cloud {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
-  background: url(/upload2/mountain.jpg);
-  background-size: cover;
+#components-layout-demo-custom-trigger .trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
-.cloud-content {
-  position: relative;
-  padding: 30px;
-  color: #337ab7;
-  font-size: 22px;
-  font-weight: bold;
-  z-index: 100;
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
 }
-.cloud img {
-  width: 100%;
-  left: 0;
-  top: 0;
-  position: absolute;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  pointer-events: none;
+
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
 }
-@-webkit-keyframes animCloud {
-  from {
-    -webkit-transform: translateX(100%);
-  }
-  to {
-    -webkit-transform: translateX(-100%);
-  }
-}
-@-moz-keyframes animCloud {
-  from {
-    -moz-transform: translateX(100%);
-  }
-  to {
-    -moz-transform: translateX(-100%);
-  }
-}
-@keyframes animCloud {
-  from {
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    -o-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-  to {
-    -webkit-transform: translateX(-100%);
-    -moz-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-}
-.cloud1 {
-  -webkit-animation: animCloud 20s infinite linear;
-  -moz-animation: animCloud 20s infinite linear;
-  animation: animCloud 20s infinite linear;
-}
-.cloud2 {
-  -webkit-animation: animCloud 40s infinite linear;
-  -moz-animation: animCloud 40s infinite linear;
-  animation: animCloud 40s infinite linear;
-}
-.cloud3 {
-  -webkit-animation: animCloud 60s infinite linear;
-  -moz-animation: animCloud 60s infinite linear;
-  animation: animCloud 60s infinite linear;
-}
-.cloud4 {
-  -webkit-animation: animCloud 80s infinite linear;
-  -moz-animation: animCloud 80s infinite linear;
-  animation: animCloud 80s infinite linear;
+
+.site-layout .site-layout-background {
+  background: #fff;
 }
