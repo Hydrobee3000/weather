@@ -1,30 +1,12 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Preloader from '../../components/common/Preloader/Preloader'
 import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer'
-import Preloader from '../common/Preloader/Preloader'
 import DayWeather from './DayWeather/DayWeather'
 
-//type for props
-interface IProps {
-  activePlace: string
-}
-//type for used part of state
-interface RootState {
-  weather: {
-    dayWeatherData: {
-      name: string
-      main: {
-        temp: number
-        feels_like: number
-      }
-      description: string
-    }
-  }
-}
-
-const DayWeatherContainer: React.FC<IProps> = ({ activePlace }) => {
+const DayWeatherContainer = ({ activePlace }) => {
   const dispatch = useDispatch()
-  const dayWeatherData = useSelector((state: RootState) => state.weather.dayWeatherData) //get data
+  const dayWeatherData = useSelector((state) => state.weather.dayWeatherData) //get data
 
   //fetch data
   useEffect(() => {

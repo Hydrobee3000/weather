@@ -2,20 +2,8 @@ import { Container, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import s from './DayWeather.module.css'
 
-//type for props
-export type PropsType = {
-  weatherData: {
-    name: string
-    main: {
-      temp: number
-      feels_like: number
-    }
-    description: string
-  }
-}
-
-const DayWeather: React.FC<PropsType> = ({ weatherData }) => {
-  const weather: any = useSelector((state: any) => state.weather.dayWeatherData.weather[0])
+const DayWeather = ({ weatherData }) => {
+  const weather = useSelector((state) => state.weather.dayWeatherData.weather[0])
   return (
     <Container className={s.wrapper}>
       <Typography style={{ fontSize: '2.5em' }} className={s.title} variant='h2' gutterBottom component='div'>
