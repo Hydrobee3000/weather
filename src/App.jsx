@@ -9,13 +9,9 @@ import Header from './components/Header/Header'
 import DayWeatherContainer from './pages/DayWeatherContainer/DayWeatherContainer'
 import WeekWeatherContainer from './pages/WeekWeatherContainer/WeekWeatherContainer'
 
-type storeTypes = {
-  weather: { places: Array<string>; activePlace: string; dayWeatherData: object | null; weekWeatherData: object | null }
-}
-
-const App: React.FC = () => {
-  const places = useSelector((state: storeTypes) => state.weather.places)
-  const activePlace = useSelector((state: storeTypes) => state.weather.activePlace)
+const App = () => {
+  const places = useSelector((state) => state.weather.places)
+  const activePlace = useSelector((state) => state.weather.activePlace)
   return (
     <Router>
       <Grid container style={{ backgroundColor: '#edfdfb' }}>
