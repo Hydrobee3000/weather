@@ -3,6 +3,7 @@ import { weatherAPI } from '../../components/api/api'
 const SET_ACTIVE_PLACE = 'SET_ACTIVE_PLACE'
 const SET_DAY_WEATHER_DATA = 'SET_DAY_WEATHER_DATA'
 const SET_WEEK_WEATHER_DATA = 'SET_WEEK_WEATHER_DATA'
+const SET_COLLAPSED_MENU = 'SET_COLLAPSED_MENU'
 
 //type for state
 export type initialStateType = {
@@ -10,13 +11,15 @@ export type initialStateType = {
   activePlace: string
   dayWeatherData: object | null
   weekWeatherData: object | null
+  collapsedMenu: boolean
 }
 
 const initialState: initialStateType = {
   places: ['Omsk', 'Novosibirsk', 'Moscow', 'Tomsk', 'Ekaterinburg', 'Altay'],
-  activePlace: 'Omsk',
-  dayWeatherData: null,
-  weekWeatherData: null,
+  activePlace: 'Omsk', // selected palce
+  dayWeatherData: null, // object with params of current weather
+  weekWeatherData: null, // object with params of forecast weather
+  collapsedMenu: false, // true - menu collapsed (open)
 }
 
 const weatherReducer = (state = initialState, action: any): initialStateType => {
@@ -27,7 +30,6 @@ const weatherReducer = (state = initialState, action: any): initialStateType => 
         activePlace: action.payload,
       }
     }
-
     case SET_DAY_WEATHER_DATA: {
       return {
         ...state,
@@ -38,6 +40,12 @@ const weatherReducer = (state = initialState, action: any): initialStateType => 
       return {
         ...state,
         weekWeatherData: action.payload,
+      }
+    }
+    case SET_COLLAPSED_MENU: {
+      return {
+        ...state,
+        collapsedMenu: action.payload,
       }
     }
 
@@ -58,6 +66,10 @@ type setWeekWeatherDataType = {
   type: typeof SET_WEEK_WEATHER_DATA
   payload: object | null
 }
+type setCollapsedMenu = {
+  type: typeof SET_COLLAPSED_MENU
+  payload: boolean
+}
 
 export const setActivePlace = (activePlace: string): setActivePlaceType => ({ type: SET_ACTIVE_PLACE, payload: activePlace })
 export const setDayWeatherData = (dayWeatherData: object): setDayWeatherDataType => ({
@@ -68,7 +80,12 @@ export const setWeekWeatherData = (weekWeatherData: object): setWeekWeatherDataT
   type: SET_WEEK_WEATHER_DATA,
   payload: weekWeatherData,
 })
+export const setCollapsedMenu = (collapsedMenu: boolean): setCollapsedMenu => ({
+  type: SET_COLLAPSED_MENU,
+  payload: collapsedMenu,
+})
 
+//thunk
 export const fetchDayWeatherData = (city: string) => {
   return async (dispatch: any) => {
     let response = await weatherAPI.getDayWeather(city)

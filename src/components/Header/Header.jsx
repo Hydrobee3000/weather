@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Button, PageHeader, Select } from 'antd'
-import s from './Header.module.css'
-
+import { PageHeader, Select } from 'antd'
 import { useDispatch } from 'react-redux'
 import { setActivePlace } from '../../redux/reducers/weatherReducer'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import s from './Header.module.css'
 
 const { Option } = Select // get option from select obj antd
 
