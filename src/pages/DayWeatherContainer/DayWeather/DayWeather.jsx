@@ -5,18 +5,19 @@ const DayWeather = ({ weatherData }) => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0])
 
   return (
-    <div className={s.wrapper} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div className={s.wrapper} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
       <p style={{ fontSize: '3em' }} className={s.title}>
-        {weather.main} in {weatherData.name} {/* title */}
+        {weather.main}
       </p>
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={weatherData.description} /> */}
-      <p style={{ fontSize: '8em' }} className={s.parameter}>
+      <p style={{ fontSize: '7em' }} className={s.parameter}>
         {(weatherData.main.temp - 273.15).toFixed(1)} °С
       </p>
-      <p style={{ fontSize: '1.2em' }} className={s.parameter}>
+      <p style={{ fontSize: '1.5em' }}>{weatherData.name}</p>
+      {/* <p style={{ fontSize: '1.2em' }} className={s.parameter}>
         Feels like: {(weatherData.main.feels_like - 273.15).toFixed(1)} °С
-      </p>
+      </p> */}
       {/* additional parameters */}
 
       {/* <p className={s.parameter} >

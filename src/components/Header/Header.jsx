@@ -41,6 +41,7 @@ const HeaderFC = ({ places, activePlace }) => {
           placeholder='Select a place'
           optionFilterProp='children'
           onChange={onChangePlace}
+          value={activePlace}
           filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
         >
           {/* mapped all places in select list */}
