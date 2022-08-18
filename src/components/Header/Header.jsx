@@ -32,8 +32,8 @@ const HeaderFC = ({ places, activePlace }) => {
 
   return (
     <PageHeader
-      // className='site-page-header'
-      style={{ backgroundColor: 'purple' }}
+      className={s.header__container}
+      // style={{ backgroundColor: 'purple' }}
       title={
         <Button className={s.btn__menu_toggle} type='primary' onClick={toggleCollapsedMenu}>
           {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -42,8 +42,6 @@ const HeaderFC = ({ places, activePlace }) => {
       subTitle={today.toLocaleDateString('en-US', optionsDate)} // date
       extra={[
         <Select
-          style={{ borderRadius: '10px' }}
-          className={s.header__select}
           showSearch
           placeholder='Select a place'
           optionFilterProp='children'

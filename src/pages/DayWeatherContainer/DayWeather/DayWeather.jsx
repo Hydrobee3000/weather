@@ -17,18 +17,18 @@ const DayWeather = ({ weatherData }) => {
       <Typography style={{ fontSize: '1.2em' }} className={s.parameter} variant='h5' gutterBottom component='div'>
         Feels like: {(weatherData.main.feels_like - 273.15).toFixed(1)} °С
       </Typography>
-      {/* дополнительные параметры, которые, как мне кажется, рядовому пользователю не нужны) *}
-      
+      {/* additional parameters */}
+
       {/* <Typography className={s.parameter} variant='h5' gutterBottom component='div'>
         Min t: {(weatherData.main.temp_min - 273.15).toFixed(1)} °С
       </Typography>
       <Typography className={s.parameter} variant='h5' gutterBottom component='div'>
         Max t: {(weatherData.main.temp_max - 273.15).toFixed(1)} °С
-      </Typography> 
-       <Typography className={s.parameter} variant='h5' gutterBottom component='div'>
-        Wind: {weatherData.wind.speed} m/s
       </Typography>
       <Typography className={s.parameter} variant='h5' gutterBottom component='div'>
+        Wind: {weatherData.wind.speed} m/s
+      </Typography> */}
+      {/* <Typography className={s.parameter} variant='h5' gutterBottom component='div'> 
         Humidity: {weatherData.main.humidity}%
       </Typography>
       <Typography className={s.parameter} variant='h5' gutterBottom component='div'>

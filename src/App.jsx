@@ -24,28 +24,19 @@ const App = () => {
             <Content
               className='site-layout-background'
               style={{
-                padding: 0,
-              }}
-            ></Content>
-            <Content
-              className='site-layout-background'
-              style={{
-                margin: '20px 16px',
-                padding: 24,
+                margin: '15px',
+                padding: 20,
                 minHeight: 280,
-                backgroundColor: 'brown',
               }}
             >
-              Content
+              <Routes>
+                <Route path='/' element={<Navigate replace to='/current-weather' />} />
+                <Route path='current-weather' element={<DayWeatherContainer activePlace={activePlace} />} />
+                <Route path='weather-forecast' element={<WeekWeatherContainer activePlace={activePlace} />} />
+              </Routes>
             </Content>
           </Layout>
         </Layout>
-
-        <Routes>
-          <Route path='/' element={<Navigate replace to='/current-weather' />} />
-          <Route path='current-weather' element={<DayWeatherContainer activePlace={activePlace} />} />
-          <Route path='weather-forecast' element={<WeekWeatherContainer activePlace={activePlace} />} />
-        </Routes>
       </>
     </Router>
   )
