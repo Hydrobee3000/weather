@@ -20,7 +20,7 @@ interface IProps {
 const WeatherCard: React.FC<IProps> = ({ day }) => {
   const ms = day.dt * 1000
   const dayOfWeek = new Date(ms).toDateString()
-  console.log(dayOfWeek)
+  // console.log(dayOfWeek)
   const dayOfWeekName = new Date(ms).toLocaleString('en', { weekday: 'long' })
 
   return (

@@ -14,8 +14,14 @@ const MenuFC = () => {
   // and check nav.link methods
 
   return (
-    <Sider trigger={null} collapsible collapsed={collapsedMenu}>
-      <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode='inline' theme='dark' collapsed={collapsedMenu}>
+    <Sider style={{ backgroundColor: '#efefef' }} trigger={null} collapsible collapsed={collapsedMenu}>
+      <Menu
+        style={{ backgroundColor: '#efefef', fontSize: '1.2em' }}
+        defaultSelectedKeys={['1']}
+        defaultOpenKeys={['sub1']}
+        mode='inline'
+        collapsed={collapsedMenu}
+      >
         <Menu.Item key='today' icon={<CloudOutlined />}>
           <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/current-weather'>
             Today

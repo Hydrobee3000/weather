@@ -10,7 +10,7 @@ const { Option } = Select // get option from select obj antd
 
 const HeaderFC = ({ places, activePlace }) => {
   const dispatch = useDispatch()
-  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is open menu or not
+  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is closed menu? default = false
 
   const today = new Date() // current date
   const optionsDate = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }
@@ -18,11 +18,6 @@ const HeaderFC = ({ places, activePlace }) => {
   // handle change value of selected option
   const onChangePlace = (place) => {
     dispatch(setActivePlace(place))
-  }
-
-  // handle search in select
-  const onSearchPlace = (value) => {
-    console.log('search:', value)
   }
 
   // switches the menu display mode
@@ -33,7 +28,6 @@ const HeaderFC = ({ places, activePlace }) => {
   return (
     <PageHeader
       className={s.header__container}
-      // style={{ backgroundColor: 'purple' }}
       title={
         <Button className={s.btn__menu_toggle} type='primary' onClick={toggleCollapsedMenu}>
           {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -43,10 +37,10 @@ const HeaderFC = ({ places, activePlace }) => {
       extra={[
         <Select
           showSearch
+          style={{ minWidth: '9em' }}
           placeholder='Select a place'
           optionFilterProp='children'
           onChange={onChangePlace}
-          onSearch={onSearchPlace}
           filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
         >
           {/* mapped all places in select list */}

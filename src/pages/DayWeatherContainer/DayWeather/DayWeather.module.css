@@ -1,7 +1,5 @@
-.wrapper {
+/* .wrapper {
   text-align: center;
-  margin-top: 20vh;
-  min-height: 68vh;
 }
 .title {
   padding-top: 1em;
@@ -14,12 +12,6 @@
   padding-bottom: 1.5em;
 }
 .parameter {
-  /* padding: 0.5em 0 1em; */
   padding-bottom: 1.5em;
 }
-
-@media (max-width: 600px) {
-  .title {
-    padding-top: 0.7em;
-  }
-}
+ */
