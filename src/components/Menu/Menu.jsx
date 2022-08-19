@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { CloudOutlined, CompassOutlined, DashboardOutlined, ScheduleOutlined, HeartOutlined } from '@ant-design/icons'
 import { Menu, Layout } from 'antd'
-import { Badge, Calendar } from 'antd'
 import s from './Menu.module.css'
 
 // menu component
@@ -20,7 +19,7 @@ const MenuFC = () => {
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         mode='inline'
-        collapsed={collapsedMenu}
+        collapsed={collapsedMenu.toString()}
       >
         <Menu.Item key='today' icon={<CloudOutlined />}>
           <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/current-weather'>

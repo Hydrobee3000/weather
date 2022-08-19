@@ -5,8 +5,8 @@ import WeatherCard from './WeatherCard/WeatherCard'
 import { useSelector } from 'react-redux'
 
 const Week = () => {
-  const weekWeatherData = useSelector((state) => state.weather.weekWeatherData)
-  const dailyData = weekWeatherData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) // get data of every day per 12:00
+  const forecastData = useSelector((state) => state.weather.forecastData)
+  const dailyData = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) // get data of every day per 12:00
 
   //cards days of week with data
   const dailyFormatCards = () => {
