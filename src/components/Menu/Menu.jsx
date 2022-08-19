@@ -1,17 +1,17 @@
 import { useSelector } from 'react-redux'
-import { CloudOutlined, CompassOutlined, DashboardOutlined, ScheduleOutlined, HeartOutlined } from '@ant-design/icons'
 import { NavLink } from 'react-router-dom'
+import { CloudOutlined, CompassOutlined, DashboardOutlined, ScheduleOutlined, HeartOutlined } from '@ant-design/icons'
 import { Menu, Layout } from 'antd'
+import { Badge, Calendar } from 'antd'
 import s from './Menu.module.css'
-const { Sider } = Layout
 
 // menu component
 
 const MenuFC = () => {
+  const { Sider } = Layout
   const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is open menu or not
 
   //if url has match path of NavLink - then firstly select needed Menu.Item
-  // and check nav.link methods
 
   return (
     <Sider style={{ backgroundColor: '#efefef' }} trigger={null} collapsible collapsed={collapsedMenu}>
