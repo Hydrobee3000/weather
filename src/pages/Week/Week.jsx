@@ -1,9 +1,9 @@
-import s from './WeekWeather.module.css'
+import s from './Week.module.css'
 import { Container } from '@mui/material'
 import { Box } from '@mui/system'
 import WeatherCard from './WeatherCard/WeatherCard'
 
-const WeekWeather = ({ weekWeatherData }) => {
+const Week = ({ weekWeatherData }) => {
   const dailyData = weekWeatherData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) //выбрать данные каждого дня за 12:00
 
   const formatCards = () => {
@@ -17,4 +17,4 @@ const WeekWeather = ({ weekWeatherData }) => {
   )
 }
 
-export default WeekWeather
+export default Week

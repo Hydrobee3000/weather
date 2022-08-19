@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Preloader from '../../components/common/Preloader/Preloader'
 import { fetchWeekWeatherData } from '../../redux/reducers/weatherReducer'
-import WeekWeather from './WeekWeather/WeekWeather'
+import Week from './Week'
 
-const WeekWeatherContainer = ({ activePlace }) => {
+const WeekContainer = ({ activePlace }) => {
   const dispatch = useDispatch()
   const weekWeatherData = useSelector((state) => state.weather.weekWeatherData) //get data
 
@@ -17,7 +17,7 @@ const WeekWeatherContainer = ({ activePlace }) => {
   if (!weekWeatherData) {
     return <Preloader />
   }
-  return <WeekWeather weekWeatherData={weekWeatherData} />
+  return <Week weekWeatherData={weekWeatherData} />
 }
 
-export default WeekWeatherContainer
+export default WeekContainer

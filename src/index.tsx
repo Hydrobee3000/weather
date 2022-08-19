@@ -5,7 +5,6 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
 import { HashRouter as Router } from 'react-router-dom'
-// import { BrowserRouter as Router } from 'react-router-dom'
 import store from './redux/store'
 import 'antd/dist/antd.css' // or 'antd/dist/antd.less'
 

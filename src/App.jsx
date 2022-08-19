@@ -3,10 +3,10 @@ import { Route, Routes } from 'react-router-dom'
 import { Navigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import HeaderFC from './components/Header/Header'
-import DayWeatherContainer from './pages/DayWeatherContainer/DayWeatherContainer'
-import WeekWeatherContainer from './pages/WeekWeatherContainer/WeekWeatherContainer'
 import MenuFC from './components/Menu/Menu'
 import { Layout } from 'antd'
+import DayContainer from './pages/Day/DayContainer'
+import WeekContainer from './pages/Week/WeekContainer'
 
 const { Content } = Layout
 
@@ -35,8 +35,8 @@ const App = () => {
           >
             <Routes>
               <Route path='/' element={<Navigate replace to='/current-weather' />} />
-              <Route path='current-weather' element={<DayWeatherContainer activePlace={activePlace} />} />
-              <Route path='weather-forecast' element={<WeekWeatherContainer activePlace={activePlace} />} />
+              <Route path='current-weather' element={<DayContainer activePlace={activePlace} />} />
+              <Route path='weather-forecast' element={<WeekContainer activePlace={activePlace} />} />
             </Routes>
           </Content>
         </Layout>
