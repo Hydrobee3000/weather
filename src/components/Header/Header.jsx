@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { PageHeader, Select, Button } from 'antd'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { setActivePlace, setCollapsedMenu } from '../../redux/reducers/weatherReducer'
@@ -8,8 +7,10 @@ const { Option } = Select // get option from select obj antd
 
 //header component
 
-const HeaderFC = ({ places, activePlace }) => {
+const HeaderFC = () => {
   const dispatch = useDispatch()
+  const places = useSelector((state) => state.weather.places) // array of places
+  const activePlace = useSelector((state) => state.weather.activePlace) // selected active place
   const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is closed menu? default = false
 
   const today = new Date() // current date
@@ -32,7 +33,7 @@ const HeaderFC = ({ places, activePlace }) => {
         <Button className={s.btn__menu_toggle} type='primary' onClick={toggleCollapsedMenu}>
           {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         </Button>
-      } //change icon on click, icon toggle menu view
+      } // change icon on click, icon toggle menu view
       subTitle={today.toLocaleDateString('en-US', optionsDate)} // date
       extra={[
         <Select

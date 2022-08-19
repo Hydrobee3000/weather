@@ -6,9 +6,10 @@ import Day from './Day'
 
 // fetch day data and set in store
 
-const DayContainer = ({ activePlace }) => {
+const DayContainer = () => {
   const dispatch = useDispatch()
-  const dayWeatherData = useSelector((state) => state.weather.dayWeatherData) //get data
+  const activePlace = useSelector((state) => state.weather.activePlace) // selected active place
+  const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
 
   //fetch data
   useEffect(() => {
@@ -20,7 +21,7 @@ const DayContainer = ({ activePlace }) => {
     return <Preloader />
   }
 
-  return <Day weatherData={dayWeatherData} />
+  return <Day />
 }
 
 export default DayContainer
