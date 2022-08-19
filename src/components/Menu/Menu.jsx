@@ -36,7 +36,9 @@ const MenuFC = () => {
           Dashboard
         </Menu.Item>
         <Menu.Item key='calendar' icon={<ScheduleOutlined />}>
-          Calendar
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/calendar'>
+            Calendar
+          </NavLink>
         </Menu.Item>
         <Menu.Item key='favorites' icon={<HeartOutlined />}>
           Saved places

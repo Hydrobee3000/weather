@@ -5,6 +5,7 @@ import MenuFC from './components/Menu/Menu'
 import { Layout } from 'antd'
 import DayContainer from './pages/Day/DayContainer'
 import WeekContainer from './pages/Week/WeekContainer'
+import CalendarFC from './pages/Calendar/Calendar'
 
 const App = () => {
   const { Content } = Layout
@@ -31,6 +32,7 @@ const App = () => {
               <Route path='/' element={<Navigate replace to='/current-weather' />} />
               <Route path='current-weather' element={<DayContainer />} />
               <Route path='weather-forecast' element={<WeekContainer />} />
+              <Route path='calendar' element={<CalendarFC />} />
             </Routes>
           </Content>
         </Layout>
