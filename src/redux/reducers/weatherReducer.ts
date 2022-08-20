@@ -1,4 +1,4 @@
-import { weatherAPI } from '../../components/api/api'
+import { weatherAPI } from '../../api/api'
 
 const SET_ACTIVE_PLACE = 'SET_ACTIVE_PLACE'
 const SET_DAY_WEATHER_DATA = 'SET_DAY_WEATHER_DATA'
@@ -15,8 +15,8 @@ export type initialStateType = {
 }
 
 const initialState: initialStateType = {
-  places: ['Omsk', 'Novosibirsk', 'Moscow', 'Tomsk', 'Ekaterinburg', 'Altay', 'beograd'],
-  activePlace: 'Omsk', // selected palce
+  places: ['Omsk', 'Novosibirsk', 'Moscow', 'Tomsk', 'Ekaterinburg', 'Altay', 'Beograd', 'Novi Sad'],
+  activePlace: 'Altay', // selected palce
   dayWeatherData: null, // object with params of current weather
   forecastData: null, // object with params of forecast weather
   collapsedMenu: false, // true - menu collapsed (open)

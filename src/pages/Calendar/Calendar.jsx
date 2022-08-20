@@ -43,7 +43,7 @@ const CalendarFC = () => {
                 content: (
                   <div>
                     <p style={{ fontWeight: 'bold' }}>{`${(dayWeatherData.main.temp - 273.15).toFixed(1)} °С`}</p>
-                    <p style={{ fontWeight: 'bold', color: 'rgb(87 0 235)' }}>{weatherDescr.main}</p>
+                    <p style={{ color: 'rgb(87 0 235)' }}>{weatherDescr.main}</p>
                   </div>
                 ),
               },
