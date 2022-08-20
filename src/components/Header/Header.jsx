@@ -34,7 +34,11 @@ const HeaderFC = () => {
           {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         </Button>
       } // change icon on click, icon toggle menu view
-      subTitle={today.toLocaleDateString('en-US', optionsDate)} // date
+      subTitle={
+        <p style={{ margin: '0', marginLeft: '2em', fontSize: '1.2em', color: '#eeeeee' }}>
+          {today.toLocaleDateString('en-US', optionsDate)}
+        </p>
+      } // date
       extra={[
         <Select
           showSearch

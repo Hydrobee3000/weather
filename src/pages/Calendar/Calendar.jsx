@@ -27,9 +27,9 @@ const CalendarFC = () => {
               {
                 type: 'none',
                 content: (
-                  <div>
-                    <p>{`${Math.round(day.main.temp)} °C`}</p>
-                    <p style={{ color: 'rgb(87 0 235)' }}>{day.weather[0].main}</p>
+                  <div style={{ margin: '-10px' }}>
+                    <p style={{ marginBottom: '8px' }}>{`${Math.round(day.main.temp)} °C`}</p>
+                    <p style={{ color: 'rgb(74, 0, 203)' }}>{day.weather[0].main}</p>
                   </div>
                 ),
               },
@@ -41,9 +41,11 @@ const CalendarFC = () => {
               {
                 type: 'none',
                 content: (
-                  <div>
-                    <p style={{ fontWeight: 'bold' }}>{`${(dayWeatherData.main.temp - 273.15).toFixed(1)} °С`}</p>
-                    <p style={{ color: 'rgb(87 0 235)' }}>{weatherDescr.main}</p>
+                  <div style={{ margin: '-10px' }}>
+                    <p style={{ fontWeight: 'bold', marginBottom: '8px' }}>{`${(dayWeatherData.main.temp - 273.15).toFixed(
+                      1
+                    )} °С`}</p>
+                    <p style={{ color: 'rgb(74, 0, 203)' }}>{weatherDescr.main}</p>
                   </div>
                 ),
               },

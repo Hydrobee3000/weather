@@ -29,7 +29,7 @@ const App = () => {
         <Layout
           className='site-layout'
           style={{
-            backgroundColor: '#fefefe',
+            backgroundColor: '#fcfcfc',
           }}
         >
           <Content
