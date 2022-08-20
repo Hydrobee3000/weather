@@ -2,13 +2,13 @@ import { useSelector } from 'react-redux'
 import s from './Day.module.css'
 
 const Day = () => {
-  const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
+  const weatherDescr = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
 
   return (
     <div className={s.wrapper} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
       <p style={{ fontSize: '3em' }} className={s.title}>
-        {weather.main}
+        {weatherDescr.main}
       </p>
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}

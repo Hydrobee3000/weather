@@ -6,10 +6,20 @@ import { Layout } from 'antd'
 import DayContainer from './pages/Day/DayContainer'
 import WeekContainer from './pages/Week/WeekContainer'
 import CalendarContainer from './pages/Calendar/CalendarContainer'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchDayWeatherData, fetchForecastData } from './redux/reducers/weatherReducer'
+import { useEffect } from 'react'
 
 const App = () => {
   const { Content } = Layout
+  const dispatch = useDispatch()
+  const activePlace = useSelector((state) => state.weather.activePlace) // selected active place
 
+  //fetch data
+  useEffect(() => {
+    dispatch(fetchDayWeatherData(activePlace))
+    dispatch(fetchForecastData(activePlace))
+  }, [dispatch, activePlace])
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <HeaderFC />
