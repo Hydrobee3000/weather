@@ -1,7 +1,12 @@
 import { Badge, Calendar } from 'antd'
+import { useSelector } from 'react-redux'
 
 const getListData = (value) => {
   let listData
+
+  // console.log('day:', value.date()) // день карточки календаря
+  // console.log('month:', value.month() + 1) // месяц карточки календаря
+  // console.log('year:', value.year()) // год карточки календаря
 
   switch (value.date()) {
     case 8:
@@ -16,32 +21,24 @@ const getListData = (value) => {
         },
       ]
       break
-
     default:
   }
 
   return listData || []
 }
 
-const getMonthData = (value) => {
-  if (value.month() === 8) {
-    return 1394
-  }
-}
-
 const CalendarFC = () => {
-  const monthCellRender = (value) => {
-    const num = getMonthData(value)
-    return num ? (
-      <div className='notes-month'>
-        <section>{num}</section>
-        <span>Backlog number</span>
-      </div>
-    ) : null
-  }
+  const forecastData = useSelector((state) => state.weather.forecastData)
+  const dailyList = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) // get data of every day per 12:00
+  let forecastDailyDate = new Date(dailyList[0].dt_txt)
+
+  console.log('day:', forecastDailyDate.getDate()) // день прогноза погоды
+  console.log('month:', forecastDailyDate.getMonth() + 1) // месяц прогноза погоды
+  console.log('year:', forecastDailyDate.getFullYear()) // год прогноза погоды
 
   const dateCellRender = (value) => {
     const listData = getListData(value)
+
     return (
       <ul className='events'>
         {listData.map((item) => (
@@ -51,7 +48,7 @@ const CalendarFC = () => {
     )
   }
 
-  return <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+  return <Calendar dateCellRender={dateCellRender} />
 }
 
 export default CalendarFC
