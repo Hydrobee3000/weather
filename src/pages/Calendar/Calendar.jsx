@@ -1,43 +1,40 @@
 import { Badge, Calendar } from 'antd'
 import { useSelector } from 'react-redux'
 
-const getListData = (value) => {
+const getListData = (value, forecastData) => {
   let listData
+  let cardCalendarDate = `${value.month() + 1}/${value.date()}/${value.year()}` // date of every calendar card
 
-  // console.log('day:', value.date()) // день карточки календаря
-  // console.log('month:', value.month() + 1) // месяц карточки календаря
-  // console.log('year:', value.year()) // год карточки календаря
+  // console.log(`${forecastDate.getMonth() + 1}/${forecastDate.getDate()}/${forecastDate.getFullYear()}`) // whole date of forecast data
+  const dailyForecastCards = () => {
+    const dailyList = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) // get data of every day per 12:00
+    return dailyList.map((day, index) => {
+      let dateForecast = new Date(day.dt_txt) // not formatted date forecast
+      let dateForecastFormat = `${dateForecast.getMonth() + 1}/${dateForecast.getDate()}/${dateForecast.getFullYear()}` // whole date of forecast data
 
-  switch (value.date()) {
-    case 8:
-      listData = [
-        {
-          type: 'warning',
-          content: 'This is warning event.',
-        },
-        {
-          type: 'success',
-          content: 'This is usual event.',
-        },
-      ]
-      break
-    default:
+      switch (cardCalendarDate) {
+        case dateForecastFormat:
+          listData = [
+            {
+              type: 'success',
+              content: value.date(),
+            },
+          ]
+          break
+        default:
+      }
+    })
   }
-
+  dailyForecastCards()
   return listData || []
 }
 
 const CalendarFC = () => {
   const forecastData = useSelector((state) => state.weather.forecastData)
-  const dailyList = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) // get data of every day per 12:00
-  let forecastDailyDate = new Date(dailyList[0].dt_txt)
-
-  console.log('day:', forecastDailyDate.getDate()) // день прогноза погоды
-  console.log('month:', forecastDailyDate.getMonth() + 1) // месяц прогноза погоды
-  console.log('year:', forecastDailyDate.getFullYear()) // год прогноза погоды
+  // console.log(`${forecastDate.getMonth() + 1}/${forecastDate.getDate()}/${forecastDate.getFullYear()}`) // whole date of forecast data
 
   const dateCellRender = (value) => {
-    const listData = getListData(value)
+    const listData = getListData(value, forecastData)
 
     return (
       <ul className='events'>
