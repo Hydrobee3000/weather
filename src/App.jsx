@@ -20,6 +20,7 @@ const App = () => {
     dispatch(fetchDayWeatherData(activePlace))
     dispatch(fetchForecastData(activePlace))
   }, [dispatch, activePlace])
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <HeaderFC />
