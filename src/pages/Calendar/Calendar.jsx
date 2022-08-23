@@ -1,5 +1,6 @@
 import { Badge, Calendar } from 'antd'
 import { useSelector } from 'react-redux'
+import { Divider, Tag } from 'antd'
 
 const CalendarFC = () => {
   const forecastData = useSelector((state) => state.weather.forecastData)
@@ -27,9 +28,23 @@ const CalendarFC = () => {
               {
                 type: 'none',
                 content: (
-                  <div style={{ margin: '-10px' }}>
-                    <p style={{ marginBottom: '8px' }}>{`${Math.round(day.main.temp)} °C`}</p>
-                    <p style={{ color: 'rgb(74, 0, 203)' }}>{day.weather[0].main}</p>
+                  <div style={{ margin: '0', marginTop: '-15px' }}>
+                    <p
+                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}
+                    >{`${Math.round(day.main.temp)} °C`}</p>
+                    <Tag style={{ margin: '0' }} color='purple'>
+                      <p
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'rgb(74, 0, 203)',
+                          margin: '0',
+                        }}
+                      >
+                        {day.weather[0].main}
+                      </p>
+                    </Tag>
                   </div>
                 ),
               },
@@ -42,10 +57,22 @@ const CalendarFC = () => {
                 type: 'none',
                 content: (
                   <div style={{ margin: '-10px' }}>
-                    <p style={{ fontWeight: 'bold', marginBottom: '8px' }}>{`${(dayWeatherData.main.temp - 273.15).toFixed(
+                    <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>{`${(dayWeatherData.main.temp - 273.15).toFixed(
                       1
                     )} °С`}</p>
-                    <p style={{ color: 'rgb(74, 0, 203)' }}>{weatherDescr.main}</p>
+                    <Tag style={{ margin: '0' }} color='purple'>
+                      <p
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'rgb(74, 0, 203)',
+                          margin: '0',
+                        }}
+                      >
+                        {weatherDescr.main}
+                      </p>
+                    </Tag>
                   </div>
                 ),
               },
