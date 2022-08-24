@@ -35,7 +35,7 @@ const HeaderFC = () => {
         </Button>
       } // change icon on click, icon toggle menu view
       subTitle={
-        <p style={{ margin: '0', marginLeft: '2em', fontSize: '1.2em', color: '#eeeeee' }}>
+        <p style={{ margin: '0', marginLeft: '1.5em', fontSize: '1.2em', color: 'rgb(74, 0, 203)' }}>
           {today.toLocaleDateString('en-US', optionsDate)}
         </p>
       } // date
