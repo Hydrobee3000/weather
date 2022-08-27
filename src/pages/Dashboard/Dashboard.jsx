@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux'
-import { Space, Typography } from 'antd'
-import { Card } from 'antd'
+import { Space, Typography, Statistic, Card } from 'antd'
 import { ExportOutlined } from '@ant-design/icons'
 import s from './Dashboard.module.css'
 import { Progress } from 'antd'
 import { WiBarometer } from 'react-icons/wi'
+import { TbWind } from 'react-icons/tb'
+import { TbGauge } from 'react-icons/tb'
 
 const { Text } = Typography
 
@@ -18,9 +19,58 @@ const DashboardFC = () => {
         <Card
           headStyle={{ padding: '0 1em' }}
           bodyStyle={{ paddingBottom: '1.5em' }}
+          style={{
+            borderRadius: '15px',
+            width: 220,
+            backgroundColor: '#efefef',
+          }}
+          title={<Text style={{ color: '#783fdb' }}>Wind</Text>}
+          extra={<TbWind style={{ fontSize: '2em' }} />}
+        >
+          <Space
+            direction='vertical'
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+          >
+            <Statistic
+              style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
+              title='Speed'
+              value={dayWeatherData.wind.speed}
+              precision={2}
+              valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+              suffix={<p style={{ fontSize: '0.6em' }}>m/h</p>}
+            />
+            <Statistic
+              style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
+              title='Direction'
+              value={dayWeatherData.wind.deg}
+              precision={2}
+              valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+              suffix={<p style={{ fontSize: '0.6em' }}>m/s</p>}
+            />
+            <Statistic
+              style={{
+                backgroundColor: '#fcfcfc',
+                borderRadius: '10px',
+                padding: '0 20px',
+                paddingTop: '10px',
+                paddingBottom: '10px',
+                width: '140px',
+              }}
+              title='Gust'
+              value={dayWeatherData.wind.gust}
+              precision={2}
+              valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+              suffix='°'
+            />
+          </Space>
+        </Card>
+
+        <Card
+          headStyle={{ padding: '0 1em' }}
+          bodyStyle={{ paddingBottom: '1.5em' }}
           style={{ borderRadius: '15px', width: 220, backgroundColor: '#efefef' }}
-          title={<Text style={{ color: '#783fdb' }}>Pressure</Text>}
-          extra={<WiBarometer style={{ fontSize: '2em' }} />}
+          title={<Text style={{ color: '#783fdb' }}>Humidity</Text>}
+          extra={<TbGauge style={{ fontSize: '2em' }} />}
         >
           <Progress
             // strokeColor='#783fdb'
@@ -30,6 +80,7 @@ const DashboardFC = () => {
             percent={dayWeatherData.main.humidity}
           />
         </Card>
+
         <Text>Today overview</Text>
 
         <p style={{ fontSize: '2em' }}>{dayWeatherData.name}</p>
