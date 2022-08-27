@@ -10,6 +10,7 @@ const CardStatistic = ({ cardTitle, cardIcon, firstTitle, firstData, secondTitle
       bodyStyle={{ paddingBottom: '1.5em' }}
       style={{
         borderRadius: '15px',
+        width: 220,
         backgroundColor: '#efefef',
       }}
       title={<Text style={{ color: '#783fdb' }}>{cardTitle}</Text>}
@@ -25,7 +26,7 @@ const CardStatistic = ({ cardTitle, cardIcon, firstTitle, firstData, secondTitle
           title={firstTitle}
           value={firstData}
           precision={2}
-          valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+          valueStyle={{ fontSize: '1.85em' }}
           suffix={<p style={{ fontSize: '0.6em' }}>m/h</p>}
         />
         <Statistic
@@ -40,7 +41,7 @@ const CardStatistic = ({ cardTitle, cardIcon, firstTitle, firstData, secondTitle
           title={secondTitle}
           value={secondData}
           precision={2}
-          valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+          valueStyle={{ fontSize: '1.85em' }}
           suffix='°'
         />
         <Statistic
@@ -48,7 +49,7 @@ const CardStatistic = ({ cardTitle, cardIcon, firstTitle, firstData, secondTitle
           title={thirdTitle}
           value={thirdData}
           precision={2}
-          valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+          valueStyle={{ fontSize: '1.85em' }}
           suffix={<p style={{ fontSize: '0.6em' }}>m/s</p>}
         />
       </Space>

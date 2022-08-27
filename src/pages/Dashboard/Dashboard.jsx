@@ -46,6 +46,8 @@ const DashboardFC = () => {
           fourthData={dayWeatherData.main.temp_min - 273.15}
         />
 
+        {/* Humidity */}
+
         <Card
           headStyle={{ padding: '0 1em' }}
           showInfo={false}
@@ -55,7 +57,7 @@ const DashboardFC = () => {
           extra={<TbGauge style={{ fontSize: '2em' }} />}
         >
           <Progress
-            // strokeColor='#783fdb'
+            strokeColor='#783fdb'
             trailColor='#783fdb30'
             format={dayWeatherData.main.humidity === 100 ? () => '100%' : ''}
             style={{ display: 'flex', justifyContent: 'center' }}
@@ -64,7 +66,25 @@ const DashboardFC = () => {
           />
         </Card>
 
-        <Text>Today overview</Text>
+        {/* cloudiness */}
+
+        <Card
+          headStyle={{ padding: '0 1em' }}
+          showInfo={false}
+          bodyStyle={{ paddingBottom: '1.5em' }}
+          style={{ borderRadius: '15px', width: 220, backgroundColor: '#efefef' }}
+          title={<Text style={{ fontWeight: 'bold', color: '#783fdb' }}>Cloudiness</Text>}
+          extra={<TbGauge style={{ fontSize: '2em' }} />}
+        >
+          <Progress
+            strokeColor='#783fdb'
+            trailColor='#783fdb30'
+            format={dayWeatherData.clouds.all === 100 ? () => '100%' : ''}
+            style={{ display: 'flex', justifyContent: 'center' }}
+            type='dashboard'
+            percent={dayWeatherData.clouds.all}
+          />
+        </Card>
 
         <p>Pressure: {dayWeatherData.main.pressure}</p>
       </Space>

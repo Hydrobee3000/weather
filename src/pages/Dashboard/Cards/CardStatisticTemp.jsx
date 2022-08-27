@@ -44,7 +44,7 @@ const CardTemp = ({
             title={firstTitle}
             value={firstData}
             precision={2}
-            valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+            valueStyle={{ fontSize: '1.85em' }}
             suffix={'°C'}
           />
           <Statistic
@@ -59,7 +59,7 @@ const CardTemp = ({
             title={secondTitle}
             value={secondData}
             precision={2}
-            valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+            valueStyle={{ fontSize: '1.85em' }}
             suffix='°C'
           />
         </Space>
@@ -80,7 +80,7 @@ const CardTemp = ({
             title={thirdTitle}
             value={thirdData}
             precision={2}
-            valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+            valueStyle={{ fontSize: '1.85em' }}
             suffix={'°C'}
           />
           <Statistic
@@ -95,7 +95,7 @@ const CardTemp = ({
             title={fourthTitle}
             value={fourthData}
             precision={2}
-            valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+            valueStyle={{ fontSize: '1.85em' }}
             suffix={'°C'}
           />
         </Space>
