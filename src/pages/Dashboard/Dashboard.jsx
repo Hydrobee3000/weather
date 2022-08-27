@@ -57,6 +57,7 @@ const DashboardFC = () => {
           <Progress
             // strokeColor='#783fdb'
             trailColor='#783fdb30'
+            format={dayWeatherData.main.humidity === 100 ? () => '100%' : ''}
             style={{ display: 'flex', justifyContent: 'center' }}
             type='dashboard'
             percent={dayWeatherData.main.humidity}
