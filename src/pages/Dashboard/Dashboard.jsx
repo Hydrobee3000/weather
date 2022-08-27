@@ -4,33 +4,48 @@ import { ExportOutlined } from '@ant-design/icons'
 import s from './Dashboard.module.css'
 import { Progress } from 'antd'
 import { WiBarometer } from 'react-icons/wi'
-import { TbWind } from 'react-icons/tb'
 import { TbGauge } from 'react-icons/tb'
 import CardStatistic from './Cards/CardStatistic'
+import { TbWind, TbTemperature } from 'react-icons/tb'
+import CardTemp from './Cards/CardStatisticTemp'
 
 const { Text } = Typography
 
 const DashboardFC = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
-
+  console.log(dayWeatherData)
   return (
     <div style={{ paddingLeft: '20px' }}>
       <Space size='large' align='start'>
         <CardStatistic
-          firstData={dayWeatherData.wind.speed}
+          cardTitle={'Wind'}
+          cardIcon={<TbWind style={{ fontSize: '2em' }} />}
           firstTitle={'Speed'}
-          secondData={dayWeatherData.wind.deg}
+          firstData={dayWeatherData.wind.speed}
           secondTitle={'Direction'}
-          thirdData={dayWeatherData.wind.gust}
+          secondData={dayWeatherData.wind.deg}
           thirdTitle={'Gust'}
+          thirdData={dayWeatherData.wind.gust}
+        />
+        <CardTemp
+          cardTitle={'Temperature'}
+          cardIcon={<TbTemperature style={{ fontSize: '2em' }} />}
+          firstTitle={'Current'}
+          firstData={dayWeatherData.main.temp - 273.15}
+          secondTitle={'Max'}
+          secondData={dayWeatherData.main.temp_max - 273.15}
+          thirdTitle={'Feels like'}
+          thirdData={dayWeatherData.main.feels_like - 273.15}
+          fourthTitle={'Min'}
+          fourthData={dayWeatherData.main.temp_min - 273.15}
         />
 
         <Card
           headStyle={{ padding: '0 1em' }}
           bodyStyle={{ paddingBottom: '1.5em' }}
           style={{ borderRadius: '15px', width: 220, backgroundColor: '#efefef' }}
-          title={<Typography style={{ color: '#783fdb' }}>Humidity</Typography>}
+          title={<Text style={{ color: '#783fdb' }}>Humidity</Text>}
           extra={<TbGauge style={{ fontSize: '2em' }} />}
         >
           <Progress
@@ -42,7 +57,7 @@ const DashboardFC = () => {
           />
         </Card>
 
-        <Typography>Today overview</Typography>
+        <Text>Today overview</Text>
 
         <p style={{ fontSize: '2em' }}>{dayWeatherData.name}</p>
         {/* weather icon */}
@@ -55,8 +70,6 @@ const DashboardFC = () => {
         {/* additional parameters */}
         <p>Min t: {(dayWeatherData.main.temp_min - 273.15).toFixed(1)} °С</p>
         <p>Max t: {(dayWeatherData.main.temp_max - 273.15).toFixed(1)} °С</p>
-        <p>Wind: {dayWeatherData.wind.speed} m/s</p>
-        <p>Humidity: {dayWeatherData.main.humidity}%</p>
         <p>Pressure: {dayWeatherData.main.pressure}</p>
         <p>
           {new Date().toLocaleString('en', { weekday: 'long' })} {new Date().getDate()}.{new Date().getMonth()}.

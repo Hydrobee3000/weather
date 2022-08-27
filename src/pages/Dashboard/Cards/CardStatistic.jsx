@@ -1,19 +1,19 @@
 import React from 'react'
 import { Space, Statistic, Typography, Card } from 'antd'
-import { TbWind } from 'react-icons/tb'
 
-const CardStatistic = ({ firstData, firstTitle, secondData, secondTitle, thirdData, thirdTitle }) => {
+const { Text } = Typography
+
+const CardStatistic = ({ cardTitle, cardIcon, firstTitle, firstData, secondTitle, secondData, thirdTitle, thirdData }) => {
   return (
     <Card
       headStyle={{ padding: '0 1em' }}
       bodyStyle={{ paddingBottom: '1.5em' }}
       style={{
         borderRadius: '15px',
-        width: 220,
         backgroundColor: '#efefef',
       }}
-      title={<Typography style={{ color: '#783fdb' }}>Wind</Typography>}
-      extra={<TbWind style={{ fontSize: '2em' }} />}
+      title={<Text style={{ color: '#783fdb' }}>{cardTitle}</Text>}
+      extra={cardIcon}
     >
       <Space
         size='middle'
