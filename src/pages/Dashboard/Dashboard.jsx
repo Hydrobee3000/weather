@@ -14,9 +14,14 @@ const { Text } = Typography
 const DashboardFC = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
-  console.log(dayWeatherData)
+
   return (
     <div style={{ paddingLeft: '20px' }}>
+      <div style={{ textAlign: 'center' }}>
+        <Text style={{ fontSize: '2em', paddingRight: '0.7em', color: '#783fdb' }}>{weather.main}</Text>
+        <Text style={{ fontSize: '2em' }}>{' in '}</Text>
+        <Text style={{ fontSize: '2em', paddingLeft: '0.7em', color: '#783fdb' }}>{dayWeatherData.name}</Text>
+      </div>
       <Space size='large' align='start'>
         <CardStatistic
           cardTitle={'Wind'}
@@ -43,6 +48,7 @@ const DashboardFC = () => {
 
         <Card
           headStyle={{ padding: '0 1em' }}
+          showInfo={false}
           bodyStyle={{ paddingBottom: '1.5em' }}
           style={{ borderRadius: '15px', width: 220, backgroundColor: '#efefef' }}
           title={<Text style={{ color: '#783fdb' }}>Humidity</Text>}
@@ -59,22 +65,7 @@ const DashboardFC = () => {
 
         <Text>Today overview</Text>
 
-        <p style={{ fontSize: '2em' }}>{dayWeatherData.name}</p>
-        {/* weather icon */}
-        {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
-        <p>{(dayWeatherData.main.temp - 273.15).toFixed(1)} °С</p>
-        <p>{weather.main}</p>
-        {/* <p style={{ fontSize: '1.2em' }} className={s.parameter}>
-        Feels like: {(dayWeatherData.main.feels_like - 273.15).toFixed(1)} °С
-      </p> */}
-        {/* additional parameters */}
-        <p>Min t: {(dayWeatherData.main.temp_min - 273.15).toFixed(1)} °С</p>
-        <p>Max t: {(dayWeatherData.main.temp_max - 273.15).toFixed(1)} °С</p>
         <p>Pressure: {dayWeatherData.main.pressure}</p>
-        <p>
-          {new Date().toLocaleString('en', { weekday: 'long' })} {new Date().getDate()}.{new Date().getMonth()}.
-          {new Date().getFullYear()}
-        </p>
       </Space>
     </div>
   )
