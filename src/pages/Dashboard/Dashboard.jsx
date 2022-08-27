@@ -28,6 +28,7 @@ const DashboardFC = () => {
           extra={<TbWind style={{ fontSize: '2em' }} />}
         >
           <Space
+            size='middle'
             direction='vertical'
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
