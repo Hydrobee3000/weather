@@ -41,14 +41,6 @@ const DashboardFC = () => {
               suffix={<p style={{ fontSize: '0.6em' }}>m/h</p>}
             />
             <Statistic
-              style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
-              title='Direction'
-              value={dayWeatherData.wind.deg}
-              precision={2}
-              valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
-              suffix={<p style={{ fontSize: '0.6em' }}>m/s</p>}
-            />
-            <Statistic
               style={{
                 backgroundColor: '#fcfcfc',
                 borderRadius: '10px',
@@ -57,11 +49,19 @@ const DashboardFC = () => {
                 paddingBottom: '10px',
                 width: '140px',
               }}
+              title='Direction'
+              value={dayWeatherData.wind.deg}
+              precision={2}
+              valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
+              suffix='°'
+            />
+            <Statistic
+              style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
               title='Gust'
               value={dayWeatherData.wind.gust}
               precision={2}
               valueStyle={{ color: '#783fdb', fontSize: '1.85em' }}
-              suffix='°'
+              suffix={<p style={{ fontSize: '0.6em' }}>m/s</p>}
             />
           </Space>
         </Card>
