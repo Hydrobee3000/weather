@@ -15,7 +15,7 @@ const DashboardFC = () => {
 
   return (
     <div style={{ paddingLeft: '20px' }}>
-      <Space>
+      <Space size='large'>
         <Card
           headStyle={{ padding: '0 1em' }}
           bodyStyle={{ paddingBottom: '1.5em' }}
