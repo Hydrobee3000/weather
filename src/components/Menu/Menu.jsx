@@ -32,7 +32,9 @@ const MenuFC = () => {
           </NavLink>
         </Menu.Item>
         <Menu.Item key='dashboard' icon={<DashboardOutlined />}>
-          Dashboard
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/dashboard'>
+            Dashboard
+          </NavLink>
         </Menu.Item>
         <Menu.Item key='calendar' icon={<ScheduleOutlined />}>
           <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/calendar'>

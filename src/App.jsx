@@ -5,6 +5,7 @@ import MenuFC from './components/Menu/Menu'
 import { Layout } from 'antd'
 import DayContainer from './pages/Day/DayContainer'
 import WeekContainer from './pages/Week/WeekContainer'
+import DashboardContainer from './pages/Dashboard/DashboardContainer'
 import CalendarContainer from './pages/Calendar/CalendarContainer'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchDayWeatherData, fetchForecastData } from './redux/reducers/weatherReducer'
@@ -29,7 +30,7 @@ const App = () => {
         <Layout
           className='site-layout'
           style={{
-            backgroundColor: '#fefefe',
+            backgroundColor: '#fcfcfc',
           }}
         >
           <Content
@@ -43,6 +44,7 @@ const App = () => {
               <Route path='/' element={<Navigate replace to='/current-weather' />} />
               <Route path='current-weather' element={<DayContainer />} />
               <Route path='weather-forecast' element={<WeekContainer />} />
+              <Route path='dashboard' element={<DashboardContainer />} />
               <Route path='calendar' element={<CalendarContainer />} />
             </Routes>
           </Content>

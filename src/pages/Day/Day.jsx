@@ -6,16 +6,17 @@ const Day = () => {
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
 
   return (
-    <div className={s.wrapper} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
-      <p style={{ fontSize: '3em' }} className={s.title}>
-        {weather.main}
-      </p>
+    <div className={s.wrapper} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '2em' }}>
+      <p style={{ fontSize: '2em' }}>{dayWeatherData.name}</p>
+
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
-      <p style={{ fontSize: '7em' }} className={s.parameter}>
-        {(dayWeatherData.main.temp - 273.15).toFixed(1)} °С
+      <p style={{ fontSize: '6em', marginTop: '0.5em' }} className={s.parameter}>
+        {Math.round(parseFloat(dayWeatherData.main.temp) * 10) / 10} °С
       </p>
-      <p style={{ fontSize: '1.5em' }}>{dayWeatherData.name}</p>
+      <p style={{ fontSize: '3em', color: 'rgb(74, 0, 203)', margin: '0' }} className={s.title}>
+        {weather.main}
+      </p>
       {/* <p style={{ fontSize: '1.2em' }} className={s.parameter}>
         Feels like: {(dayWeatherData.main.feels_like - 273.15).toFixed(1)} °С
       </p> */}
