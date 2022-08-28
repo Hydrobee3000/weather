@@ -26,9 +26,9 @@ const CardTemp = ({
       title={<Text style={{ color: '#783fdb' }}>{cardTitle}</Text>}
       extra={cardIcon}
     >
-      <Space size='middle'>
+      <Space size='large'>
         <Space
-          size='middle'
+          size='large'
           direction='vertical'
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
         >
@@ -64,7 +64,7 @@ const CardTemp = ({
           />
         </Space>
         <Space
-          size='middle'
+          size='large'
           direction='vertical'
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
         >

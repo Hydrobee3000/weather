@@ -17,7 +17,7 @@ const CardStatistic = ({ cardTitle, cardIcon, firstTitle, firstData, secondTitle
       extra={cardIcon}
     >
       <Space
-        size='middle'
+        size='large'
         direction='vertical'
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
       >

@@ -17,7 +17,7 @@ const DashboardFC = () => {
 
   return (
     <div style={{ paddingLeft: '20px' }}>
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center', marginBottom: '1em' }}>
         <Text style={{ fontSize: '2em', paddingRight: '0.7em', color: '#783fdb' }}>{weather.main}</Text>
         <Text style={{ fontSize: '2em' }}>{' in '}</Text>
         <Text style={{ fontSize: '2em', paddingLeft: '0.7em', color: '#783fdb' }}>{dayWeatherData.name}</Text>
@@ -38,11 +38,11 @@ const DashboardFC = () => {
           cardIcon={<TbTemperature style={{ fontSize: '2em' }} />}
           firstTitle={'Current'}
           firstData={dayWeatherData.main.temp - 273.15}
-          secondTitle={'Max'}
+          secondTitle={'Maximum'}
           secondData={dayWeatherData.main.temp_max - 273.15}
           thirdTitle={'Feels like'}
           thirdData={dayWeatherData.main.feels_like - 273.15}
-          fourthTitle={'Min'}
+          fourthTitle={'Minimum'}
           fourthData={dayWeatherData.main.temp_min - 273.15}
         />
 
