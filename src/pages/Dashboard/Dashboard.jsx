@@ -10,6 +10,7 @@ const { Text } = Typography
 const DashboardFC = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
+  console.log(dayWeatherData.main.pressure)
 
   return (
     <div style={{ paddingLeft: '20px' }}>
@@ -29,17 +30,18 @@ const DashboardFC = () => {
           thirdTitle={'Gust'}
           thirdData={dayWeatherData.wind.gust}
         />
+
         <CardTemp
           cardTitle={'Temperature'}
           cardIcon={<TbTemperature style={{ fontSize: '2em', color: 'white' }} />}
           firstTitle={'Current'}
-          firstData={dayWeatherData.main.temp - 273.15}
+          firstData={dayWeatherData.main.temp}
           secondTitle={'Maximum'}
-          secondData={dayWeatherData.main.temp_max - 273.15}
+          secondData={dayWeatherData.main.temp_max}
           thirdTitle={'Feels like'}
-          thirdData={dayWeatherData.main.feels_like - 273.15}
+          thirdData={dayWeatherData.main.feels_like}
           fourthTitle={'Minimum'}
-          fourthData={dayWeatherData.main.temp_min - 273.15}
+          fourthData={dayWeatherData.main.temp_min}
         />
 
         <CardProgress
