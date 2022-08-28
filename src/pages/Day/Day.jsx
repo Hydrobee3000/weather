@@ -12,7 +12,7 @@ const Day = () => {
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
       <p style={{ fontSize: '6em', marginTop: '0.5em' }} className={s.parameter}>
-        {(dayWeatherData.main.temp - 273.15).toFixed(1)} °С
+        {Math.round(parseFloat(dayWeatherData.main.temp) * 10) / 10} °С
       </p>
       <p style={{ fontSize: '3em', color: 'rgb(74, 0, 203)', margin: '0' }} className={s.title}>
         {weather.main}
