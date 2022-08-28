@@ -8,6 +8,7 @@ import { TbGauge } from 'react-icons/tb'
 import CardStatistic from './Cards/CardStatistic'
 import { TbWind, TbTemperature } from 'react-icons/tb'
 import CardTemp from './Cards/CardStatisticTemp'
+import CardProgress from './Cards/CardProgress'
 
 const { Text } = Typography
 
@@ -48,23 +49,7 @@ const DashboardFC = () => {
 
         {/* Humidity */}
 
-        <Card
-          headStyle={{ padding: '0 1em' }}
-          showInfo={false}
-          bodyStyle={{ paddingBottom: '1.5em' }}
-          style={{ borderRadius: '15px', width: 220, backgroundColor: '#efefef' }}
-          title={<Text style={{ color: '#783fdb' }}>Humidity</Text>}
-          extra={<TbGauge style={{ fontSize: '2em' }} />}
-        >
-          <Progress
-            strokeColor='#783fdb'
-            trailColor='#783fdb30'
-            format={dayWeatherData.main.humidity === 100 ? () => '100%' : ''}
-            style={{ display: 'flex', justifyContent: 'center' }}
-            type='dashboard'
-            percent={dayWeatherData.main.humidity}
-          />
-        </Card>
+        <CardProgress title='Humidity' data={dayWeatherData.main.humidity} icon={<TbGauge style={{ fontSize: '2em' }} />} />
 
         {/* cloudiness */}
 
