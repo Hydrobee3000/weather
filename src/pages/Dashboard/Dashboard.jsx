@@ -1,12 +1,7 @@
 import { useSelector } from 'react-redux'
 import { Space, Typography, Statistic, Card } from 'antd'
-import { ExportOutlined } from '@ant-design/icons'
-import s from './Dashboard.module.css'
-import { Progress } from 'antd'
-import { WiBarometer } from 'react-icons/wi'
-import { TbGauge } from 'react-icons/tb'
+import { TbWind, TbTemperature, TbCloud, TbGauge } from 'react-icons/tb'
 import CardStatistic from './Cards/CardStatistic'
-import { TbWind, TbTemperature } from 'react-icons/tb'
 import CardTemp from './Cards/CardStatisticTemp'
 import CardProgress from './Cards/CardProgress'
 
@@ -26,7 +21,7 @@ const DashboardFC = () => {
       <Space size='large' align='start' style={{ flexWrap: 'wrap' }}>
         <CardStatistic
           cardTitle={'Wind'}
-          cardIcon={<TbWind style={{ fontSize: '2em' }} />}
+          cardIcon={<TbWind style={{ fontSize: '2em', color: 'white' }} />}
           firstTitle={'Speed'}
           firstData={dayWeatherData.wind.speed}
           secondTitle={'Direction'}
@@ -36,7 +31,7 @@ const DashboardFC = () => {
         />
         <CardTemp
           cardTitle={'Temperature'}
-          cardIcon={<TbTemperature style={{ fontSize: '2em' }} />}
+          cardIcon={<TbTemperature style={{ fontSize: '2em', color: 'white' }} />}
           firstTitle={'Current'}
           firstData={dayWeatherData.main.temp - 273.15}
           secondTitle={'Maximum'}
@@ -47,9 +42,17 @@ const DashboardFC = () => {
           fourthData={dayWeatherData.main.temp_min - 273.15}
         />
 
-        <CardProgress title='Humidity' data={dayWeatherData.main.humidity} icon={<TbGauge style={{ fontSize: '2em' }} />} />
+        <CardProgress
+          title='Humidity'
+          data={dayWeatherData.main.humidity}
+          icon={<TbGauge style={{ fontSize: '2em', color: 'white' }} />}
+        />
 
-        <CardProgress title='Cloudiness' data={dayWeatherData.clouds.all} icon={<TbGauge style={{ fontSize: '2em' }} />} />
+        <CardProgress
+          title='Cloudiness'
+          data={dayWeatherData.clouds.all}
+          icon={<TbCloud style={{ fontSize: '2em', color: 'white' }} />}
+        />
 
         <p>Pressure: {dayWeatherData.main.pressure}</p>
       </Space>

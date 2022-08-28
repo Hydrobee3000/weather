@@ -18,7 +18,7 @@ const CardProgress = ({ title, data, icon }) => {
         trailColor='#783fdb30'
         format={() => {
           return (
-            <span style={{ color: 'white' }}>
+            <span style={{ color: 'black' }}>
               {data}
               <span style={{ opacity: '0.4' }}>%</span>
             </span>
