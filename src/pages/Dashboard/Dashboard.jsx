@@ -22,7 +22,7 @@ const DashboardFC = () => {
         <Text style={{ fontSize: '2em' }}>{' in '}</Text>
         <Text style={{ fontSize: '2em', paddingLeft: '0.7em', color: '#783fdb' }}>{dayWeatherData.name}</Text>
       </div>
-      <Space size='large' align='start'>
+      <Space size='large' align='start' style={{ flexWrap: 'wrap' }}>
         <CardStatistic
           cardTitle={'Wind'}
           cardIcon={<TbWind style={{ fontSize: '2em' }} />}
