@@ -20,7 +20,7 @@ const CardProgress = ({ title, data, icon }) => {
           return (
             <span style={{ color: 'black' }}>
               {data}
-              <span style={{ opacity: '0.4' }}>%</span>
+              <span style={{ opacity: '0.4', marginLeft: '0.1em' }}>%</span>
             </span>
           )
         }}
