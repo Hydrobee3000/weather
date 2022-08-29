@@ -3,6 +3,7 @@ import { Container } from '@mui/material'
 import { Box } from '@mui/system'
 import WeatherCard from './WeatherCard/WeatherCardS'
 import { useSelector } from 'react-redux'
+import { Space, Typography, Statistic, Card } from 'antd'
 
 const Week = () => {
   const forecastData = useSelector((state) => state.weather.forecastData)
@@ -16,7 +17,9 @@ const Week = () => {
 
   return (
     <Container className={s.wrapper}>
-      <Box>{dailyFormatCards()}</Box>
+      <Space direction='vertical' size='large'>
+        {dailyFormatCards()}
+      </Space>
     </Container>
   )
 }

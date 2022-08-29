@@ -11,13 +11,9 @@ const WeatherCard = ({ day }) => {
 
   return (
     <Card
-      sx={{
-        maxWidth: 350,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        marginTop: '2em',
-        paddingBottom: '1em',
-        borderRadius: '10px',
+      style={{
+        borderRadius: '15px',
+        backgroundColor: '#efefef',
       }}
     >
       <Space
@@ -25,10 +21,10 @@ const WeatherCard = ({ day }) => {
         direction='vertical'
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
       >
-        <Text style={{ fontSize: '2em', padding: '0.6em', color: '#783fdb' }}> {dayOfWeekName} °C</Text>
-        <Text style={{ fontSize: '2em', padding: '0.6em', color: '#783fdb' }}> {Math.round(day.main.temp)} °C</Text>
-        <Text style={{ fontSize: '2em' }}>{day.weather[0].main}</Text>
-        <Text style={{ fontSize: '2em', padding: '0.7em', color: '#783fdb' }}>{dayOfWeek}</Text>
+        <Text style={{ fontSize: '1.5em', padding: '0.6em', color: 'white' }}> {dayOfWeekName} °C</Text>
+        <Text style={{ fontSize: '2em', padding: '0.6em', color: 'white' }}> {Math.round(day.main.temp)} °C</Text>
+        <Text style={{ fontSize: '2em', color: '#783fdb' }}>{day.weather[0].main}</Text>
+        <Text style={{ fontSize: '1.6em', padding: '0.7em', color: 'white', opacity: 0.6 }}>{dayOfWeek}</Text>
       </Space>
     </Card>
   )
