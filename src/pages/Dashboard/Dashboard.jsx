@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Space, Typography, Statistic, Card } from 'antd'
+import { Space, Typography } from 'antd'
 import { TbWind, TbTemperature, TbCloud, TbGauge } from 'react-icons/tb'
 import CardStatistic from './Cards/CardStatistic'
 import CardTemp from './Cards/CardStatisticTemp'
@@ -15,9 +15,9 @@ const DashboardFC = () => {
   return (
     <div style={{ paddingLeft: '20px' }}>
       <div style={{ textAlign: 'center', marginBottom: '1em' }}>
-        <Text style={{ fontSize: '2em', paddingRight: '0.7em', color: '#783fdb' }}>{weather.main}</Text>
+        <Text style={{ fontSize: '2em', padding: '0.6em', color: '#783fdb' }}>{weather.main}</Text>
         <Text style={{ fontSize: '2em' }}>{' in '}</Text>
-        <Text style={{ fontSize: '2em', paddingLeft: '0.7em', color: '#783fdb' }}>{dayWeatherData.name}</Text>
+        <Text style={{ fontSize: '2em', padding: '0.7em', color: '#783fdb' }}>{dayWeatherData.name}</Text>
       </div>
       <Space size='large' align='start' style={{ flexWrap: 'wrap' }}>
         <CardStatistic

@@ -1,5 +1,4 @@
 import { Progress, Typography, Card } from 'antd'
-import { TbGauge } from 'react-icons/tb'
 
 const { Text } = Typography
 
