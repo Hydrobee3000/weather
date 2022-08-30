@@ -1,8 +1,7 @@
-import { Container } from '@mui/material'
-import ForecastCard from './ForecastCard/ForecastCardS'
+import ForecastCard from './ForecastCard/ForecastCard'
 import { useSelector } from 'react-redux'
 import { Space } from 'antd'
-import TitlePage from '../../components/common/Preloader/TitlePage/TitlePage'
+import TitlePage from '../../components/common/TitlePage/TitlePage'
 import s from './Forecast.module.css'
 
 const Forecast = () => {
@@ -16,14 +15,12 @@ const Forecast = () => {
   }
 
   return (
-    <Container className={s.wrapper}>
-      <div style={{ textAlign: 'center', marginBottom: '1em' }}>
-        <TitlePage>Forecast overview</TitlePage>
-      </div>
+    <div className={s.wrapper}>
+      <TitlePage>Forecast overview</TitlePage>
       <Space direction='vertical' size='large'>
         {dailyFormatCards()}
       </Space>
-    </Container>
+    </div>
   )
 }
 

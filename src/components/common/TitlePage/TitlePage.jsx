@@ -4,8 +4,8 @@ const { Text } = Typography
 
 const TitlePage = ({ children }) => {
   return (
-    <div style={{ textAlign: 'center', marginBottom: '1em' }}>
-      <Text style={{ fontSize: '2em', color: '#783fdb' }}>{children}</Text>
+    <div style={{ fontSize: '2em', textAlign: 'center', marginBottom: '0.5em' }}>
+      <Text>{children}</Text>
     </div>
   )
 }

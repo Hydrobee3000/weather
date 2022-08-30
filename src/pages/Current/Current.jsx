@@ -6,7 +6,7 @@ const Current = () => {
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
 
   return (
-    <div className={s.wrapper} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '2em' }}>
+    <div className={s.wrapper}>
       <p style={{ fontSize: '2em' }}>{dayWeatherData.name}</p>
 
       {/* weather icon */}
