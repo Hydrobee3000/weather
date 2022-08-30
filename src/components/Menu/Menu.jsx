@@ -22,12 +22,12 @@ const MenuFC = () => {
         collapsed={collapsedMenu.toString()}
       >
         <Menu.Item key='today' icon={<CloudOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/current-weather'>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/current'>
             Current
           </NavLink>
         </Menu.Item>
         <Menu.Item key='week' icon={<CompassOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/weather-forecast'>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/forecast'>
             Forecast
           </NavLink>
         </Menu.Item>

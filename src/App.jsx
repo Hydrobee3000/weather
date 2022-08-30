@@ -41,9 +41,9 @@ const App = () => {
             }}
           >
             <Routes>
-              <Route path='/' element={<Navigate replace to='/current-weather' />} />
-              <Route path='current-weather' element={<CurrentContainer />} />
-              <Route path='weather-forecast' element={<ForecastContainer />} />
+              <Route path='/' element={<Navigate replace to='/current' />} />
+              <Route path='current' element={<CurrentContainer />} />
+              <Route path='forecast' element={<ForecastContainer />} />
               <Route path='dashboard' element={<DashboardContainer />} />
               <Route path='calendar' element={<CalendarContainer />} />
             </Routes>
