@@ -16,7 +16,7 @@ const Forecast = () => {
 
   return (
     <div className={s.wrapper}>
-      <TitlePage>Forecast overview</TitlePage>
+      {/* <TitlePage>Forecast overview</TitlePage> */}
       <Space direction='vertical' size='large'>
         {dailyFormatCards()}
       </Space>

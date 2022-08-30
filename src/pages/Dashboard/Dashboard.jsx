@@ -4,6 +4,7 @@ import { TbWind, TbTemperature, TbCloud, TbGauge } from 'react-icons/tb'
 import CardStatistic from './Cards/CardStatistic'
 import CardTemp from './Cards/CardStatisticTemp'
 import CardProgress from './Cards/CardProgress'
+import TitlePage from '../../components/common/TitlePage/TitlePage'
 
 const { Text } = Typography
 
@@ -14,11 +15,12 @@ const DashboardFC = () => {
 
   return (
     <div style={{ paddingLeft: '20px' }}>
-      <div style={{ textAlign: 'center', marginBottom: '1em' }}>
-        <Text style={{ fontSize: '2em', padding: '0.6em', color: '#783fdb' }}>{weather.main}</Text>
-        <Text style={{ fontSize: '2em' }}>{' in '}</Text>
-        <Text style={{ fontSize: '2em', padding: '0.7em', color: '#783fdb' }}>{dayWeatherData.name}</Text>
-      </div>
+      <TitlePage>
+        <span style={{ color: '#783fdb' }}>{weather.main}</span>
+        <span style={{ padding: '0.7em' }}>in</span>
+        <span style={{ color: '#783fdb' }}>{dayWeatherData.name}</span>
+      </TitlePage>
+
       <Space size='large' align='start' style={{ flexWrap: 'wrap' }}>
         <CardStatistic
           cardTitle={'Wind'}
