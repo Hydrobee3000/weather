@@ -1,12 +1,9 @@
-import s from './Week.module.css'
 import { Container } from '@mui/material'
-import { Box } from '@mui/system'
 import WeatherCard from './WeatherCard/WeatherCardS'
 import { useSelector } from 'react-redux'
-import { Space, Typography, Statistic, Card } from 'antd'
-import TitlePage from '../../components/common/Preloader/TitleOfPage/TitlePage'
-
-const { Text } = Typography
+import { Space } from 'antd'
+import TitlePage from '../../components/common/Preloader/TitlePage/TitlePage'
+import s from './Week.module.css'
 
 const Week = () => {
   const forecastData = useSelector((state) => state.weather.forecastData)
@@ -19,9 +16,7 @@ const Week = () => {
   }
 
   return (
-    <Container
-    // className={s.wrapper}
-    >
+    <Container className={s.wrapper}>
       <div style={{ textAlign: 'center', marginBottom: '1em' }}>
         <TitlePage>Forecast overview</TitlePage>
       </div>

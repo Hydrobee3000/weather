@@ -3,7 +3,7 @@ import { Navigate } from 'react-router'
 import HeaderFC from './components/Header/Header'
 import MenuFC from './components/Menu/Menu'
 import { Layout } from 'antd'
-import DayContainer from './pages/Day/DayContainer'
+import CurrentContainer from './pages/Current/CurrentContainer'
 import WeekContainer from './pages/Week/WeekContainer'
 import DashboardContainer from './pages/Dashboard/DashboardContainer'
 import CalendarContainer from './pages/Calendar/CalendarContainer'
@@ -42,7 +42,7 @@ const App = () => {
           >
             <Routes>
               <Route path='/' element={<Navigate replace to='/current-weather' />} />
-              <Route path='current-weather' element={<DayContainer />} />
+              <Route path='current-weather' element={<CurrentContainer />} />
               <Route path='weather-forecast' element={<WeekContainer />} />
               <Route path='dashboard' element={<DashboardContainer />} />
               <Route path='calendar' element={<CalendarContainer />} />

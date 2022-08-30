@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
-import s from './Day.module.css'
+import s from './Current.module.css'
 
-const Day = () => {
+const Current = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
 
@@ -45,4 +45,4 @@ const Day = () => {
   )
 }
 
-export default Day
+export default Current
