@@ -1,4 +1,6 @@
 .wrapper {
   margin-bottom: 2em;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
 }

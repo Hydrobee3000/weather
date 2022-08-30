@@ -6,7 +6,7 @@ const CardProgress = ({ title, data, icon }) => {
   return (
     <Card
       headStyle={{ padding: '0 1em' }}
-      title={<Text style={{ color: '#783fdb' }}>{title}</Text>}
+      title={<Text style={{ margin: 0, pading: 0, color: '#783fdb' }}>{title}</Text>}
       bodyStyle={{ paddingBottom: '1.5em' }}
       style={{ borderRadius: '15px', backgroundColor: '#efefef' }}
       extra={icon}
@@ -24,7 +24,7 @@ const CardProgress = ({ title, data, icon }) => {
             </span>
           )
         }}
-        style={{ display: 'flex', justifyContent: 'center', margin: '2.77em' }}
+        style={{ display: 'flex', justifyContent: 'center', margin: '2.77em 1.8em' }}
         percent={data}
       />
     </Card>

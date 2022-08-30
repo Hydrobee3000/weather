@@ -1,9 +1,4 @@
-.app_wrap {
-  background: rgb(240, 238, 241);
-  width: 475px;
-  height: 200px;
-  display: block;
-  margin: 0 auto;
-  border-radius: 10px;
-  position: relative;
+.wrapper {
+  display: flex;
+  justify-content: center;
 }
