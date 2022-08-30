@@ -15,16 +15,16 @@ const WeatherCard = ({ day }) => {
         borderRadius: '15px',
         backgroundColor: '#efefef',
       }}
+      title={<Text style={{ color: '#783fdb' }}>{dayOfWeekName}</Text>}
     >
       <Space
         size='large'
         direction='vertical'
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
       >
-        <Text style={{ fontSize: '1.5em', padding: '0.6em', color: 'white' }}> {dayOfWeekName} °C</Text>
-        <Text style={{ fontSize: '2em', padding: '0.6em', color: 'white' }}> {Math.round(day.main.temp)} °C</Text>
+        <Text style={{ fontSize: '2em', padding: '0.6em' }}> {Math.round(day.main.temp)} °C</Text>
         <Text style={{ fontSize: '2em', color: '#783fdb' }}>{day.weather[0].main}</Text>
-        <Text style={{ fontSize: '1.6em', padding: '0.7em', color: 'white', opacity: 0.6 }}>{dayOfWeek}</Text>
+        <Text style={{ fontSize: '1.6em', padding: '0.7em', opacity: 0.6 }}>{dayOfWeek}</Text>
       </Space>
     </Card>
   )
