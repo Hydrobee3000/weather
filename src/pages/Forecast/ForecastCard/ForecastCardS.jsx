@@ -4,7 +4,7 @@ import { TbWind, TbTemperature, TbCloud, TbGauge } from 'react-icons/tb'
 
 const { Text } = Typography
 
-const WeatherCard = ({ day }) => {
+const ForecastCard = ({ day }) => {
   const ms = day.dt * 1000
   const dayOfWeek = new Date(ms).toDateString()
   const dayOfWeekName = new Date(ms).toLocaleString('en', { weekday: 'long' })
@@ -30,4 +30,4 @@ const WeatherCard = ({ day }) => {
   )
 }
 
-export default WeatherCard
+export default ForecastCard

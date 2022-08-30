@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import Card from '@mui/material/Card'
-import s from './WeatherCard.module.css'
+import s from './ForecastCard.module.css'
 
 //type for props
 interface IProps {
@@ -17,7 +17,7 @@ interface IProps {
   }
 }
 
-const WeatherCard: React.FC<IProps> = ({ day }) => {
+const ForecastCard: React.FC<IProps> = ({ day }) => {
   const ms = day.dt * 1000
   const dayOfWeek = new Date(ms).toDateString()
   const dayOfWeekName = new Date(ms).toLocaleString('en', { weekday: 'long' })
@@ -51,4 +51,4 @@ const WeatherCard: React.FC<IProps> = ({ day }) => {
   )
 }
 
-export default WeatherCard
+export default ForecastCard
