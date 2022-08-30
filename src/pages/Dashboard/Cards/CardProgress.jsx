@@ -8,11 +8,12 @@ const CardProgress = ({ title, data, icon }) => {
       headStyle={{ padding: '0 1em' }}
       title={<Text style={{ color: '#783fdb' }}>{title}</Text>}
       bodyStyle={{ paddingBottom: '1.5em' }}
-      style={{ borderRadius: '15px', width: 220, backgroundColor: '#efefef' }}
+      style={{ borderRadius: '15px', backgroundColor: '#efefef' }}
       extra={icon}
     >
       <Progress
         type='dashboard'
+        strokeWidth='8'
         strokeColor='#783fdb'
         trailColor='#783fdb30'
         format={() => {
@@ -23,7 +24,7 @@ const CardProgress = ({ title, data, icon }) => {
             </span>
           )
         }}
-        style={{ display: 'flex', justifyContent: 'center' }}
+        style={{ display: 'flex', justifyContent: 'center', margin: '2.77em' }}
         percent={data}
       />
     </Card>

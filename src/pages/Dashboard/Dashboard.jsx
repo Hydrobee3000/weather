@@ -58,7 +58,7 @@ const DashboardFC = () => {
           icon={<TbCloud style={{ fontSize: '2em', color: 'white' }} />}
         />
 
-        <p>Pressure: {dayWeatherData.main.pressure}</p>
+        {/* <p>Pressure: {dayWeatherData.main.pressure}</p> */}
       </Space>
     </div>
   )
