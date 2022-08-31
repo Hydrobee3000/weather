@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux'
-import s from './Day.module.css'
+import s from './Current.module.css'
 
-const Day = () => {
+const Current = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
 
   return (
-    <div className={s.wrapper} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '2em' }}>
+    <div className={s.wrapper}>
       <p style={{ fontSize: '2em' }}>{dayWeatherData.name}</p>
 
       {/* weather icon */}
@@ -45,4 +45,4 @@ const Day = () => {
   )
 }
 
-export default Day
+export default Current

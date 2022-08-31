@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Preloader from '../../components/common/Preloader/Preloader'
 import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer'
-import Day from './Day'
+import Current from './Current'
 
 // fetch day data and set in store
 
-const DayContainer = () => {
+const CurrentContainer = () => {
   const dispatch = useDispatch()
   const activePlace = useSelector((state) => state.weather.activePlace) // selected active place
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
@@ -21,7 +21,7 @@ const DayContainer = () => {
     return <Preloader />
   }
 
-  return <Day />
+  return <Current />
 }
 
-export default DayContainer
+export default CurrentContainer

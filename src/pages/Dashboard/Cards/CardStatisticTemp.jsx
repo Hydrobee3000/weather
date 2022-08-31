@@ -8,10 +8,10 @@ const CardTemp = ({
   cardIcon,
   firstTitle,
   firstData,
-  secondTitle,
-  secondData,
-  thirdTitle,
-  thirdData,
+  secondTitle = null,
+  secondData = null,
+  thirdTitle = null,
+  thirdData = null,
   fourthTitle = null,
   fourthData = null,
 }) => {
@@ -45,7 +45,7 @@ const CardTemp = ({
             value={firstData}
             precision={2}
             valueStyle={{ fontSize: '1.85em' }}
-            suffix={'°C'}
+            suffix={<span style={{ opacity: '0.5' }}>°C</span>}
           />
           <Statistic
             style={{
@@ -60,7 +60,7 @@ const CardTemp = ({
             value={secondData}
             precision={2}
             valueStyle={{ fontSize: '1.85em' }}
-            suffix='°C'
+            suffix={<span style={{ opacity: '0.5' }}>°C</span>}
           />
         </Space>
         <Space
@@ -81,7 +81,7 @@ const CardTemp = ({
             value={thirdData}
             precision={2}
             valueStyle={{ fontSize: '1.85em' }}
-            suffix={'°C'}
+            suffix={<span style={{ opacity: '0.5' }}>°C</span>}
           />
           <Statistic
             style={{
@@ -96,7 +96,7 @@ const CardTemp = ({
             value={fourthData}
             precision={2}
             valueStyle={{ fontSize: '1.85em' }}
-            suffix={'°C'}
+            suffix={<span style={{ opacity: '0.5' }}>°C</span>}
           />
         </Space>
       </Space>

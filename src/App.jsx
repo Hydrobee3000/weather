@@ -3,8 +3,8 @@ import { Navigate } from 'react-router'
 import HeaderFC from './components/Header/Header'
 import MenuFC from './components/Menu/Menu'
 import { Layout } from 'antd'
-import DayContainer from './pages/Day/DayContainer'
-import WeekContainer from './pages/Week/WeekContainer'
+import CurrentContainer from './pages/Current/CurrentContainer'
+import ForecastContainer from './pages/Forecast/ForecastContainer'
 import DashboardContainer from './pages/Dashboard/DashboardContainer'
 import CalendarContainer from './pages/Calendar/CalendarContainer'
 import { useDispatch, useSelector } from 'react-redux'
@@ -41,9 +41,9 @@ const App = () => {
             }}
           >
             <Routes>
-              <Route path='/' element={<Navigate replace to='/current-weather' />} />
-              <Route path='current-weather' element={<DayContainer />} />
-              <Route path='weather-forecast' element={<WeekContainer />} />
+              <Route path='/' element={<Navigate replace to='/current' />} />
+              <Route path='current' element={<CurrentContainer />} />
+              <Route path='forecast' element={<ForecastContainer />} />
               <Route path='dashboard' element={<DashboardContainer />} />
               <Route path='calendar' element={<CalendarContainer />} />
             </Routes>

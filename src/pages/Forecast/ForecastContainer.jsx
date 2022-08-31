@@ -1,15 +1,15 @@
 import { useSelector } from 'react-redux'
 import Preloader from '../../components/common/Preloader/Preloader'
-import Week from './Week'
+import Forecast from './Forecast'
 
-const WeekContainer = () => {
+const ForecastContainer = () => {
   const forecastData = useSelector((state) => state.weather.forecastData)
 
   //display preloader, while data is empty
   if (!forecastData) {
     return <Preloader />
   }
-  return <Week />
+  return <Forecast />
 }
 
-export default WeekContainer
+export default ForecastContainer

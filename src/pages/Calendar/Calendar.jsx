@@ -57,9 +57,7 @@ const CalendarFC = () => {
                 type: 'none',
                 content: (
                   <div style={{ margin: '-10px' }}>
-                    <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>{`${(dayWeatherData.main.temp - 273.15).toFixed(
-                      1
-                    )} °С`}</p>
+                    <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>{`${dayWeatherData.main.temp.toFixed(1)} °С`}</p>
                     <Tag style={{ margin: '0' }} color='purple'>
                       <p
                         style={{
