@@ -6,22 +6,24 @@ import CardTemp from './Cards/CardStatisticTemp'
 import CardProgress from './Cards/CardProgress'
 import TitlePage from '../../components/common/TitlePage/TitlePage'
 import s from './Dashboard.module.css'
+import firstLetterUpperCase from '../../utils/firstLetterUpperCase'
 
 const { Text } = Typography
 
 const DashboardFC = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
-  console.log(dayWeatherData.main.pressure)
 
   return (
     <>
       <TitlePage>
-        <span style={{ color: '#783fdb' }}>{weather.main}</span>
+        <span style={{ color: '#783fdb' }}>{firstLetterUpperCase(weather.description)}</span>
         <span style={{ padding: '0.7em' }}>in</span>
         <span style={{ color: '#783fdb' }}>{dayWeatherData.name}</span>
       </TitlePage>
-      <div className={s.wrapper}>
+      <div
+      //  className={s.wrapper}
+      >
         <Space size={40} align='start' style={{ flexWrap: 'wrap', marginTop: '1em' }}>
           <CardStatistic
             cardTitle={'Wind'}
