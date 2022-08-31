@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { Space, Typography } from 'antd'
-import { TbWind, TbTemperature, TbCloud, TbGauge } from 'react-icons/tb'
+import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb'
 import CardStatistic from './Cards/CardStatistic'
 import CardTemp from './Cards/CardStatisticTemp'
 import CardProgress from './Cards/CardProgress'
@@ -52,7 +52,7 @@ const DashboardFC = () => {
           <CardProgress
             title='Humidity'
             data={dayWeatherData.main.humidity}
-            icon={<TbGauge style={{ fontSize: '2em', color: 'white' }} />}
+            icon={<TbDroplet style={{ fontSize: '2em', color: 'white' }} />}
           />
 
           <CardProgress
