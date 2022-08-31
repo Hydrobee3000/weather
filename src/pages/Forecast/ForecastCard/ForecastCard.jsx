@@ -1,6 +1,6 @@
 import { Space, Typography, Card } from 'antd'
 import { IoSunnySharp, IoCloudSharp } from 'react-icons/io5'
-import { BsFillCloudRainHeavyFill } from 'react-icons/bs'
+import { BsFillCloudRainHeavyFill, BsCloudFogFill } from 'react-icons/bs'
 
 const { Text } = Typography
 
@@ -24,6 +24,8 @@ const ForecastCard = ({ day }) => {
           <BsFillCloudRainHeavyFill style={{ fontSize: '1.2em', color: 'white', width: '25px', height: '25px' }} />
         ) : day.weather[0].main === 'Clouds' ? (
           <IoCloudSharp style={{ fontSize: '1.2em', color: 'white', width: '25px', height: '25px' }} />
+        ) : day.weather[0].main === 'Fog' ? (
+          <BsCloudFogFill style={{ fontSize: '1.2em', color: 'white', width: '25px', height: '25px' }} />
         ) : (
           ''
         )
@@ -35,7 +37,7 @@ const ForecastCard = ({ day }) => {
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
       >
         <Text style={{ fontSize: '2em', padding: '0.6em' }}> {Math.round(day.main.temp)} °C</Text>
-        <Text style={{ fontSize: '2em', color: '#783fdb' }}>{day.weather[0].main}</Text>
+        <Text style={{ fontSize: '2em', color: '#783fdb' }}>{day.weather[0].description}</Text>
         <Text style={{ padding: '0.7em', opacity: 0.6 }}>{dayOfWeek}</Text>
       </Space>
     </Card>

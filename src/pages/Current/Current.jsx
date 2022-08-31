@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import firstLetterUpperCase from '../../utils/firstLetterUpperCase'
 import s from './Current.module.css'
 
 const Current = () => {
@@ -15,7 +16,7 @@ const Current = () => {
         {Math.round(parseFloat(dayWeatherData.main.temp) * 10) / 10} °С
       </p>
       <p style={{ fontSize: '3em', color: 'rgb(74, 0, 203)', margin: '0' }} className={s.title}>
-        {weather.main}
+        {firstLetterUpperCase(weather.description)}
       </p>
       {/* <p style={{ fontSize: '1.2em' }} className={s.parameter}>
         Feels like: {(dayWeatherData.main.feels_like - 273.15).toFixed(1)} °С
