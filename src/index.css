@@ -39,3 +39,8 @@ code {
   height: 0;
   display: none;
 }
+
+/* color of the weekdays header into calendar  */
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-body th {
+  color: #783fdb !important;
+}
