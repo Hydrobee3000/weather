@@ -8,7 +8,7 @@ const Current = () => {
 
   return (
     <div className={s.wrapper}>
-      <p style={{ fontSize: '2em' }}>{dayWeatherData.name}</p>
+      <p style={{ fontSize: '2em', marginTop: '2.5em' }}>{dayWeatherData.name}</p>
 
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
