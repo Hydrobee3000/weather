@@ -17,6 +17,7 @@ const ForecastCard = ({ day }) => {
         minWidth: '18em',
       }}
       title={<Text style={{ color: '#783fdb' }}>{dayOfWeekName}</Text>}
+      // the icon depends on the weather
       extra={
         day.weather[0].main === 'Clear' ? (
           <IoSunnySharp style={{ fontSize: '1.2em', color: 'white', width: '25px', height: '25px' }} />
@@ -36,7 +37,7 @@ const ForecastCard = ({ day }) => {
         direction='vertical'
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
       >
-        <Text style={{ fontSize: '2em', padding: '0.6em' }}> {Math.round(day.main.temp)} °C</Text>
+        <Text style={{ fontSize: '2.7em', padding: '0.6em' }}> {Math.round(day.main.temp)} °C</Text>
         <Text style={{ fontSize: '2em', color: '#783fdb' }}>{day.weather[0].description}</Text>
         <Text style={{ padding: '0.7em', opacity: 0.6 }}>{dayOfWeek}</Text>
       </Space>
