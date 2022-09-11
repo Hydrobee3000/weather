@@ -19,7 +19,6 @@ const CardStatistic = ({
       bodyStyle={{ paddingBottom: '1.5em' }}
       style={{
         borderRadius: '15px',
-        width: 220,
         backgroundColor: '#efefef',
       }}
       title={<Text style={{ color: '#783fdb' }}>{cardTitle}</Text>}
@@ -27,8 +26,7 @@ const CardStatistic = ({
     >
       <Space
         size='large'
-        direction='vertical'
-        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}
       >
         <Statistic
           style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
