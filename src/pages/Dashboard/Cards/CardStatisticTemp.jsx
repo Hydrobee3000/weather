@@ -1,4 +1,3 @@
-import React from 'react'
 import { Space, Statistic, Typography, Card } from 'antd'
 
 const { Text } = Typography
@@ -26,7 +25,7 @@ const CardTemp = ({
       title={<Text style={{ color: '#783fdb' }}>{cardTitle}</Text>}
       extra={cardIcon}
     >
-      <Space size='large'>
+      <Space size='large' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
         <Space
           size='large'
           direction='vertical'
@@ -39,7 +38,7 @@ const CardTemp = ({
               padding: '0 20px',
               paddingTop: '10px',
               paddingBottom: '10px',
-              width: '140px',
+              width: 'auto',
             }}
             title={firstTitle}
             value={firstData}
@@ -54,7 +53,7 @@ const CardTemp = ({
               padding: '0 20px',
               paddingTop: '10px',
               paddingBottom: '10px',
-              width: '140px',
+              width: 'auto',
             }}
             title={secondTitle}
             value={secondData}
@@ -75,7 +74,7 @@ const CardTemp = ({
               padding: '0 20px',
               paddingTop: '10px',
               paddingBottom: '10px',
-              width: '140px',
+              width: 'auto',
             }}
             title={thirdTitle}
             value={thirdData}
@@ -90,7 +89,7 @@ const CardTemp = ({
               padding: '0 20px',
               paddingTop: '10px',
               paddingBottom: '10px',
-              width: '140px',
+              width: 'auto',
             }}
             title={fourthTitle}
             value={fourthData}

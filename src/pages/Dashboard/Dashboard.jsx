@@ -1,27 +1,29 @@
 import { useSelector } from 'react-redux'
 import { Space, Typography } from 'antd'
-import { TbWind, TbTemperature, TbCloud, TbGauge } from 'react-icons/tb'
+import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb'
 import CardStatistic from './Cards/CardStatistic'
 import CardTemp from './Cards/CardStatisticTemp'
 import CardProgress from './Cards/CardProgress'
 import TitlePage from '../../components/common/TitlePage/TitlePage'
 import s from './Dashboard.module.css'
+import firstLetterUpperCase from '../../utils/firstLetterUpperCase'
 
 const { Text } = Typography
 
 const DashboardFC = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
-  console.log(dayWeatherData.main.pressure)
 
   return (
     <>
       <TitlePage>
-        <span style={{ color: '#783fdb' }}>{weather.main}</span>
+        <span style={{ color: '#783fdb' }}>{firstLetterUpperCase(weather.description)}</span>
         <span style={{ padding: '0.7em' }}>in</span>
         <span style={{ color: '#783fdb' }}>{dayWeatherData.name}</span>
       </TitlePage>
-      <div className={s.wrapper}>
+      <div
+      //  className={s.wrapper}
+      >
         <Space size={40} align='start' style={{ flexWrap: 'wrap', marginTop: '1em' }}>
           <CardStatistic
             cardTitle={'Wind'}
@@ -50,7 +52,7 @@ const DashboardFC = () => {
           <CardProgress
             title='Humidity'
             data={dayWeatherData.main.humidity}
-            icon={<TbGauge style={{ fontSize: '2em', color: 'white' }} />}
+            icon={<TbDroplet style={{ fontSize: '2em', color: 'white' }} />}
           />
 
           <CardProgress

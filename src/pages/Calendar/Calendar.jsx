@@ -23,14 +23,18 @@ const CalendarFC = () => {
 
         // if date of calendar card and forecast date equals - show temperature of this day
         switch (cardCalendarDate) {
+          //forecast calendar cards
           case dateForecastFormat:
             listData = [
               {
                 type: 'none',
                 content: (
-                  <div style={{ margin: '0', marginTop: '-15px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '-20px' }}>
                     <p
-                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}
+                      style={{
+                        marginBottom: '10px',
+                        fontSize: '1.3em',
+                      }}
                     >{`${Math.round(day.main.temp)} °C`}</p>
                     <Tag style={{ margin: '0' }} color='purple'>
                       <p
@@ -51,13 +55,16 @@ const CalendarFC = () => {
             ]
             break
 
+          //current caledar card
           case today:
             listData = [
               {
                 type: 'none',
                 content: (
-                  <div style={{ margin: '-10px' }}>
-                    <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>{`${dayWeatherData.main.temp.toFixed(1)} °С`}</p>
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '-20px' }}>
+                    <p
+                      style={{ fontWeight: 'bold', marginBottom: '10px', fontSize: '1.3em' }}
+                    >{`${dayWeatherData.main.temp.toFixed(1)} °С`}</p>
                     <Tag style={{ margin: '0' }} color='purple'>
                       <p
                         style={{

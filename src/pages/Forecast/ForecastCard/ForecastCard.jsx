@@ -1,6 +1,7 @@
 import { Space, Typography, Card } from 'antd'
 import { IoSunnySharp, IoCloudSharp } from 'react-icons/io5'
-import { BsFillCloudRainHeavyFill } from 'react-icons/bs'
+import { BsFillCloudRainHeavyFill, BsCloudFogFill } from 'react-icons/bs'
+import s from './ForecastCard.module.css'
 
 const { Text } = Typography
 
@@ -14,16 +15,22 @@ const ForecastCard = ({ day }) => {
       style={{
         borderRadius: '15px',
         backgroundColor: '#efefef',
-        minWidth: '18em',
+        minWidth: '24em',
       }}
-      title={<Text style={{ color: '#783fdb' }}>{dayOfWeekName}</Text>}
+      title={<Text style={{ color: 'rgb(74, 0, 203)' }}>{dayOfWeekName}</Text>}
+      // the icon depends on the weather
       extra={
         day.weather[0].main === 'Clear' ? (
-          <IoSunnySharp style={{ fontSize: '1.2em', color: 'white', width: '25px', height: '25px' }} />
+          <IoSunnySharp className={s.card__icon} style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
         ) : day.weather[0].main === 'Rain' ? (
-          <BsFillCloudRainHeavyFill style={{ fontSize: '1.2em', color: 'white', width: '25px', height: '25px' }} />
+          <BsFillCloudRainHeavyFill
+            className={s.card__icon}
+            style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }}
+          />
         ) : day.weather[0].main === 'Clouds' ? (
-          <IoCloudSharp style={{ fontSize: '1.2em', color: 'white', width: '25px', height: '25px' }} />
+          <IoCloudSharp className={s.card__icon} style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
+        ) : day.weather[0].main === 'Fog' ? (
+          <BsCloudFogFill className={s.card__icon} style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
         ) : (
           ''
         )
@@ -34,9 +41,9 @@ const ForecastCard = ({ day }) => {
         direction='vertical'
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
       >
-        <Text style={{ fontSize: '2em', padding: '0.6em' }}> {Math.round(day.main.temp)} °C</Text>
-        <Text style={{ fontSize: '2em', color: '#783fdb' }}>{day.weather[0].main}</Text>
-        <Text style={{ padding: '0.7em', opacity: 0.6 }}>{dayOfWeek}</Text>
+        <Text style={{ fontSize: '3.2em', padding: '0.6em' }}> {Math.round(day.main.temp)} °C</Text>
+        <Text style={{ fontSize: '2em', color: '#783fdb' }}>{day.weather[0].description}</Text>
+        <Text style={{ paddingTop: '1.5em', paddingBottom: '0.8em', opacity: 0.6 }}>{dayOfWeek}</Text>
       </Space>
     </Card>
   )
