@@ -1,6 +1,7 @@
 import { Space, Typography, Card } from 'antd'
 import { IoSunnySharp, IoCloudSharp } from 'react-icons/io5'
 import { BsFillCloudRainHeavyFill, BsCloudFogFill } from 'react-icons/bs'
+import s from './ForecastCard.module.css'
 
 const { Text } = Typography
 
@@ -20,13 +21,16 @@ const ForecastCard = ({ day }) => {
       // the icon depends on the weather
       extra={
         day.weather[0].main === 'Clear' ? (
-          <IoSunnySharp style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
+          <IoSunnySharp className={s.card__icon} style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
         ) : day.weather[0].main === 'Rain' ? (
-          <BsFillCloudRainHeavyFill style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
+          <BsFillCloudRainHeavyFill
+            className={s.card__icon}
+            style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }}
+          />
         ) : day.weather[0].main === 'Clouds' ? (
-          <IoCloudSharp style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
+          <IoCloudSharp className={s.card__icon} style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
         ) : day.weather[0].main === 'Fog' ? (
-          <BsCloudFogFill style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
+          <BsCloudFogFill className={s.card__icon} style={{ fontSize: '1.2em', color: 'white', width: '28px', height: '28px' }} />
         ) : (
           ''
         )
