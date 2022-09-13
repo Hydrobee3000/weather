@@ -9,6 +9,7 @@ const { Option } = Select // get option from select obj antd
 
 const HeaderFC = () => {
   const dispatch = useDispatch()
+
   const places = useSelector((state) => state.weather.places) // array of places
   const activePlace = useSelector((state) => state.weather.activePlace) // selected active place
   const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is closed menu? default = false

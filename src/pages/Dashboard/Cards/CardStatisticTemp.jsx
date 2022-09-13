@@ -1,4 +1,3 @@
-import React from 'react'
 import { Space, Statistic, Typography, Card } from 'antd'
 
 const { Text } = Typography
