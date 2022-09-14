@@ -1,10 +1,45 @@
-.card__icon {
-  transition: 1s; /* Время эффекта */
-}
-.card__icon:hover {
-  transform: scale(1.2); /* Увеличиваем масштаб */
+.card {
+  border-radius: 15px !important;
+  background-color: #efefef !important;
+  min-width: 24em !important;
 }
 
-.card:hover {
-  background-color: #ebebeb;
+.card__title {
+  color: #4a00cb !important;
+  font-size: 1.1em;
 }
+
+.card__icon {
+  font-size: 1.2em;
+  color: white;
+  width: 28px;
+  height: 28px;
+  transition: 1s;
+}
+.card__icon:hover {
+  transform: scale(1.2);
+}
+
+.card__content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.content__temp {
+  font-size: 3.2em;
+}
+
+.content__descr {
+  font-size: 2em;
+  color: #783fdb !important;
+}
+
+.content__date {
+  opacity: 0.6;
+}
+
+/* .card:hover {
+  background-color: #ebebeb;
+} */
