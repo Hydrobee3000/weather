@@ -9,11 +9,18 @@
   margin: 5px 0;
 }
 
-.header__select {
-  width: 10em;
+.header__date {
+  margin: 0;
+  margin-left: 1.5em;
+  font-size: 1.2em;
+  color: rgb(74, 0, 203);
 }
 
-.btn__menu_toggle:hover {
+.header__select {
+  width: 9em;
+}
+
+.header__menu_btn:hover {
   opacity: 0.8;
 }
 

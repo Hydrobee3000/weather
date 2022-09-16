@@ -31,19 +31,15 @@ const HeaderFC = () => {
     <PageHeader
       className={s.header__container}
       title={
-        <Button className={s.btn__menu_toggle} type='primary' onClick={toggleCollapsedMenu}>
+        <Button className={s.header__menu_btn} type='primary' onClick={toggleCollapsedMenu}>
           {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         </Button>
       } // change icon on click, icon toggle menu view
-      subTitle={
-        <p style={{ margin: '0', marginLeft: '1.5em', fontSize: '1.2em', color: 'rgb(74, 0, 203)' }}>
-          {today.toLocaleDateString('en-US', optionsDate)}
-        </p>
-      } // date
+      subTitle={<p className={s.header__date}>{today.toLocaleDateString('en-US', optionsDate)}</p>} // date
       extra={[
         <Select
           showSearch
-          style={{ minWidth: '9em' }}
+          className={s.header__select}
           placeholder='Select a place'
           optionFilterProp='children'
           onChange={onChangePlace}
