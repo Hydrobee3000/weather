@@ -7,17 +7,14 @@ const Current = () => {
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
 
   return (
-    <div className={s.wrapper}>
+    <div className={s.current__container}>
       <p style={{ fontSize: '2em', marginTop: '2.5em' }}>{dayWeatherData.name}</p>
 
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
-      <p style={{ fontSize: '6em', marginTop: '0.5em' }} className={s.parameter}>
-        {Math.round(parseFloat(dayWeatherData.main.temp) * 10) / 10} °С
-      </p>
-      <p style={{ fontSize: '3em', color: 'rgb(74, 0, 203)', margin: '0' }} className={s.title}>
-        {firstLetterUpperCase(weather.description)}
-      </p>
+      <p style={{ fontSize: '6em', marginTop: '0.5em' }}>{Math.round(parseFloat(dayWeatherData.main.temp) * 10) / 10} °С</p>
+      <p style={{ fontSize: '3em', color: 'rgb(74, 0, 203)', margin: '0' }}>{firstLetterUpperCase(weather.description)}</p>
+
       {/* <p style={{ fontSize: '1.2em' }} className={s.parameter}>
         Feels like: {(dayWeatherData.main.feels_like - 273.15).toFixed(1)} °С
       </p> */}
