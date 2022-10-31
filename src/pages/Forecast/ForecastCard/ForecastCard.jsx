@@ -17,20 +17,28 @@ const ForecastCard = ({ day }) => {
       // the icon depends on the weather
       extra={
         day.weather[0].main === 'Clear' ? (
+          // when weather clearly - icon sun
           <IoSunnySharp className={s.card__icon} />
         ) : day.weather[0].main === 'Rain' ? (
+          // when rainy
           <BsFillCloudRainHeavyFill className={s.card__icon} />
         ) : day.weather[0].main === 'Clouds' ? (
+          // when fill cloud
           <IoCloudSharp className={s.card__icon} />
-        ) : day.weather[0].main === 'Fog' ? (
+        ) : // when cloud sharp
+        day.weather[0].main === 'Fog' ? (
           <BsCloudFogFill className={s.card__icon} />
         ) : (
+          // when fog
+          // if nothing above - show nothing
           ''
         )
       }
     >
       <Space size='large' direction='vertical' className={s.card__content}>
+        {/* unit of temperature */}
         <Text className={s.content__temp}>{Math.round(day.main.temp)} °C</Text>
+        {/* description of weather */}
         <Text className={s.content__descr}>{day.weather[0].description}</Text>
         <Text className={s.content__date}>{dateWeekDay}</Text>
       </Space>
