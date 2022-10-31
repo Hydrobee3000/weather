@@ -13,9 +13,9 @@ const MenuFC = () => {
   //if url has match path of NavLink - then firstly select needed Menu.Item
 
   return (
-    <Sider style={{ backgroundColor: '#efefef' }} trigger={null} collapsible collapsed={collapsedMenu}>
+    <Sider className={s.menu__container} trigger={null} collapsible collapsed={collapsedMenu}>
       <Menu
-        style={{ backgroundColor: '#efefef', fontSize: '1.2em' }}
+        className={s.menu}
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         mode='inline'
