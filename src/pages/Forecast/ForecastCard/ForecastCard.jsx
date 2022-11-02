@@ -37,7 +37,9 @@ const ForecastCard = ({ day }) => {
     >
       <Space size='large' direction='vertical' className={s.card__content}>
         {/* unit of temperature */}
-        <Text className={s.content__temp}>{Math.round(day.main.temp)} °C</Text>
+        <Text className={s.content__temp}>
+          {Math.round(day.main.temp)} <span style={{ opacity: 0.7 }}>°C</span>
+        </Text>
         {/* description of weather */}
         <Text className={s.content__descr}>{day.weather[0].description}</Text>
         <Text className={s.content__date}>{dateWeekDay}</Text>
