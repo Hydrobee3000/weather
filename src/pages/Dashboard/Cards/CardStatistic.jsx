@@ -1,5 +1,6 @@
 import React from 'react'
 import { Space, Statistic, Typography, Card } from 'antd'
+import TitleCard from '../../../components/common/DashboardCards/TitleCard'
 
 const { Text } = Typography
 
@@ -21,7 +22,7 @@ const CardStatistic = ({
         borderRadius: '15px',
         backgroundColor: '#efefef',
       }}
-      title={<Text style={{ color: '#783fdb' }}>{cardTitle}</Text>}
+      title={<TitleCard>{cardTitle}</TitleCard>}
       extra={cardIcon}
     >
       <Space
@@ -30,7 +31,7 @@ const CardStatistic = ({
       >
         <Statistic
           style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
-          title={firstTitle}
+          title={<span style={{ color: '#783fdbe2' }}>{firstTitle}</span>}
           value={firstData}
           precision={2}
           valueStyle={{ fontSize: '1.85em' }}
@@ -45,7 +46,7 @@ const CardStatistic = ({
             paddingBottom: '10px',
             width: '140px',
           }}
-          title={secondTitle}
+          title={<span style={{ color: '#783fdbe2' }}>{secondTitle}</span>}
           value={secondData}
           precision={2}
           valueStyle={{ fontSize: '1.85em' }}
@@ -53,7 +54,7 @@ const CardStatistic = ({
         />
         <Statistic
           style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
-          title={thirdTitle}
+          title={<span style={{ color: '#783fdbe2' }}>{thirdTitle}</span>}
           value={thirdData}
           precision={2}
           valueStyle={{ fontSize: '1.85em' }}

@@ -1,12 +1,11 @@
-import { Progress, Typography, Card } from 'antd'
-
-const { Text } = Typography
+import { Progress, Card } from 'antd'
+import TitleCard from '../../../components/common/DashboardCards/TitleCard'
 
 const CardProgress = ({ title, data, icon }) => {
   return (
     <Card
       headStyle={{ padding: '0 1em' }}
-      title={<Text style={{ margin: 0, pading: 0, color: '#783fdb' }}>{title}</Text>}
+      title={<TitleCard>{title}</TitleCard>}
       bodyStyle={{ paddingBottom: '1.5em' }}
       style={{ borderRadius: '15px', backgroundColor: '#efefef' }}
       extra={icon}

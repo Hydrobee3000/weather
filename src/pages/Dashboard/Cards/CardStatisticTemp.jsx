@@ -1,4 +1,5 @@
 import { Space, Statistic, Typography, Card } from 'antd'
+import TitleCard from '../../../components/common/DashboardCards/TitleCard'
 
 const { Text } = Typography
 
@@ -22,7 +23,7 @@ const CardTemp = ({
         borderRadius: '15px',
         backgroundColor: '#efefef',
       }}
-      title={<Text style={{ color: '#783fdb' }}>{cardTitle}</Text>}
+      title={<TitleCard>{cardTitle}</TitleCard>}
       extra={cardIcon}
     >
       <Space size='large' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
