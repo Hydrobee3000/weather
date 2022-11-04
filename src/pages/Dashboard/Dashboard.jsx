@@ -27,7 +27,7 @@ const DashboardFC = () => {
         <Space size={40} align='start' style={{ flexWrap: 'wrap', marginTop: '1em' }}>
           <CardStatistic
             cardTitle={'Wind'}
-            cardIcon={<TbWind style={{ fontSize: '2em', color: 'white' }} />}
+            cardIcon={<TbWind className={s.card__icon} />}
             firstTitle={'Speed'}
             firstData={dayWeatherData.wind.speed}
             secondTitle={'Direction'}
@@ -38,7 +38,7 @@ const DashboardFC = () => {
 
           <CardTemp
             cardTitle={'Temperature'}
-            cardIcon={<TbTemperature style={{ fontSize: '2em', color: 'white' }} />}
+            cardIcon={<TbTemperature className={s.card__icon} />}
             firstTitle={'Current'}
             firstData={dayWeatherData.main.temp}
             secondTitle={'Maximum'}
@@ -49,17 +49,9 @@ const DashboardFC = () => {
             fourthData={dayWeatherData.main.temp_min}
           />
 
-          <CardProgress
-            title='Humidity'
-            data={dayWeatherData.main.humidity}
-            icon={<TbDroplet style={{ fontSize: '2em', color: 'white' }} />}
-          />
+          <CardProgress title='Humidity' data={dayWeatherData.main.humidity} icon={<TbDroplet className={s.card__icon} />} />
 
-          <CardProgress
-            title='Cloudiness'
-            data={dayWeatherData.clouds.all}
-            icon={<TbCloud style={{ fontSize: '2em', color: 'white' }} />}
-          />
+          <CardProgress title='Cloudiness' data={dayWeatherData.clouds.all} icon={<TbCloud className={s.card__icon} />} />
 
           {/* <p>Pressure: {dayWeatherData.main.pressure}</p> */}
         </Space>
