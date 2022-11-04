@@ -1,7 +1,7 @@
 import { Space, Statistic, Card } from 'antd'
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard'
 import TitleCard from '../../../components/common/DashboardCards/TitleCard'
-import { cardHeadStyle, cardBodyStyle } from './CardsJsStyle'
+import { cardHeadStyle, cardBodyStyle } from '../../../utils/constants/DashboardCardsStyle'
 import s from './Cards.module.css'
 
 const CardTemp = ({
@@ -18,10 +18,10 @@ const CardTemp = ({
 }) => {
   return (
     <Card
+      title={<TitleCard>{cardTitle}</TitleCard>}
       headStyle={cardHeadStyle}
       bodyStyle={cardBodyStyle}
       className={s.card}
-      title={<TitleCard>{cardTitle}</TitleCard>}
       extra={cardIcon}
     >
       <Space size='large' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>

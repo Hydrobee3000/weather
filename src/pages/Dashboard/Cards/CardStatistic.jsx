@@ -2,7 +2,8 @@ import { Space, Statistic, Card } from 'antd'
 import TitleCard from '../../../components/common/DashboardCards/TitleCard'
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard'
 import s from './Cards.module.css'
-import { cardHeadStyle, cardBodyStyle } from './CardsJsStyle'
+import { cardBodyStyle, cardHeadStyle } from '../../../utils/constants/DashboardCardsStyle'
+import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix'
 
 const CardStatistic = ({
   cardTitle,
@@ -16,46 +17,36 @@ const CardStatistic = ({
 }) => {
   return (
     <Card
+      title={<TitleCard>{cardTitle}</TitleCard>}
       headStyle={cardHeadStyle}
       bodyStyle={cardBodyStyle}
       className={s.card}
-      title={<TitleCard>{cardTitle}</TitleCard>}
       extra={cardIcon}
     >
-      <Space
-        size='large'
-        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}
-      >
+      <Space size='large' className={s.statistic__container}>
         <Statistic
-          style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
           title={<SubtitleCard>{firstTitle}</SubtitleCard>}
+          className={s.statistic}
           value={firstData}
-          precision={2}
           valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
-          suffix={<p style={{ fontSize: '0.6em', opacity: '0.5' }}>m/h</p>}
+          precision={2}
+          suffix={<StatisticSuffix>m/h</StatisticSuffix>}
         />
         <Statistic
-          style={{
-            backgroundColor: '#fcfcfc',
-            borderRadius: '10px',
-            padding: '0 20px',
-            paddingTop: '10px',
-            paddingBottom: '10px',
-            width: '140px',
-          }}
+          className={s.statistic}
           title={<SubtitleCard>{secondTitle}</SubtitleCard>}
           value={secondData}
           precision={2}
           valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
-          suffix={<span style={{ opacity: '0.5' }}>°</span>}
+          suffix={<StatisticSuffix small>°</StatisticSuffix>}
         />
         <Statistic
-          style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
+          className={s.statistic}
           title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
           value={thirdData}
           precision={2}
           valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
-          suffix={<p style={{ fontSize: '0.6em', opacity: '0.5' }}>m/s</p>}
+          suffix={<StatisticSuffix>m/s</StatisticSuffix>}
         />
       </Space>
     </Card>

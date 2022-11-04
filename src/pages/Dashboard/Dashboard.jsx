@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Space, Typography } from 'antd'
+import { Space } from 'antd'
 import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb'
 import CardStatistic from './Cards/CardStatistic'
 import CardTemp from './Cards/CardStatisticTemp'
@@ -7,8 +7,6 @@ import CardProgress from './Cards/CardProgress'
 import TitlePage from '../../components/common/TitlePage/TitlePage'
 import s from './Dashboard.module.css'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase'
-
-const { Text } = Typography
 
 const DashboardFC = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
