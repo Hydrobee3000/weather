@@ -29,7 +29,15 @@ const CalendarFC = () => {
               {
                 type: 'none',
                 content: (
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '-20px' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginTop: '-20px',
+                    }}
+                  >
                     <p
                       style={{
                         marginBottom: '10px',
