@@ -1,17 +1,17 @@
-import { useSelector } from 'react-redux'
-import { Space } from 'antd'
-import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb'
-import CardStatistic from './Cards/CardStatistic'
-import CardStatisticTemp from './Cards/CardStatisticTemp'
-import CardProgress from './Cards/CardProgress'
-import TitlePage from '../../components/common/TitlePage/TitlePage'
-import s from './Dashboard.module.css'
-import firstLetterUpperCase from '../../utils/firstLetterUpperCase'
-import { primaryColor } from '../../utils/constants/commonStyles'
+import { Space } from 'antd' // antd components
+import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb' // icons
+import { useSelector } from 'react-redux' // hook for getting value from redux state
+import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
+import CardStatisticTemp from './Cards/CardStatisticTemp' // <FC> of card with temperature statistic
+import CardProgress from './Cards/CardProgress' // <FC> of card with progress
+import TitlePage from '../../components/common/TitlePage/TitlePage' // title of page <FC>
+import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
+import { primaryColor } from '../../utils/constants/commonStyles' // inline common styles
+import s from './Dashboard.module.css' // css file with styles
 
 const DashboardFC = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
-  const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
+  const dayWeatherData = useSelector((state) => state.weather.dayWeatherData) // get weather object
 
   return (
     <>
