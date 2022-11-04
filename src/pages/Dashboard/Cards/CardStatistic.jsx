@@ -2,7 +2,7 @@ import { Space, Statistic, Card } from 'antd' // antd components
 import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard' // subtitle <FC> for statistic params
 import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
-import { cardBodyStyle, cardHeadStyle, statisticValueStyle } from '../../../utils/constants/DashboardCardsStyle' // styles objects
+import { cardBodyStyle, cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
 import s from './Cards.module.css' // css file with styles
 
 const CardStatistic = ({
