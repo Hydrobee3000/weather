@@ -9,6 +9,8 @@ import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function 
 import { primaryColor } from '../../utils/constants/commonStyles' // inline common styles
 import s from './Dashboard.module.css' // css file with styles
 
+// dashboard page
+
 const DashboardFC = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData) // get weather object

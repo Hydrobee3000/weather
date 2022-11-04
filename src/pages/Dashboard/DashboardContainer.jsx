@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import Preloader from '../../components/common/Preloader/Preloader'
-import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer'
-import DashboardFC from './Dashboard'
+import { useDispatch, useSelector } from 'react-redux' // redux hooks
+import Preloader from '../../components/common/Preloader/Preloader' // preloader to wait for data to load
+import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer' // get weather data with selected location
+import DashboardFC from './Dashboard' // <FC> of dashboard page
 
-// fetch Dashboard data and set in store
+// fetch data for dashboard page and set in store
 
 const DashboardContainer = () => {
   const dispatch = useDispatch()

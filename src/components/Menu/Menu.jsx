@@ -1,14 +1,14 @@
-import { useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import { CloudOutlined, CompassOutlined, DashboardOutlined, ScheduleOutlined, HeartOutlined } from '@ant-design/icons'
-import { Menu, Layout } from 'antd'
-import s from './Menu.module.css'
+import { Menu, Layout } from 'antd' // antd components
+import { CloudOutlined, CompassOutlined, DashboardOutlined, ScheduleOutlined, HeartOutlined } from '@ant-design/icons' // antd icons
+import { useSelector } from 'react-redux' // redux hooks
+import { NavLink } from 'react-router-dom' // link with active style
+import s from './Menu.module.css' // css file with styles
 
-// menu component
+// sidebar menu component
 
 const MenuFC = () => {
   const { Sider } = Layout
-  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is open menu or not
+  const isCollapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is open menu or not
 
   //if url has match path of NavLink - then firstly select needed Menu.Item
 
@@ -19,7 +19,7 @@ const MenuFC = () => {
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         mode='inline'
-        collapsed={collapsedMenu.toString()}
+        collapsed={isCollapsedMenu.toString()}
       >
         <Menu.Item key='today' icon={<CloudOutlined />}>
           <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/current'>

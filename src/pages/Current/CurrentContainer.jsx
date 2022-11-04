@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import Preloader from '../../components/common/Preloader/Preloader'
-import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer'
-import Current from './Current'
+import { useDispatch, useSelector } from 'react-redux' // redux hooks
+import Preloader from '../../components/common/Preloader/Preloader' // preloader to wait for data to load
+import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer' // get weather data with selected location
+import Current from './Current' // <FC> of current page
 
-// fetch day data and set in store
+// fetch data for current page and set in store
 
 const CurrentContainer = () => {
   const dispatch = useDispatch()
