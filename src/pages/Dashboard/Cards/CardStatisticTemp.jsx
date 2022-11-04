@@ -1,4 +1,5 @@
 import { Space, Statistic, Typography, Card } from 'antd'
+import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard'
 import TitleCard from '../../../components/common/DashboardCards/TitleCard'
 
 const { Text } = Typography
@@ -41,7 +42,7 @@ const CardTemp = ({
               paddingBottom: '10px',
               width: 'auto',
             }}
-            title={firstTitle}
+            title={<SubtitleCard>{firstTitle}</SubtitleCard>}
             value={firstData}
             precision={2}
             valueStyle={{ fontSize: '1.85em' }}
@@ -56,7 +57,7 @@ const CardTemp = ({
               paddingBottom: '10px',
               width: 'auto',
             }}
-            title={secondTitle}
+            title={<SubtitleCard>{secondTitle}</SubtitleCard>}
             value={secondData}
             precision={2}
             valueStyle={{ fontSize: '1.85em' }}
@@ -77,7 +78,7 @@ const CardTemp = ({
               paddingBottom: '10px',
               width: 'auto',
             }}
-            title={thirdTitle}
+            title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
             value={thirdData}
             precision={2}
             valueStyle={{ fontSize: '1.85em' }}
@@ -92,7 +93,7 @@ const CardTemp = ({
               paddingBottom: '10px',
               width: 'auto',
             }}
-            title={fourthTitle}
+            title={<SubtitleCard>{fourthTitle}</SubtitleCard>}
             value={fourthData}
             precision={2}
             valueStyle={{ fontSize: '1.85em' }}
