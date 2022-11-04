@@ -1,6 +1,5 @@
-import { Badge, Calendar } from 'antd'
-import { useSelector } from 'react-redux'
-import { Divider, Tag } from 'antd'
+import { Badge, Calendar, Tag } from 'antd' // antd components
+import { useSelector } from 'react-redux' // hook for getting value from redux state
 
 const CalendarFC = () => {
   const forecastData = useSelector((state) => state.weather.forecastData)

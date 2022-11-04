@@ -16,8 +16,9 @@ const Forecast = () => {
 
   return (
     <div className={s.wrapper} style={{ marginTop: '1.5em' }}>
-      {/* <TitlePage>Forecast overview</TitlePage> */}
       <Space direction='vertical' size={40}>
+        <TitlePage>Forecast overview</TitlePage>
+
         {dailyFormatCards()}
       </Space>
     </div>
