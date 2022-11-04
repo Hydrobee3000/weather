@@ -7,6 +7,7 @@ import CardProgress from './Cards/CardProgress'
 import TitlePage from '../../components/common/TitlePage/TitlePage'
 import s from './Dashboard.module.css'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase'
+import { primaryColor } from '../../utils/constants/commonStyles'
 
 const DashboardFC = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
@@ -15,14 +16,12 @@ const DashboardFC = () => {
   return (
     <>
       <TitlePage>
-        <span style={{ color: '#783fdb' }}>{firstLetterUpperCase(weather.description)}</span>
+        <span style={primaryColor}>{firstLetterUpperCase(weather.description)}</span>
         <span style={{ padding: '0.7em' }}>in</span>
-        <span style={{ color: '#783fdb' }}>{dayWeatherData.name}</span>
+        <span style={primaryColor}>{dayWeatherData.name}</span>
       </TitlePage>
-      <div
-      //  className={s.wrapper}
-      >
-        <Space size={40} align='start' style={{ flexWrap: 'wrap', marginTop: '1em' }}>
+      <div className={s.dashboard__container}>
+        <Space size={40} align='start' className={s.dashboard}>
           <CardStatistic
             cardTitle={'Wind'}
             cardIcon={<TbWind className={s.card__icon} />}
