@@ -1,15 +1,15 @@
-import { Space, Statistic, Card } from 'antd'
-import TitleCard from '../../../components/common/DashboardCards/TitleCard'
-import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard'
-import s from './Cards.module.css'
-import { cardBodyStyle, cardHeadStyle } from '../../../utils/constants/DashboardCardsStyle'
-import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix'
+import { Space, Statistic, Card } from 'antd' // antd components
+import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
+import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard' // subtitle <FC> for statistic params
+import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
+import { cardBodyStyle, cardHeadStyle, statisticValueStyle } from '../../../utils/constants/DashboardCardsStyle' // styles objects
+import s from './Cards.module.css' // css file with styles
 
 const CardStatistic = ({
-  cardTitle,
-  cardIcon,
-  firstTitle,
-  firstData,
+  cardTitle, // title into header of card
+  cardIcon, // icon into header of card
+  firstTitle, // title of first params
+  firstData, // value of first params etc.
   secondTitle = null,
   secondData = null,
   thirdTitle = null,
@@ -25,10 +25,10 @@ const CardStatistic = ({
     >
       <Space size='large' className={s.statistic__container}>
         <Statistic
-          title={<SubtitleCard>{firstTitle}</SubtitleCard>}
           className={s.statistic}
+          title={<SubtitleCard>{firstTitle}</SubtitleCard>}
           value={firstData}
-          valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
+          valueStyle={statisticValueStyle}
           precision={2}
           suffix={<StatisticSuffix>m/h</StatisticSuffix>}
         />
@@ -37,7 +37,7 @@ const CardStatistic = ({
           title={<SubtitleCard>{secondTitle}</SubtitleCard>}
           value={secondData}
           precision={2}
-          valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
+          valueStyle={statisticValueStyle}
           suffix={<StatisticSuffix small>°</StatisticSuffix>}
         />
         <Statistic
@@ -45,7 +45,7 @@ const CardStatistic = ({
           title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
           value={thirdData}
           precision={2}
-          valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
+          valueStyle={statisticValueStyle}
           suffix={<StatisticSuffix>m/s</StatisticSuffix>}
         />
       </Space>

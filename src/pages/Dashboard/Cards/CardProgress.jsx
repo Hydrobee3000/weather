@@ -1,7 +1,7 @@
-import { Progress, Card } from 'antd'
-import TitleCard from '../../../components/common/DashboardCards/TitleCard'
-import { cardHeadStyle, cardBodyStyle } from '../../../utils/constants/DashboardCardsStyle'
-import s from './Cards.module.css'
+import { Progress, Card } from 'antd' // antd components
+import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
+import { cardHeadStyle, cardBodyStyle } from '../../../utils/constants/DashboardCardsStyle' // styles objects
+import s from './Cards.module.css' // css file with styles
 
 const CardProgress = ({ title, data, icon }) => {
   return (
@@ -26,7 +26,7 @@ const CardProgress = ({ title, data, icon }) => {
             </span>
           )
         }}
-        percent={data}
+        percent={data} // fill of progress with value
       />
     </Card>
   )

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { Space } from 'antd'
 import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb'
 import CardStatistic from './Cards/CardStatistic'
-import CardTemp from './Cards/CardStatisticTemp'
+import CardStatisticTemp from './Cards/CardStatisticTemp'
 import CardProgress from './Cards/CardProgress'
 import TitlePage from '../../components/common/TitlePage/TitlePage'
 import s from './Dashboard.module.css'
@@ -34,7 +34,7 @@ const DashboardFC = () => {
             thirdData={dayWeatherData.wind.gust}
           />
 
-          <CardTemp
+          <CardStatisticTemp
             cardTitle={'Temperature'}
             cardIcon={<TbTemperature className={s.card__icon} />}
             firstTitle={'Current'}
