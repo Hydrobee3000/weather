@@ -1,6 +1,8 @@
-import { useSelector } from 'react-redux'
-import firstLetterUpperCase from '../../utils/firstLetterUpperCase'
-import s from './Current.module.css'
+import { useSelector } from 'react-redux' // redux hooks
+import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
+import s from './Current.module.css' // css file with styles
+
+// current(main) page
 
 const Current = () => {
   const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
@@ -9,7 +11,6 @@ const Current = () => {
   return (
     <div className={s.current__container}>
       <p style={{ fontSize: '2em', marginTop: '2.5em' }}>{dayWeatherData.name}</p>
-
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
       <p style={{ fontSize: '6em', marginTop: '0.5em' }}>{Math.round(parseFloat(dayWeatherData.main.temp) * 10) / 10} °С</p>

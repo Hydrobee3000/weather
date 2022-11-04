@@ -1,8 +1,10 @@
-import ForecastCard from './ForecastCard/ForecastCard'
-import { useSelector } from 'react-redux'
-import { Space } from 'antd'
-import TitlePage from '../../components/common/TitlePage/TitlePage'
-import s from './Forecast.module.css'
+import { Space } from 'antd' // antd components
+import { useSelector } from 'react-redux' // redux hooks
+import TitlePage from '../../components/common/TitlePage/TitlePage' // title of page <FC>
+import ForecastCard from './ForecastCard/ForecastCard' // <FC> of forecast card on week
+import s from './Forecast.module.css' // css file with styles
+
+// forecast page
 
 const Forecast = () => {
   const forecastData = useSelector((state) => state.weather.forecastData)

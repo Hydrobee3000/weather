@@ -8,7 +8,7 @@ import s from './Menu.module.css' // css file with styles
 
 const MenuFC = () => {
   const { Sider } = Layout
-  const isCollapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is open menu or not
+  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is open menu or not
 
   //if url has match path of NavLink - then firstly select needed Menu.Item
 
@@ -19,7 +19,7 @@ const MenuFC = () => {
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         mode='inline'
-        collapsed={isCollapsedMenu.toString()}
+        collapsed={collapsedMenu.toString()}
       >
         <Menu.Item key='today' icon={<CloudOutlined />}>
           <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/current'>
