@@ -1,8 +1,8 @@
-import { Space, Statistic, Typography, Card } from 'antd'
+import { Space, Statistic, Card } from 'antd'
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard'
 import TitleCard from '../../../components/common/DashboardCards/TitleCard'
-
-const { Text } = Typography
+import { cardHeadStyle, cardBodyStyle } from './CardsJsStyle'
+import s from './Cards.module.css'
 
 const CardTemp = ({
   cardTitle,
@@ -18,12 +18,9 @@ const CardTemp = ({
 }) => {
   return (
     <Card
-      headStyle={{ padding: '0 1em' }}
-      bodyStyle={{ paddingBottom: '1.5em' }}
-      style={{
-        borderRadius: '15px',
-        backgroundColor: '#efefef',
-      }}
+      headStyle={cardHeadStyle}
+      bodyStyle={cardBodyStyle}
+      className={s.card}
       title={<TitleCard>{cardTitle}</TitleCard>}
       extra={cardIcon}
     >
@@ -45,7 +42,7 @@ const CardTemp = ({
             title={<SubtitleCard>{firstTitle}</SubtitleCard>}
             value={firstData}
             precision={2}
-            valueStyle={{ fontSize: '1.85em' }}
+            valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
             suffix={<span style={{ opacity: '0.5' }}>°C</span>}
           />
           <Statistic
@@ -60,7 +57,7 @@ const CardTemp = ({
             title={<SubtitleCard>{secondTitle}</SubtitleCard>}
             value={secondData}
             precision={2}
-            valueStyle={{ fontSize: '1.85em' }}
+            valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
             suffix={<span style={{ opacity: '0.5' }}>°C</span>}
           />
         </Space>
@@ -81,10 +78,11 @@ const CardTemp = ({
             title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
             value={thirdData}
             precision={2}
-            valueStyle={{ fontSize: '1.85em' }}
+            valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
             suffix={<span style={{ opacity: '0.5' }}>°C</span>}
           />
           <Statistic
+            // className={s.}
             style={{
               backgroundColor: '#fcfcfc',
               borderRadius: '10px',
@@ -96,7 +94,7 @@ const CardTemp = ({
             title={<SubtitleCard>{fourthTitle}</SubtitleCard>}
             value={fourthData}
             precision={2}
-            valueStyle={{ fontSize: '1.85em' }}
+            valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
             suffix={<span style={{ opacity: '0.5' }}>°C</span>}
           />
         </Space>

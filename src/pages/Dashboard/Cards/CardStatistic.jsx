@@ -1,9 +1,8 @@
-import React from 'react'
-import { Space, Statistic, Typography, Card } from 'antd'
+import { Space, Statistic, Card } from 'antd'
 import TitleCard from '../../../components/common/DashboardCards/TitleCard'
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard'
-
-const { Text } = Typography
+import s from './Cards.module.css'
+import { cardHeadStyle, cardBodyStyle } from './CardsJsStyle'
 
 const CardStatistic = ({
   cardTitle,
@@ -17,12 +16,9 @@ const CardStatistic = ({
 }) => {
   return (
     <Card
-      headStyle={{ padding: '0 1em' }}
-      bodyStyle={{ paddingBottom: '1.5em' }}
-      style={{
-        borderRadius: '15px',
-        backgroundColor: '#efefef',
-      }}
+      headStyle={cardHeadStyle}
+      bodyStyle={cardBodyStyle}
+      className={s.card}
       title={<TitleCard>{cardTitle}</TitleCard>}
       extra={cardIcon}
     >
@@ -35,7 +31,7 @@ const CardStatistic = ({
           title={<SubtitleCard>{firstTitle}</SubtitleCard>}
           value={firstData}
           precision={2}
-          valueStyle={{ fontSize: '1.85em' }}
+          valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
           suffix={<p style={{ fontSize: '0.6em', opacity: '0.5' }}>m/h</p>}
         />
         <Statistic
@@ -50,7 +46,7 @@ const CardStatistic = ({
           title={<SubtitleCard>{secondTitle}</SubtitleCard>}
           value={secondData}
           precision={2}
-          valueStyle={{ fontSize: '1.85em' }}
+          valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
           suffix={<span style={{ opacity: '0.5' }}>°</span>}
         />
         <Statistic
@@ -58,7 +54,7 @@ const CardStatistic = ({
           title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
           value={thirdData}
           precision={2}
-          valueStyle={{ fontSize: '1.85em' }}
+          valueStyle={{ fontSize: '1.85em', textAlign: 'center' }}
           suffix={<p style={{ fontSize: '0.6em', opacity: '0.5' }}>m/s</p>}
         />
       </Space>

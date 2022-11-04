@@ -1,13 +1,15 @@
 import { Progress, Card } from 'antd'
 import TitleCard from '../../../components/common/DashboardCards/TitleCard'
+import { cardHeadStyle, cardBodyStyle } from './CardsJsStyle'
+import s from './Cards.module.css'
 
 const CardProgress = ({ title, data, icon }) => {
   return (
     <Card
-      headStyle={{ padding: '0 1em' }}
+      headStyle={cardHeadStyle}
       title={<TitleCard>{title}</TitleCard>}
-      bodyStyle={{ paddingBottom: '1.5em' }}
-      style={{ borderRadius: '15px', backgroundColor: '#efefef' }}
+      bodyStyle={cardBodyStyle}
+      className={s.card}
       extra={icon}
     >
       <Progress

@@ -1,0 +1,9 @@
+.card {
+  border-radius: 15px !important;
+  background-color: #efefef !important;
+}
+
+.card__value {
+  font-size: 1.85em;
+  text-align: center;
+}
