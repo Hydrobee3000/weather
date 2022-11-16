@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux' // hook for getting value from redux s
 import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
 import CardStatisticTemp from './Cards/CardStatisticTemp' // <FC> of card with temperature statistic
 import CardProgress from './Cards/CardProgress' // <FC> of card with progress
-import TitlePage from '../../components/common/TitlePage/TitlePage' // title of page <FC>
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
-import { primaryColor } from '../../utils/constants/commonStyles' // inline common styles
+import { pageTitle, primaryColor } from '../../utils/constants/commonStyles' // inline common styles
+import { Typography } from 'antd'
 import s from './Dashboard.module.css' // css file with styles
+
+const { Title } = Typography
 
 // dashboard page
 
@@ -17,11 +19,12 @@ const DashboardFC = () => {
 
   return (
     <>
-      <TitlePage>
+      <Title style={pageTitle}>
         <span style={primaryColor}>{firstLetterUpperCase(weather.description)}</span>
         <span style={{ padding: '0.7em' }}>in</span>
         <span style={primaryColor}>{dayWeatherData.name}</span>
-      </TitlePage>
+      </Title>
+
       <div className={s.dashboard__container}>
         <Space size={40} align='start' className={s.dashboard}>
           <CardStatistic
