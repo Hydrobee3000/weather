@@ -11,12 +11,12 @@ const CurrentContainer = () => {
   const activePlace = useSelector((state) => state.weather.activePlace) // selected active place
   const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
 
-  //fetch data
+  // fetch data
   useEffect(() => {
     dispatch(fetchDayWeatherData(activePlace))
   }, [dispatch, activePlace])
 
-  //display preloader, while data is empty
+  // display preloader, while data is empty
   if (!dayWeatherData) {
     return <Preloader />
   }

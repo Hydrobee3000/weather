@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux' // redux hooks
-import TitlePage from '../../components/common/TitlePage/TitlePage'
-import { primaryColor } from '../../utils/constants/commonStyles'
+import { pageTitle, primaryColor } from '../../utils/constants/commonStyles'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
+import { Typography } from 'antd'
 import s from './Current.module.css' // css file with styles
+
+const { Title } = Typography
 
 // current(main) page
 
@@ -12,11 +14,7 @@ const Current = () => {
 
   return (
     <div className={s.current__container}>
-      <TitlePage>
-        {/* <span style={primaryColor}>{firstLetterUpperCase(weather.description)}</span> */}
-        {/* <span style={{ padding: '0.7em' }}>in</span> */}
-        <span style={primaryColor}>Current conditions</span>
-      </TitlePage>
+      <Title style={pageTitle}>Current conditions</Title>
 
       <p style={{ fontSize: '2em', marginTop: '2.5em' }}>{dayWeatherData.name}</p>
       {/* weather icon */}
