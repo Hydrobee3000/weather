@@ -1,5 +1,5 @@
 import { Space, Typography, Card } from 'antd'
-import { IoSunnySharp, IoCloudSharp } from 'react-icons/io5'
+import { IoSunnySharp, IoCloudSharp, IoSnowSharp } from 'react-icons/io5'
 import { BsFillCloudRainHeavyFill, BsCloudFogFill } from 'react-icons/bs'
 import s from './ForecastCard.module.css'
 
@@ -16,23 +16,23 @@ const ForecastCard = ({ day }) => {
       title={<Text className={s.card__title}>{dayOfWeekName}</Text>}
       // the icon depends on the weather
       extra={
+        // when weather clearly - icon sun
         day.weather[0].main === 'Clear' ? (
-          // when weather clearly - icon sun
           <IoSunnySharp className={s.card__icon} />
-        ) : day.weather[0].main === 'Rain' ? (
-          // when rainy
+        ) : // when rainy
+        day.weather[0].main === 'Rain' ? (
           <BsFillCloudRainHeavyFill className={s.card__icon} />
-        ) : day.weather[0].main === 'Clouds' ? (
-          // when fill cloud
+        ) : // when fill cloud
+        day.weather[0].main === 'Clouds' ? (
           <IoCloudSharp className={s.card__icon} />
-        ) : // when cloud sharp
+        ) : // when snow
+        day.weather[0].main === 'Snow' ? (
+          <IoSnowSharp className={s.card__icon} />
+        ) : // when fog
         day.weather[0].main === 'Fog' ? (
           <BsCloudFogFill className={s.card__icon} />
-        ) : (
-          // when fog
-          // if nothing above - show nothing
-          ''
-        )
+        ) : null
+        // if nothing above - show nothing
       }
     >
       <Space size='large' direction='vertical' className={s.card__content}>
