@@ -1,4 +1,6 @@
 import { useSelector } from 'react-redux' // redux hooks
+import TitlePage from '../../components/common/TitlePage/TitlePage'
+import { primaryColor } from '../../utils/constants/commonStyles'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
 import s from './Current.module.css' // css file with styles
 
@@ -10,17 +12,21 @@ const Current = () => {
 
   return (
     <div className={s.current__container}>
+      <TitlePage>
+        {/* <span style={primaryColor}>{firstLetterUpperCase(weather.description)}</span> */}
+        {/* <span style={{ padding: '0.7em' }}>in</span> */}
+        <span style={primaryColor}>Current conditions</span>
+      </TitlePage>
+
       <p style={{ fontSize: '2em', marginTop: '2.5em' }}>{dayWeatherData.name}</p>
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
       <p style={{ fontSize: '6em', marginTop: '0.5em' }}>{Math.round(parseFloat(dayWeatherData.main.temp) * 10) / 10} °С</p>
       <p style={{ fontSize: '3em', color: 'rgb(74, 0, 203)', margin: '0' }}>{firstLetterUpperCase(weather.description)}</p>
-
       {/* <p style={{ fontSize: '1.2em' }} className={s.parameter}>
         Feels like: {(dayWeatherData.main.feels_like - 273.15).toFixed(1)} °С
       </p> */}
       {/* additional parameters */}
-
       {/* <p className={s.parameter} >
         Min t: {(dayWeatherData.main.temp_min - 273.15).toFixed(1)} °С
       </p>
