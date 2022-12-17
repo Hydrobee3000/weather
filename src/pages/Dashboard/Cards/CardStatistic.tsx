@@ -5,6 +5,17 @@ import StatisticSuffix from '../../../components/common/DashboardCards/Statistic
 import { cardBodyStyle, cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
 import s from './Cards.module.css' // css file with styles
 
+interface IProps {
+  cardTitle: string
+  cardIcon: React.ReactNode
+  firstTitle?: string
+  firstData?: number
+  secondTitle?: string | null
+  secondData?: number | null
+  thirdTitle?: string | null
+  thirdData?: number | null
+}
+
 const CardStatistic = ({
   cardTitle, // title into header of card
   cardIcon, // icon into header of card
@@ -14,7 +25,7 @@ const CardStatistic = ({
   secondData = null,
   thirdTitle = null,
   thirdData = null,
-}) => {
+}: IProps) => {
   return (
     <Card
       title={<TitleCard>{cardTitle}</TitleCard>}
