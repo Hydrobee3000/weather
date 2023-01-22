@@ -1,0 +1,49 @@
+.card {
+  border-radius: 15px !important;
+  background-color: #efefef !important;
+}
+
+.card__value {
+  font-size: 1.85em;
+  text-align: center;
+}
+
+.statistic_temp__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.statistic__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.statistic {
+  background-color: #fcfcfc;
+  border-radius: 10px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  width: 140px;
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+  margin: 2.77em 1.8em !important;
+}
+
+.progress__value {
+  color: black;
+}
+
+.progress__suffix {
+  opacity: 0.4;
+  margin-left: 0.1em;
+}

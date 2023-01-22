@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import { CloudOutlined, CompassOutlined, DashboardOutlined, ScheduleOutlined, HeartOutlined } from '@ant-design/icons'
-import { Menu, Layout } from 'antd'
-import s from './Menu.module.css'
+import { Menu, Layout } from 'antd' // antd components
+import { CloudOutlined, CompassOutlined, DashboardOutlined, ScheduleOutlined, HeartOutlined } from '@ant-design/icons' // antd icons
+import { useSelector } from 'react-redux' // redux hooks
+import { NavLink } from 'react-router-dom' // link with active style
+import s from './Menu.module.css' // css file with styles
 
-// menu component
+// sidebar menu component
 
 const MenuFC = () => {
   const { Sider } = Layout
@@ -13,9 +13,9 @@ const MenuFC = () => {
   //if url has match path of NavLink - then firstly select needed Menu.Item
 
   return (
-    <Sider style={{ backgroundColor: '#efefef' }} trigger={null} collapsible collapsed={collapsedMenu}>
+    <Sider className={s.menu__container} trigger={null} collapsible collapsed={collapsedMenu}>
       <Menu
-        style={{ backgroundColor: '#efefef', fontSize: '1.2em' }}
+        className={s.menu}
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         mode='inline'

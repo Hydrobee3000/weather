@@ -1,12 +1,15 @@
-import { Space, Statistic, Typography, Card } from 'antd'
+import { Space, Statistic, Card } from 'antd' // antd components
+import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
+import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard' // subtitle <FC> for statistic params
+import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
+import { cardHeadStyle, cardBodyStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
+import s from './Cards.module.css' // css file with styles
 
-const { Text } = Typography
-
-const CardTemp = ({
-  cardTitle,
-  cardIcon,
-  firstTitle,
-  firstData,
+const CardStatisticTemp = ({
+  cardTitle, // title into header of card
+  cardIcon, // icon into header of card
+  firstTitle, // title of first params
+  firstData, // value of first params etc.
   secondTitle = null,
   secondData = null,
   thirdTitle = null,
@@ -16,86 +19,47 @@ const CardTemp = ({
 }) => {
   return (
     <Card
-      headStyle={{ padding: '0 1em' }}
-      bodyStyle={{ paddingBottom: '1.5em' }}
-      style={{
-        borderRadius: '15px',
-        backgroundColor: '#efefef',
-      }}
-      title={<Text style={{ color: '#783fdb' }}>{cardTitle}</Text>}
+      title={<TitleCard>{cardTitle}</TitleCard>}
+      headStyle={cardHeadStyle}
+      bodyStyle={cardBodyStyle}
+      className={s.card}
       extra={cardIcon}
     >
-      <Space size='large' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
-        <Space
-          size='large'
-          direction='vertical'
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-        >
+      <Space size='large' className={s.statistic_temp__container}>
+        <Space size='large' direction='vertical'>
           <Statistic
-            style={{
-              backgroundColor: '#fcfcfc',
-              borderRadius: '10px',
-              padding: '0 20px',
-              paddingTop: '10px',
-              paddingBottom: '10px',
-              width: 'auto',
-            }}
-            title={firstTitle}
+            className={s.statistic}
+            title={<SubtitleCard>{firstTitle}</SubtitleCard>}
             value={firstData}
             precision={2}
-            valueStyle={{ fontSize: '1.85em' }}
-            suffix={<span style={{ opacity: '0.5' }}>°C</span>}
+            valueStyle={statisticValueStyle}
+            suffix={<StatisticSuffix small>°C</StatisticSuffix>}
           />
           <Statistic
-            style={{
-              backgroundColor: '#fcfcfc',
-              borderRadius: '10px',
-              padding: '0 20px',
-              paddingTop: '10px',
-              paddingBottom: '10px',
-              width: 'auto',
-            }}
-            title={secondTitle}
+            className={s.statistic}
+            title={<SubtitleCard>{secondTitle}</SubtitleCard>}
             value={secondData}
             precision={2}
-            valueStyle={{ fontSize: '1.85em' }}
-            suffix={<span style={{ opacity: '0.5' }}>°C</span>}
+            valueStyle={statisticValueStyle}
+            suffix={<StatisticSuffix small>°C</StatisticSuffix>}
           />
         </Space>
-        <Space
-          size='large'
-          direction='vertical'
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-        >
+        <Space size='large' direction='vertical'>
           <Statistic
-            style={{
-              backgroundColor: '#fcfcfc',
-              borderRadius: '10px',
-              padding: '0 20px',
-              paddingTop: '10px',
-              paddingBottom: '10px',
-              width: 'auto',
-            }}
-            title={thirdTitle}
+            className={s.statistic}
+            title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
             value={thirdData}
             precision={2}
-            valueStyle={{ fontSize: '1.85em' }}
-            suffix={<span style={{ opacity: '0.5' }}>°C</span>}
+            valueStyle={statisticValueStyle}
+            suffix={<StatisticSuffix small>°C</StatisticSuffix>}
           />
           <Statistic
-            style={{
-              backgroundColor: '#fcfcfc',
-              borderRadius: '10px',
-              padding: '0 20px',
-              paddingTop: '10px',
-              paddingBottom: '10px',
-              width: 'auto',
-            }}
-            title={fourthTitle}
+            className={s.statistic}
+            title={<SubtitleCard>{fourthTitle}</SubtitleCard>}
             value={fourthData}
             precision={2}
-            valueStyle={{ fontSize: '1.85em' }}
-            suffix={<span style={{ opacity: '0.5' }}>°C</span>}
+            valueStyle={statisticValueStyle}
+            suffix={<StatisticSuffix small>°C</StatisticSuffix>}
           />
         </Space>
       </Space>
@@ -103,4 +67,4 @@ const CardTemp = ({
   )
 }
 
-export default CardTemp
+export default CardStatisticTemp

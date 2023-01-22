@@ -1,14 +1,15 @@
-import { Progress, Typography, Card } from 'antd'
-
-const { Text } = Typography
+import { Progress, Card } from 'antd' // antd components
+import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
+import { cardHeadStyle, cardBodyStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
+import s from './Cards.module.css' // css file with styles
 
 const CardProgress = ({ title, data, icon }) => {
   return (
     <Card
-      headStyle={{ padding: '0 1em' }}
-      title={<Text style={{ margin: 0, pading: 0, color: '#783fdb' }}>{title}</Text>}
-      bodyStyle={{ paddingBottom: '1.5em' }}
-      style={{ borderRadius: '15px', backgroundColor: '#efefef' }}
+      title={<TitleCard>{title}</TitleCard>}
+      headStyle={cardHeadStyle}
+      bodyStyle={cardBodyStyle}
+      className={s.card}
       extra={icon}
     >
       <Progress
@@ -16,16 +17,16 @@ const CardProgress = ({ title, data, icon }) => {
         strokeWidth='8'
         strokeColor='#783fdb'
         trailColor='#783fdb30'
+        className={s.progress}
         format={() => {
           return (
-            <span style={{ color: 'black' }}>
+            <span className={s.progress__value}>
               {data}
-              <span style={{ opacity: '0.4', marginLeft: '0.1em' }}>%</span>
+              <span className={s.progress__suffix}>%</span>
             </span>
           )
         }}
-        style={{ display: 'flex', justifyContent: 'center', margin: '2.77em 1.8em' }}
-        percent={data}
+        percent={data} // fill of progress with value
       />
     </Card>
   )

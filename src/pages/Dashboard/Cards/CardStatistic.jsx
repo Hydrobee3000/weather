@@ -1,13 +1,15 @@
-import React from 'react'
-import { Space, Statistic, Typography, Card } from 'antd'
-
-const { Text } = Typography
+import { Space, Statistic, Card } from 'antd' // antd components
+import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
+import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard' // subtitle <FC> for statistic params
+import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
+import { cardBodyStyle, cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
+import s from './Cards.module.css' // css file with styles
 
 const CardStatistic = ({
-  cardTitle,
-  cardIcon,
-  firstTitle,
-  firstData,
+  cardTitle, // title into header of card
+  cardIcon, // icon into header of card
+  firstTitle, // title of first params
+  firstData, // value of first params etc.
   secondTitle = null,
   secondData = null,
   thirdTitle = null,
@@ -15,49 +17,36 @@ const CardStatistic = ({
 }) => {
   return (
     <Card
-      headStyle={{ padding: '0 1em' }}
-      bodyStyle={{ paddingBottom: '1.5em' }}
-      style={{
-        borderRadius: '15px',
-        backgroundColor: '#efefef',
-      }}
-      title={<Text style={{ color: '#783fdb' }}>{cardTitle}</Text>}
+      title={<TitleCard>{cardTitle}</TitleCard>}
+      headStyle={cardHeadStyle}
+      bodyStyle={cardBodyStyle}
+      className={s.card}
       extra={cardIcon}
     >
-      <Space
-        size='large'
-        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}
-      >
+      <Space size='large' className={s.statistic__container}>
         <Statistic
-          style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
-          title={firstTitle}
+          className={s.statistic}
+          title={<SubtitleCard>{firstTitle}</SubtitleCard>}
           value={firstData}
+          valueStyle={statisticValueStyle}
           precision={2}
-          valueStyle={{ fontSize: '1.85em' }}
-          suffix={<p style={{ fontSize: '0.6em', opacity: '0.5' }}>m/h</p>}
+          suffix={<StatisticSuffix>m/h</StatisticSuffix>}
         />
         <Statistic
-          style={{
-            backgroundColor: '#fcfcfc',
-            borderRadius: '10px',
-            padding: '0 20px',
-            paddingTop: '10px',
-            paddingBottom: '10px',
-            width: '140px',
-          }}
-          title={secondTitle}
+          className={s.statistic}
+          title={<SubtitleCard>{secondTitle}</SubtitleCard>}
           value={secondData}
           precision={2}
-          valueStyle={{ fontSize: '1.85em' }}
-          suffix={<span style={{ opacity: '0.5' }}>°</span>}
+          valueStyle={statisticValueStyle}
+          suffix={<StatisticSuffix small>°</StatisticSuffix>}
         />
         <Statistic
-          style={{ backgroundColor: '#fcfcfc', borderRadius: '10px', padding: '0 20px', paddingTop: '10px', width: '140px' }}
-          title={thirdTitle}
+          className={s.statistic}
+          title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
           value={thirdData}
           precision={2}
-          valueStyle={{ fontSize: '1.85em' }}
-          suffix={<p style={{ fontSize: '0.6em', opacity: '0.5' }}>m/s</p>}
+          valueStyle={statisticValueStyle}
+          suffix={<StatisticSuffix>m/s</StatisticSuffix>}
         />
       </Space>
     </Card>
