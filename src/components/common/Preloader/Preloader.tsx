@@ -1,6 +1,6 @@
 import preloader from '../../../assets/preloader.gif'
 
-let Preloader = () => {
+let Preloader: React.FC = () => {
   return (
     <div
       style={{
@@ -11,7 +11,8 @@ let Preloader = () => {
         width: '100px',
         height: '100px',
         zIndex: 999,
-      }}>
+      }}
+    >
       <img src={preloader} alt='preloader' />
     </div>
   )
