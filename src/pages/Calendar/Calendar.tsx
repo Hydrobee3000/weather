@@ -1,30 +1,37 @@
 import { Badge, Calendar, Tag } from 'antd' // antd components
 import { useSelector } from 'react-redux' // hook for getting value from redux state
+import { IRootState } from '../../redux/store'
+import { ForecastData, ForecastDataList } from '../../utils/types'
 
 // calendar page
 
-const CalendarFC = () => {
-  const forecastData = useSelector((state) => state.weather.forecastData)
-  const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
-  const weatherDescr = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of current weather ex: 'cloudy'
-  const today = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}` // today format date
+const CalendarFC: React.FC = () => {
+  const forecastData: ForecastData | null = useSelector((state: IRootState) => state.weather.forecastData) // weather forecast object
+  const dayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData) // weather for the day object
+  const weatherDescr = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0]) //  description of current weather ex: 'cloudy'
 
-  // content of calendar cards
-  const getListData = (value, forecastData) => {
+  const today: string = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}` // today format date
+
+  /* content of calendar cards */
+
+  const getListData = (value: any, forecastData: any) => {
     let listData
     let cardCalendarDate = `${value.month() + 1}/${value.date()}/${value.year()}` // format date of every calendar cards
 
-    //content forecast
+    /* content of forecast cards */
+
     const dailyForecastCards = () => {
-      const dailyList = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) // get data of every day per 12:00
+      // get data of every day per 12:00
+      const dailyList: ForecastDataList = forecastData.list.filter((reading: any) => reading.dt_txt.includes('12:00:00'))
 
       return dailyList.map((day) => {
-        let dateForecast = new Date(day.dt_txt) // not formatted date forecast
+        let dateForecast: Date = new Date(day.dt_txt) // not formatted date forecast
         let dateForecastFormat = `${dateForecast.getMonth() + 1}/${dateForecast.getDate()}/${dateForecast.getFullYear()}` // forecast date
 
         // if date of calendar card and forecast date equals - show temperature of this day
         switch (cardCalendarDate) {
           //forecast calendar cards
+
           case dateForecastFormat:
             listData = [
               {
@@ -51,7 +58,7 @@ const CalendarFC = () => {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: 'rgb(74, 0, 203)',
+                          color: '#7b23d9',
                           margin: '0',
                         }}
                       >
@@ -70,7 +77,7 @@ const CalendarFC = () => {
               {
                 type: 'none',
                 content: (
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '-20px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '-90px' }}>
                     <p
                       style={{ fontWeight: 'bold', marginBottom: '10px', fontSize: '1.3em' }}
                     >{`${dayWeatherData.main.temp.toFixed(1)} °С`}</p>
@@ -80,7 +87,7 @@ const CalendarFC = () => {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: 'rgb(74, 0, 203)',
+                          color: '7b23d9',
                           margin: '0',
                         }}
                       >
@@ -102,12 +109,12 @@ const CalendarFC = () => {
     return listData || []
   }
 
-  const dateCellRender = (value) => {
-    const listData = getListData(value, forecastData, dayWeatherData)
+  const dateCellRender = (value: any) => {
+    const listData = getListData(value, forecastData)
 
     return (
       <ul className='events'>
-        {listData.map((item) => (
+        {listData.map((item: any) => (
           <Badge key={item.content} status={item.type} text={item.content} />
         ))}
       </ul>
