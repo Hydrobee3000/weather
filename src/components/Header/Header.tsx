@@ -1,24 +1,31 @@
-import { PageHeader, Select, Button } from 'antd'
+import { Select, Button, theme } from 'antd'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { setActivePlace, setCollapsedMenu } from '../../redux/reducers/weatherReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import s from './Header.module.css'
+import { IRootState } from '../../redux/store'
+import { PageHeader } from '@ant-design/pro-layout'
+
 const { Option } = Select // get option from select obj antd
 
-//header component
+// header component
 
-const HeaderFC = () => {
+const HeaderFC: React.FC = () => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken() // get bg color from theme
+
   const dispatch = useDispatch()
 
-  const places = useSelector((state) => state.weather.places) // array of places
-  const activePlace = useSelector((state) => state.weather.activePlace) // selected active place
-  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is closed menu? default = false
+  const places: string[] = useSelector((state: IRootState) => state.weather.places) // array of places
+  const activePlace: string = useSelector((state: IRootState) => state.weather.activePlace) // selected active place
+  const collapsedMenu: boolean = useSelector((state: IRootState) => state.weather.collapsedMenu) // is menu collapsed? (default = false)
 
-  const today = new Date() // current date
-  const optionsDate = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }
+  const today: Date = new Date() // current date
+  const optionsDate: object = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' } // date display format
 
   // handle change value of selected option
-  const onChangePlace = (place) => {
+  const onChangePlace = (place: string) => {
     dispatch(setActivePlace(place))
   }
 
@@ -29,6 +36,7 @@ const HeaderFC = () => {
 
   return (
     <PageHeader
+      style={{ backgroundColor: colorBgContainer }}
       className={s.header__container}
       title={
         <Button className={s.header__menu_btn} type='primary' onClick={toggleCollapsedMenu}>
@@ -44,7 +52,7 @@ const HeaderFC = () => {
           optionFilterProp='children'
           onChange={onChangePlace}
           value={activePlace}
-          filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
+          filterOption={(input, option: any) => option.children.toLowerCase().includes(input.toLowerCase())}
         >
           {/* mapped all places in select list */}
           {places.map((place) => (
