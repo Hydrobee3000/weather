@@ -1,6 +1,6 @@
 .card {
   border-radius: 15px !important;
-  background-color: #efefef !important;
+  /* background-color: #efefef !important; */
   min-width: 24em !important;
 }
 
@@ -33,7 +33,7 @@
 
 .content__descr {
   font-size: 2em;
-  color: #4a00cb !important;
+  color: #7b23d9 !important;
 }
 
 .content__date {

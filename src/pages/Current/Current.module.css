@@ -1,4 +1,6 @@
 .current__container {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 2em;
   text-align: center;
 }

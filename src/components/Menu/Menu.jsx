@@ -6,14 +6,20 @@ import s from './Menu.module.css' // css file with styles
 
 // sidebar menu component
 
-const MenuFC = () => {
+const MenuFC = ({ isDarkMode }) => {
   const { Sider } = Layout
-  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is open menu or not
+  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is menu open or not
 
   //if url has match path of NavLink - then firstly select needed Menu.Item
 
   return (
-    <Sider className={s.menu__container} trigger={null} collapsible collapsed={collapsedMenu}>
+    <Sider
+      className={s.menu__container}
+      style={isDarkMode ? null : { backgroundColor: '#efefef' }}
+      trigger={null}
+      collapsible
+      collapsed={collapsedMenu}
+    >
       <Menu
         className={s.menu}
         defaultSelectedKeys={['1']}

@@ -1,16 +1,22 @@
-import { Select, Button, theme } from 'antd'
+import { Select, Button, theme, Switch } from 'antd'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { setActivePlace, setCollapsedMenu } from '../../redux/reducers/weatherReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import s from './Header.module.css'
 import { IRootState } from '../../redux/store'
 import { PageHeader } from '@ant-design/pro-layout'
+import { MdLightMode, MdDarkMode } from 'react-icons/md'
 
 const { Option } = Select // get option from select obj antd
 
 // header component
 
-const HeaderFC: React.FC = () => {
+interface IProps {
+  isDarkMode: boolean
+  setIsDarkMode: any
+}
+
+const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken() // get bg color from theme
@@ -32,6 +38,11 @@ const HeaderFC: React.FC = () => {
   // switches the menu display mode
   const toggleCollapsedMenu = () => {
     dispatch(setCollapsedMenu(!collapsedMenu))
+  }
+
+  // switches the theme display mode
+  const toggleThemeMode = () => {
+    setIsDarkMode((previousValue: boolean) => !previousValue)
   }
 
   return (
@@ -61,6 +72,13 @@ const HeaderFC: React.FC = () => {
             </Option>
           ))}
         </Select>,
+        <br />,
+        <Switch
+          checkedChildren={<MdLightMode />}
+          unCheckedChildren={<MdDarkMode />}
+          defaultChecked={isDarkMode}
+          onClick={toggleThemeMode}
+        />,
       ]}
     />
   )
