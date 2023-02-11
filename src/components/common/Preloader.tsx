@@ -1,4 +1,4 @@
-import preloader from '../../../assets/preloader.gif'
+import preloader from '../../assets/preloader.gif'
 
 let Preloader: React.FC = () => {
   return (
