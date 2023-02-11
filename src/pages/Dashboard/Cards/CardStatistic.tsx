@@ -8,15 +8,15 @@ import s from './Cards.module.css' // css file with styles
 interface IProps {
   cardTitle: string
   cardIcon: React.ReactNode
-  firstTitle?: string
-  firstData?: number
-  secondTitle?: string | null
-  secondData?: number | null
-  thirdTitle?: string | null
-  thirdData?: number | null
+  firstTitle: string
+  firstData: number
+  secondTitle: string | null
+  secondData: any
+  thirdTitle: string | null
+  thirdData: any
 }
 
-const CardStatistic = ({
+const CardStatistic: React.FC<IProps> = ({
   cardTitle, // title into header of card
   cardIcon, // icon into header of card
   firstTitle, // title of first params
@@ -25,7 +25,7 @@ const CardStatistic = ({
   secondData = null,
   thirdTitle = null,
   thirdData = null,
-}: IProps) => {
+}) => {
   return (
     <Card
       title={<TitleCard>{cardTitle}</TitleCard>}
@@ -34,31 +34,39 @@ const CardStatistic = ({
       className={s.card}
       extra={cardIcon}
     >
-      <Space size='large' className={s.statistic__container}>
-        <Statistic
-          className={s.statistic}
-          title={<SubtitleCard>{firstTitle}</SubtitleCard>}
-          value={firstData}
-          valueStyle={statisticValueStyle}
-          precision={2}
-          suffix={<StatisticSuffix>m/h</StatisticSuffix>}
-        />
-        <Statistic
-          className={s.statistic}
-          title={<SubtitleCard>{secondTitle}</SubtitleCard>}
-          value={secondData}
-          precision={2}
-          valueStyle={statisticValueStyle}
-          suffix={<StatisticSuffix small>°</StatisticSuffix>}
-        />
-        <Statistic
-          className={s.statistic}
-          title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
-          value={thirdData}
-          precision={2}
-          valueStyle={statisticValueStyle}
-          suffix={<StatisticSuffix>m/s</StatisticSuffix>}
-        />
+      <Space size='large' direction='vertical'>
+        {firstData ? (
+          <Statistic
+            className={s.statistic}
+            title={<SubtitleCard>{firstTitle}</SubtitleCard>}
+            value={firstData}
+            valueStyle={statisticValueStyle}
+            precision={2}
+            suffix={<StatisticSuffix>m/h</StatisticSuffix>}
+          />
+        ) : null}
+
+        {secondData ? (
+          <Statistic
+            className={s.statistic}
+            title={<SubtitleCard>{secondTitle}</SubtitleCard>}
+            value={secondData}
+            precision={2}
+            valueStyle={statisticValueStyle}
+            suffix={<StatisticSuffix small>°</StatisticSuffix>}
+          />
+        ) : null}
+
+        {thirdData ? (
+          <Statistic
+            className={s.statistic}
+            title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
+            value={thirdData}
+            precision={2}
+            valueStyle={statisticValueStyle}
+            suffix={<StatisticSuffix>m/s</StatisticSuffix>}
+          />
+        ) : null}
       </Space>
     </Card>
   )
