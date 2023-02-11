@@ -5,10 +5,27 @@ import s from './ForecastCard.module.css'
 
 const { Text } = Typography
 
-const ForecastCard = ({ day }) => {
-  const ms = day.dt * 1000
-  const dateWeekDay = new Date(ms).toDateString() // full date of day
-  const dayOfWeekName = new Date(ms).toLocaleString('en', { weekday: 'long' }) // day of week
+interface IProps {
+  day: {
+    dt: number
+    weather: IWeatherDay
+    main: {
+      temp: number
+    }
+  }
+}
+interface IWeatherDay {
+  [index: number]: IWeatherDayEntry
+}
+interface IWeatherDayEntry {
+  main: string
+  [key: string]: any
+}
+
+const ForecastCard: React.FC<IProps> = ({ day }) => {
+  const ms: number = day.dt * 1000
+  const dateWeekDay: string = new Date(ms).toDateString() // full date of day
+  const dayOfWeekName: string = new Date(ms).toLocaleString('en', { weekday: 'long' }) // day of week
 
   return (
     <Card
@@ -16,23 +33,29 @@ const ForecastCard = ({ day }) => {
       title={<Text className={s.card__title}>{dayOfWeekName}</Text>}
       // the icon depends on the weather
       extra={
-        // when weather clearly - icon sun
+        // when weather clearly, icon = sun
+
         day.weather[0].main === 'Clear' ? (
           <IoSunnySharp className={s.card__icon} />
         ) : // when rainy
+
         day.weather[0].main === 'Rain' ? (
           <BsFillCloudRainHeavyFill className={s.card__icon} />
         ) : // when fill cloud
+
         day.weather[0].main === 'Clouds' ? (
           <IoCloudSharp className={s.card__icon} />
         ) : // when snow
+
         day.weather[0].main === 'Snow' ? (
           <IoSnowSharp className={s.card__icon} />
         ) : // when fog
+
         day.weather[0].main === 'Fog' ? (
           <BsCloudFogFill className={s.card__icon} />
-        ) : null
-        // if nothing above - show nothing
+        ) : // if nothing above - no icon
+
+        null
       }
     >
       <Space size='large' direction='vertical' className={s.card__content}>
@@ -42,7 +65,9 @@ const ForecastCard = ({ day }) => {
         </Text>
         {/* description of weather */}
         <Text className={s.content__descr}>{day.weather[0].description}</Text>
-        <Text className={s.content__date}>{dateWeekDay}</Text>
+        <Text type={'secondary'} className={s.content__date}>
+          {dateWeekDay}
+        </Text>
       </Space>
     </Card>
   )
