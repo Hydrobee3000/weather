@@ -41,29 +41,17 @@ const CalendarFC: React.FC = () => {
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      marginTop: '-20px',
+                      marginTop: '-90px',
                     }}
                   >
                     <p
                       style={{
-                        marginBottom: '10px',
+                        marginBottom: '5px',
                         fontSize: '1.3em',
                       }}
                     >{`${Math.round(day.main.temp)} °C`}</p>
-                    <Tag style={{ margin: '0' }} color='purple'>
-                      <p
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          color: '#7b23d9',
-                          margin: '0',
-                        }}
-                      >
-                        {day.weather[0].main}
-                      </p>
+                    <Tag style={{ display: 'flex', justifyContent: 'center', color: '#7b23d9', margin: '0' }} color='purple'>
+                      {day.weather[0].main}
                     </Tag>
                   </div>
                 ),
@@ -77,22 +65,12 @@ const CalendarFC: React.FC = () => {
               {
                 type: 'none',
                 content: (
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '-90px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', marginTop: '-90px' }}>
                     <p
-                      style={{ fontWeight: 'bold', marginBottom: '10px', fontSize: '1.3em' }}
+                      style={{ fontWeight: 'bold', marginBottom: '5px', fontSize: '1.3em' }}
                     >{`${dayWeatherData.main.temp.toFixed(1)} °С`}</p>
-                    <Tag style={{ margin: '0' }} color='purple'>
-                      <p
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          color: '7b23d9',
-                          margin: '0',
-                        }}
-                      >
-                        {weatherDescr.main}
-                      </p>
+                    <Tag style={{ display: 'flex', justifyContent: 'center', margin: '0' }} color='purple'>
+                      {weatherDescr.main}
                     </Tag>
                   </div>
                 ),
