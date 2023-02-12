@@ -1,4 +1,4 @@
-import { Button, theme } from 'antd'
+import { Button, Space, theme } from 'antd'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { setCollapsedMenu } from '../../redux/reducers/weatherReducer'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,8 +6,8 @@ import { IRootState } from '../../redux/store'
 import { PageHeader } from '@ant-design/pro-layout'
 import SelectPlace from '../common/SelectPlace'
 import SwitchTheme from '../common/SwitcherTheme'
-import s from './Header.module.css'
 import DateFormat from '../common/DateFormat'
+import s from './Header.module.css'
 
 // header component
 
@@ -40,9 +40,11 @@ const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
       } // change icon on click, icon toggle menu view
       subTitle={<DateFormat />} // date
       extra={[
-        <SelectPlace key={1} />,
-        <br key={2} />,
-        <SwitchTheme key={3} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />,
+        <Space size='small'>
+          <SelectPlace key={1} />,
+          <br key={2} />,
+          <SwitchTheme key={3} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />,
+        </Space>,
       ]}
     />
   )

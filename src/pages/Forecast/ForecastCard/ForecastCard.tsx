@@ -2,6 +2,7 @@ import { Space, Typography, Card } from 'antd'
 import { IoSunnySharp, IoCloudSharp, IoSnowSharp } from 'react-icons/io5'
 import { BsFillCloudRainHeavyFill, BsCloudFogFill } from 'react-icons/bs'
 import s from './ForecastCard.module.css'
+import { primaryColor } from '../../../utils/constants/commonStyles'
 
 const { Text } = Typography
 
@@ -13,6 +14,7 @@ interface IProps {
       temp: number
     }
   }
+  isDarkMode: boolean
 }
 interface IWeatherDay {
   [index: number]: IWeatherDayEntry
@@ -22,7 +24,7 @@ interface IWeatherDayEntry {
   [key: string]: any
 }
 
-const ForecastCard: React.FC<IProps> = ({ day }) => {
+const ForecastCard: React.FC<IProps> = ({ day, isDarkMode }) => {
   const ms: number = day.dt * 1000
   const dateWeekDay: string = new Date(ms).toDateString() // full date of day
   const dayOfWeekName: string = new Date(ms).toLocaleString('en', { weekday: 'long' }) // day of week
@@ -34,25 +36,24 @@ const ForecastCard: React.FC<IProps> = ({ day }) => {
       // the icon depends on the weather
       extra={
         // when weather clearly, icon = sun
-
         day.weather[0].main === 'Clear' ? (
-          <IoSunnySharp className={s.card__icon} />
+          <IoSunnySharp className={s.card__icon} style={isDarkMode ? undefined : primaryColor} /> // change color only for light theme
         ) : // when rainy
 
         day.weather[0].main === 'Rain' ? (
-          <BsFillCloudRainHeavyFill className={s.card__icon} />
+          <BsFillCloudRainHeavyFill className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />
         ) : // when fill cloud
 
         day.weather[0].main === 'Clouds' ? (
-          <IoCloudSharp className={s.card__icon} />
+          <IoCloudSharp className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />
         ) : // when snow
 
         day.weather[0].main === 'Snow' ? (
-          <IoSnowSharp className={s.card__icon} />
+          <IoSnowSharp className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />
         ) : // when fog
 
         day.weather[0].main === 'Fog' ? (
-          <BsCloudFogFill className={s.card__icon} />
+          <BsCloudFogFill className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />
         ) : // if nothing above - no icon
 
         null

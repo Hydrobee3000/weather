@@ -18,6 +18,7 @@ const App = () => {
   const dispatch = useDispatch()
   const activePlace = useSelector((state) => state.weather.activePlace) // gets the selected active place
 
+  // theme
   let isPreferDarkTheme = window.matchMedia('(prefers-color-scheme:dark)').matches // determines which theme the user prefers
   const [isDarkMode, setIsDarkMode] = useState(isPreferDarkTheme) // sets the selected default OS theme
 
@@ -56,8 +57,8 @@ const App = () => {
               <Routes>
                 <Route path='/' element={<Navigate replace to='/current' />} />
                 <Route path='current' element={<CurrentContainer />} />
-                <Route path='forecast' element={<ForecastContainer />} />
-                <Route path='dashboard' element={<DashboardContainer />} />
+                <Route path='forecast' element={<ForecastContainer isDarkMode={isDarkMode} />} />
+                <Route path='dashboard' element={<DashboardContainer isDarkMode={isDarkMode} />} />
                 <Route path='calendar' element={<CalendarContainer />} />
               </Routes>
             </Content>

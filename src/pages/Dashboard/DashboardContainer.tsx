@@ -6,9 +6,13 @@ import { IRootState } from '../../redux/store'
 import { IDayWeatherData } from '../../utils/types'
 import DashboardFC from './Dashboard' // <FC> of dashboard page
 
+interface IProps {
+  isDarkMode: boolean
+}
+
 // fetch data for dashboard page and set in store
 
-const DashboardContainer: React.FC = () => {
+const DashboardContainer: React.FC<IProps> = ({ isDarkMode }) => {
   const dispatch: any = useDispatch()
   const activePlace: string = useSelector((state: IRootState) => state.weather.activePlace) // selected active place
   const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData) // weather for the day object
@@ -23,7 +27,7 @@ const DashboardContainer: React.FC = () => {
     return <Preloader />
   }
 
-  return <DashboardFC />
+  return <DashboardFC isDarkMode={isDarkMode} />
 }
 
 export default DashboardContainer
