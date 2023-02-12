@@ -2,10 +2,21 @@ import { Space, Statistic, Card } from 'antd' // antd components
 import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard' // subtitle <FC> for statistic params
 import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
-import { cardHeadStyle, cardBodyStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
+import { cardBodyStyle, cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
 import s from './Cards.module.css' // css file with styles
 
-const CardStatisticTemp = ({
+interface IProps {
+  cardTitle: string
+  cardIcon: React.ReactNode
+  firstTitle: string
+  firstData: number
+  secondTitle: string | null
+  secondData: any
+  thirdTitle: string | null
+  thirdData: any
+}
+
+const CardStatistic: React.FC<IProps> = ({
   cardTitle, // title into header of card
   cardIcon, // icon into header of card
   firstTitle, // title of first params
@@ -14,8 +25,6 @@ const CardStatisticTemp = ({
   secondData = null,
   thirdTitle = null,
   thirdData = null,
-  fourthTitle = null,
-  fourthData = null,
 }) => {
   return (
     <Card
@@ -25,46 +34,42 @@ const CardStatisticTemp = ({
       className={s.card}
       extra={cardIcon}
     >
-      <Space size='large' className={s.statistic_temp__container}>
-        <Space size='large' direction='vertical'>
+      <Space size='large' direction='vertical'>
+        {firstData ? (
           <Statistic
             className={s.statistic}
             title={<SubtitleCard>{firstTitle}</SubtitleCard>}
             value={firstData}
-            precision={2}
             valueStyle={statisticValueStyle}
-            suffix={<StatisticSuffix small>°C</StatisticSuffix>}
+            precision={2}
+            suffix={<StatisticSuffix>m/h</StatisticSuffix>}
           />
+        ) : null}
+
+        {secondData ? (
           <Statistic
             className={s.statistic}
             title={<SubtitleCard>{secondTitle}</SubtitleCard>}
             value={secondData}
             precision={2}
             valueStyle={statisticValueStyle}
-            suffix={<StatisticSuffix small>°C</StatisticSuffix>}
+            suffix={<StatisticSuffix small>°</StatisticSuffix>}
           />
-        </Space>
-        <Space size='large' direction='vertical'>
+        ) : null}
+
+        {thirdData ? (
           <Statistic
             className={s.statistic}
             title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
             value={thirdData}
             precision={2}
             valueStyle={statisticValueStyle}
-            suffix={<StatisticSuffix small>°C</StatisticSuffix>}
+            suffix={<StatisticSuffix>m/s</StatisticSuffix>}
           />
-          <Statistic
-            className={s.statistic}
-            title={<SubtitleCard>{fourthTitle}</SubtitleCard>}
-            value={fourthData}
-            precision={2}
-            valueStyle={statisticValueStyle}
-            suffix={<StatisticSuffix small>°C</StatisticSuffix>}
-          />
-        </Space>
+        ) : null}
       </Space>
     </Card>
   )
 }
 
-export default CardStatisticTemp
+export default CardStatistic

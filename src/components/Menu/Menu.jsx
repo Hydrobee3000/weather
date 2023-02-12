@@ -4,40 +4,41 @@ import { useSelector } from 'react-redux' // redux hooks
 import { NavLink } from 'react-router-dom' // link with active style
 import s from './Menu.module.css' // css file with styles
 
+const { Sider } = Layout
+
 // sidebar menu component
 
-const MenuFC = () => {
-  const { Sider } = Layout
-  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // is open menu or not
+const MenuFC = ({ isDarkMode }) => {
+  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // whether the menu is open or not
 
-  //if url has match path of NavLink - then firstly select needed Menu.Item
+  let currentPath = window.location.hash.substring(2) // get the current path and change the format '#/path' => 'path'
 
   return (
-    <Sider className={s.menu__container} trigger={null} collapsible collapsed={collapsedMenu}>
-      <Menu
-        className={s.menu}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode='inline'
-        collapsed={collapsedMenu.toString()}
-      >
-        <Menu.Item key='today' icon={<CloudOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/current'>
+    <Sider
+      className={s.menu__container}
+      style={isDarkMode ? null : { backgroundColor: '#efefef' }}
+      trigger={null}
+      collapsible
+      collapsed={collapsedMenu}
+    >
+      <Menu className={s.menu} defaultSelectedKeys={[currentPath]} mode='inline' collapsed={collapsedMenu.toString()}>
+        <Menu.Item key='current' icon={<CloudOutlined />}>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to='/current'>
             Current
           </NavLink>
         </Menu.Item>
-        <Menu.Item key='week' icon={<CompassOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/forecast'>
+        <Menu.Item key='forecast' icon={<CompassOutlined />}>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to='/forecast'>
             Forecast
           </NavLink>
         </Menu.Item>
         <Menu.Item key='dashboard' icon={<DashboardOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/dashboard'>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to='/dashboard'>
             Dashboard
           </NavLink>
         </Menu.Item>
         <Menu.Item key='calendar' icon={<ScheduleOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} to='/calendar'>
+          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to='/calendar'>
             Calendar
           </NavLink>
         </Menu.Item>

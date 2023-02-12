@@ -3,7 +3,13 @@ import TitleCard from '../../../components/common/DashboardCards/TitleCard' // t
 import { cardHeadStyle, cardBodyStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
 import s from './Cards.module.css' // css file with styles
 
-const CardProgress = ({ title, data, icon }) => {
+interface IProps {
+  title: string
+  icon: React.ReactNode
+  data: number
+}
+
+const CardProgress: React.FC<IProps> = ({ title, icon, data }) => {
   return (
     <Card
       title={<TitleCard>{title}</TitleCard>}
@@ -14,9 +20,9 @@ const CardProgress = ({ title, data, icon }) => {
     >
       <Progress
         type='dashboard'
-        strokeWidth='8'
-        strokeColor='#783fdb'
-        trailColor='#783fdb30'
+        strokeWidth={8} // line thickness
+        strokeColor='#5a00cb' // filled part color
+        trailColor='#5b00cb62' // unfilled part color
         className={s.progress}
         format={() => {
           return (

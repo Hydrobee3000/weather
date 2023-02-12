@@ -1,23 +1,11 @@
 .header__container {
   width: 100%;
-  background-color: #e9e9e9 !important;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   margin: 5px 0;
-}
-
-.header__date {
-  margin: 0;
-  margin-left: 1.5em;
-  font-size: 1.2em;
-  color: #4a00cb;
-}
-
-.header__select {
-  width: 9em;
 }
 
 .header__menu_btn:hover {

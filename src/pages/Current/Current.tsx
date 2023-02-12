@@ -1,26 +1,30 @@
 import { useSelector } from 'react-redux' // redux hooks
-import { pageTitle, primaryColor } from '../../utils/constants/commonStyles'
+import { pageTitle } from '../../utils/constants/commonStyles'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
 import { Typography } from 'antd'
 import s from './Current.module.css' // css file with styles
+import { IRootState } from '../../redux/store'
+import { IDayWeatherData } from '../../utils/types'
 
-const { Title } = Typography
+const { Title, Text } = Typography
 
 // current(main) page
 
-const Current = () => {
-  const weather = useSelector((state) => state.weather.dayWeatherData.weather[0]) // get description of weather ex: 'cloudy'
-  const dayWeatherData = useSelector((state) => state.weather.dayWeatherData)
+const Current: React.FC = () => {
+  const weatherDesc: string = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0].description) // get description of weather ex: 'cloudy'
+  const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData)
 
   return (
     <div className={s.current__container}>
       <Title style={pageTitle}>Current conditions</Title>
 
-      <p style={{ fontSize: '2em', marginTop: '2.5em' }}>{dayWeatherData.name}</p>
+      <Text style={{ fontSize: '2em', marginTop: '2.5em' }}>{dayWeatherData.name}</Text>
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
-      <p style={{ fontSize: '6em', marginTop: '0.5em' }}>{Math.round(parseFloat(dayWeatherData.main.temp) * 10) / 10} °С</p>
-      <p style={{ fontSize: '3em', color: 'rgb(74, 0, 203)', margin: '0' }}>{firstLetterUpperCase(weather.description)}</p>
+      <Text style={{ fontSize: '6em', marginTop: '0.5em' }}>
+        {Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10} °С
+      </Text>
+      <Text style={{ fontSize: '3em', color: '#7b23d9', margin: '0' }}>{firstLetterUpperCase(weatherDesc)}</Text>
       {/* <p style={{ fontSize: '1.2em' }} className={s.parameter}>
         Feels like: {(dayWeatherData.main.feels_like - 273.15).toFixed(1)} °С
       </p> */}
