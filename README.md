@@ -1,4 +1,4 @@
-[old demo](https://hydrobee3000.github.io/weather/#/current-weather)
+[demo](https://hydrobee3000.github.io/weather/#/current-weather)
 
 # Weather app
 
