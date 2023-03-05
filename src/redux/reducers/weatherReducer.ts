@@ -1,10 +1,12 @@
 import { weatherAPI } from '../../api/api'
 import { ForecastData } from '../../utils/types'
 
-const SET_ACTIVE_PLACE = 'SET_ACTIVE_PLACE'
-const SET_DAY_WEATHER_DATA = 'SET_DAY_WEATHER_DATA'
-const SET_FORECAST_DATA = 'SET_FORECAST_DATA'
-const SET_COLLAPSED_MENU = 'SET_COLLAPSED_MENU'
+const WEATHER_ACTIONS = {
+  setActivePlace: 'setActivePlace',
+  setDayWeatherData: 'setDayWeatherData',
+  setForecastData: 'setForecastData',
+  setCollapsedMenu: 'setCollapsedMenu',
+}
 
 //type for state
 export type initialStateType = {
@@ -27,25 +29,25 @@ const initialState: initialStateType = {
 
 const weatherReducer = (state = initialState, action: any): initialStateType => {
   switch (action.type) {
-    case SET_ACTIVE_PLACE: {
+    case WEATHER_ACTIONS.setActivePlace: {
       return {
         ...state,
         activePlace: action.payload,
       }
     }
-    case SET_DAY_WEATHER_DATA: {
+    case WEATHER_ACTIONS.setDayWeatherData: {
       return {
         ...state,
         dayWeatherData: action.payload,
       }
     }
-    case SET_FORECAST_DATA: {
+    case WEATHER_ACTIONS.setForecastData: {
       return {
         ...state,
         forecastData: action.payload,
       }
     }
-    case SET_COLLAPSED_MENU: {
+    case WEATHER_ACTIONS.setCollapsedMenu: {
       return {
         ...state,
         collapsedMenu: action.payload,
@@ -60,38 +62,41 @@ const weatherReducer = (state = initialState, action: any): initialStateType => 
 // types of actions
 
 type setActivePlaceType = {
-  type: typeof SET_ACTIVE_PLACE
+  type: typeof WEATHER_ACTIONS.setActivePlace
   payload: string
 }
 type setDayWeatherDataType = {
-  type: typeof SET_DAY_WEATHER_DATA
+  type: typeof WEATHER_ACTIONS.setDayWeatherData
   payload: object | null
 }
 type setForecastDataType = {
-  type: typeof SET_FORECAST_DATA
+  type: typeof WEATHER_ACTIONS.setForecastData
   payload: object | null
 }
 type setCollapsedMenuType = {
-  type: typeof SET_COLLAPSED_MENU
+  type: typeof WEATHER_ACTIONS.setCollapsedMenu
   payload: boolean
 }
 
 // actions
 
-export const setActivePlace = (activePlace: string): setActivePlaceType => ({ type: SET_ACTIVE_PLACE, payload: activePlace })
+export const setActivePlace = (activePlace: string): setActivePlaceType => ({
+  type: WEATHER_ACTIONS.setActivePlace,
+  payload: activePlace,
+})
 
 export const setDayWeatherData = (dayWeatherData: object): setDayWeatherDataType => ({
-  type: SET_DAY_WEATHER_DATA,
+  type: WEATHER_ACTIONS.setDayWeatherData,
   payload: dayWeatherData,
 })
 
 export const setForecastData = (forecastData: object): setForecastDataType => ({
-  type: SET_FORECAST_DATA,
+  type: WEATHER_ACTIONS.setForecastData,
   payload: forecastData,
 })
 
 export const setCollapsedMenu = (collapsedMenu: boolean): setCollapsedMenuType => ({
-  type: SET_COLLAPSED_MENU,
+  type: WEATHER_ACTIONS.setCollapsedMenu,
   payload: collapsedMenu,
 })
 

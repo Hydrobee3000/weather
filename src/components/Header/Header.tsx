@@ -41,9 +41,9 @@ const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
       subTitle={<DateFormat />} // date
       extra={[
         <Space size='small'>
-          <SelectPlace key={1} />,
-          <br key={2} />,
-          <SwitchTheme key={3} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />,
+          <SelectPlace key={1} />
+          <br key={2} />
+          <SwitchTheme key={3} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         </Space>,
       ]}
     />
