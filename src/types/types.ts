@@ -8,7 +8,9 @@ export interface CurrencyState {
   isFetching: boolean
 }
 
-/* DayWeatherData */
+/* current (day) */
+
+// weather data object for the day
 
 export type IDayWeatherData = {
   name: string
@@ -29,7 +31,7 @@ export type IDayWeatherData = {
   }
 }
 
-/* ForecastData */
+/* forecast  */
 
 type WeatherList = {
   [index: number]: {
@@ -72,6 +74,8 @@ export type ForecastDataList = [
   }
 ]
 
+// weather forecast data object
+
 export type ForecastData = {
   city: {
     coord: [{ lat: number }, { lon: number }]
@@ -88,5 +92,3 @@ export type ForecastData = {
   list: ForecastDataList
   message: number
 }
-
-/*  */

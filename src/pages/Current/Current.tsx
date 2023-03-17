@@ -4,7 +4,7 @@ import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function 
 import { Typography } from 'antd'
 import s from './Current.module.css' // css file with styles
 import { IRootState } from '../../redux/store'
-import { IDayWeatherData } from '../../utils/types'
+import { IDayWeatherData } from '../../types/types'
 
 const { Title, Text } = Typography
 

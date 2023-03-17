@@ -1,5 +1,5 @@
 import { weatherAPI } from '../../api/api'
-import { ForecastData } from '../../utils/types'
+import { ForecastData } from '../../types/types'
 
 const WEATHER_ACTIONS = {
   setActivePlace: 'setActivePlace',

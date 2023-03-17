@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux' // redux hooks
 import Preloader from '../../components/common/Preloader' // preloader to wait for data to load
 import { IRootState } from '../../redux/store'
-import { ForecastData } from '../../utils/types'
+import { ForecastData } from '../../types/types'
 import Forecast from './Forecast' // <FC> of forecast page
 
 interface IProps {

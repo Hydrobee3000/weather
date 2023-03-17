@@ -1,7 +1,7 @@
 import { Badge, Calendar, Tag } from 'antd' // antd components
 import { useSelector } from 'react-redux' // hook for getting value from redux state
 import { IRootState } from '../../redux/store'
-import { ForecastData, ForecastDataList } from '../../utils/types'
+import { ForecastData, ForecastDataList } from '../../types/types'
 
 // calendar page
 

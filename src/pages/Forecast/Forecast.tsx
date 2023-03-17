@@ -5,7 +5,7 @@ import { Typography } from 'antd'
 import s from './Forecast.module.css' // css file with styles
 import { pageTitle } from '../../utils/constants/commonStyles'
 import { IRootState } from '../../redux/store'
-import { ForecastData, ForecastDataList } from '../../utils/types'
+import { ForecastData, ForecastDataList } from '../../types/types'
 
 const { Title } = Typography
 
