@@ -1,15 +1,16 @@
 .card {
   border-radius: 15px !important;
-}
+  max-width: 380px;
 
-.card__title {
-  font-size: 1.85em !important;
-  text-align: center !important;
-}
+  &__title {
+    font-size: 1.85em !important;
+    text-align: center !important;
+  }
 
-.card__value {
-  font-size: 1.85em;
-  text-align: center;
+  &__value {
+    font-size: 1.85em;
+    text-align: center;
+  }
 }
 
 .statistic_temp__container {
@@ -21,7 +22,6 @@
 
 .statistic__container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -30,11 +30,12 @@
 .statistic {
   border: 1px solid #5a00cb;
   border-radius: 10px;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  width: 140px;
+  padding: 10px !important;
+  // padding-left: 20px !important;
+  // padding-right: 20px !important;
+  // padding-top: 10px !important;
+  // padding-bottom: 10px !important;
+  // width: 140px;
 }
 .statistic:hover {
   background-color: #5b00cb1f;

@@ -1,7 +1,7 @@
 import { Progress, Card } from 'antd' // antd components
 import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
 import { cardHeadStyle, cardBodyStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
-import s from './Cards.module.css' // css file with styles
+import s from './Cards.module.scss' // css file with styles
 
 interface IProps {
   title: string
