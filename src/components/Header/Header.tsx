@@ -34,16 +34,16 @@ const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
       style={{ backgroundColor: colorBgContainer }}
       className={s.header__container}
       title={
-        <Button className={s.header__menu_btn} type='primary' onClick={toggleCollapsedMenu}>
+        <Button key={'toggleMenu'} className={s.header__menu_btn} type='primary' onClick={toggleCollapsedMenu}>
           {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         </Button>
       } // change icon on click, icon toggle menu view
       subTitle={<DateFormat />} // date
       extra={[
-        <Space size='small'>
-          <SelectPlace key={1} />
-          <br key={2} />
-          <SwitchTheme key={3} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        <Space key={'headerOptions'} size='small'>
+          <SelectPlace />
+          <br />
+          <SwitchTheme isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         </Space>,
       ]}
     />
