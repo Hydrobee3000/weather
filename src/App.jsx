@@ -1,15 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { Navigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchDayWeatherData, fetchForecastData } from './redux/reducers/weatherReducer'
-import { Layout, ConfigProvider, theme, Button } from 'antd'
+import { Layout, ConfigProvider, theme } from 'antd'
 import HeaderFC from './components/Header/Header'
 import MenuFC from './components/Menu/Menu'
-import CurrentContainer from './pages/Current/CurrentContainer'
-import ForecastContainer from './pages/Forecast/ForecastContainer'
-import DashboardContainer from './pages/Dashboard/DashboardContainer'
-import CalendarContainer from './pages/Calendar/CalendarContainer'
+import AppRoutes from './Routes'
 
 const { Content } = Layout
 const { defaultAlgorithm, darkAlgorithm } = theme
@@ -28,39 +23,22 @@ const App = () => {
     dispatch(fetchForecastData(activePlace))
   }, [dispatch, activePlace])
 
+  const themeConfig = {
+    algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
+    token: {
+      colorPrimary: '#5a00cb',
+    },
+  }
+
   return (
-    <ConfigProvider
-      theme={{
-        algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
-        token: {
-          colorPrimary: '#5a00cb',
-        },
-      }}
-    >
+    <ConfigProvider theme={themeConfig}>
       <Layout style={{ minHeight: '100vh' }}>
         <HeaderFC isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Layout>
           <MenuFC isDarkMode={isDarkMode} />
-          <Layout
-
-          // style={{
-          //   backgroundColor: '#fcfcfc',
-          // }}
-          >
-            <Content
-              className='site-layout-background'
-              style={{
-                padding: 20,
-                minHeight: 280,
-              }}
-            >
-              <Routes>
-                <Route path='/' element={<Navigate replace to='/current' />} />
-                <Route path='current' element={<CurrentContainer />} />
-                <Route path='forecast' element={<ForecastContainer isDarkMode={isDarkMode} />} />
-                <Route path='dashboard' element={<DashboardContainer isDarkMode={isDarkMode} />} />
-                <Route path='calendar' element={<CalendarContainer />} />
-              </Routes>
+          <Layout>
+            <Content className='site-layout-background' style={{ padding: 20, minHeight: 280 }}>
+              <AppRoutes isDarkMode={isDarkMode} />
             </Content>
           </Layout>
         </Layout>
