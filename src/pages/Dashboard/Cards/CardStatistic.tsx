@@ -1,9 +1,11 @@
-import { Space, Statistic, Card } from 'antd' // antd components
 import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard' // subtitle <FC> for statistic params
 import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
-import { cardBodyStyle, cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
-import s from './Cards.module.css' // css file with styles
+import useSuffixValues from '../../../hooks/useSuffixValues' //takes an array of suffix values and returns an array of state variables with those suffix values
+import { cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
+import checkIsSmallSuffix from '../../../utils/checkIsSmallSuffix' // checks if the suffix has the ° symbol in it
+import { Statistic, Card, Row, Col } from 'antd' // antd components
+import s from './Cards.module.scss' // css file with styles
 
 interface IProps {
   cardTitle: string
@@ -14,6 +16,10 @@ interface IProps {
   secondData: any
   thirdTitle: string | null
   thirdData: any
+  fourthTitle?: string | null
+  fourthData?: any
+  wind?: boolean
+  temperature?: boolean
 }
 
 const CardStatistic: React.FC<IProps> = ({
@@ -25,49 +31,85 @@ const CardStatistic: React.FC<IProps> = ({
   secondData = null,
   thirdTitle = null,
   thirdData = null,
+  fourthTitle = null,
+  fourthData = null,
+  wind = false,
+  temperature = false,
 }) => {
+  // suffix values for all `Statistic` elements
+  const suffixValues: string[] = wind ? ['m/h', '°', 'm/s', 'm/s'] : ['°C', '°C', '°C', '°C']
+
+  const suffixes: string[] = useSuffixValues(suffixValues)
+
+  // if there is no data, nothing will be displayed
+  if (!firstData && !secondData && !thirdData && !fourthData) {
+    return null
+  }
+
   return (
     <Card
       title={<TitleCard>{cardTitle}</TitleCard>}
       headStyle={cardHeadStyle}
-      bodyStyle={cardBodyStyle}
+      // bodyStyle={cardBodyStyle}
       className={s.card}
       extra={cardIcon}
     >
-      <Space size='large' direction='vertical'>
+      <Row gutter={[20, 20]}>
         {firstData ? (
-          <Statistic
-            className={s.statistic}
-            title={<SubtitleCard>{firstTitle}</SubtitleCard>}
-            value={firstData}
-            valueStyle={statisticValueStyle}
-            precision={2}
-            suffix={<StatisticSuffix>m/h</StatisticSuffix>}
-          />
+          <Col span={12}>
+            <Statistic
+              className={s.statistic}
+              title={<SubtitleCard>{firstTitle}</SubtitleCard>}
+              value={firstData}
+              valueStyle={statisticValueStyle}
+              precision={2}
+              suffix={<StatisticSuffix small={checkIsSmallSuffix(suffixes[0])}>{suffixes[0]}</StatisticSuffix>}
+            />
+          </Col>
         ) : null}
 
         {secondData ? (
-          <Statistic
-            className={s.statistic}
-            title={<SubtitleCard>{secondTitle}</SubtitleCard>}
-            value={secondData}
-            precision={2}
-            valueStyle={statisticValueStyle}
-            suffix={<StatisticSuffix small>°</StatisticSuffix>}
-          />
+          <Col span={12}>
+            <Statistic
+              // style={{ border: '1px solid #5a00cb', borderRadius: '10px', padding: '10px' }}
+              className={s.statistic}
+              title={<SubtitleCard>{secondTitle}</SubtitleCard>}
+              value={secondData}
+              valueStyle={statisticValueStyle}
+              precision={2}
+              suffix={<StatisticSuffix small={checkIsSmallSuffix(suffixes[1])}>{suffixes[1]}</StatisticSuffix>}
+            />
+          </Col>
         ) : null}
 
         {thirdData ? (
-          <Statistic
-            className={s.statistic}
-            title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
-            value={thirdData}
-            precision={2}
-            valueStyle={statisticValueStyle}
-            suffix={<StatisticSuffix>m/s</StatisticSuffix>}
-          />
+          <Col span={12}>
+            <Statistic
+              // style={{ border: '1px solid #5a00cb', borderRadius: '10px', padding: '10px' }}
+              className={s.statistic}
+              title={<SubtitleCard>{thirdTitle}</SubtitleCard>}
+              value={thirdData}
+              valueStyle={statisticValueStyle}
+              precision={2}
+              suffix={<StatisticSuffix small={checkIsSmallSuffix(suffixes[2])}>{suffixes[2]}</StatisticSuffix>}
+            />
+          </Col>
         ) : null}
-      </Space>
+
+        {fourthData ? (
+          <Col span={12}>
+            <Statistic
+              // style={{ border: '1px solid #5a00cb', borderRadius: '10px', padding: '10px' }}
+              className={s.statistic}
+              title={<SubtitleCard>{fourthTitle}</SubtitleCard>}
+              value={fourthData}
+              valueStyle={statisticValueStyle}
+              precision={2}
+              suffix={<StatisticSuffix small={checkIsSmallSuffix(suffixes[3])}>{suffixes[3]}</StatisticSuffix>}
+            />
+          </Col>
+        ) : null}
+      </Row>
     </Card>
   )
 }

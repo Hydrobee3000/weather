@@ -3,7 +3,7 @@ import TitleCard from '../../../components/common/DashboardCards/TitleCard' // t
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard' // subtitle <FC> for statistic params
 import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
 import { cardHeadStyle, cardBodyStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
-import s from './Cards.module.css' // css file with styles
+import s from './Cards.module.scss' // css file with styles
 
 interface IProps {
   cardTitle: string
