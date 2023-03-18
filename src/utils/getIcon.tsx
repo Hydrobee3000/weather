@@ -12,9 +12,9 @@ const weatherIcons: Record<string, JSX.Element> = {
 }
 
 /**
- * Creating a JSX icon element with styles by condition
+ * Creating a JSX icon element with styles by condition.
  *
- * @param {string} weatherCondition Weather condition description. e.g. _'Snow'_
+ * @param {string} weatherCondition Weather condition description. _e.g. 'Snow'_
  * @param {boolean} isDarkMode Changes styles depending on the theme
  * @param {string} [className] _optional_
  * @returns {JSX.Element | null} The corresponding icon JSX element
