@@ -37,7 +37,7 @@ const CardStatistic: React.FC<IProps> = ({
   wind = false,
   temperature = false,
 }) => {
-  // suffix values for all `Statistic` elements; useMemo prevents unnecessary calls
+  // suffix values for all `Statistic` elements;   useMemo prevents unnecessary calls
   const suffixValues: string[] = useMemo(() => (wind ? ['m/h', '°', 'm/s', 'm/s'] : ['°C', '°C', '°C', '°C']), [])
 
   const suffixes: string[] = useSuffixValues(suffixValues)

@@ -15,13 +15,13 @@ interface IProps {
 
 const Forecast: React.FC<IProps> = ({ isDarkMode }) => {
   const forecastData: ForecastData = useSelector((state: IRootState) => state.weather.forecastData!) // weather forecast object
-  const dailyList: dailyForecastData[] = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) // get data of every day per 12:00
-  console.log(forecastData)
+  // get data of every day per 12:00
+  const dailyList: dailyForecastData[] = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00'))
 
   // forecast cards with data
   const dailyFormatCards = () => {
-    return dailyList.map((dailyData: dailyForecastData, index: number) => (
-      <ForecastCard dailyData={dailyData} key={index} isDarkMode={isDarkMode} />
+    return dailyList.map((dailyData: dailyForecastData) => (
+      <ForecastCard key={dailyData.dt} dailyData={dailyData} isDarkMode={isDarkMode} />
     ))
   }
 
@@ -29,7 +29,6 @@ const Forecast: React.FC<IProps> = ({ isDarkMode }) => {
     <div className={s.wrapper}>
       <Space direction='vertical' size={60}>
         <Title style={pageTitle}>Forecast overview</Title>
-
         {dailyFormatCards()}
       </Space>
     </div>

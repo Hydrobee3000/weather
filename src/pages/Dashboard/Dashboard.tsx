@@ -18,10 +18,9 @@ interface IProps {
 // dashboard page
 
 const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
-  // description of weather for the day. e.g.: 'cloudy'
+  // description of weather for the day. (e.g. 'light snow')
   const weatherDesc: string = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0].description)
-
-  const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData) // weather data object
+  const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData)
 
   return (
     <>
@@ -30,7 +29,6 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
         <span style={{ padding: '0 0.7em' }}>in</span>
         <span style={primaryColor}>{dayWeatherData.name}</span>
       </Title>
-
       <div className={s.dashboard__container}>
         <Space size={40} align='start' className={s.dashboard}>
           <CardStatistic
