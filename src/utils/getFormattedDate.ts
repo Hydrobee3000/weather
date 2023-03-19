@@ -16,6 +16,7 @@ export function getFormattedDate(milliseconds: number): string {
 /**
  * Returns the current date in the format "Saturday, 3/18/2023".
  *
+ * @param {Date} date - The date object to be formatted.
  * @returns {string} The formatted date string.
  */
 
