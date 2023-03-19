@@ -14,29 +14,26 @@ interface IProps {
 const ForecastCard: React.FC<IProps> = ({ dailyData, isDarkMode }) => {
   // date
   const ms: number = dailyData.dt * 1000
-  const dateWeekDay: string = getFormattedDate(ms) //  e.g. `Sat Mar 18 2023`
-  const dayOfWeekName: string = getWeekdayName(ms) // e.g. `Saturday`
+  const weekDayDate: string = getFormattedDate(ms)
+  const weekDayName: string = getWeekdayName(ms)
 
-  let weatherDescription: string = dailyData.weather[0].main // e.g. 'Snow'
+  const weatherCondition: string = dailyData.weather[0].main // e.g. 'Clouds'
+  const weatherDescription: string = dailyData.weather[0].description // e.g. 'overcast clouds'
+  const weatherTemperature: number = dailyData.main.temp
 
-  const icon: JSX.Element | null = getIcon(weatherDescription, isDarkMode, s.card__icon)
+  const icon: JSX.Element | null = getIcon(weatherCondition, isDarkMode, s.card__icon)
 
   return (
-    <Card
-      className={s.card}
-      title={<Text className={s.card__title}>{dayOfWeekName}</Text>}
-      // the icon depends on the weather
-      extra={icon}
-    >
+    <Card className={s.card} title={<Text className={s.card__title}>{weekDayName}</Text>} extra={icon}>
       <Space size='large' direction='vertical' className={s.card__content}>
         {/* unit of temperature */}
         <Text className={s.content__temp}>
-          {Math.round(dailyData.main.temp)} <span style={{ opacity: 0.7 }}>°C</span>
+          {Math.round(weatherTemperature)} <span style={{ opacity: 0.7 }}>°C</span>
         </Text>
         {/* description of weather */}
-        <Text className={s.content__descr}>{dailyData.weather[0].description}</Text>
+        <Text className={s.content__descr}>{weatherDescription}</Text>
         <Text type={'secondary'} className={s.content__date}>
-          {dateWeekDay}
+          {weekDayDate}
         </Text>
       </Space>
     </Card>
