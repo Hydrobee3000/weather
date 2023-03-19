@@ -21,8 +21,25 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
   // description of weather for the day. (e.g. 'light snow')
   const weatherDesc: string = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0].description)
   const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData)
-
   const selectedPlaceName: string = dayWeatherData.name
+
+  const renderCardProgress = (title: string, data: number, icon: React.ReactNode): React.ReactNode => {
+    return <CardProgress title={title} icon={icon} data={data} />
+  }
+
+  const cardProgressData = [
+    {
+      title: 'Humidity',
+      data: dayWeatherData.main.humidity,
+      icon: <TbDroplet className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />,
+    },
+    {
+      title: 'Cloudiness',
+      data: dayWeatherData.clouds.all,
+      icon: <TbCloud className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />,
+    },
+  ]
+
   return (
     <>
       <Title style={pageTitle}>
@@ -58,17 +75,9 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
             fourthData={dayWeatherData.main.temp_min}
           />
 
-          <CardProgress
-            title='Humidity'
-            icon={<TbDroplet className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />}
-            data={dayWeatherData.main.humidity}
-          />
-
-          <CardProgress
-            title='Cloudiness'
-            icon={<TbCloud className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />}
-            data={dayWeatherData.clouds.all}
-          />
+          {cardProgressData.map(({ title, data, icon }, index) => (
+            <CardProgress key={title} title={title} data={data} icon={icon} />
+          ))}
 
           {/* <p>Pressure: {dayWeatherData.main.pressure}</p> */}
         </Space>
