@@ -1,12 +1,10 @@
 import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard' // subtitle <FC> for statistic params
 import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
-import useSuffixValues from '../../../hooks/useSuffixValues' //takes an array of suffix values and returns an array of state variables with those suffix values
 import { cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
 import isDegreeSymbolPresent from '../../../utils/isDegreeSymbolPresent' // checks if the suffix has the ° symbol in it
 import { Statistic, Card, Row, Col } from 'antd' // antd components
 import s from './Cards.module.scss' // css file with styles
-import { useMemo } from 'react'
 
 interface IProps {
   cardTitle: string
@@ -35,12 +33,9 @@ const CardStatistic: React.FC<IProps> = ({
   fourthTitle = null,
   fourthData = null,
   wind = false,
-  temperature = false,
 }) => {
-  // suffix values for all `Statistic` elements;   useMemo prevents unnecessary calls
-  const suffixValues: string[] = useMemo(() => (wind ? ['m/h', '°', 'm/s', 'm/s'] : ['°C', '°C', '°C', '°C']), [])
-
-  const suffixes: string[] = useSuffixValues(suffixValues)
+  // suffix values for all `Statistic` elements;
+  const suffixes: string[] = wind ? ['m/h', '°', 'm/s', 'm/s'] : ['°C', '°C', '°C', '°C']
 
   // if there is no data, nothing will be displayed
   if (!firstData && !secondData && !thirdData && !fourthData) {
