@@ -1,18 +1,8 @@
-export interface CurrencyState {
-  currencies: object[]
-  rateCurrencies: null | object
-  baseCurrency: null | string
-  toCurrency: string
-  amount: null | number
-  result: null | number
-  isFetching: boolean
-}
-
 /* current (day) */
 
 // weather data object for the day
 
-export type IDayWeatherData = {
+export interface IDayWeatherData {
   name: string
   wind: {
     speed: number
@@ -35,7 +25,7 @@ export type IDayWeatherData = {
 
 //weather forecast data by day
 
-export type dailyForecastData = {
+export interface IdailyForecastData {
   clouds: {
     all: number
   }
@@ -72,7 +62,7 @@ export type dailyForecastData = {
 
 // whole weather forecast data object
 
-export type ForecastData = {
+export interface IForecastData {
   city: {
     coord: {
       lat: number
@@ -88,5 +78,28 @@ export type ForecastData = {
   }
   cnt: number
   cod: string
-  list: dailyForecastData[]
+  list: IdailyForecastData[]
+}
+
+/* dashboard  */
+
+export interface ICardStatistic {
+  title: string
+  icon: React.ReactNode
+  firstTitle: string
+  firstData: number
+  secondTitle: string | null
+  secondData: any
+  thirdTitle: string | null
+  thirdData: any
+  fourthTitle?: string | null
+  fourthData?: any
+  wind?: boolean
+  temperature?: boolean
+}
+
+export interface ICardProgress {
+  title: string
+  icon: React.ReactNode
+  data: number
 }

@@ -3,27 +3,13 @@ import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard
 import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
 import { cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
 import isDegreeSymbolPresent from '../../../utils/isDegreeSymbolPresent' // checks if the suffix has the ° symbol in it
+import { ICardStatistic } from '../../../types/types'
 import { Statistic, Card, Row, Col } from 'antd' // antd components
 import s from './Cards.module.scss' // css file with styles
 
-interface IProps {
-  cardTitle: string
-  cardIcon: React.ReactNode
-  firstTitle: string
-  firstData: number
-  secondTitle: string | null
-  secondData: any
-  thirdTitle: string | null
-  thirdData: any
-  fourthTitle?: string | null
-  fourthData?: any
-  wind?: boolean
-  temperature?: boolean
-}
-
-const CardStatistic: React.FC<IProps> = ({
-  cardTitle, // title into header of card
-  cardIcon, // icon into header of card
+const CardStatistic: React.FC<ICardStatistic> = ({
+  title, // title into header of card
+  icon, // icon into header of card
   firstTitle, // title of first params
   firstData, // value of first params etc.
   secondTitle = null,
@@ -44,11 +30,11 @@ const CardStatistic: React.FC<IProps> = ({
 
   return (
     <Card
-      title={<TitleCard>{cardTitle}</TitleCard>}
+      title={<TitleCard>{title}</TitleCard>}
       headStyle={cardHeadStyle}
       // bodyStyle={cardBodyStyle}
       className={s.card}
-      extra={cardIcon}
+      extra={icon}
     >
       <Row gutter={[20, 20]}>
         {firstData ? (

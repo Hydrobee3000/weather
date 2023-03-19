@@ -1,13 +1,13 @@
 import getIcon from '../../../utils/getIcon'
 import { getFormattedDate, getWeekdayName } from '../../../utils/getFormattedDate'
-import { dailyForecastData } from '../../../types/types'
+import { IdailyForecastData } from '../../../types/types'
 import { Space, Typography, Card } from 'antd'
 import s from './ForecastCard.module.css'
 
 const { Text } = Typography
 
 interface IProps {
-  dailyData: dailyForecastData
+  dailyData: IdailyForecastData
   isDarkMode: boolean
 }
 

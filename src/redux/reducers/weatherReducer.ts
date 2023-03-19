@@ -1,5 +1,5 @@
 import { weatherAPI } from '../../api/api'
-import { ForecastData } from '../../types/types'
+import { IForecastData } from '../../types/types'
 
 const WEATHER_ACTIONS = {
   setActivePlace: 'setActivePlace',
@@ -13,7 +13,7 @@ export type initialStateType = {
   places: Array<string>
   activePlace: string
   dayWeatherData: any
-  forecastData: ForecastData | null
+  forecastData: IForecastData | null
   collapsedMenu: boolean
   isDarkMode: boolean
 }

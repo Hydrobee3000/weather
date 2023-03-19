@@ -1,6 +1,6 @@
 import ForecastCard from './ForecastCard/ForecastCard' // <FC> of forecast card on week
 import { pageTitle } from '../../utils/constants/commonStyles'
-import { ForecastData, dailyForecastData } from '../../types/types'
+import { IForecastData, IdailyForecastData } from '../../types/types'
 import { Space, Typography } from 'antd' // antd components
 import { useSelector } from 'react-redux' // redux hooks
 import { IRootState } from '../../redux/store'
@@ -14,13 +14,13 @@ interface IProps {
 }
 
 const Forecast: React.FC<IProps> = ({ isDarkMode }) => {
-  const forecastData: ForecastData = useSelector((state: IRootState) => state.weather.forecastData!) // weather forecast object
+  const forecastData: IForecastData = useSelector((state: IRootState) => state.weather.forecastData!) // weather forecast object
   // get data of every day per 12:00
-  const dailyList: dailyForecastData[] = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00'))
+  const dailyList: IdailyForecastData[] = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00'))
 
   // forecast cards with data
   const dailyFormatCards = () => {
-    return dailyList.map((dailyData: dailyForecastData) => (
+    return dailyList.map((dailyData: IdailyForecastData) => (
       <ForecastCard key={dailyData.dt} dailyData={dailyData} isDarkMode={isDarkMode} />
     ))
   }

@@ -1,4 +1,4 @@
-import { ForecastData, dailyForecastData } from '../../types/types'
+import { IForecastData, IdailyForecastData } from '../../types/types'
 import { Badge, Calendar, Tag } from 'antd' // antd components
 import { useSelector } from 'react-redux' // hook for getting value from redux state
 import { IRootState } from '../../redux/store'
@@ -6,7 +6,7 @@ import { IRootState } from '../../redux/store'
 // calendar page
 
 const CalendarFC: React.FC = () => {
-  const forecastData: ForecastData | null = useSelector((state: IRootState) => state.weather.forecastData) // weather forecast object
+  const forecastData: IForecastData | null = useSelector((state: IRootState) => state.weather.forecastData) // weather forecast object
   const dayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData) // weather for the day object
   const weatherDescr = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0]) //  description of current weather ex: 'cloudy'
 
@@ -22,7 +22,7 @@ const CalendarFC: React.FC = () => {
 
     const dailyForecastCards = () => {
       // get data of every day per 12:00
-      const dailyList: dailyForecastData[] = forecastData.list.filter((reading: any) => reading.dt_txt.includes('12:00:00'))
+      const dailyList: IdailyForecastData[] = forecastData.list.filter((reading: any) => reading.dt_txt.includes('12:00:00'))
 
       return dailyList.map((day) => {
         let dateForecast: Date = new Date(day.dt_txt) // not formatted date forecast
