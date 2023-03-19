@@ -3,9 +3,10 @@ import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard
 import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
 import useSuffixValues from '../../../hooks/useSuffixValues' //takes an array of suffix values and returns an array of state variables with those suffix values
 import { cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
-import checkIsSmallSuffix from '../../../utils/checkIsSmallSuffix' // checks if the suffix has the ° symbol in it
+import isDegreeSymbolPresent from '../../../utils/isDegreeSymbolPresent' // checks if the suffix has the ° symbol in it
 import { Statistic, Card, Row, Col } from 'antd' // antd components
 import s from './Cards.module.scss' // css file with styles
+import { useMemo } from 'react'
 
 interface IProps {
   cardTitle: string
@@ -36,8 +37,8 @@ const CardStatistic: React.FC<IProps> = ({
   wind = false,
   temperature = false,
 }) => {
-  // suffix values for all `Statistic` elements
-  const suffixValues: string[] = wind ? ['m/h', '°', 'm/s', 'm/s'] : ['°C', '°C', '°C', '°C']
+  // suffix values for all `Statistic` elements; useMemo prevents unnecessary calls
+  const suffixValues: string[] = useMemo(() => (wind ? ['m/h', '°', 'm/s', 'm/s'] : ['°C', '°C', '°C', '°C']), [])
 
   const suffixes: string[] = useSuffixValues(suffixValues)
 
@@ -63,7 +64,7 @@ const CardStatistic: React.FC<IProps> = ({
               value={firstData}
               valueStyle={statisticValueStyle}
               precision={2}
-              suffix={<StatisticSuffix small={checkIsSmallSuffix(suffixes[0])}>{suffixes[0]}</StatisticSuffix>}
+              suffix={<StatisticSuffix small={isDegreeSymbolPresent(suffixes[0])}>{suffixes[0]}</StatisticSuffix>}
             />
           </Col>
         ) : null}
@@ -77,7 +78,7 @@ const CardStatistic: React.FC<IProps> = ({
               value={secondData}
               valueStyle={statisticValueStyle}
               precision={2}
-              suffix={<StatisticSuffix small={checkIsSmallSuffix(suffixes[1])}>{suffixes[1]}</StatisticSuffix>}
+              suffix={<StatisticSuffix small={isDegreeSymbolPresent(suffixes[1])}>{suffixes[1]}</StatisticSuffix>}
             />
           </Col>
         ) : null}
@@ -91,7 +92,7 @@ const CardStatistic: React.FC<IProps> = ({
               value={thirdData}
               valueStyle={statisticValueStyle}
               precision={2}
-              suffix={<StatisticSuffix small={checkIsSmallSuffix(suffixes[2])}>{suffixes[2]}</StatisticSuffix>}
+              suffix={<StatisticSuffix small={isDegreeSymbolPresent(suffixes[2])}>{suffixes[2]}</StatisticSuffix>}
             />
           </Col>
         ) : null}
@@ -105,7 +106,7 @@ const CardStatistic: React.FC<IProps> = ({
               value={fourthData}
               valueStyle={statisticValueStyle}
               precision={2}
-              suffix={<StatisticSuffix small={checkIsSmallSuffix(suffixes[3])}>{suffixes[3]}</StatisticSuffix>}
+              suffix={<StatisticSuffix small={isDegreeSymbolPresent(suffixes[3])}>{suffixes[3]}</StatisticSuffix>}
             />
           </Col>
         ) : null}
