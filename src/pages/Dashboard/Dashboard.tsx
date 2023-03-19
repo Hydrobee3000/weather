@@ -1,7 +1,7 @@
 import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
-import CardProgress from './Cards/CardProgress' // <FC> of card with progress
 import { pageTitle, primaryColor } from '../../utils/constants/commonStyles' // inline common styles
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
+import renderCardProgress from '../../utils/renderCardProgress'
 import { IDayWeatherData } from '../../types/types'
 import { useSelector } from 'react-redux' // hook for getting value from redux state
 import { IRootState } from '../../redux/store'
@@ -21,8 +21,22 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
   // description of weather for the day. (e.g. 'light snow')
   const weatherDesc: string = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0].description)
   const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData)
-
   const selectedPlaceName: string = dayWeatherData.name
+
+  // create CardProgress component with with cloud data
+  const humidityCard = renderCardProgress(
+    'Humidity',
+    dayWeatherData.main.humidity,
+    <TbDroplet className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />
+  )
+
+  // create CardProgress component with with cloud data
+  const cloudinessCard = renderCardProgress(
+    'Cloudiness',
+    dayWeatherData.clouds.all,
+    <TbCloud className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />
+  )
+
   return (
     <>
       <Title style={pageTitle}>
@@ -58,17 +72,8 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
             fourthData={dayWeatherData.main.temp_min}
           />
 
-          <CardProgress
-            title='Humidity'
-            icon={<TbDroplet className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />}
-            data={dayWeatherData.main.humidity}
-          />
-
-          <CardProgress
-            title='Cloudiness'
-            icon={<TbCloud className={s.card__icon} style={isDarkMode ? undefined : primaryColor} />}
-            data={dayWeatherData.clouds.all}
-          />
+          {humidityCard}
+          {cloudinessCard}
 
           {/* <p>Pressure: {dayWeatherData.main.pressure}</p> */}
         </Space>
