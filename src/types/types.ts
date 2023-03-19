@@ -89,13 +89,19 @@ export interface ICardStatistic {
   firstTitle: string
   firstData: number
   secondTitle: string | null
-  secondData: any
+  secondData: number
   thirdTitle: string | null
-  thirdData: any
+  thirdData: number
   fourthTitle?: string | null
-  fourthData?: any
+  fourthData?: number
   wind?: boolean
   temperature?: boolean
+}
+
+export interface IstatisticData {
+  title: string | null
+  value: number | null
+  suffix: string
 }
 
 export interface ICardProgress {

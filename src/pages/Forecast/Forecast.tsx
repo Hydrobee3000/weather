@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const Forecast: React.FC<IProps> = ({ isDarkMode }) => {
-  const forecastData: IForecastData = useSelector((state: IRootState) => state.weather.forecastData!) // weather forecast object
+  const forecastData: IForecastData = useSelector((state: IRootState) => state.weather.forecastData!) // weather forecast data object
   // get data of every day per 12:00
   const dailyList: IdailyForecastData[] = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00'))
 
