@@ -22,12 +22,13 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
   const weatherDesc: string = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0].description)
   const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData)
 
+  const selectedPlaceName: string = dayWeatherData.name
   return (
     <>
       <Title style={pageTitle}>
         <span style={primaryColor}>{firstLetterUpperCase(weatherDesc)}</span>
         <span style={{ padding: '0 0.7em' }}>in</span>
-        <span style={primaryColor}>{dayWeatherData.name}</span>
+        <span style={primaryColor}>{selectedPlaceName}</span>
       </Title>
       <div className={s.dashboard__container}>
         <Space size={40} align='start' className={s.dashboard}>

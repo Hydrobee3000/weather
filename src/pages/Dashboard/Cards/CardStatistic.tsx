@@ -72,7 +72,7 @@ const CardStatistic: React.FC<IProps> = ({
               title={<SubtitleCard>{secondTitle}</SubtitleCard>}
               value={secondData}
               valueStyle={statisticValueStyle}
-              precision={2}
+              precision={secondTitle === 'Direction' ? 0 : 2}
               suffix={<StatisticSuffix small={isDegreeSymbolPresent(suffixes[1])}>{suffixes[1]}</StatisticSuffix>}
             />
           </Col>
