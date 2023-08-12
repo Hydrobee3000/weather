@@ -1,11 +1,11 @@
 .dashboard__container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .dashboard {
   flex-wrap: wrap;
-  margin-top: 1.3em !important;
+  margin: 1.3em !important; /* margin-top: 1.3em !important; */
 }
 
 .card__icon {

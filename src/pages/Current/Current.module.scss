@@ -1,0 +1,36 @@
+.current__container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+  text-align: center;
+
+  .current {
+    &__title {
+      margin: 0 auto;
+      margin-bottom: 1em;
+      padding-top: 0.05em;
+      padding-right: 0.4em;
+      padding-bottom: 0.25em;
+      padding-left: 0.2em;
+      font-weight: 400;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    &__location {
+      font-size: 2em;
+      margin-top: 2.5em;
+    }
+
+    &__temp {
+      font-size: 6em;
+      margin-top: 0.5em;
+    }
+
+    &__descr {
+      font-size: 3em;
+      color: #7b23d9;
+      margin: 0;
+    }
+  }
+}
