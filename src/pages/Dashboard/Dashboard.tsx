@@ -65,26 +65,30 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
     },
   ]
 
-  return (
-    <>
-      <Title style={pageTitle}>
-        <span style={primaryColor}>{firstLetterUpperCase(weatherDesc)}</span>
-        <span style={{ padding: '0 0.7em' }}>in</span>
-        <span style={primaryColor}>{selectedPlaceName}</span>
-      </Title>
-      <Space size={40} align='start' className={s.dashboard}>
-        {cardStatisticData.map((data) => (
-          <CardStatistic key={data.title} {...data} />
-        ))}
+  if (dayWeatherData) {
+    return (
+      <div className='dashboard__container'>
+        <Title style={pageTitle}>
+          <span style={primaryColor}>{firstLetterUpperCase(weatherDesc)}</span>
+          <span style={{ padding: '0 0.7em' }}>in</span>
+          <span style={primaryColor}>{selectedPlaceName}</span>
+        </Title>
 
-        {cardProgressData.map((data) => (
-          <CardProgress key={data.title} {...data} />
-        ))}
+        <Space size={40} align='start' className={s.dashboard}>
+          {cardStatisticData.map((data) => (
+            <CardStatistic key={data.title} {...data} />
+          ))}
 
-        {/* <p>Pressure: {dayWeatherData.main.pressure}</p> */}
-      </Space>
-    </>
-  )
+          {cardProgressData.map((data) => (
+            <CardProgress key={data.title} {...data} />
+          ))}
+
+          {/* <p>Pressure: {dayWeatherData.main.pressure}</p> */}
+        </Space>
+      </div>
+    )
+  }
+  return <p>Пожалуйста, подождите..</p>
 }
 
 export default DashboardFC

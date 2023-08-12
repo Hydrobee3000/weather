@@ -1,8 +1,10 @@
-import { Progress, Card } from 'antd' // antd components
 import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
-import { ICardProgress } from '../../../types/types'
 import { cardHeadStyle, cardBodyStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
+import { ICardProgress } from '../../../types/types'
+import { Progress, Card, Typography } from 'antd' // antd components
 import s from './Cards.module.scss' // css file with styles
+
+const { Title } = Typography // title antd component
 
 const CardProgress: React.FC<ICardProgress> = ({ title, icon, data }) => {
   return (
@@ -21,10 +23,10 @@ const CardProgress: React.FC<ICardProgress> = ({ title, icon, data }) => {
         className={s.progress}
         format={() => {
           return (
-            <span className={s.progress__value}>
+            <Title className={s.progress__value}>
               {data}
               <span className={s.progress__suffix}>%</span>
-            </span>
+            </Title>
           )
         }}
         percent={data} // fill of progress with value

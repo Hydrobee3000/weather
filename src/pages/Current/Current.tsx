@@ -1,10 +1,9 @@
-import { useSelector } from 'react-redux' // redux hooks
-import { pageTitle } from '../../utils/constants/commonStyles'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
-import { Typography } from 'antd'
-import s from './Current.module.css' // css file with styles
-import { IRootState } from '../../redux/store'
 import { IDayWeatherData } from '../../types/types'
+import { useSelector } from 'react-redux'
+import { IRootState } from '../../redux/store'
+import { Typography } from 'antd'
+import s from './Current.module.scss' // css file with styles
 
 const { Title, Text } = Typography
 
@@ -16,15 +15,13 @@ const Current: React.FC = () => {
 
   return (
     <div className={s.current__container}>
-      <Title style={pageTitle}>Current conditions</Title>
+      <Title className={s.current__title}>Current conditions</Title>
 
-      <Text style={{ fontSize: '2em', marginTop: '2.5em' }}>{dayWeatherData.name}</Text>
+      <Text className={s.current__location}>{dayWeatherData.name}</Text>
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
-      <Text style={{ fontSize: '6em', marginTop: '0.5em' }}>
-        {Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10} °С
-      </Text>
-      <Text style={{ fontSize: '3em', color: '#7b23d9', margin: '0' }}>{firstLetterUpperCase(weatherDesc)}</Text>
+      <Text className={s.current__temp}>{Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10} °С</Text>
+      <Text className={s.current__descr}>{firstLetterUpperCase(weatherDesc)}</Text>
       {/* <p style={{ fontSize: '1.2em' }} className={s.parameter}>
         Feels like: {(dayWeatherData.main.feels_like - 273.15).toFixed(1)} °С
       </p> */}

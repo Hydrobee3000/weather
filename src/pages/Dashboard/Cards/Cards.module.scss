@@ -1,30 +1,6 @@
 .card {
   border-radius: 15px !important;
   max-width: 380px;
-
-  &__title {
-    font-size: 1.85em !important;
-    text-align: center !important;
-  }
-
-  &__value {
-    font-size: 1.85em;
-    text-align: center;
-  }
-}
-
-.statistic_temp__container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.statistic__container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .statistic {
@@ -36,22 +12,26 @@
   // padding-top: 10px !important;
   // padding-bottom: 10px !important;
   // width: 140px;
-}
-.statistic:hover {
-  background-color: #5b00cb1f;
+
+  &:hover {
+    background-color: #5b00cb1f;
+  }
 }
 
 .progress {
   display: flex;
   justify-content: center;
-  margin: 2.77em 1.8em !important;
-}
+  // margin: 2.77em 1.8em;
 
-/* .progress__value { */
-/* color: black; */
-/* } */
+  &__value {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-weight: normal !important;
+  }
 
-.progress__suffix {
-  opacity: 0.4;
-  margin-left: 0.1em;
+  &__suffix {
+    font-size: 2rem;
+    opacity: 0.5;
+    margin-left: 0.15em;
+  }
 }

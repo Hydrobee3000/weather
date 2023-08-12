@@ -25,7 +25,7 @@ const CardStatistic: React.FC<ICardStatistic> = ({
     return null
   }
 
-  // data values for all `Statistic` elements;
+  // data values for all `Statistic` elements
   const statisticsData: IstatisticData[] = [
     {
       title: firstTitle,

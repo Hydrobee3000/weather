@@ -4,7 +4,7 @@ import { IForecastData, IdailyForecastData } from '../../types/types'
 import { Space, Typography } from 'antd' // antd components
 import { useSelector } from 'react-redux' // redux hooks
 import { IRootState } from '../../redux/store'
-import s from './Forecast.module.css' // css file with styles
+import s from './Forecast.module.scss' // css file with styles
 
 const { Title } = Typography
 

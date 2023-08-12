@@ -1,5 +1,6 @@
 import { weatherAPI } from '../../api/api'
 import { IForecastData } from '../../types/types'
+import { Dispatch } from 'redux'
 
 const WEATHER_ACTIONS = {
   setActivePlace: 'setActivePlace',
