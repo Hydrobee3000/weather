@@ -1,4 +1,3 @@
-
 # [Weather app](https://hydrobee3000.github.io/weather/#/current-weather)
 
 **_Содержание:_**
