@@ -22,7 +22,7 @@ const MenuMobile = ({ isDarkMode }) => {
         width: '100%',
         pointerEvents: 'auto',
         zIndex: 1000,
-        backgroundColor: isDarkMode ? '#000' : '#efefef',
+        backgroundColor: isDarkMode ? '#141414' : '#fff',
       }}
     >
       <TabBar>
