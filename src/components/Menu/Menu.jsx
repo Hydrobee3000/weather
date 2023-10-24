@@ -13,6 +13,34 @@ const MenuFC = ({ isDarkMode }) => {
 
   let currentPath = window.location.hash.substring(2) // get the current path and change the format '#/path' => 'path'
 
+  const menuTabs = [
+    {
+      key: 'current',
+      title: 'Current',
+      icon: <CloudOutlined />,
+    },
+    {
+      key: 'forecast',
+      title: 'Forecast',
+      icon: <CompassOutlined />,
+    },
+    {
+      key: 'dashboard',
+      title: 'Dashboard',
+      icon: <DashboardOutlined />,
+    },
+    {
+      key: 'calendar',
+      title: 'Calendar',
+      icon: <ScheduleOutlined />,
+    },
+    {
+      key: 'favorites',
+      title: 'Saved places',
+      icon: <HeartOutlined />,
+    },
+  ]
+
   return (
     <Sider
       className={s.menu__container}
@@ -22,29 +50,13 @@ const MenuFC = ({ isDarkMode }) => {
       collapsed={collapsedMenu}
     >
       <Menu className={s.menu} defaultSelectedKeys={[currentPath]} mode='inline' collapsed={collapsedMenu.toString()}>
-        <Menu.Item key='current' icon={<CloudOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to='/current'>
-            Current
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key='forecast' icon={<CompassOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to='/forecast'>
-            Forecast
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key='dashboard' icon={<DashboardOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to='/dashboard'>
-            Dashboard
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key='calendar' icon={<ScheduleOutlined />}>
-          <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to='/calendar'>
-            Calendar
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key='favorites' icon={<HeartOutlined />}>
-          Saved places
-        </Menu.Item>
+        {menuTabs.map((tab) => (
+          <Menu.Item key={tab.key} icon={tab.icon}>
+            <NavLink end to={`/${tab.key}`}>
+              {tab.title}
+            </NavLink>
+          </Menu.Item>
+        ))}
       </Menu>
     </Sider>
   )
