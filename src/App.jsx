@@ -5,19 +5,17 @@ import { Layout, ConfigProvider, theme } from 'antd'
 import HeaderFC from './components/Header/Header'
 import MenuFC from './components/Menu/Menu'
 import MenuMobile from './components/Menu/MenuMobile'
+import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
 import AppRoutes from './Routes'
+import useWindowSize from './hooks/useWindowSize.ts'
 
 const { Content } = Layout
 const { defaultAlgorithm, darkAlgorithm } = theme
 
-function getWindowSize() {
-  const { innerWidth, innerHeight } = window
-  return { innerWidth, innerHeight }
-}
-
 const App = () => {
   const dispatch = useDispatch()
   const activePlace = useSelector((state) => state.weather.activePlace) // gets the selected active place
+  const { currentWidth, currentHeight } = useWindowSize()
 
   // theme
   let isPreferDarkTheme = window.matchMedia('(prefers-color-scheme:dark)').matches // determines which theme the user prefers
@@ -35,24 +33,6 @@ const App = () => {
       colorPrimary: '#5a00cb',
     },
   }
-
-  const [windowSize, setWindowSize] = useState(getWindowSize())
-
-  useEffect(() => {
-    function handleWindowResize() {
-      setWindowSize(getWindowSize())
-    }
-
-    window.addEventListener('resize', handleWindowResize)
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize)
-    }
-  }, [])
-
-  const currentWidth = windowSize.innerWidth //660 width
-  const mobileBreakPointWidth = 700
-  const currentHeight = windowSize.innerHeight
 
   return (
     <ConfigProvider theme={themeConfig}>
