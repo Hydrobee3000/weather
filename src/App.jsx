@@ -9,6 +9,11 @@ import AppRoutes from './Routes'
 const { Content } = Layout
 const { defaultAlgorithm, darkAlgorithm } = theme
 
+function getWindowSize() {
+  const { innerWidth, innerHeight } = window
+  return { innerWidth, innerHeight }
+}
+
 const App = () => {
   const dispatch = useDispatch()
   const activePlace = useSelector((state) => state.weather.activePlace) // gets the selected active place
@@ -30,12 +35,30 @@ const App = () => {
     },
   }
 
+  const [windowSize, setWindowSize] = useState(getWindowSize())
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize())
+    }
+
+    window.addEventListener('resize', handleWindowResize)
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize)
+    }
+  }, [])
+
+  const currentWidth = windowSize.innerWidth //660 width
+  const mobileBreakPointWidth = 660
+  const currentHeight = windowSize.innerHeight
+
   return (
     <ConfigProvider theme={themeConfig}>
       <Layout style={{ minHeight: '100vh' }}>
         <HeaderFC isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Layout>
-          <MenuFC isDarkMode={isDarkMode} />
+          {currentWidth >= mobileBreakPointWidth && <MenuFC isDarkMode={isDarkMode} />}
           <Layout>
             <Content className='site-layout-background' style={{ padding: 20, minHeight: 280 }}>
               <AppRoutes isDarkMode={isDarkMode} />
