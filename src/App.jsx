@@ -51,7 +51,7 @@ const App = () => {
   }, [])
 
   const currentWidth = windowSize.innerWidth //660 width
-  const mobileBreakPointWidth = 660
+  const mobileBreakPointWidth = 700
   const currentHeight = windowSize.innerHeight
 
   return (
