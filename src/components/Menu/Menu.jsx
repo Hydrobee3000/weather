@@ -6,40 +6,40 @@ import s from './Menu.module.css' // css file with styles
 
 const { Sider } = Layout
 
+export const menuTabs = [
+  {
+    key: 'current',
+    title: 'Current',
+    icon: <CloudOutlined />,
+  },
+  {
+    key: 'forecast',
+    title: 'Forecast',
+    icon: <CompassOutlined />,
+  },
+  {
+    key: 'dashboard',
+    title: 'Dashboard',
+    icon: <DashboardOutlined />,
+  },
+  {
+    key: 'calendar',
+    title: 'Calendar',
+    icon: <ScheduleOutlined />,
+  },
+  {
+    key: 'favorites',
+    title: 'Saved places',
+    icon: <HeartOutlined />,
+  },
+]
+
 // sidebar menu component
 
 const MenuFC = ({ isDarkMode }) => {
   const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // whether the menu is open or not
 
   let currentPath = window.location.hash.substring(2) // get the current path and change the format '#/path' => 'path'
-
-  const menuTabs = [
-    {
-      key: 'current',
-      title: 'Current',
-      icon: <CloudOutlined />,
-    },
-    {
-      key: 'forecast',
-      title: 'Forecast',
-      icon: <CompassOutlined />,
-    },
-    {
-      key: 'dashboard',
-      title: 'Dashboard',
-      icon: <DashboardOutlined />,
-    },
-    {
-      key: 'calendar',
-      title: 'Calendar',
-      icon: <ScheduleOutlined />,
-    },
-    {
-      key: 'favorites',
-      title: 'Saved places',
-      icon: <HeartOutlined />,
-    },
-  ]
 
   return (
     <Sider
