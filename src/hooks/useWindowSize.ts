@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 
-interface WindowSize {
+interface IWindowSize {
   currentWidth: number | undefined
   currentHeight: number | undefined
 }
 
-function useWindowSize(): WindowSize {
-  const [windowSize, setWindowSize] = useState<WindowSize>({
+// custom hook for getting window size
+function useWindowSize(): IWindowSize {
+  const [windowSize, setWindowSize] = useState<IWindowSize>({
     currentWidth: undefined,
     currentHeight: undefined,
   })
@@ -19,7 +20,6 @@ function useWindowSize(): WindowSize {
 
     window.addEventListener('resize', handleWindowResize)
 
-    // Вызвать handleWindowResize() только при первом монтировании
     if (windowSize.currentWidth === undefined) {
       handleWindowResize()
     }
