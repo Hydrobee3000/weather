@@ -30,7 +30,7 @@ const App = () => {
   const themeConfig = {
     algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
     token: {
-      colorPrimary: '#5a00cb',
+      colorPrimary: '#7b23d9',
     },
   }
 
