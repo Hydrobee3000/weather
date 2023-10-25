@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux' // redux hooks
 import { NavLink, useLocation } from 'react-router-dom' // link with active style
 import s from './Menu.module.css' // css file with styles
 import { useEffect, useState } from 'react'
+import { primaryColor } from '../../utils/constants/commonStyles'
 
 const { Sider } = Layout
 
@@ -79,7 +80,7 @@ const MenuFC = ({ isDarkMode }) => {
         {menuTabs.map((tab) => (
           <Menu.Item key={tab.key} icon={isTabActive(tab.key) ? tab.filledIcon : tab.icon}>
             <NavLink end to={`/${tab.key}`}>
-              {tab.title}
+              {<p style={isTabActive(tab.key) ? primaryColor : null}>{tab.title}</p>}
             </NavLink>
           </Menu.Item>
         ))}
