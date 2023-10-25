@@ -105,7 +105,7 @@ const MenuFC = ({ mobile = false, isDarkMode }) => {
                 key={tab.key}
                 icon={
                   <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to={`/${tab.key}`}>
-                    {tab.icon}
+                    {isTabActive(tab.key) ? tab.filledIcon : tab.icon}
                   </NavLink>
                 }
               />
