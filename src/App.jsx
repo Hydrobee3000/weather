@@ -4,7 +4,6 @@ import { fetchDayWeatherData, fetchForecastData } from './redux/reducers/weather
 import { Layout, ConfigProvider, theme } from 'antd'
 import HeaderFC from './components/Header/Header'
 import MenuFC from './components/Menu/Menu'
-import MenuMobile from './components/Menu/MenuMobile'
 import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
 import AppRoutes from './Routes'
 import useWindowSize from './hooks/useWindowSize.ts'
@@ -47,7 +46,7 @@ const App = () => {
           </Layout>
         </Layout>
 
-        {currentWidth <= mobileBreakPointWidth && <MenuMobile isDarkMode={isDarkMode} />}
+        {currentWidth <= mobileBreakPointWidth && <MenuFC mobile isDarkMode={isDarkMode} />}
       </Layout>
     </ConfigProvider>
   )
