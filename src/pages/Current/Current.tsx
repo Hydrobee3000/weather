@@ -17,7 +17,6 @@ const Current: React.FC = () => {
     <div className={s.current__container}>
       <Title className={s.current__title}>Current conditions</Title>
 
-      <Text className={s.current__location}>{dayWeatherData.name}</Text>
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
       <Text className={s.current__temp}>{Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10} °С</Text>
@@ -45,6 +44,7 @@ const Current: React.FC = () => {
         {new Date().toLocaleString('en', { weekday: 'long' })} {new Date().getDate()}.{new Date().getMonth()}.
         {new Date().getFullYear()}
       </p> */}
+      <Text className={s.current__location}>{dayWeatherData.name}</Text>
     </div>
   )
 }
