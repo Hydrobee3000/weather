@@ -27,7 +27,9 @@ const Forecast: React.FC<IProps> = ({ isDarkMode }) => {
 
   return (
     <>
-      <Title style={pageTitle}>Forecast overview</Title>
+      <Title style={pageTitle} className={s.title}>
+        Forecast overview
+      </Title>
       <div className={s.wrapper}>
         <Space direction='vertical' size={60}>
           {dailyFormatCards()}

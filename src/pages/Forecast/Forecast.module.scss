@@ -1,3 +1,9 @@
+.title {
+  @media (max-width: 600px) {
+    font-size: 24px !important;
+  }
+}
+
 .wrapper {
   display: flex;
   margin-bottom: 2em;
