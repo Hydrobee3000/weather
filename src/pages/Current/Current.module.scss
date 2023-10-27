@@ -1,5 +1,7 @@
 .current__container {
   display: flex;
+  height: 100%;
+  justify-content: space-around;
   flex-direction: column;
   margin-bottom: 2em;
   text-align: center;
@@ -15,22 +17,38 @@
       font-weight: 400;
       border-radius: 10px;
       text-align: center;
+      opacity: 0.5;
+
+      @media (max-width: 600px) {
+        font-size: 24px !important;
+      }
     }
 
     &__location {
       font-size: 2em;
       margin-top: 2.5em;
+
+      @media (max-width: 600px) {
+        font-size: 20px !important;
+      }
     }
 
     &__temp {
       font-size: 6em;
       margin-top: 0.5em;
+
+      @media (max-width: 600px) {
+        font-size: 40px !important;
+      }
     }
 
     &__descr {
       font-size: 3em;
-      color: #7b23d9;
       margin: 0;
+
+      @media (max-width: 600px) {
+        font-size: 26px !important;
+      }
     }
   }
 }

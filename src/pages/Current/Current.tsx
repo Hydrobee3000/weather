@@ -21,11 +21,18 @@ const Current: React.FC = () => {
 
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
-      <Text className={s.current__temp}>{Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10} °С</Text>
-      <Text className={s.current__descr}>{firstLetterUpperCase(weatherDesc)}</Text>
-      <p style={{ fontSize: '1.2em' }} className={s.parameter}>
-        Feels like: {dayWeatherData.main.feels_like.toFixed(1)} °С
-      </p>
+
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Text className={s.current__temp} style={{ color: primaryColor.color }}>
+          <span style={{ paddingRight: '1rem' }}>{Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10}</span>
+          <span style={{ opacity: '0.5' }}>°С</span>
+        </Text>
+        <Text className={s.current__descr}>{firstLetterUpperCase(weatherDesc)}</Text>
+
+        <p style={{ fontSize: '1.2em' }} className={s.parameter}>
+          Feels like: {dayWeatherData.main.feels_like.toFixed(1)} °С
+        </p>
+      </div>
       {/* additional parameters */}
       {/* <p className={s.parameter} >
         Min t: {(dayWeatherData.main.temp_min).toFixed(1)} °С
