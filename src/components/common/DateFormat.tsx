@@ -16,8 +16,8 @@ const FormattedDate = () => {
     <Text
       style={
         currentWidth && currentWidth >= mobileBreakPointWidth
-          ? { margin: '0', marginLeft: '1.5em', fontSize: '1.2em', color: 'grey' }
-          : { margin: '0', fontSize: '1em', color: 'grey' }
+          ? { margin: '0', marginLeft: '1.5em', fontSize: '1.2em', color: '#7b23d999' }
+          : { margin: '0', fontSize: '1em', color: '#7b23d999' }
       }
     >
       {currentWidth && currentWidth >= mobileBreakPointWidth ? formattedDate : formattedDate.split(',')[0]}
