@@ -24,14 +24,14 @@ const Current: React.FC = () => {
       <Text className={s.current__temp}>{Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10} °С</Text>
       <Text className={s.current__descr}>{firstLetterUpperCase(weatherDesc)}</Text>
       <p style={{ fontSize: '1.2em' }} className={s.parameter}>
-        Feels like: {(dayWeatherData.main.feels_like - 273.15).toFixed(1)} °С
+        Feels like: {dayWeatherData.main.feels_like.toFixed(1)} °С
       </p>
       {/* additional parameters */}
       {/* <p className={s.parameter} >
-        Min t: {(dayWeatherData.main.temp_min - 273.15).toFixed(1)} °С
+        Min t: {(dayWeatherData.main.temp_min).toFixed(1)} °С
       </p>
       <p className={s.parameter} >
-        Max t: {(dayWeatherData.main.temp_max - 273.15).toFixed(1)} °С
+        Max t: {(dayWeatherData.main.temp_max).toFixed(1)} °С
       </p>
       <p className={s.parameter} >
         Wind: {dayWeatherData.wind.speed} m/s
