@@ -1,3 +1,11 @@
 .menu {
   font-size: 1.2em !important;
 }
+
+.nav__link_active {
+  color: #7b00ff !important;
+}
+
+.nav__link {
+  color: #7b23d999 !important;
+}
