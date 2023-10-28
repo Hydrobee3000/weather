@@ -3,6 +3,8 @@ import { IDayWeatherData } from '../../types/types'
 import { useSelector } from 'react-redux'
 import { IRootState } from '../../redux/store'
 import { Typography } from 'antd'
+import { IoLocationOutline } from 'react-icons/io5'
+import { primaryColor } from '../../utils/constants/commonStyles'
 import s from './Current.module.scss' // css file with styles
 
 const { Title, Text } = Typography
@@ -17,20 +19,26 @@ const Current: React.FC = () => {
     <div className={s.current__container}>
       <Title className={s.current__title}>Current conditions</Title>
 
-      <Text className={s.current__location}>{dayWeatherData.name}</Text>
       {/* weather icon */}
       {/* <img className={s.image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
-      <Text className={s.current__temp}>{Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10} °С</Text>
-      <Text className={s.current__descr}>{firstLetterUpperCase(weatherDesc)}</Text>
-      {/* <p style={{ fontSize: '1.2em' }} className={s.parameter}>
-        Feels like: {(dayWeatherData.main.feels_like - 273.15).toFixed(1)} °С
-      </p> */}
+
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Text className={s.current__temp} style={{ color: primaryColor.color }}>
+          <span style={{ paddingRight: '1rem' }}>{Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10}</span>
+          <span style={{ opacity: '0.5' }}>°С</span>
+        </Text>
+        <Text className={s.current__descr}>{firstLetterUpperCase(weatherDesc)}</Text>
+
+        <p style={{ fontSize: '1.2em' }} className={s.parameter}>
+          Feels like: {dayWeatherData.main.feels_like.toFixed(1)} °С
+        </p>
+      </div>
       {/* additional parameters */}
       {/* <p className={s.parameter} >
-        Min t: {(dayWeatherData.main.temp_min - 273.15).toFixed(1)} °С
+        Min t: {(dayWeatherData.main.temp_min).toFixed(1)} °С
       </p>
       <p className={s.parameter} >
-        Max t: {(dayWeatherData.main.temp_max - 273.15).toFixed(1)} °С
+        Max t: {(dayWeatherData.main.temp_max).toFixed(1)} °С
       </p>
       <p className={s.parameter} >
         Wind: {dayWeatherData.wind.speed} m/s
@@ -45,6 +53,10 @@ const Current: React.FC = () => {
         {new Date().toLocaleString('en', { weekday: 'long' })} {new Date().getDate()}.{new Date().getMonth()}.
         {new Date().getFullYear()}
       </p> */}
+      <Text className={s.current__location} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <IoLocationOutline style={{ color: primaryColor.color }} />
+        <span style={{ marginLeft: '15px' }}>{dayWeatherData.name}</span>
+      </Text>
     </div>
   )
 }

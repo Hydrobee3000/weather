@@ -4,7 +4,9 @@ import { fetchDayWeatherData, fetchForecastData } from './redux/reducers/weather
 import { Layout, ConfigProvider, theme } from 'antd'
 import HeaderFC from './components/Header/Header'
 import MenuFC from './components/Menu/Menu'
+import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
 import AppRoutes from './Routes'
+import useWindowSize from './hooks/useWindowSize.ts'
 
 const { Content } = Layout
 const { defaultAlgorithm, darkAlgorithm } = theme
@@ -12,6 +14,7 @@ const { defaultAlgorithm, darkAlgorithm } = theme
 const App = () => {
   const dispatch = useDispatch()
   const activePlace = useSelector((state) => state.weather.activePlace) // gets the selected active place
+  const { currentWidth, currentHeight } = useWindowSize()
 
   // theme
   let isPreferDarkTheme = window.matchMedia('(prefers-color-scheme:dark)').matches // determines which theme the user prefers
@@ -26,7 +29,7 @@ const App = () => {
   const themeConfig = {
     algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
     token: {
-      colorPrimary: '#5a00cb',
+      colorPrimary: '#7b23d9',
     },
   }
 
@@ -35,13 +38,15 @@ const App = () => {
       <Layout style={{ minHeight: '100vh' }}>
         <HeaderFC isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Layout>
-          <MenuFC isDarkMode={isDarkMode} />
+          {currentWidth >= mobileBreakPointWidth && <MenuFC isDarkMode={isDarkMode} />}
           <Layout>
             <Content className='site-layout-background' style={{ padding: 20, minHeight: 280 }}>
               <AppRoutes isDarkMode={isDarkMode} />
             </Content>
           </Layout>
         </Layout>
+
+        {currentWidth <= mobileBreakPointWidth && <MenuFC mobile isDarkMode={isDarkMode} />}
       </Layout>
     </ConfigProvider>
   )

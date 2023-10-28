@@ -8,6 +8,8 @@ import { Button, Space, theme } from 'antd'
 import { PageHeader } from '@ant-design/pro-layout'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import s from './Header.module.css'
+import useWindowSize from '../../hooks/useWindowSize'
+import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
 
 // header component
 
@@ -17,12 +19,13 @@ interface IProps {
 }
 
 const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
+  const dispatch = useDispatch()
+  const { currentWidth, currentHeight } = useWindowSize()
+  const collapsedMenu: boolean = useSelector((state: IRootState) => state.weather.collapsedMenu) // is menu collapsed? (default = false)
+
   const {
     token: { colorBgContainer },
   } = theme.useToken() // get bg color from theme
-
-  const dispatch = useDispatch()
-  const collapsedMenu: boolean = useSelector((state: IRootState) => state.weather.collapsedMenu) // is menu collapsed? (default = false)
 
   // switches the menu display mode
   const toggleCollapsedMenu = () => {
@@ -34,9 +37,13 @@ const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
       style={{ backgroundColor: colorBgContainer }}
       className={s.header__container}
       title={
-        <Button key={'toggleMenu'} className={s.header__menu_btn} type='primary' onClick={toggleCollapsedMenu}>
-          {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        </Button>
+        //show only on large screens
+        currentWidth &&
+        currentWidth >= mobileBreakPointWidth && (
+          <Button key={'toggleMenu'} className={s.header__menu_btn} type='primary' onClick={toggleCollapsedMenu}>
+            {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          </Button>
+        )
       } // change icon on click, icon toggle menu view
       subTitle={<FormattedDate />} // date
       extra={[
