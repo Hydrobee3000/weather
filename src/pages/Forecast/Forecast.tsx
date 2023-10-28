@@ -26,12 +26,16 @@ const Forecast: React.FC<IProps> = ({ isDarkMode }) => {
   }
 
   return (
-    <div className={s.wrapper}>
-      <Space direction='vertical' size={60}>
-        <Title style={pageTitle}>Forecast overview</Title>
-        {dailyFormatCards()}
-      </Space>
-    </div>
+    <>
+      <Title style={pageTitle} className={s.title}>
+        Forecast overview
+      </Title>
+      <div className={s.wrapper}>
+        <Space direction='vertical' size={60}>
+          {dailyFormatCards()}
+        </Space>
+      </div>
+    </>
   )
 }
 

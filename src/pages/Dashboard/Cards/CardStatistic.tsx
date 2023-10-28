@@ -3,7 +3,7 @@ import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard
 import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
 import { cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
 import isDegreeSymbolPresent from '../../../utils/isDegreeSymbolPresent' // checks if the suffix has the ° symbol in it
-import { ICardStatistic, IstatisticData } from '../../../types/types'
+import { ICardStatistic, IStatisticData } from '../../../types/types'
 import { Statistic, Card, Row, Col } from 'antd' // antd components
 import s from './Cards.module.scss' // css file with styles
 
@@ -26,7 +26,7 @@ const CardStatistic: React.FC<ICardStatistic> = ({
   }
 
   // data values for all `Statistic` elements
-  const statisticsData: IstatisticData[] = [
+  const statisticsData: IStatisticData[] = [
     {
       title: firstTitle,
       value: firstData,

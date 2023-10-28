@@ -20,8 +20,32 @@ export type initialStateType = {
 }
 
 const initialState: initialStateType = {
-  places: ['Omsk', 'Novosibirsk', 'Moscow', 'Tomsk', 'Ekaterinburg', 'Altay', 'Beograd', 'Novi Sad', 'Pula'],
-  activePlace: 'Altay', // selected place
+  places: [
+    'Omsk',
+    'Tyumen',
+    'Nizhny Tagil',
+    'Ekaterinburg',
+    'Novosibirsk',
+    'Altay',
+    'Saint Petersburg',
+    'Beograd',
+    'Novi Sad',
+    'Budva',
+    'Pula',
+    'Zagreb',
+    'Astana',
+    'Sofia',
+    'Brasov',
+    'Bran',
+    'Sinaia',
+    'Subotica',
+    'Sarajevo',
+    'Mostar',
+    'Trebinje',
+    'Kotor',
+    'Kopaonik',
+  ],
+  activePlace: 'Novi Sad', // selected place
   dayWeatherData: null, // object with params of current weather
   forecastData: null, // object with params of forecast weather
   collapsedMenu: false,

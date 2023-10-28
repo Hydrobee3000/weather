@@ -98,7 +98,7 @@ export interface ICardStatistic {
   temperature?: boolean
 }
 
-export interface IstatisticData {
+export interface IStatisticData {
   title: string | null
   value: number | null
   suffix: string

@@ -1,11 +1,13 @@
-import { IForecastData, IdailyForecastData } from '../../types/types'
-import { Badge, Calendar, Tag } from 'antd' // antd components
 import { useSelector } from 'react-redux' // hook for getting value from redux state
 import { IRootState } from '../../redux/store'
+import { Badge, Calendar, Tag } from 'antd' // antd components
+import useWindowSize from '../../hooks/useWindowSize'
+import { IForecastData, IdailyForecastData } from '../../types/types'
 
 // calendar page
 
 const CalendarFC: React.FC = () => {
+  const { currentWidth } = useWindowSize()
   const forecastData: IForecastData | null = useSelector((state: IRootState) => state.weather.forecastData) // weather forecast object
   const dayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData) // weather for the day object
   const weatherDescr = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0]) //  description of current weather ex: 'cloudy'
@@ -49,10 +51,15 @@ const CalendarFC: React.FC = () => {
                         marginBottom: '5px',
                         fontSize: '1.3em',
                       }}
-                    >{`${Math.round(day.main.temp)} °C`}</p>
-                    <Tag style={{ display: 'flex', justifyContent: 'center', color: '#7b23d9', margin: '0' }} color='purple'>
-                      {day.weather[0].main}
-                    </Tag>
+                    >
+                      <span>{Math.round(day.main.temp)}</span>
+                      <span>{currentWidth && currentWidth > 400 ? '°C' : ''}</span>
+                    </p>
+                    {currentWidth && currentWidth > 600 && (
+                      <Tag style={{ display: 'flex', justifyContent: 'center', color: '#7b23d9', margin: '0' }} color='purple'>
+                        {day.weather[0].main}
+                      </Tag>
+                    )}
                   </div>
                 ),
               },
