@@ -26,7 +26,7 @@ const CalendarFC: React.FC = () => {
       // get data of every day per 12:00
       const dailyList: IdailyForecastData[] = forecastData.list.filter((reading: any) => reading.dt_txt.includes('12:00:00'))
 
-      return dailyList.map((day) => {
+      return dailyList.forEach((day) => {
         let dateForecast: Date = new Date(day.dt_txt) // not formatted date forecast
         let dateForecastFormat = `${dateForecast.getMonth() + 1}/${dateForecast.getDate()}/${dateForecast.getFullYear()}` // forecast date
 
