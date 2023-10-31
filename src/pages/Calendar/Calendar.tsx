@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux' // hook for getting value from redux s
 import { IRootState } from '../../redux/store'
 import { Badge, Calendar, Tag } from 'antd' // antd components
 import useWindowSize from '../../hooks/useWindowSize'
+import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
 import { IForecastData, IdailyForecastData } from '../../types/types'
 import s from './Calendar.module.scss' // styles
 
@@ -45,7 +46,7 @@ const CalendarFC: React.FC = () => {
                       <span className={s.card__content_value}>{Math.round(day.main.temp)}</span>
                       <span className={s.card__content_unit}>{currentWidth && currentWidth > 400 ? '°C' : ''}</span>
                     </p>
-                    {currentWidth && currentWidth > 600 && (
+                    {currentWidth && currentWidth > mobileBreakPointWidth && (
                       <Tag className={`${s.card__content_tag} ${s.color_primary}`} color='purple'>
                         {day.weather[0].main}
                       </Tag>
