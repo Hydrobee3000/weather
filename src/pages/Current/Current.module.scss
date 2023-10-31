@@ -1,4 +1,7 @@
-.current__container {
+@import '../../style/variables'; // правильно
+// @import 'variables.scss';           // правильно
+
+.current_page {
   display: flex;
   height: 80vh;
   justify-content: space-around;
@@ -6,49 +9,75 @@
   margin-bottom: 2em;
   text-align: center;
 
-  .current {
-    &__title {
-      margin: 0 auto;
-      margin-bottom: 1em;
-      padding-top: 0.05em;
-      padding-right: 0.4em;
-      padding-bottom: 0.25em;
-      padding-left: 0.2em;
-      font-weight: 400;
-      border-radius: 10px;
-      text-align: center;
-      opacity: 0.5;
+  &__title {
+    margin: 0 auto;
+    margin-bottom: 1em;
+    padding: 0.05em 0.4em 0.25em 0.2em;
+    font-weight: 400;
+    border-radius: 10px;
+    text-align: center;
+    opacity: 0.5;
 
-      @media (max-width: 600px) {
-        font-size: 24px !important;
-      }
+    @media (max-width: 600px) {
+      font-size: 24px !important;
     }
+  }
 
-    &__location {
-      font-size: 2em;
-      margin-top: 2.5em;
+  .info {
+    display: flex;
+    flex-direction: column;
 
-      @media (max-width: 600px) {
-        font-size: 20px !important;
-      }
-    }
-
-    &__temp {
+    .info__temp {
       font-size: 6em;
       margin-top: 0.5em;
+      color: $color-primary;
+
+      &_value {
+        padding-right: 1rem;
+      }
+
+      &_unit {
+        opacity: 0.5;
+      }
 
       @media (max-width: 600px) {
         font-size: 40px !important;
       }
     }
 
-    &__descr {
+    .info__feels_like {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.5;
+    }
+
+    .info__description {
       font-size: 3em;
       margin: 0;
 
       @media (max-width: 600px) {
         font-size: 26px !important;
       }
+    }
+  }
+
+  .location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    margin-top: 2.5em;
+
+    @media (max-width: 600px) {
+      font-size: 20px !important;
+    }
+
+    &__icon {
+      color: $color-primary;
+    }
+
+    &__name {
+      margin-left: 15px;
     }
   }
 }
