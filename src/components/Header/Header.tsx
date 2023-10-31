@@ -1,15 +1,15 @@
-import SelectPlace from '../common/SelectPlace'
-import SwitchTheme from '../common/SwitcherTheme'
-import FormattedDate from '../common/DateFormat'
-import { setCollapsedMenu } from '../../redux/reducers/weatherReducer'
 import { IRootState } from '../../redux/store'
+import { setCollapsedMenu } from '../../redux/reducers/weatherReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Space, theme } from 'antd'
 import { PageHeader } from '@ant-design/pro-layout'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
-import s from './Header.module.css'
+import SelectPlace from '../common/SelectPlace'
+import SwitchTheme from '../common/SwitcherTheme'
+import FormattedDate from '../common/DateFormat'
 import useWindowSize from '../../hooks/useWindowSize'
 import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
+import s from './Header.module.scss'
 
 // header component
 
@@ -20,7 +20,7 @@ interface IProps {
 
 const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
   const dispatch = useDispatch()
-  const { currentWidth, currentHeight } = useWindowSize()
+  const { currentWidth } = useWindowSize()
   const collapsedMenu: boolean = useSelector((state: IRootState) => state.weather.collapsedMenu) // is menu collapsed? (default = false)
 
   const {
@@ -34,8 +34,8 @@ const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
 
   return (
     <PageHeader
-      style={{ backgroundColor: colorBgContainer }}
       className={s.header__container}
+      style={{ backgroundColor: colorBgContainer }}
       title={
         //show only on large screens
         currentWidth &&
