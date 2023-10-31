@@ -27,11 +27,10 @@ const Current: React.FC = () => {
           <span style={{ paddingRight: '1rem' }}>{Math.round(parseFloat(dayWeatherData.main.temp.toString()) * 10) / 10}</span>
           <span style={{ opacity: '0.5' }}>°С</span>
         </Text>
-        <Text className={s.current__descr}>{firstLetterUpperCase(weatherDesc)}</Text>
-
-        <p style={{ fontSize: '1.2em' }} className={s.parameter}>
+        <p style={{ fontSize: '1.2em', marginBottom: '2rem' }} className={s.parameter}>
           Feels like: {dayWeatherData.main.feels_like.toFixed(1)} °С
         </p>
+        <Text className={s.current__descr}>{firstLetterUpperCase(weatherDesc)}</Text>
       </div>
       {/* additional parameters */}
       {/* <p className={s.parameter} >
