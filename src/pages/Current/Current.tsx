@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { IRootState } from '../../redux/store'
 import { Typography } from 'antd'
 import { IoLocationOutline } from 'react-icons/io5'
-import s from './Current.module.scss' // css file with styles
+import s from './Current.module.scss' // styles
 
 const { Title, Text } = Typography
 

@@ -3,6 +3,7 @@ import { IRootState } from '../../redux/store'
 import { Badge, Calendar, Tag } from 'antd' // antd components
 import useWindowSize from '../../hooks/useWindowSize'
 import { IForecastData, IdailyForecastData } from '../../types/types'
+import s from './Calendar.module.scss' // styles
 
 // calendar page
 
@@ -39,24 +40,13 @@ const CalendarFC: React.FC = () => {
               {
                 type: 'none',
                 content: (
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      marginTop: '-90px',
-                    }}
-                  >
-                    <p
-                      style={{
-                        marginBottom: '5px',
-                        fontSize: '1.3em',
-                      }}
-                    >
-                      <span>{Math.round(day.main.temp)}</span>
-                      <span>{currentWidth && currentWidth > 400 ? '°C' : ''}</span>
+                  <div className={s.card}>
+                    <p className={s.card__content}>
+                      <span className={s.card__content_value}>{Math.round(day.main.temp)}</span>
+                      <span className={s.card__content_unit}>{currentWidth && currentWidth > 400 ? '°C' : ''}</span>
                     </p>
                     {currentWidth && currentWidth > 600 && (
-                      <Tag style={{ display: 'flex', justifyContent: 'center', color: '#7b23d9', margin: '0' }} color='purple'>
+                      <Tag className={`${s.card__content_tag} ${s.color_primary}`} color='purple'>
                         {day.weather[0].main}
                       </Tag>
                     )}
@@ -72,11 +62,9 @@ const CalendarFC: React.FC = () => {
               {
                 type: 'none',
                 content: (
-                  <div style={{ display: 'flex', flexDirection: 'column', marginTop: '-90px' }}>
-                    <p
-                      style={{ fontWeight: 'bold', marginBottom: '5px', fontSize: '1.3em' }}
-                    >{`${dayWeatherData.main.temp.toFixed(1)} °С`}</p>
-                    <Tag style={{ display: 'flex', justifyContent: 'center', margin: '0' }} color='purple'>
+                  <div className={s.card}>
+                    <p className={`${s.card__content} ${s.bold}`}>{`${dayWeatherData.main.temp.toFixed(1)} °С`}</p>
+                    <Tag className={s.card__content_tag} color='purple'>
                       {weatherDescr.main}
                     </Tag>
                   </div>
