@@ -1,10 +1,10 @@
-# [Weather app](https://hydrobee3000.github.io/weather/#/current-weather)
+# [Weather app](https://hydrobee3000.github.io/weather/#/)
 
 **_Содержание:_**
 
 - [Инструкция по установке](#Setup-info)
 
---- 
+---
 
 # Инструкция по установке <a name="Setup-info"></a>
 
