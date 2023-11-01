@@ -7,6 +7,7 @@ interface IWindowSize {
 
 /**
  * Custom hook for getting the current window size.
+ *
  * @returns {IWindowSize} An object containing the current width and height of the window
  */
 
