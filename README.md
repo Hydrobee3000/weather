@@ -1,13 +1,13 @@
 # [Weather app](https://hydrobee3000.github.io/weather/#/)
 
-**_Содержание:_**
+**_Contents:_**
 
-- [Инструкция по установке](#Setup-info)
+- [Installation Instructions](#Setup-info)
 
 ---
 
-# Инструкция по установке <a name="Setup-info"></a>
+# Installation Instructions <a name="Setup-info"></a>
 
-- Клонировать репозиторий
-- Установить зависимости `npm install`
-- Запустить проект `npm start`
+- Clone the repository
+- Install dependencies with `npm install`
+- Run the project with `npm start`
