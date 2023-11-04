@@ -2,7 +2,7 @@ import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function 
 import { IDayWeatherData } from '../../types/types'
 import { useSelector } from 'react-redux'
 import { IRootState } from '../../redux/store'
-import { Typography } from 'antd'
+import { Tag, Typography } from 'antd'
 import { IoLocationOutline } from 'react-icons/io5'
 import s from './Current.module.scss' // styles
 
@@ -29,7 +29,9 @@ const Current: React.FC = () => {
 
         <Text className={s.info__feels_like}>Feels like: {dayWeatherData.main.feels_like.toFixed(1)} °С</Text>
 
-        <Text className={s.info__description}>{firstLetterUpperCase(weatherDesc)}</Text>
+        <Tag color='purple'>
+          <Text className={s.info__description}>{firstLetterUpperCase(weatherDesc)}</Text>
+        </Tag>
       </div>
       {/* additional parameters */}
       {/* <p className={s.parameter} >
