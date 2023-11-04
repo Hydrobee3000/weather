@@ -5,6 +5,7 @@ import { IRootState } from '../../redux/store'
 import { Tag, Typography } from 'antd'
 import { IoLocationOutline } from 'react-icons/io5'
 import s from './Current.module.scss' // styles
+import { pageTitle } from '../../utils/constants/commonStyles'
 
 const { Title, Text } = Typography
 
@@ -16,7 +17,7 @@ const Current: React.FC = () => {
 
   return (
     <div className={s.current_page}>
-      <Title className={s.current_page__title}>Current conditions</Title>
+      <Title style={pageTitle}>Current conditions</Title>
 
       {/* weather icon */}
       {/* <img className={s.current__image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
