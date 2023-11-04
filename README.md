@@ -2,12 +2,21 @@
 
 **_Contents:_**
 
-- [Installation Instructions](#Setup-info)
+- [Installation](#Installation)
 
 ---
 
-# Installation Instructions <a name="Setup-info"></a>
+# Installation <a name="Installation"></a>
 
 - Clone the repository
-- Install dependencies with `npm install`
-- Run the project with `npm start`
+   ```sh
+   git clone https://github.com/Hydrobee3000/weather.git
+   ```
+- Install NPM packages
+   ```sh
+   npm install
+   ```
+- Run the project
+   ```sh
+   npm start
+   ```
