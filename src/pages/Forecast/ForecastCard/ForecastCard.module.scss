@@ -1,3 +1,5 @@
+@import '../../../style/variables';
+
 .card {
   border-radius: 15px !important;
   /* background-color: #efefef !important; */
@@ -51,7 +53,7 @@
     }
     &_descr {
       font-size: 2em;
-      color: #7b23d9 !important;
+      color: $color-primary;
 
       @media (max-width: 600px) {
         font-size: 1.4em;
