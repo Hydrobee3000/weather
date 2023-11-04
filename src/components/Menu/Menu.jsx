@@ -71,6 +71,7 @@ const MenuFC = ({ mobile = false, isDarkMode }) => {
   return (
     <>
       {!mobile ? (
+        // Regular menu for larger screens
         <Sider
           className={s.menu__container}
           style={isDarkMode ? null : { backgroundColor: '#efefef' }}
@@ -89,6 +90,7 @@ const MenuFC = ({ mobile = false, isDarkMode }) => {
           </Menu>
         </Sider>
       ) : (
+        // Mobile menu for smaller screens
         <div
           style={{
             position: 'fixed',
