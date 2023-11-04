@@ -1,7 +1,7 @@
 import getIcon from '../../../utils/getIcon'
 import { getFormattedDate, getWeekdayName } from '../../../utils/getFormattedDate'
 import { IdailyForecastData } from '../../../types/types'
-import { Space, Typography, Card } from 'antd'
+import { Space, Typography, Card, Tag } from 'antd'
 import s from './ForecastCard.module.scss'
 
 const { Text } = Typography
@@ -31,7 +31,9 @@ const ForecastCard: React.FC<IProps> = ({ dailyData, isDarkMode }) => {
           {Math.round(weatherTemperature)} <span style={{ opacity: 0.7 }}>°C</span>
         </Text>
         {/* description of weather */}
-        <Text className={s.card__content_descr}>{weatherDescription}</Text>
+        <Tag color='purple'>
+          <Text className={s.card__content_descr}>{weatherDescription}</Text>
+        </Tag>
         <Text type={'secondary'} className={s.card__content_date}>
           {weekDayDate}
         </Text>
