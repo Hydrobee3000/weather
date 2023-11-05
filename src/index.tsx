@@ -1,18 +1,20 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
-import { HashRouter as Router } from 'react-router-dom'
 import store from './redux/store'
+import ReactDOM from 'react-dom/client'
+import { HashRouter as Router } from 'react-router-dom'
+import reportWebVitals from './reportWebVitals'
+import App from './App'
+import './index.css'
+
+const isPreferDarkTheme: boolean = window.matchMedia('(prefers-color-scheme:dark)').matches // determines which theme the user prefers
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <App />
+        <App isPreferDarkTheme={isPreferDarkTheme} />
       </Router>
     </Provider>
   </React.StrictMode>
