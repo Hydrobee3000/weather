@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchDayWeatherData, fetchForecastData, setFavoritePlaces } from './redux/reducers/weatherReducer'
+import { fetchDayWeatherData, fetchForecastData, setFavoritePlaces, setIsDarkMode } from './redux/reducers/weatherReducer'
 import { Layout, ConfigProvider, theme } from 'antd'
 import AppRoutes from './Routes'
 import { IRootState } from './redux/store'
@@ -23,9 +23,12 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
   const dispatch = useDispatch()
   const { currentWidth } = useWindowSize()
   const activePlace = useSelector((state: IRootState) => state.weather.activePlace) // gets the selected active place
+  const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
 
-  // theme
-  const [isDarkMode, setIsDarkMode] = useState(isPreferDarkTheme) // sets the selected default OS theme
+  // set prefer theme mode
+  useEffect(() => {
+    dispatch(setIsDarkMode(isPreferDarkTheme))
+  }, [])
 
   // get favorite places from localStorage
   useEffect(() => {
@@ -55,17 +58,17 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
   return (
     <ConfigProvider theme={themeConfig}>
       <Layout style={{ minHeight: '100vh' }}>
-        <HeaderFC isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        <HeaderFC />
         <Layout>
-          {currentWidth && currentWidth >= mobileBreakPointWidth && <MenuFC isDarkMode={isDarkMode} />}
+          {currentWidth && currentWidth >= mobileBreakPointWidth && <MenuFC />}
           <Layout>
             <Content className='site-layout-background' style={{ padding: 20, minHeight: 280 }}>
-              <AppRoutes isDarkMode={isDarkMode} />
+              <AppRoutes />
             </Content>
           </Layout>
         </Layout>
 
-        {currentWidth && currentWidth <= mobileBreakPointWidth && <MenuFC mobile isDarkMode={isDarkMode} />}
+        {currentWidth && currentWidth <= mobileBreakPointWidth && <MenuFC mobile />}
       </Layout>
     </ConfigProvider>
   )
