@@ -1,13 +1,13 @@
-import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
-import { IDayWeatherData } from '../../types/types'
 import { useSelector } from 'react-redux'
 import { IRootState } from '../../redux/store'
-import { Tag, Typography } from 'antd'
 import { IoLocationOutline } from 'react-icons/io5'
+import { Tag, Typography } from 'antd'
+import { IDayWeatherData } from '../../types/types'
+import PageTitle from '../../components/common/PageTitle/PageTitle'
+import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
 import s from './Current.module.scss' // styles
-import { pageTitle } from '../../utils/constants/commonStyles'
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 // current(main) page
 
@@ -17,7 +17,7 @@ const Current: React.FC = () => {
 
   return (
     <div className={s.current_page}>
-      <Title style={pageTitle}>Current conditions</Title>
+      <PageTitle>Current conditions</PageTitle>
 
       {/* weather icon */}
       {/* <img className={s.current__image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
