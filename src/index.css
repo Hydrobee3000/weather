@@ -1,3 +1,7 @@
+:root {
+  --slider-background-color: #e5e5e5;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +21,7 @@ code {
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-corner,
 ::-webkit-scrollbar {
-  background-color: transparent;
+  background-color: var(--slider-background-color);
 }
 
 ::-webkit-scrollbar {
@@ -35,7 +39,7 @@ code {
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #e5e5e5;
+  background-color: #783fdb;
 }
 
 ::-webkit-scrollbar-button {

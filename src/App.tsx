@@ -2,23 +2,24 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchDayWeatherData, fetchForecastData, setFavoritePlaces } from './redux/reducers/weatherReducer'
 import { Layout, ConfigProvider, theme } from 'antd'
-import HeaderFC from './components/Header/Header'
-import MenuFC from './components/Menu/Menu'
-import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
 import AppRoutes from './Routes'
-import useWindowSize from './hooks/useWindowSize'
-import { favoritePlacesKeyLs, getFromLocalStorage } from './utils/constants/localStorage'
 import { IRootState } from './redux/store'
+import MenuFC from './components/Menu/Menu'
+import HeaderFC from './components/Header/Header'
+import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
+import { favoritePlacesKeyLs, getFromLocalStorage } from './utils/constants/localStorage'
+import useWindowSize from './hooks/useWindowSize'
 
 const { Content } = Layout
 const { defaultAlgorithm, darkAlgorithm } = theme
-// root.style.setProperty('--mouse-x', e.clientX + "px");
 
 interface IProps {
   isPreferDarkTheme: boolean
 }
 
 const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
+  let root = document.documentElement
+
   const dispatch = useDispatch()
   const { currentWidth } = useWindowSize()
   const activePlace = useSelector((state: IRootState) => state.weather.activePlace) // gets the selected active place
@@ -32,6 +33,11 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
 
     favoritePlaces && dispatch(setFavoritePlaces(favoritePlaces))
   }, [])
+
+  // pass value to css variable
+  useEffect(() => {
+    root.style.setProperty('--slider-background-color', isDarkMode ? 'black' : '#e5e5e5')
+  }, [root.style, isDarkMode])
 
   // fetch data
   useEffect(() => {
