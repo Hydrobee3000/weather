@@ -2,6 +2,7 @@ export const favoritePlacesKeyLs: string = 'favoritePlaces' // key in localStora
 
 /**
  * Gets a value from localStorage by key.
+ *
  * @param {string} key - The key to retrieve the value.
  * @returns {T | null} - Returns the value from localStorage or null if the data is not present.
  */
@@ -16,6 +17,7 @@ export function getFromLocalStorage<T>(key: string): T | null {
 
 /**
  * Saves a value to localStorage by key.
+ *
  * @param {string} key - The key to store the value.
  * @param {T} value - The value to be stored.
  */
