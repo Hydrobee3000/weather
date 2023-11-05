@@ -86,7 +86,7 @@ const DashboardFC: React.FC = () => {
       </div>
     )
   }
-  return <p>Пожалуйста, подождите..</p>
+  return <p>Please, wait..</p>
 }
 
 export default DashboardFC
