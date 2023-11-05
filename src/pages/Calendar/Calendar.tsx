@@ -6,6 +6,7 @@ import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
 import { IForecastData, IdailyForecastData } from '../../types/types'
 import s from './Calendar.module.scss' // styles
 import PageTitle from '../../components/common/PageTitle/PageTitle'
+import { calendarPageIcons } from '../../utils/constants/pageIcons'
 
 // calendar page
 
@@ -16,6 +17,7 @@ const CalendarFC: React.FC = () => {
   const weatherDescr = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0]) //  description of current weather ex: 'cloudy'
 
   const today: string = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}` // today format date
+  const IconComponent: React.ElementType = calendarPageIcons.outlined
 
   /* content of calendar cards */
 
@@ -98,7 +100,7 @@ const CalendarFC: React.FC = () => {
 
   return (
     <>
-      <PageTitle>Calendar</PageTitle>
+      <PageTitle icon={<IconComponent />}>Calendar</PageTitle>
       <Calendar className={s.calendar} dateCellRender={dateCellRender} />
     </>
   )
