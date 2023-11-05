@@ -1,6 +1,6 @@
 import {
-  CloudOutlined,
-  CloudFilled,
+  CarryOutOutlined,
+  CarryOutFilled,
   CompassOutlined,
   CompassFilled,
   DashboardOutlined,
@@ -10,7 +10,6 @@ import {
   HeartOutlined,
   HeartFilled,
 } from '@ant-design/icons'
-
 /**
  * Icons for the current page.
  *
@@ -18,8 +17,8 @@ import {
  * @param {React.ElementType} filled - The filled icon.
  */
 export const currentPageIcons: { outlined: React.ElementType; filled: React.ElementType } = {
-  outlined: CloudOutlined,
-  filled: CloudFilled,
+  outlined: CarryOutOutlined,
+  filled: CarryOutFilled,
 }
 
 /**
