@@ -7,6 +7,7 @@ import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
 import PageTitle from '../../components/common/PageTitle/PageTitle'
 import { primaryColor } from '../../utils/constants/commonStyles' // inline common styles
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
+import { dashboardPageIcons } from '../../utils/constants/pageIcons'
 import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
 import s from './Dashboard.module.css' // css file with styles
 
@@ -21,6 +22,7 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
   const weatherDesc: string = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0].description)
   const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData)
   const selectedPlaceName: string = dayWeatherData.name
+  const IconComponent: React.ElementType = dashboardPageIcons.outlined
 
   // data for the CardStatistic component rendering
   const cardStatisticData: ICardStatistic[] = [
@@ -67,7 +69,7 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
   if (dayWeatherData) {
     return (
       <div className='dashboard__container'>
-        <PageTitle>
+        <PageTitle icon={<IconComponent />}>
           <span style={primaryColor}>{firstLetterUpperCase(weatherDesc)}</span>
           <span style={{ padding: '0 0.7em' }}>in</span>
           <span style={primaryColor}>{selectedPlaceName}</span>
