@@ -13,12 +13,7 @@ import s from './Header.module.scss'
 
 // header component
 
-interface IProps {
-  isDarkMode: boolean
-  setIsDarkMode: any
-}
-
-const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
+const HeaderFC: React.FC = () => {
   const dispatch = useDispatch()
   const { currentWidth } = useWindowSize()
   const collapsedMenu: boolean = useSelector((state: IRootState) => state.weather.collapsedMenu) // is menu collapsed? (default = false)
@@ -50,7 +45,7 @@ const HeaderFC: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
         <Space key={'headerOptions'} size='small'>
           <SelectPlace />
           <br />
-          <SwitchTheme isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+          <SwitchTheme />
         </Space>,
       ]}
     />
