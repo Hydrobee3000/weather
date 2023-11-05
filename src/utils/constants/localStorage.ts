@@ -1,3 +1,5 @@
+export const favoritePlacesKeyLs: string = 'favoritePlaces' // key in localStorage favorite places field
+
 /**
  * Gets a value from localStorage by key.
  * @param {string} key - The key to retrieve the value.
