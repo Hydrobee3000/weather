@@ -5,6 +5,7 @@ import useWindowSize from '../../hooks/useWindowSize'
 import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
 import { IForecastData, IdailyForecastData } from '../../types/types'
 import s from './Calendar.module.scss' // styles
+import PageTitle from '../../components/common/PageTitle/PageTitle'
 
 // calendar page
 
@@ -95,7 +96,12 @@ const CalendarFC: React.FC = () => {
     )
   }
 
-  return <Calendar dateCellRender={dateCellRender} />
+  return (
+    <>
+      <PageTitle>Calendar</PageTitle>
+      <Calendar className={s.calendar} dateCellRender={dateCellRender} />
+    </>
+  )
 }
 
 export default CalendarFC
