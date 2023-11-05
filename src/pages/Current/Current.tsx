@@ -3,8 +3,9 @@ import { IRootState } from '../../redux/store'
 import { IoLocationOutline } from 'react-icons/io5'
 import { Tag, Typography } from 'antd'
 import { IDayWeatherData } from '../../types/types'
-import PageTitle from '../../components/common/PageTitle/PageTitle'
+import { currentPageIcons } from '../../utils/constants/pageIcons'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
+import PageTitle from '../../components/common/PageTitle/PageTitle'
 import s from './Current.module.scss' // styles
 
 const { Text } = Typography
@@ -14,10 +15,11 @@ const { Text } = Typography
 const Current: React.FC = () => {
   const weatherDesc: string = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0].description) // get description of weather ex: 'cloudy'
   const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData)
+  const IconComponent: React.ElementType = currentPageIcons.outlined
 
   return (
     <div className={s.current_page}>
-      <PageTitle>Current conditions</PageTitle>
+      <PageTitle icon={<IconComponent />}>Current conditions</PageTitle>
 
       {/* weather icon */}
       {/* <img className={s.current__image} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={dayWeatherData.description} /> */}
