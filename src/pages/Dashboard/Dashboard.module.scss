@@ -1,3 +1,5 @@
+@import '../../style/variables.scss';
+
 .dashboard {
   flex-wrap: wrap !important;
   margin: 0 1.3rem 1.3rem 1.3rem !important; /* margin-top: 1.3em !important; */
@@ -11,7 +13,7 @@
   &_location {
     padding-left: 1.1rem !important;
     border-left: 2px solid grey !important;
-    color: #7b23d9 !important;
+    color: $color-primary !important;
   }
 }
 
