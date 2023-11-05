@@ -2,20 +2,15 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux' // redux hooks
 import { NavLink, useLocation } from 'react-router-dom' // link with active style
 import { Menu, Layout } from 'antd' // antd components
-import {
-  CloudOutlined,
-  CloudFilled,
-  CompassOutlined,
-  CompassFilled,
-  DashboardOutlined,
-  DashboardFilled,
-  ScheduleOutlined,
-  ScheduleFilled,
-  HeartOutlined,
-  HeartFilled,
-} from '@ant-design/icons' // antd icons
 import { TabBar } from 'antd-mobile'
 import { primaryColor } from '../../utils/constants/commonStyles'
+import {
+  calendarPageIcons,
+  currentPageIcons,
+  dashboardPageIcons,
+  favoritesPageIcons,
+  forecastPageIcons,
+} from '../../utils/constants/pageIcons'
 import s from './Menu.module.css' // css file with styles
 
 const { Sider } = Layout
@@ -24,32 +19,32 @@ export const menuTabs = [
   {
     key: 'current',
     title: 'Current',
-    icon: <CloudOutlined />,
-    filledIcon: <CloudFilled />,
+    icon: <currentPageIcons.outlined />,
+    filledIcon: <currentPageIcons.filled />,
   },
   {
     key: 'forecast',
     title: 'Forecast',
-    icon: <CompassOutlined />,
-    filledIcon: <CompassFilled />,
+    icon: <forecastPageIcons.outlined />,
+    filledIcon: <forecastPageIcons.filled />,
   },
   {
     key: 'dashboard',
     title: 'Dashboard',
-    icon: <DashboardOutlined />,
-    filledIcon: <DashboardFilled />,
+    icon: <dashboardPageIcons.outlined />,
+    filledIcon: <dashboardPageIcons.filled />,
   },
   {
     key: 'calendar',
     title: 'Calendar',
-    icon: <ScheduleOutlined />,
-    filledIcon: <ScheduleFilled />,
+    icon: <calendarPageIcons.outlined />,
+    filledIcon: <calendarPageIcons.filled />,
   },
   {
     key: 'favorites',
     title: 'Saved places',
-    icon: <HeartOutlined />,
-    filledIcon: <HeartFilled />,
+    icon: <favoritesPageIcons.outlined />,
+    filledIcon: <favoritesPageIcons.filled />,
   },
 ]
 
