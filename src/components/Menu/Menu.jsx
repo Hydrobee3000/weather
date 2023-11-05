@@ -18,7 +18,7 @@ const { Sider } = Layout
 export const menuTabs = [
   {
     key: 'current',
-    title: 'Current',
+    title: 'Today',
     icon: <currentPageIcons.outlined />,
     filledIcon: <currentPageIcons.filled />,
   },
