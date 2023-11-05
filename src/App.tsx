@@ -6,25 +6,31 @@ import HeaderFC from './components/Header/Header'
 import MenuFC from './components/Menu/Menu'
 import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
 import AppRoutes from './Routes'
-import useWindowSize from './hooks/useWindowSize.ts'
+import useWindowSize from './hooks/useWindowSize'
 import { favoritePlacesKeyLs, getFromLocalStorage } from './utils/constants/localStorage'
+import { IRootState } from './redux/store'
 
 const { Content } = Layout
 const { defaultAlgorithm, darkAlgorithm } = theme
+// root.style.setProperty('--mouse-x', e.clientX + "px");
 
-const App = () => {
+interface IProps {
+  isPreferDarkTheme: boolean
+}
+
+const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
   const dispatch = useDispatch()
   const { currentWidth } = useWindowSize()
-  const activePlace = useSelector((state) => state.weather.activePlace) // gets the selected active place
+  const activePlace = useSelector((state: IRootState) => state.weather.activePlace) // gets the selected active place
 
   // theme
-  let isPreferDarkTheme = window.matchMedia('(prefers-color-scheme:dark)').matches // determines which theme the user prefers
   const [isDarkMode, setIsDarkMode] = useState(isPreferDarkTheme) // sets the selected default OS theme
 
   // get favorite places from localStorage
   useEffect(() => {
-    const favoritePlaces = getFromLocalStorage(favoritePlacesKeyLs)
-    dispatch(setFavoritePlaces(favoritePlaces))
+    const favoritePlaces: string[] | null = getFromLocalStorage(favoritePlacesKeyLs)
+
+    favoritePlaces && dispatch(setFavoritePlaces(favoritePlaces))
   }, [])
 
   // fetch data
@@ -45,7 +51,7 @@ const App = () => {
       <Layout style={{ minHeight: '100vh' }}>
         <HeaderFC isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Layout>
-          {currentWidth >= mobileBreakPointWidth && <MenuFC isDarkMode={isDarkMode} />}
+          {currentWidth && currentWidth >= mobileBreakPointWidth && <MenuFC isDarkMode={isDarkMode} />}
           <Layout>
             <Content className='site-layout-background' style={{ padding: 20, minHeight: 280 }}>
               <AppRoutes isDarkMode={isDarkMode} />
@@ -53,7 +59,7 @@ const App = () => {
           </Layout>
         </Layout>
 
-        {currentWidth <= mobileBreakPointWidth && <MenuFC mobile isDarkMode={isDarkMode} />}
+        {currentWidth && currentWidth <= mobileBreakPointWidth && <MenuFC mobile isDarkMode={isDarkMode} />}
       </Layout>
     </ConfigProvider>
   )
