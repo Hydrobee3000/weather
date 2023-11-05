@@ -3,7 +3,9 @@ import { IRootState } from '../../redux/store'
 import { Divider, Select } from 'antd' // antd components
 import { setFavoritePlaces } from '../../redux/reducers/weatherReducer'
 import PageTitle from '../../components/common/PageTitle/PageTitle'
-import { favoritePlacesKeyLs, saveToLocalStorage } from '../../utils/constants/localStorage'
+import { calendarPageIcons } from '../../utils/constants/pageIcons'
+import { favoritePlacesKeyLs, saveToLocalStorage } from '../../utils/localStorage'
+import Preloader from '../../components/common/Preloader'
 
 const { Option } = Select // get option from select obj antd
 
@@ -13,6 +15,7 @@ const Favorite: React.FC = () => {
   const dispatch = useDispatch()
   const places: string[] = useSelector((state: IRootState) => state.weather.places) // array of places
   const favoritePlaces: string[] = useSelector((state: IRootState) => state.weather.favoritePlaces) // selected active place
+  const IconComponent: React.ElementType = calendarPageIcons.outlined
 
   // handle change value of selected option
   const onChangePlace = (favoritePlaces: string[]) => {
@@ -20,9 +23,13 @@ const Favorite: React.FC = () => {
     dispatch(setFavoritePlaces(favoritePlaces))
   }
 
+  if (!places) {
+    return <Preloader />
+  }
+
   return (
     <>
-      <PageTitle>Favorite places</PageTitle>
+      <PageTitle icon={<IconComponent />}>Favorite places</PageTitle>
 
       <Select
         style={{ minWidth: '10em' }}

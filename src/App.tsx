@@ -7,7 +7,7 @@ import { IRootState } from './redux/store'
 import MenuFC from './components/Menu/Menu'
 import HeaderFC from './components/Header/Header'
 import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
-import { favoritePlacesKeyLs, getFromLocalStorage } from './utils/constants/localStorage'
+import { favoritePlacesKeyLs, getFromLocalStorage } from './utils/localStorage'
 import useWindowSize from './hooks/useWindowSize'
 
 const { Content } = Layout
