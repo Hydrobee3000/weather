@@ -7,6 +7,7 @@ const WEATHER_ACTIONS = {
   setDayWeatherData: 'setDayWeatherData',
   setForecastData: 'setForecastData',
   setCollapsedMenu: 'setCollapsedMenu',
+  setIsDarkMode: 'setIsDarkMode',
 }
 
 //type for state
@@ -91,6 +92,13 @@ const weatherReducer = (state = initialState, action: any): initialStateType => 
       }
     }
 
+    case WEATHER_ACTIONS.setIsDarkMode: {
+      return {
+        ...state,
+        isDarkMode: action.payload,
+      }
+    }
+
     default:
       return state
   }
@@ -123,6 +131,11 @@ type setCollapsedMenuType = {
   payload: boolean
 }
 
+type setIsDarkModeType = {
+  type: typeof WEATHER_ACTIONS.setIsDarkMode
+  payload: boolean
+}
+
 /* actions */
 
 export const setActivePlace = (activePlace: string): setActivePlaceType => ({
@@ -148,6 +161,11 @@ export const setForecastData = (forecastData: object): setForecastDataType => ({
 export const setCollapsedMenu = (collapsedMenu: boolean): setCollapsedMenuType => ({
   type: WEATHER_ACTIONS.setCollapsedMenu,
   payload: collapsedMenu,
+})
+
+export const setIsDarkMode = (isDarkMode: boolean): setIsDarkModeType => ({
+  type: WEATHER_ACTIONS.setIsDarkMode,
+  payload: isDarkMode,
 })
 
 /* thunk */
