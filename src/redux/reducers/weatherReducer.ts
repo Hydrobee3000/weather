@@ -152,14 +152,14 @@ export const setCollapsedMenu = (collapsedMenu: boolean): setCollapsedMenuType =
 
 /* thunk */
 
-export const fetchDayWeatherData = (city: string) => {
+export const fetchDayWeatherData: any = (city: string) => {
   return async (dispatch: any) => {
     let response = await weatherAPI.getDayWeather(city)
     dispatch(setDayWeatherData(response.data))
   }
 }
 
-export const fetchForecastData = (city: string) => {
+export const fetchForecastData: any = (city: string) => {
   return async (dispatch: any) => {
     let response = await weatherAPI.getWeekWeather(city)
     dispatch(setForecastData(response.data))
