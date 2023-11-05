@@ -1,16 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Divider, Select } from 'antd'
 import { IRootState } from '../../redux/store'
+import { Divider, Select } from 'antd' // antd components
 import { setFavoritePlaces } from '../../redux/reducers/weatherReducer'
-import { HeartOutlined, HeartFilled } from '@ant-design/icons' // antd icons
+import PageTitle from '../../components/common/PageTitle/PageTitle'
 import { favoritePlacesKeyLs, saveToLocalStorage } from '../../utils/constants/localStorage'
-import { pageTitle } from '../../utils/constants/commonStyles'
-import { Typography } from 'antd' // antd components
 
 const { Option } = Select // get option from select obj antd
-const { Title } = Typography
 
-// fetch data for current page and set in store
+// page of favorite places
 
 const Favorite: React.FC = () => {
   const dispatch = useDispatch()
@@ -26,8 +23,8 @@ const Favorite: React.FC = () => {
 
   return (
     <>
-      <Title style={pageTitle}>Favorite places</Title>
-      <Divider />
+      <PageTitle>Favorite places</PageTitle>
+
       <Select
         style={{ minWidth: '10em' }}
         placeholder='Select a place'
