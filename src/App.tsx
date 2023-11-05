@@ -6,9 +6,11 @@ import AppRoutes from './Routes'
 import { IRootState } from './redux/store'
 import MenuFC from './components/Menu/Menu'
 import HeaderFC from './components/Header/Header'
+import { primaryColor } from './utils/constants/commonStyles'
 import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
 import { favoritePlacesKeyLs, getFromLocalStorage } from './utils/localStorage'
 import useWindowSize from './hooks/useWindowSize'
+import s from './App.module.scss'
 
 const { Content } = Layout
 const { defaultAlgorithm, darkAlgorithm } = theme
@@ -51,18 +53,18 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
   const themeConfig = {
     algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
     token: {
-      colorPrimary: '#7b23d9',
+      colorPrimary: primaryColor.color,
     },
   }
 
   return (
     <ConfigProvider theme={themeConfig}>
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout className={s.app__container}>
         <HeaderFC />
         <Layout>
           {currentWidth && currentWidth >= mobileBreakPointWidth && <MenuFC />}
           <Layout>
-            <Content className='site-layout-background' style={{ padding: 20, minHeight: 280 }}>
+            <Content className={s.app__content} style={{ padding: 20, minHeight: 280 }}>
               <AppRoutes />
             </Content>
           </Layout>
