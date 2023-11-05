@@ -11,17 +11,15 @@ import { dashboardPageIcons } from '../../utils/constants/pageIcons'
 import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
 import s from './Dashboard.module.css' // css file with styles
 
-interface IProps {
-  isDarkMode: boolean
-}
-
 // dashboard page
 
-const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
+const DashboardFC: React.FC = () => {
   // description of weather for the day. (e.g. 'light snow')
   const weatherDesc: string = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0].description)
   const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData)
   const selectedPlaceName: string = dayWeatherData.name
+
+  const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
   const IconComponent: React.ElementType = dashboardPageIcons.outlined
 
   // data for the CardStatistic component rendering
