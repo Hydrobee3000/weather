@@ -7,17 +7,13 @@ import DashboardContainer from './pages/Dashboard/DashboardContainer'
 import CalendarContainer from './pages/Calendar/CalendarContainer'
 import Favorite from './pages/Favorite/Favorite'
 
-interface IProps {
-  isDarkMode: boolean
-}
-
-const AppRoutes: React.FC<IProps> = ({ isDarkMode }) => {
+const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path='/' element={<Navigate replace to='/current' />} />
       <Route path='current' element={<CurrentContainer />} />
-      <Route path='forecast' element={<ForecastContainer isDarkMode={isDarkMode} />} />
-      <Route path='dashboard' element={<DashboardContainer isDarkMode={isDarkMode} />} />
+      <Route path='forecast' element={<ForecastContainer />} />
+      <Route path='dashboard' element={<DashboardContainer />} />
       <Route path='calendar' element={<CalendarContainer />} />
       <Route path='favorites' element={<Favorite />} />
     </Routes>
