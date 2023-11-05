@@ -1,9 +1,9 @@
 import { weatherAPI } from '../../api/api'
 import { IForecastData } from '../../types/types'
-import { Dispatch } from 'redux'
 
 const WEATHER_ACTIONS = {
   setActivePlace: 'setActivePlace',
+  setFavoritePlaces: 'setFavoritePlaces',
   setDayWeatherData: 'setDayWeatherData',
   setForecastData: 'setForecastData',
   setCollapsedMenu: 'setCollapsedMenu',
@@ -11,7 +11,8 @@ const WEATHER_ACTIONS = {
 
 //type for state
 export type initialStateType = {
-  places: Array<string>
+  places: string[]
+  favoritePlaces: string[]
   activePlace: string
   dayWeatherData: any
   forecastData: IForecastData | null
@@ -45,6 +46,7 @@ const initialState: initialStateType = {
     'Kotor',
     'Kopaonik',
   ],
+  favoritePlaces: [],
   activePlace: 'Novi Sad', // selected place
   dayWeatherData: null, // object with params of current weather
   forecastData: null, // object with params of forecast weather
@@ -60,18 +62,28 @@ const weatherReducer = (state = initialState, action: any): initialStateType => 
         activePlace: action.payload,
       }
     }
+
+    case WEATHER_ACTIONS.setFavoritePlaces: {
+      return {
+        ...state,
+        favoritePlaces: action.payload,
+      }
+    }
+
     case WEATHER_ACTIONS.setDayWeatherData: {
       return {
         ...state,
         dayWeatherData: action.payload,
       }
     }
+
     case WEATHER_ACTIONS.setForecastData: {
       return {
         ...state,
         forecastData: action.payload,
       }
     }
+
     case WEATHER_ACTIONS.setCollapsedMenu: {
       return {
         ...state,
@@ -84,30 +96,43 @@ const weatherReducer = (state = initialState, action: any): initialStateType => 
   }
 }
 
-// types of actions
+/* types of actions */
 
 type setActivePlaceType = {
   type: typeof WEATHER_ACTIONS.setActivePlace
   payload: string
 }
+
+type setFavoritePlacesType = {
+  type: typeof WEATHER_ACTIONS.setFavoritePlaces
+  payload: Array<string>
+}
+
 type setDayWeatherDataType = {
   type: typeof WEATHER_ACTIONS.setDayWeatherData
   payload: object | null
 }
+
 type setForecastDataType = {
   type: typeof WEATHER_ACTIONS.setForecastData
   payload: object | null
 }
+
 type setCollapsedMenuType = {
   type: typeof WEATHER_ACTIONS.setCollapsedMenu
   payload: boolean
 }
 
-// actions
+/* actions */
 
 export const setActivePlace = (activePlace: string): setActivePlaceType => ({
   type: WEATHER_ACTIONS.setActivePlace,
   payload: activePlace,
+})
+
+export const setFavoritePlaces = (places: Array<string>): setFavoritePlacesType => ({
+  type: WEATHER_ACTIONS.setFavoritePlaces,
+  payload: places,
 })
 
 export const setDayWeatherData = (dayWeatherData: object): setDayWeatherDataType => ({
