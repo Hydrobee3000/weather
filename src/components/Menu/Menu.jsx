@@ -50,10 +50,11 @@ export const menuTabs = [
 
 // sidebar menu component
 
-const MenuFC = ({ mobile = false, isDarkMode }) => {
+const MenuFC = ({ mobile = false }) => {
   const location = useLocation()
   const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // whether the menu is open or not
   const [currentPath, setCurrentPath] = useState(location.pathname.substring(1))
+  const isDarkMode = useSelector((state) => state.weather.isDarkMode) // theme
 
   // update currentPath when path changes
   useEffect(() => {
