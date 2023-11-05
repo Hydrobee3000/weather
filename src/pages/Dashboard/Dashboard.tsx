@@ -9,7 +9,7 @@ import { primaryColor } from '../../utils/constants/commonStyles' // inline comm
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
 import { dashboardPageIcons } from '../../utils/constants/pageIcons'
 import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
-import s from './Dashboard.module.css' // css file with styles
+import s from './Dashboard.module.scss' // css file with styles
 
 // dashboard page
 
@@ -66,11 +66,10 @@ const DashboardFC: React.FC = () => {
 
   if (dayWeatherData) {
     return (
-      <div className='dashboard__container'>
+      <div>
         <PageTitle icon={<IconComponent />}>
-          <span style={primaryColor}>{firstLetterUpperCase(weatherDesc)}</span>
-          <span style={{ padding: '0 0.7em' }}>in</span>
-          <span style={primaryColor}>{selectedPlaceName}</span>
+          <span className={s.title__weather_descr}>{firstLetterUpperCase(weatherDesc)}</span>
+          <span className={s.title__weather_location}>{selectedPlaceName}</span>
         </PageTitle>
 
         <Space size={40} align='start' className={s.dashboard}>
