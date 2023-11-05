@@ -45,12 +45,12 @@ export const menuTabs = [
     icon: <ScheduleOutlined />,
     filledIcon: <ScheduleFilled />,
   },
-  // {
-  //   key: 'favorites',
-  //   title: 'Saved places',
-  //   icon: <HeartOutlined />,
-  //   filledIcon: <HeartFilled />,
-  // },
+  {
+    key: 'favorites',
+    title: 'Saved places',
+    icon: <HeartOutlined />,
+    filledIcon: <HeartFilled />,
+  },
 ]
 
 // sidebar menu component
