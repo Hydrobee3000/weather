@@ -1,17 +1,18 @@
 import React from 'react'
-import { Switch } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
 import { MdLightMode, MdDarkMode } from 'react-icons/md'
-
-interface IProps {
-  isDarkMode: boolean
-  setIsDarkMode: any
-}
+import { Switch } from 'antd'
+import { IRootState } from '../../redux/store'
+import { setIsDarkMode } from '../../redux/reducers/weatherReducer'
 
 // theme mode switch
 
-const SwitchTheme: React.FC<IProps> = ({ isDarkMode, setIsDarkMode }) => {
+const SwitchTheme: React.FC = () => {
+  const dispatch = useDispatch()
+  const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode)
+
   const toggleThemeMode = () => {
-    setIsDarkMode((previousValue: boolean) => !previousValue)
+    dispatch(setIsDarkMode(!isDarkMode))
   }
 
   return (
