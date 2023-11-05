@@ -13,6 +13,8 @@
   }
 
   &__title {
+    display: flex;
+    justify-content: space-between;
     color: #783fdb !important;
     font-size: 1.2em;
 
