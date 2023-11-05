@@ -8,20 +8,15 @@ import { IForecastData, IdailyForecastData } from '../../types/types'
 import s from './Forecast.module.scss' // css file with styles
 
 // forecast page
-interface IProps {
-  isDarkMode: boolean
-}
 
-const Forecast: React.FC<IProps> = ({ isDarkMode }) => {
+const Forecast: React.FC = () => {
   const forecastData: IForecastData = useSelector((state: IRootState) => state.weather.forecastData!) // weather forecast data object
   const dailyList: IdailyForecastData[] = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) // get data of every day per 12:00
   const IconComponent: React.ElementType = forecastPageIcons.outlined
 
   // forecast cards with data
   const dailyFormatCards = () => {
-    return dailyList.map((dailyData: IdailyForecastData) => (
-      <ForecastCard key={dailyData.dt} dailyData={dailyData} isDarkMode={isDarkMode} />
-    ))
+    return dailyList.map((dailyData: IdailyForecastData) => <ForecastCard key={dailyData.dt} dailyData={dailyData} />)
   }
 
   return (
