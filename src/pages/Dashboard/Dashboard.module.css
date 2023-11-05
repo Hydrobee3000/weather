@@ -5,7 +5,7 @@
 
 .dashboard {
   flex-wrap: wrap;
-  margin: 1.3em !important; /* margin-top: 1.3em !important; */
+  margin: 0 1.3rem 1.3rem 1.3rem !important; /* margin-top: 1.3em !important; */
 }
 
 .card__icon {

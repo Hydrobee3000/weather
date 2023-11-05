@@ -1,15 +1,14 @@
-import CardProgress from './Cards/CardProgress' // <FC> of card with progress
-import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
-import { pageTitle, primaryColor } from '../../utils/constants/commonStyles' // inline common styles
-import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
-import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
 import { useSelector } from 'react-redux' // hook for getting value from redux state
 import { IRootState } from '../../redux/store'
-import { Space, Typography } from 'antd' // antd components
 import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb' // icons
+import { Space } from 'antd' // antd components
+import CardProgress from './Cards/CardProgress' // <FC> of card with progress
+import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
+import PageTitle from '../../components/common/PageTitle/PageTitle'
+import { primaryColor } from '../../utils/constants/commonStyles' // inline common styles
+import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
+import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
 import s from './Dashboard.module.css' // css file with styles
-
-const { Title } = Typography // title antd component
 
 interface IProps {
   isDarkMode: boolean
@@ -68,11 +67,11 @@ const DashboardFC: React.FC<IProps> = ({ isDarkMode }) => {
   if (dayWeatherData) {
     return (
       <div className='dashboard__container'>
-        <Title style={pageTitle}>
+        <PageTitle>
           <span style={primaryColor}>{firstLetterUpperCase(weatherDesc)}</span>
           <span style={{ padding: '0 0.7em' }}>in</span>
           <span style={primaryColor}>{selectedPlaceName}</span>
-        </Title>
+        </PageTitle>
 
         <Space size={40} align='start' className={s.dashboard}>
           {cardStatisticData.map((data) => (
