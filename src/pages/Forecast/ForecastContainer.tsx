@@ -4,18 +4,14 @@ import { IForecastData } from '../../types/types'
 import { useSelector } from 'react-redux' // redux hooks
 import { IRootState } from '../../redux/store'
 
-interface IProps {
-  isDarkMode: boolean
-}
-
 // fetch data for forecast page and set in store
 
-const ForecastContainer: React.FC<IProps> = ({ isDarkMode }) => {
+const ForecastContainer: React.FC = () => {
   const forecastData: IForecastData | null = useSelector((state: IRootState) => state.weather.forecastData) // weather object
 
   //display preloader, while data is empty
 
-  return forecastData ? <Forecast isDarkMode={isDarkMode} /> : <Preloader />
+  return forecastData ? <Forecast /> : <Preloader />
 }
 
 export default ForecastContainer
