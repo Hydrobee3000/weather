@@ -1,5 +1,12 @@
+@import '../../../style/variables.scss';
+
 .title {
   margin: 0 auto !important;
   font-weight: 400 !important;
   text-align: center !important;
+
+  &__icon {
+    margin-right: 1.5rem;
+    color: $color-primary;
+  }
 }

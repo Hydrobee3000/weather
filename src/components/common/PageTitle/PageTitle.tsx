@@ -6,14 +6,18 @@ const { Title } = Typography
 
 interface IProps {
   children: ReactNode
+  icon?: ReactNode | null
 }
 
 // the main title of page
 
-const PageTitle: React.FC<IProps> = ({ children }) => {
+const PageTitle: React.FC<IProps> = ({ children, icon }) => {
   return (
     <>
-      <Title className={s.title}>{children}</Title>
+      <Title className={s.title}>
+        {icon && <span className={s.title__icon}>{icon}</span>}
+        {children}
+      </Title>
       <Divider />
     </>
   )
