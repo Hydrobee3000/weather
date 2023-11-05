@@ -1,5 +1,3 @@
-export const favoritePlacesKeyLs: string = 'favoritePlaces' // key in localStorage favorite places field
-
 /**
  * Gets a value from localStorage by key.
  * @param {string} key - The key to retrieve the value.
@@ -23,13 +21,4 @@ export function getFromLocalStorage<T>(key: string): T | null {
 export function saveToLocalStorage<T>(key: string, value: T) {
   const data = JSON.stringify(value)
   localStorage.setItem(key, data)
-}
-
-/**
- * Removes a value from localStorage by key.
- * @param {string} key - The key to remove the value.
- */
-
-export function removeFromLocalStorage(key: string) {
-  localStorage.removeItem(key)
 }
