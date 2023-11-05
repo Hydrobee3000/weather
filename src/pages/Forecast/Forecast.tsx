@@ -1,12 +1,10 @@
-import ForecastCard from './ForecastCard/ForecastCard' // <FC> of forecast card on week
-import { pageTitle } from '../../utils/constants/commonStyles'
-import { IForecastData, IdailyForecastData } from '../../types/types'
-import { Space, Typography } from 'antd' // antd components
 import { useSelector } from 'react-redux' // redux hooks
 import { IRootState } from '../../redux/store'
+import { Space } from 'antd' // antd components
+import ForecastCard from './ForecastCard/ForecastCard' // <FC> of forecast card on week
+import PageTitle from '../../components/common/PageTitle/PageTitle'
+import { IForecastData, IdailyForecastData } from '../../types/types'
 import s from './Forecast.module.scss' // css file with styles
-
-const { Title } = Typography
 
 // forecast page
 interface IProps {
@@ -27,9 +25,8 @@ const Forecast: React.FC<IProps> = ({ isDarkMode }) => {
 
   return (
     <>
-      <Title style={pageTitle} className={s.title}>
-        Forecast overview
-      </Title>
+      <PageTitle>Forecast overview</PageTitle>
+
       <div className={s.wrapper}>
         <Space direction='vertical' size={60}>
           {dailyFormatCards()}
