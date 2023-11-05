@@ -13,7 +13,6 @@ const Favorite: React.FC = () => {
   const dispatch = useDispatch()
   const places: string[] = useSelector((state: IRootState) => state.weather.places) // array of places
   const favoritePlaces: string[] = useSelector((state: IRootState) => state.weather.favoritePlaces) // selected active place
-  console.log(favoritePlaces)
 
   // handle change value of selected option
   const onChangePlace = (favoritePlaces: string[]) => {

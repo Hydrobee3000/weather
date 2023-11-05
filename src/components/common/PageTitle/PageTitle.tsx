@@ -14,7 +14,7 @@ const PageTitle: React.FC<IProps> = ({ children }) => {
   return (
     <>
       <Title className={s.title}>{children}</Title>
-      <Divider className={s.title__divider} />
+      <Divider />
     </>
   )
 }
