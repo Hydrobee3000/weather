@@ -80,7 +80,7 @@ const CardStatistic: React.FC<ICardStatistic> = ({
         {/* rendering a Statistic components for each data object */}
         {statisticsData.map(({ title, value, suffix }) => {
           return value ? (
-            <Col span={12}>
+            <Col key={title} span={12}>
               <Statistic
                 title={<SubtitleCard>{title}</SubtitleCard>}
                 value={value}
