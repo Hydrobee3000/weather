@@ -9,7 +9,14 @@ interface IProps {
   icon?: ReactNode | null
 }
 
-// the main title of page
+/**
+ * Main title component for a page.
+ *
+ * @component
+ * @param {ReactNode} props.children - The content to be displayed as the page title.
+ * @param {ReactNode | null} props.icon - An optional icon to be displayed alongside the title.
+ * @returns {JSX.Element} JSX element containing the page title and an optional icon.
+ */
 
 const PageTitle: React.FC<IProps> = ({ children, icon }) => {
   return (
