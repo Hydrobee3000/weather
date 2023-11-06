@@ -10,6 +10,18 @@ interface SelectPlaceProps {
   mode?: 'multiple' | 'tags' | undefined
 }
 
+/**
+ * Select component for location selection.
+ *
+ * @component
+ * @param {string|string[]} selectedPlace - The selected place(s).
+ * @param {string[]} {places} - An array of available places.
+ * @param {(value: string | string[]) => void} onChange - A function to handle changes in the selected place.
+ * @param {'multiple' | 'tags' | undefined} [mode] - Optional. The selection mode, either 'multiple', 'tags', or undefined (default).
+ *
+ * @returns {JSX.Element} JSX element containing the select component.
+ */
+
 const SelectPlace: React.FC<SelectPlaceProps> = ({ selectedPlace, places, onChange, mode = undefined }) => {
   return (
     <Select
