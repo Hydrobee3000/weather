@@ -6,7 +6,13 @@ interface IProps {
   children: string
 }
 
-// title of cards into dashboard page
+/**
+ * A component for displaying card titles on a dashboard page.
+ *
+ * @component
+ * @param {string} props.children - The title to be displayed on the card.
+ * @returns {JSX.Element} JSX element containing the card title with styling.
+ */
 
 const TitleCard: React.FC<IProps> = ({ children }) => {
   return <Text style={{ color: '#783fdb', fontSize: '1.1em' }}>{children}</Text>
