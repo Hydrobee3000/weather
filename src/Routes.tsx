@@ -7,6 +7,12 @@ import DashboardContainer from './pages/Dashboard/DashboardContainer'
 import CalendarContainer from './pages/Calendar/CalendarContainer'
 import FavoriteContainer from './pages/Favorite/FavoriteContainer'
 
+/**
+ * Component responsible for defining the routing of the application.
+ *
+ * @component
+ */
+
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
