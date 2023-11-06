@@ -1,14 +1,19 @@
 import { useSelector } from 'react-redux' // hook for getting value from redux state
-import { IRootState } from '../../redux/store'
 import { Badge, Calendar, Tag } from 'antd' // antd components
+import { IRootState } from '../../redux/store'
 import useWindowSize from '../../hooks/useWindowSize'
+import PageTitle from '../../components/common/PageTitle/PageTitle'
 import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
 import { IForecastData, IdailyForecastData } from '../../types/types'
-import s from './Calendar.module.scss' // styles
-import PageTitle from '../../components/common/PageTitle/PageTitle'
 import { calendarPageIcons } from '../../utils/constants/pageIcons'
+import s from './Calendar.module.scss' // styles
 
-// calendar page
+/**
+ * A calendar page component that displays weather forecast information for specific dates.
+ *
+ * @component
+ * @returns {JSX.Element} JSX element containing the calendar page.
+ */
 
 const CalendarFC: React.FC = () => {
   const { currentWidth } = useWindowSize()
