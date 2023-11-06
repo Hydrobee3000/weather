@@ -13,13 +13,15 @@ const instance: AxiosInstance = axios.create(config)
 export const weatherAPI = {
   // get data of weather for the day
 
-  getDayWeather(city: string): any {
-    return instance.get(`weather?q=${city}&units=metric&appid=5712b8887160185aaa20b84fcd1da1c4`)
+  async getDayWeather(city: string) {
+    const response = await instance.get(`weather?q=${city}&units=metric&appid=5712b8887160185aaa20b84fcd1da1c4`)
+    return response.data
   },
 
   // get data of weather for the week
 
-  getWeekWeather(city: string): any {
-    return instance.get(`forecast?q=${city}&units=metric&APPID=5712b8887160185aaa20b84fcd1da1c4`)
+  async getWeekWeather(city: string) {
+    const response = await instance.get(`forecast?q=${city}&units=metric&APPID=5712b8887160185aaa20b84fcd1da1c4`)
+    return response.data
   },
 }

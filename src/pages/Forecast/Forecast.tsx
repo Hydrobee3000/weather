@@ -6,7 +6,6 @@ import PageTitle from '../../components/common/PageTitle/PageTitle'
 import { forecastPageIcons } from '../../utils/constants/pageIcons'
 import { IForecastData, IdailyForecastData } from '../../types/types'
 import s from './Forecast.module.scss' // css file with styles
-import { primaryColor } from '../../utils/constants/commonStyles'
 
 // forecast page
 

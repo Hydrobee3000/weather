@@ -173,14 +173,14 @@ export const setIsDarkMode = (isDarkMode: boolean): setIsDarkModeType => ({
 export const fetchDayWeatherData: any = (city: string) => {
   return async (dispatch: any) => {
     let response = await weatherAPI.getDayWeather(city)
-    dispatch(setDayWeatherData(response.data))
+    dispatch(setDayWeatherData(response))
   }
 }
 
 export const fetchForecastData: any = (city: string) => {
   return async (dispatch: any) => {
     let response = await weatherAPI.getWeekWeather(city)
-    dispatch(setForecastData(response.data))
+    dispatch(setForecastData(response))
   }
 }
 
