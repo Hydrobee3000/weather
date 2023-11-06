@@ -1,19 +1,16 @@
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Divider, Select, Space } from 'antd' // antd components
+import { weatherAPI } from '../../api/api'
 import { IRootState } from '../../redux/store'
-import { Space, Typography, Card, Tag } from 'antd'
-import { Divider, Select } from 'antd' // antd components
-import { fetchDayWeatherData, setFavoritePlaces } from '../../redux/reducers/weatherReducer'
-import PageTitle from '../../components/common/PageTitle/PageTitle'
+import { setFavoritePlaces } from '../../redux/reducers/weatherReducer'
 import { favoritesPageIcons } from '../../utils/constants/pageIcons'
 import { favoritePlacesKeyLs, saveToLocalStorage } from '../../utils/localStorage'
 import Preloader from '../../components/common/Preloader'
-import { useEffect, useState } from 'react'
-import { weatherAPI } from '../../api/api'
-import s from './Favorite.module.scss'
+import PageTitle from '../../components/common/PageTitle/PageTitle'
 import FavoriteCard from './FavoriteCard/FavoriteCard'
 
 const { Option } = Select // get option from select obj antd
-const { Text } = Typography
 
 interface IWeatherData {
   [city: string]: any
