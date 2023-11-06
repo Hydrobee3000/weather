@@ -4,7 +4,12 @@ import { IRootState } from '../../redux/store'
 import { IForecastData } from '../../types/types'
 import CalendarFC from './Calendar' // <FC> of calendar page
 
-// fetch data for calendar page and set in store
+/**
+ * A container component responsible for fetching data for the calendar page and rendering it.
+ *
+ * @component
+ * @returns {JSX.Element} JSX element containing the calendar page or a preloader.
+ */
 
 const CalendarContainer = () => {
   const forecastData: IForecastData | null = useSelector((state: IRootState) => state.weather.forecastData) // data of forecast weather
