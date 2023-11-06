@@ -1,13 +1,18 @@
 import { useSelector } from 'react-redux' // redux hooks
 import { IRootState } from '../../redux/store'
 import { Space, FloatButton } from 'antd' // antd components
-import ForecastCard from './ForecastCard/ForecastCard' // <FC> of forecast card on week
-import PageTitle from '../../components/common/PageTitle/PageTitle'
 import { forecastPageIcons } from '../../utils/constants/pageIcons'
 import { IForecastData, IdailyForecastData } from '../../types/types'
+import ForecastCard from './ForecastCard/ForecastCard' // <FC> of forecast card on week
+import PageTitle from '../../components/common/PageTitle/PageTitle'
 import s from './Forecast.module.scss' // css file with styles
 
-// forecast page
+/**
+ * A page component for displaying the weather forecast overview.
+ *
+ * @component
+ * @returns {JSX.Element} - Renders the weather forecast cards for each day.
+ */
 
 const Forecast: React.FC = () => {
   const forecastData: IForecastData = useSelector((state: IRootState) => state.weather.forecastData!) // weather forecast data object
