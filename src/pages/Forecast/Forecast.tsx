@@ -5,6 +5,7 @@ import { forecastPageIcons } from '../../utils/constants/pageIcons'
 import { IForecastData, IdailyForecastData } from '../../types/types'
 import ForecastCard from './ForecastCard/ForecastCard' // <FC> of forecast card on week
 import PageTitle from '../../components/common/PageTitle/PageTitle'
+import useWindowSize from '../../hooks/useWindowSize'
 import s from './Forecast.module.scss' // css file with styles
 
 /**
@@ -15,6 +16,7 @@ import s from './Forecast.module.scss' // css file with styles
  */
 
 const Forecast: React.FC = () => {
+  const { currentWidth } = useWindowSize()
   const forecastData: IForecastData = useSelector((state: IRootState) => state.weather.forecastData!) // weather forecast data object
   const dailyList: IdailyForecastData[] = forecastData.list.filter((reading) => reading.dt_txt.includes('12:00:00')) // get data of every day per 12:00
   const IconComponent: React.ElementType = forecastPageIcons.outlined
@@ -29,7 +31,7 @@ const Forecast: React.FC = () => {
       <PageTitle icon={<IconComponent />}>Forecast overview</PageTitle>
 
       <div className={s.page__body}>
-        <Space direction='vertical' size={60}>
+        <Space direction='vertical' size={currentWidth && currentWidth > 700 ? 60 : 30}>
           {dailyFormatCards()}
         </Space>
 
