@@ -4,10 +4,14 @@
   }
 }
 
-.wrapper {
+.page__body {
   display: flex;
   padding-top: 0.28rem !important;
   margin-bottom: 2rem !important;
   text-align: center;
   justify-content: center;
+
+  .body__float_button {
+    margin-bottom: 20px;
+  }
 }

@@ -28,12 +28,12 @@ const Forecast: React.FC = () => {
     <>
       <PageTitle icon={<IconComponent />}>Forecast overview</PageTitle>
 
-      <div className={s.wrapper} style={{ height: '300vh' }}>
+      <div className={s.page__body} style={{ height: '300vh' }}>
         <Space direction='vertical' size={60}>
           {dailyFormatCards()}
         </Space>
 
-        <FloatButton.BackTop type='primary' />
+        <FloatButton.BackTop className={s.body__float_button} type='primary' />
       </div>
     </>
   )
