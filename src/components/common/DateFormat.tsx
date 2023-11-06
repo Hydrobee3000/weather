@@ -5,10 +5,15 @@ import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
 
 const { Text } = Typography
 
-// inscription displaying the current date
+/**
+ * Component that displays the current date.
+ *
+ * @component
+ * @returns {JSX.Element} JSX element containing the formatted date.
+ */
 
 const FormattedDate = () => {
-  const { currentWidth, currentHeight } = useWindowSize()
+  const { currentWidth } = useWindowSize()
   const currentDate: Date = new Date() // current date
   const formattedDate = getFormattedDateShort(currentDate)
 
