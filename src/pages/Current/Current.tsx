@@ -11,16 +11,23 @@ import s from './Current.module.scss' // styles
 
 const { Text } = Typography
 
-// current(main) page
+/**
+ * This component displays a brief overview of the current weather conditions.
+ * It includes information such as location, temperature, feels-like temperature, weather description,
+ * for the current day's weather.
+ *
+ * @returns {React.ReactNode} The JSX element representing the current weather conditions.
+ */
 
 const Current: React.FC = () => {
-  // data
-  const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state?.weather?.dayWeatherData)
+  const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state?.weather?.dayWeatherData) // weather data object
   const weatherDesc: string = useSelector((state: IRootState) => state?.weather?.dayWeatherData?.weather[0]?.description) // get description of weather ex: 'cloudy'
-  const IconComponent: React.ElementType = currentPageIcons.outlined
+  const IconComponent: React.ElementType = currentPageIcons.outlined // page icon
   // weather
   const temperature: number = roundToTenths(dayWeatherData?.main?.temp)
   const temperatureFeelsLike: number = roundToTenths(dayWeatherData?.main?.feels_like)
+  const description: string = firstLetterUpperCase(weatherDesc)
+  const location: string = dayWeatherData?.name
 
   return (
     <div className={s.current_page}>
@@ -38,14 +45,14 @@ const Current: React.FC = () => {
 
         {/* description of weather */}
         <Tag color='purple'>
-          <Text className={s.info__description}>{firstLetterUpperCase(weatherDesc)}</Text>
+          <Text className={s.info__description}>{description}</Text>
         </Tag>
       </div>
 
       {/* location */}
       <Text className={s.location}>
         <IoLocationOutline className={s.location__icon} />
-        <span className={s.location__name}>{dayWeatherData.name}</span>
+        <span className={s.location__name}>{location}</span>
       </Text>
     </div>
   )

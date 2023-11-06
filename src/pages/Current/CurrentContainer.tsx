@@ -11,7 +11,7 @@ import Current from './Current' // <FC> of current page
 const CurrentContainer: React.FC = () => {
   const dispatch: any = useDispatch()
   const activePlace: string = useSelector((state: IRootState) => state.weather.activePlace) // selected active place
-  const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData) // weather object
+  const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData) // weather data object
 
   // fetch data with selected place
   useEffect(() => {
