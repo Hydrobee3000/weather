@@ -16,6 +16,7 @@ const { Text } = Typography
  * It includes information such as location, temperature, feels-like temperature, weather description,
  * for the current day's weather.
  *
+ * @component
  * @returns {React.ReactNode} The JSX element representing the current weather conditions.
  */
 
