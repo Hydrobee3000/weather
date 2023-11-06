@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Divider, Select, Space } from 'antd' // antd components
+import { Divider, Space } from 'antd' // antd components
 import { weatherAPI } from '../../api/api'
 import { IRootState } from '../../redux/store'
 import { setFavoritePlaces } from '../../redux/reducers/weatherReducer'
@@ -9,8 +9,7 @@ import { favoritePlacesKeyLs, saveToLocalStorage } from '../../utils/localStorag
 import Preloader from '../../components/common/Preloader'
 import PageTitle from '../../components/common/PageTitle/PageTitle'
 import FavoriteCard from './FavoriteCard/FavoriteCard'
-
-const { Option } = Select // get option from select obj antd
+import SelectPlace from '../../components/common/SelectPlace'
 
 interface IWeatherData {
   [city: string]: any
@@ -38,7 +37,7 @@ const Favorite: React.FC = () => {
   }
 
   // handle change value of selected option
-  const onChangePlace = (selectedPlaces: string[]) => {
+  const onChangePlace = (selectedPlaces: string[]): void => {
     saveToLocalStorage(favoritePlacesKeyLs, selectedPlaces)
     dispatch(setFavoritePlaces(selectedPlaces))
     setActiveFavoritePlaces(selectedPlaces)
@@ -75,25 +74,7 @@ const Favorite: React.FC = () => {
     <>
       <PageTitle icon={<IconComponent />}>Saved places</PageTitle>
 
-      <Select
-        style={{ minWidth: '10em' }}
-        placeholder='Select a place'
-        value={favoritePlaces}
-        onChange={onChangePlace}
-        mode='multiple'
-        allowClear
-        showSearch
-        optionFilterProp='children'
-        filterOption={(input, option: any) => option.children.toLowerCase().includes(input.toLowerCase())}
-      >
-        {/* mapped all places in select list */}
-        {places.map((place: string) => (
-          <Option key={place} value={place}>
-            {place}
-          </Option>
-        ))}
-      </Select>
-
+      <SelectPlace selectedPlace={favoritePlaces} places={places} onChange={onChangePlace} mode='multiple' />
       <Divider />
 
       {isLoading ? (
