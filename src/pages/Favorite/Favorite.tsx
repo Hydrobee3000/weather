@@ -73,7 +73,7 @@ const Favorite: React.FC = () => {
 
   return (
     <>
-      <PageTitle icon={<IconComponent />}>Favorite places</PageTitle>
+      <PageTitle icon={<IconComponent />}>Saved places</PageTitle>
 
       <Select
         style={{ minWidth: '10em' }}
