@@ -12,6 +12,19 @@ interface IProps {
   dailyData: IdailyForecastData
 }
 
+/**
+ * A component for displaying the weather forecast card for a specific day.
+ *
+ * @component
+ * @param {object} dailyData - Weather data for the day.
+ * @param {string} dailyData.dt - The timestamp for the day.
+ * @param {string} dailyData.weather[0].main - The main weather condition, e.g. 'Clouds'.
+ * @param {string} dailyData.weather[0].description - The description of weather, e.g. 'overcast clouds'.
+ * @param {number} dailyData.main.temp - The temperature for the day.
+ *
+ * @returns {JSX.Element} Renders the weather forecast card for the specified day.
+ */
+
 const ForecastCard: React.FC<IProps> = ({ dailyData }) => {
   // date
   const ms: number = dailyData.dt * 1000
