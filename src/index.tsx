@@ -1,10 +1,10 @@
 import React from 'react'
 import { Provider } from 'react-redux'
+import { HashRouter as Router } from 'react-router-dom'
+import App from './App'
 import store from './redux/store'
 import ReactDOM from 'react-dom/client'
-import { HashRouter as Router } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
-import App from './App'
 import './index.css'
 
 const isPreferDarkTheme: boolean = window.matchMedia('(prefers-color-scheme:dark)').matches // determines which theme the user prefers
