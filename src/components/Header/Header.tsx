@@ -5,7 +5,7 @@ import { Button, Space, theme } from 'antd'
 import { PageHeader } from '@ant-design/pro-layout'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import SelectPlace from '../common/SelectPlace'
-import SwitchTheme from '../common/SwitcherTheme'
+import SwitcherTheme from '../common/SwitcherTheme'
 import FormattedDate from '../common/DateFormat'
 import useWindowSize from '../../hooks/useWindowSize'
 import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
@@ -52,7 +52,7 @@ const HeaderFC: React.FC = () => {
         <Space key={'headerOptions'} size='small'>
           <SelectPlace selectedPlace={activePlace} places={places} onChange={onChangePlace} />
           <br />
-          <SwitchTheme />
+          <SwitcherTheme />
         </Space>,
       ]}
     />

@@ -7,7 +7,7 @@ import { setIsDarkMode } from '../../redux/reducers/weatherReducer'
 
 // theme mode switch
 
-const SwitchTheme: React.FC = () => {
+const SwitcherTheme: React.FC = () => {
   const dispatch = useDispatch()
   const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode)
 
@@ -25,4 +25,4 @@ const SwitchTheme: React.FC = () => {
   )
 }
 
-export default SwitchTheme
+export default SwitcherTheme
