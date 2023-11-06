@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { Space, Typography, Card, Tag } from 'antd'
-import getIcon from '../../../utils/getIcon'
+import { getIcon } from '../../../utils/getIcon'
 import { IRootState } from '../../../redux/store'
 import { getFormattedDate, getWeekdayName } from '../../../utils/getFormattedDate'
 import { IdailyForecastData } from '../../../types/types'
@@ -17,7 +17,7 @@ const ForecastCard: React.FC<IProps> = ({ dailyData }) => {
   const ms: number = dailyData.dt * 1000
   const weekDayDate: string = getFormattedDate(ms)
   const weekDayName: string = getWeekdayName(ms)
-
+  // weather
   const weatherCondition: string = dailyData.weather[0].main // e.g. 'Clouds'
   const weatherDescription: string = dailyData.weather[0].description // e.g. 'overcast clouds'
   const weatherTemperature: number = dailyData.main.temp

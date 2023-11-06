@@ -1,9 +1,10 @@
 import React from 'react'
 import { Space, Typography, Card, Tag } from 'antd'
-import s from '../Favorite.module.scss'
 import { useSelector } from 'react-redux'
 import { IRootState } from '../../../redux/store'
-import getIcon from '../../../utils/getIcon'
+import { getIcon } from '../../../utils/getIcon'
+import { roundToTenths } from '../../../utils/roundToTenth'
+import s from '../Favorite.module.scss'
 
 const { Text } = Typography
 
@@ -12,14 +13,14 @@ interface IFavoriteCardProps {
 }
 
 const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData }) => {
-  const temperature: number = weatherData?.main?.temp
-  const feelsLike: number = weatherData?.main?.feels_like
-  const condition: string = weatherData?.weather[0]?.main // e.g. 'Clouds'
+  // weather
+  const temperature: number = roundToTenths(weatherData?.main?.temp)
+  const feelsLike: number = roundToTenths(weatherData?.main?.feels_like)
   const description: string = weatherData?.weather[0]?.description // e.g. 'overcast clouds'
+  const condition: string = weatherData?.weather[0]?.main // e.g. 'Clouds'
 
   const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
-
-  const icon: JSX.Element | null = getIcon(condition, isDarkMode, s.card__icon)
+  const icon: JSX.Element | null = getIcon(condition, isDarkMode, s.card__icon) // get icon with styles by condition
 
   return (
     <Card className={s.card} title={<Text className={s.card__title}>{weatherData?.name}</Text>} extra={icon}>
@@ -29,6 +30,7 @@ const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData }) => {
           {Math.round(parseFloat(temperature?.toString()) * 10) / 10} <span style={{ opacity: 0.7 }}>°C</span>
         </Text>
 
+        {/* unit of feels like temperature */}
         <Text type={'secondary'} className={s.card__content_date}>
           <Tag>Feels like</Tag>
           {Math.round(parseFloat(feelsLike?.toString()) * 10) / 10} <span style={{ opacity: 0.7 }}>°C</span>
