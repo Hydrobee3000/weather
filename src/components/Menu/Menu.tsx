@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux' // redux hooks
 import { NavLink, useLocation } from 'react-router-dom' // link with active style
 import { Menu, Layout } from 'antd' // antd components
 import { TabBar } from 'antd-mobile'
+import { IRootState } from '../../redux/store'
 import { primaryColor } from '../../utils/constants/commonStyles'
 import {
   calendarPageIcons,
@@ -15,7 +16,20 @@ import s from './Menu.module.css' // css file with styles
 
 const { Sider } = Layout
 
-export const menuTabs = [
+// describes a single menu tab item.
+interface IMenuTab {
+  key: string
+  title: string
+  icon: JSX.Element
+  filledIcon: JSX.Element
+}
+
+interface IMenu {
+  mobile?: boolean
+}
+
+// data for all elements of menu
+const menuTabs: IMenuTab[] = [
   {
     key: 'current',
     title: 'Today',
@@ -48,13 +62,18 @@ export const menuTabs = [
   },
 ]
 
-// sidebar menu component
+/**
+ * A sidebar menu component for navigation.
+ *
+ * @param {IMenu} props - Props for the Menu component.
+ * @returns {JSX.Element} - JSX element containing the menu.
+ */
 
-const MenuFC = ({ mobile = false }) => {
+const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
   const location = useLocation()
-  const collapsedMenu = useSelector((state) => state.weather.collapsedMenu) // whether the menu is open or not
+  const collapsedMenu: boolean = useSelector((state: IRootState) => state.weather.collapsedMenu) // whether the menu is open or not
+  const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
   const [currentPath, setCurrentPath] = useState(location.pathname.substring(1))
-  const isDarkMode = useSelector((state) => state.weather.isDarkMode) // theme
 
   // update currentPath when path changes
   useEffect(() => {
@@ -62,7 +81,7 @@ const MenuFC = ({ mobile = false }) => {
     setCurrentPath(path)
   }, [location.pathname])
 
-  const isTabActive = (tabKey) => tabKey === currentPath
+  const isTabActive = (tabKey: string) => tabKey === currentPath
 
   return (
     <>
@@ -70,16 +89,16 @@ const MenuFC = ({ mobile = false }) => {
         // Regular menu for larger screens
         <Sider
           className={s.menu__container}
-          style={isDarkMode ? null : { backgroundColor: '#efefef' }}
+          style={isDarkMode ? undefined : { backgroundColor: '#efefef' }}
           trigger={null}
           collapsible
           collapsed={collapsedMenu}
         >
-          <Menu className={s.menu} defaultSelectedKeys={[currentPath]} mode='inline' collapsed={collapsedMenu.toString()}>
+          <Menu className={s.menu} defaultSelectedKeys={[currentPath]} mode='inline' inlineCollapsed={collapsedMenu}>
             {menuTabs.map((tab) => (
               <Menu.Item key={tab.key} icon={isTabActive(tab.key) ? tab.filledIcon : tab.icon}>
                 <NavLink end to={`/${tab.key}`}>
-                  {<p style={isTabActive(tab.key) ? primaryColor : null}>{tab.title}</p>}
+                  {<p style={isTabActive(tab.key) ? primaryColor : undefined}>{tab.title}</p>}
                 </NavLink>
               </Menu.Item>
             ))}
