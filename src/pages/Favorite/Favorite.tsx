@@ -16,18 +16,23 @@ interface IWeatherData {
   [city: string]: any
 }
 
-// page of favorite places
+/**
+ * Page component for displaying favorite places and their weather information.
+ *
+ * @returns JSX.Element
+ */
 
 const Favorite: React.FC = () => {
   const dispatch = useDispatch()
   const places: string[] = useSelector((state: IRootState) => state.weather.places) // array of places
   const favoritePlaces: string[] = useSelector((state: IRootState) => state.weather.favoritePlaces) // selected active place
   const [activeFavoritePlaces, setActiveFavoritePlaces] = useState<string[]>(favoritePlaces)
-  const [isLoading, setIsLoading] = useState<Boolean>(true) // Добавляем состояние для отслеживания загрузки
+  const [isLoading, setIsLoading] = useState<Boolean>(true) //  state to track loading
 
-  const IconComponent: React.ElementType = favoritesPageIcons.outlined
+  const IconComponent: React.ElementType = favoritesPageIcons.outlined // page icon
   const [weatherData, setWeatherData] = useState<IWeatherData>({})
 
+  // Renders cards with information for each selected place.
   const favoriteCards = () => {
     return activeFavoritePlaces.map((place) => <FavoriteCard key={place} weatherData={weatherData[place]} />)
   }
@@ -40,8 +45,10 @@ const Favorite: React.FC = () => {
   }
 
   useEffect(() => {
+    // fetches weather data for each favorite place and updates the state with the received data
     const fetchData = async () => {
       try {
+        // send requests for weather data to each favorite place and gather responses in an array
         const responses = await Promise.all(
           favoritePlaces.map(async (favPlace) => {
             const response = await weatherAPI.getDayWeather(favPlace)
@@ -49,24 +56,20 @@ const Favorite: React.FC = () => {
           })
         )
 
+        // transform the array of responses into an object with place names as keys
         const updatedWeatherData = responses.reduce((acc, { place, data }) => {
           return { ...acc, [place]: data }
         }, {})
 
-        setWeatherData(updatedWeatherData)
+        setWeatherData(updatedWeatherData) // update the weather data state with the fetched information
       } catch (error) {
         console.error('Error while fetching data:', error)
       } finally {
-        setIsLoading(false)
+        setIsLoading(false) // mark loading as complete, whether successful or not
       }
     }
-
     fetchData()
   }, [favoritePlaces])
-
-  if (!places) {
-    return <Preloader />
-  }
 
   return (
     <>
