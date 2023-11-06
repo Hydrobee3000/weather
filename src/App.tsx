@@ -2,13 +2,13 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchDayWeatherData, fetchForecastData, setFavoritePlaces, setIsDarkMode } from './redux/reducers/weatherReducer'
 import { Layout, ConfigProvider, theme } from 'antd'
-import AppRoutes from './Routes'
 import { IRootState } from './redux/store'
-import MenuFC from './components/Menu/Menu'
-import HeaderFC from './components/Header/Header'
 import { primaryColor } from './utils/constants/commonStyles'
 import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
 import { favoritePlacesKeyLs, getFromLocalStorage } from './utils/localStorage'
+import AppRoutes from './Routes'
+import MenuFC from './components/Menu/Menu'
+import HeaderFC from './components/Header/Header'
 import useWindowSize from './hooks/useWindowSize'
 import s from './App.module.scss'
 
@@ -19,6 +19,13 @@ interface IProps {
   isPreferDarkTheme: boolean
 }
 
+/**
+ * Main application component for the weather app.
+ *
+ * @component
+ * @param {boolean} IProps.isPreferDarkTheme - Indicates if dark theme is preferred.
+ */
+
 const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
   let root = document.documentElement
 
@@ -27,24 +34,24 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
   const activePlace = useSelector((state: IRootState) => state.weather.activePlace) // gets the selected active place
   const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
 
-  // set prefer theme mode
+  // set the preferred theme mode
   useEffect(() => {
     dispatch(setIsDarkMode(isPreferDarkTheme))
   }, [])
 
-  // get favorite places from localStorage
+  // retrieve favorite places from local storage and update the state
   useEffect(() => {
     const favoritePlaces: string[] | null = getFromLocalStorage(favoritePlacesKeyLs)
 
     favoritePlaces && dispatch(setFavoritePlaces(favoritePlaces))
   }, [])
 
-  // pass value to css variable
+  // set CSS variable for the slider background color based on the theme mode
   useEffect(() => {
     root.style.setProperty('--slider-background-color', isDarkMode ? 'black' : '#e5e5e5')
   }, [root.style, isDarkMode])
 
-  // fetch data
+  // fetch data for the active place, including day weather and forecast data
   useEffect(() => {
     dispatch(fetchDayWeatherData(activePlace))
     dispatch(fetchForecastData(activePlace))
