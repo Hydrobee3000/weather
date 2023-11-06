@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux' // hook for getting value from redux state
 import { IRootState } from '../../redux/store'
-import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb' // icons
 import { Space } from 'antd' // antd components
+import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb' // icons
 import CardProgress from './Cards/CardProgress' // <FC> of card with progress
 import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
 import PageTitle from '../../components/common/PageTitle/PageTitle'
@@ -11,7 +11,12 @@ import { dashboardPageIcons } from '../../utils/constants/pageIcons'
 import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
 import s from './Dashboard.module.scss' // css file with styles
 
-// dashboard page
+/**
+ * The Dashboard page component that displays weather information for the selected location.
+ *
+ * @component
+ * @returns {JSX.Element} JSX element containing weather statistics and cards for the selected location.
+ */
 
 const DashboardFC: React.FC = () => {
   // description of weather for the day. (e.g. 'light snow')
