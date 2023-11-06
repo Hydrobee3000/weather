@@ -1,11 +1,11 @@
 @import '../../style/variables';
 
 .current_page {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  text-align: center;
-  margin-bottom: 2em;
+  display: flex !important;
+  justify-content: space-around !important;
+  flex-direction: column !important;
+  text-align: center !important;
+  margin-bottom: 2em !important;
 
   .info {
     display: flex;
@@ -14,7 +14,8 @@
 
     .info__temp {
       font-size: 7rem;
-      margin-top: 0.5em;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
       color: $color-primary;
 
       &_value {
@@ -26,7 +27,8 @@
       }
 
       @media (max-width: 700px) {
-        font-size: 4rem !important;
+        font-size: 5rem !important;
+        margin-bottom: 5rem;
       }
     }
 
@@ -58,6 +60,7 @@
     margin-top: 2.5em;
 
     @media (max-width: 700px) {
+      margin-top: 4em;
       font-size: 20px !important;
     }
 
