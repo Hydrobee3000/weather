@@ -8,8 +8,8 @@ import { favoritesPageIcons } from '../../utils/constants/pageIcons'
 import { favoritePlacesKeyLs, saveToLocalStorage } from '../../utils/localStorage'
 import Preloader from '../../components/common/Preloader'
 import PageTitle from '../../components/common/PageTitle/PageTitle'
-import FavoriteCard from './FavoriteCard/FavoriteCard'
 import SelectPlace from '../../components/common/SelectPlace'
+import FavoriteCard from './FavoriteCard/FavoriteCard'
 
 interface IWeatherData {
   [city: string]: any
