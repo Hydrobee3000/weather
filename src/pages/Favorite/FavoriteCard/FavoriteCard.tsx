@@ -12,6 +12,14 @@ interface IFavoriteCardProps {
   weatherData: any
 }
 
+/**
+ * A component that displays weather data in a card for the "Favorite" page.
+ *
+ * @component
+ * @param {Object} weatherData - Weather data object to be displayed.
+ * @returns {JSX.Element} Weather card component.
+ */
+
 const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData }) => {
   // weather
   const temperature: number = roundToTenths(weatherData?.main?.temp)
