@@ -108,6 +108,7 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
         // Mobile menu for smaller screens
         <div
           style={{
+            borderTop: isDarkMode ? '4px solid black' : '4px solid #f5f5f5',
             position: 'fixed',
             bottom: 0,
             width: '100%',
