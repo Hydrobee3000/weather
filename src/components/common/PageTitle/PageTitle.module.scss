@@ -5,6 +5,10 @@
   font-weight: 400 !important;
   text-align: center !important;
 
+  @media (max-width: 700px) {
+    font-size: 24px !important;
+  }
+
   &__icon {
     margin-right: 1.5rem;
     color: $color-primary;
