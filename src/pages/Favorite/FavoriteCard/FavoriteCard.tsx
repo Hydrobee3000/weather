@@ -15,7 +15,7 @@ interface IFavoriteCardProps {
 const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData }) => {
   // weather
   const temperature: number = roundToTenths(weatherData?.main?.temp)
-  const feelsLike: number = roundToTenths(weatherData?.main?.feels_like)
+  const temperatureFeelsLike: number = roundToTenths(weatherData?.main?.feels_like)
   const description: string = weatherData?.weather[0]?.description // e.g. 'overcast clouds'
   const condition: string = weatherData?.weather[0]?.main // e.g. 'Clouds'
 
@@ -27,14 +27,17 @@ const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData }) => {
       <Space size='large' direction='vertical' className={s.card__content}>
         {/* unit of temperature */}
         <Text className={s.card__content_temp}>
-          {Math.round(parseFloat(temperature?.toString()) * 10) / 10} <span style={{ opacity: 0.7 }}>°C</span>
+          {temperature}
+          <span style={{ opacity: 0.7 }}>°C</span>
         </Text>
 
         {/* unit of feels like temperature */}
-        <Text type={'secondary'} className={s.card__content_date}>
-          <Tag>Feels like</Tag>
-          {Math.round(parseFloat(feelsLike?.toString()) * 10) / 10} <span style={{ opacity: 0.7 }}>°C</span>
-        </Text>
+        <Tag>
+          <Text type={'secondary'} className={s.card__content_date}>
+            Feels like: {temperatureFeelsLike}
+            <span style={{ opacity: 0.7 }}>°C</span>
+          </Text>
+        </Tag>
 
         {/* description of weather */}
         <Tag color='purple'>
