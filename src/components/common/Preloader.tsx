@@ -1,5 +1,11 @@
 import preloader from '../../assets/preloader.gif'
 
+/**
+ * Component that displays a preloader animation.
+ *
+ * @component
+ * @returns {JSX.Element} JSX element containing the preloader animation.
+ */
 let Preloader: React.FC = () => {
   return (
     <div
