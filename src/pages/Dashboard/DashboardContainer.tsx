@@ -6,7 +6,12 @@ import { IRootState } from '../../redux/store'
 import { IDayWeatherData } from '../../types/types'
 import DashboardFC from './Dashboard' // <FC> of dashboard page
 
-// fetch data for dashboard page and set in store
+/**
+ * A container component for the Dashboard page that fetches weather data for the selected location and sets it in the store.
+ *
+ * @component
+ * @returns {JSX.Element} JSX element containing the Dashboard page or a preloader while data is being fetched.
+ */
 
 const DashboardContainer: React.FC = () => {
   const dispatch: any = useDispatch()
