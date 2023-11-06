@@ -1,12 +1,17 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux' // redux hooks
-import Preloader from '../../components/common/Preloader' // preloader to wait for data to load
 import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer' // get weather data with selected location
 import { IRootState } from '../../redux/store'
 import { IDayWeatherData } from '../../types/types'
+import Preloader from '../../components/common/Preloader' // preloader to wait for data to load
 import Current from './Current' // <FC> of current page
 
-// fetch data for current page and set in store
+/**
+ * A container component for the Current page that fetches weather data for the selected location and sets it in the store.
+ *
+ * @component
+ * @returns {JSX.Element} JSX element containing the Current page or a preloader while data is being fetched.
+ */
 
 const CurrentContainer: React.FC = () => {
   const dispatch: any = useDispatch()
