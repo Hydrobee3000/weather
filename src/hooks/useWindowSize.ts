@@ -11,7 +11,6 @@ interface IWindowSize {
  * @returns {IWindowSize} An object containing the current width and height of the window
  */
 
-// custom hook for getting window size
 function useWindowSize(): IWindowSize {
   const [windowSize, setWindowSize] = useState<IWindowSize>({
     currentWidth: undefined,
