@@ -31,7 +31,7 @@ const Forecast: React.FC = () => {
       <PageTitle icon={<IconComponent />}>Forecast overview</PageTitle>
 
       <div className={s.page__body}>
-        <Space direction='vertical' size={currentWidth && currentWidth > 700 ? 60 : 30}>
+        <Space direction='vertical' className={s.cards__container} size={currentWidth && currentWidth > 700 ? 60 : 30}>
           {dailyFormatCards()}
         </Space>
 

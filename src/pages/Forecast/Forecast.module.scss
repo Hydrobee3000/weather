@@ -11,6 +11,13 @@
   text-align: center;
   justify-content: center;
 
+  .cards__container {
+    @media (max-width: 700px) {
+      max-height: 100%;
+      padding-bottom: 2em;
+    }
+  }
+
   .body__float_button {
     margin-bottom: 20px;
   }
