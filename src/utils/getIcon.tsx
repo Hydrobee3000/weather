@@ -1,7 +1,7 @@
-import { primaryColor } from './constants/commonStyles'
 import React from 'react'
 import { IoSunnySharp, IoCloudSharp, IoSnowSharp } from 'react-icons/io5'
 import { BsFillCloudRainHeavyFill, BsCloudFogFill } from 'react-icons/bs'
+import { primaryColor } from './constants/commonStyles'
 
 const weatherIcons: Record<string, JSX.Element> = {
   Clear: <IoSunnySharp />,
@@ -20,11 +20,9 @@ const weatherIcons: Record<string, JSX.Element> = {
  * @returns {JSX.Element | null} The corresponding icon JSX element
  */
 
-function getIcon(weatherCondition: string, isDarkMode: boolean, className?: string): JSX.Element | null {
+export function getIcon(weatherCondition: string, isDarkMode: boolean, className?: string): JSX.Element | null {
   const icon: JSX.Element = weatherIcons[weatherCondition] // get the icon by condition
 
   // if the conditions are met, return the icon with the parameters
   return icon ? React.cloneElement(icon, { className, style: isDarkMode ? undefined : primaryColor }) : null
 }
-
-export default getIcon
