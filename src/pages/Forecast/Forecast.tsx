@@ -28,7 +28,7 @@ const Forecast: React.FC = () => {
     <>
       <PageTitle icon={<IconComponent />}>Forecast overview</PageTitle>
 
-      <div className={s.page__body} style={{ height: '300vh' }}>
+      <div className={s.page__body}>
         <Space direction='vertical' size={60}>
           {dailyFormatCards()}
         </Space>
