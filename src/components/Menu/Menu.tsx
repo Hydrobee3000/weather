@@ -83,6 +83,11 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
 
   const isTabActive = (tabKey: string) => tabKey === currentPath
 
+  const tabStyleLight = { boxShadow: 'inset 3px 3px 3px rgba(0, 0, 0, 0.3)' }
+  const tabStyleDark = {}
+
+  const tabStyle = isDarkMode ? tabStyleDark : tabStyleLight
+
   return (
     <>
       {!mobile ? (
@@ -98,6 +103,7 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
             {menuTabs.map((tab) => (
               <Menu.Item
                 key={tab.key}
+                style={isTabActive(tab.key) ? tabStyle : undefined}
                 icon={
                   isTabActive(tab.key) ? (
                     <tab.filledIcon style={{ fontSize: '1.2rem' }} />
