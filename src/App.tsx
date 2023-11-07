@@ -69,6 +69,7 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
       <Layout className={s.app__container}>
         <HeaderFC />
         <Layout>
+          {/* desktop menu */}
           {currentWidth && currentWidth >= mobileBreakPointWidth && <MenuFC />}
           <Layout>
             <Content className={s.app__content} style={{ padding: 20, minHeight: 280 }}>
@@ -77,6 +78,7 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
           </Layout>
         </Layout>
 
+        {/* mobile menu */}
         {currentWidth && currentWidth <= mobileBreakPointWidth && <MenuFC mobile />}
       </Layout>
     </ConfigProvider>
