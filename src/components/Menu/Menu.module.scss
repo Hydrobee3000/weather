@@ -2,6 +2,14 @@
   font-size: 1.2em !important;
 }
 
+.menu__container_mobile {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  pointer-events: auto;
+  zindex: 1000;
+}
+
 .nav__link_active {
   color: #7b00ff !important;
 }

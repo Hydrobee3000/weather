@@ -12,7 +12,7 @@ import {
   favoritesPageIcons,
   forecastPageIcons,
 } from '../../utils/constants/pageIcons'
-import s from './Menu.module.css' // css file with styles
+import s from './Menu.module.scss' // css file with styles
 
 const { Sider } = Layout
 
@@ -20,8 +20,8 @@ const { Sider } = Layout
 interface IMenuTab {
   key: string
   title: string
-  icon: JSX.Element
-  filledIcon: JSX.Element
+  icon: any
+  filledIcon: any
 }
 
 interface IMenu {
@@ -33,32 +33,32 @@ const menuTabs: IMenuTab[] = [
   {
     key: 'current',
     title: 'Today',
-    icon: <currentPageIcons.outlined />,
-    filledIcon: <currentPageIcons.filled />,
+    icon: currentPageIcons.outlined,
+    filledIcon: currentPageIcons.filled,
   },
   {
     key: 'forecast',
     title: 'Forecast',
-    icon: <forecastPageIcons.outlined />,
-    filledIcon: <forecastPageIcons.filled />,
+    icon: forecastPageIcons.outlined,
+    filledIcon: forecastPageIcons.filled,
   },
   {
     key: 'dashboard',
     title: 'Dashboard',
-    icon: <dashboardPageIcons.outlined />,
-    filledIcon: <dashboardPageIcons.filled />,
+    icon: dashboardPageIcons.outlined,
+    filledIcon: dashboardPageIcons.filled,
   },
   {
     key: 'calendar',
     title: 'Calendar',
-    icon: <calendarPageIcons.outlined />,
-    filledIcon: <calendarPageIcons.filled />,
+    icon: calendarPageIcons.outlined,
+    filledIcon: calendarPageIcons.filled,
   },
   {
     key: 'favorites',
     title: 'Saved places',
-    icon: <favoritesPageIcons.outlined />,
-    filledIcon: <favoritesPageIcons.filled />,
+    icon: favoritesPageIcons.outlined,
+    filledIcon: favoritesPageIcons.filled,
   },
 ]
 
@@ -96,9 +96,18 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
         >
           <Menu className={s.menu} defaultSelectedKeys={[currentPath]} mode='inline' inlineCollapsed={collapsedMenu}>
             {menuTabs.map((tab) => (
-              <Menu.Item key={tab.key} icon={isTabActive(tab.key) ? tab.filledIcon : tab.icon}>
+              <Menu.Item
+                key={tab.key}
+                icon={
+                  isTabActive(tab.key) ? (
+                    <tab.filledIcon style={{ fontSize: '1.2rem' }} />
+                  ) : (
+                    <tab.icon style={{ fontSize: '1.2rem' }} />
+                  )
+                }
+              >
                 <NavLink end to={`/${tab.key}`}>
-                  {<p style={isTabActive(tab.key) ? primaryColor : undefined}>{tab.title}</p>}
+                  {<p style={isTabActive(tab.key) ? primaryColor : { fontSize: '1.2rem' }}>{tab.title}</p>}
                 </NavLink>
               </Menu.Item>
             ))}
@@ -107,13 +116,9 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
       ) : (
         // Mobile menu for smaller screens
         <div
+          className={s.menu__container_mobile}
           style={{
             borderTop: isDarkMode ? '4px solid black' : '4px solid #f5f5f5',
-            position: 'fixed',
-            bottom: 0,
-            width: '100%',
-            pointerEvents: 'auto',
-            zIndex: 1000,
             backgroundColor: isDarkMode ? '#141414' : '#fff',
           }}
         >
@@ -123,7 +128,7 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
                 key={tab.key}
                 icon={
                   <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to={`/${tab.key}`}>
-                    {isTabActive(tab.key) ? tab.filledIcon : tab.icon}
+                    {isTabActive(tab.key) ? <tab.filledIcon /> : <tab.icon style={{ fontSize: '1.2rem' }} />}
                   </NavLink>
                 }
               />
