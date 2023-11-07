@@ -1,33 +1,32 @@
 @import '../../style/variables.scss';
 
-.dashboard {
-  flex-wrap: wrap !important;
-  margin: 0 1.3rem 1.3rem 1.3rem !important; /* margin-top: 1.3em !important; */
-}
+.page__dashboard {
+  padding-bottom: 50px;
 
-.title__weather {
-  &_descr {
-    margin-right: 1.4rem !important;
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2rem;
+
+    @media (max-width: 700px) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
   }
 
-  &_location {
-    padding-left: 1.1rem !important;
-    border-left: 2px solid grey !important;
-    color: $color-primary;
+  .title__weather {
+    &_descr {
+      margin-right: 1.4rem !important;
+    }
+
+    &_location {
+      padding-left: 1.1rem !important;
+      border-left: 2px solid grey !important;
+      color: $color-primary;
+    }
   }
 }
 
 .card__icon {
   font-size: 2.2em !important;
   color: white !important;
-}
-
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 2rem;
-
-  @media (max-width: 700px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
 }

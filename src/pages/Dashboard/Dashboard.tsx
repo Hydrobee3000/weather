@@ -1,14 +1,13 @@
 import { useSelector } from 'react-redux' // hook for getting value from redux state
 import { IRootState } from '../../redux/store'
-import { Space } from 'antd' // antd components
 import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb' // icons
+import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
+import { primaryColor } from '../../utils/constants/commonStyles' // inline common styles
+import { dashboardPageIcons } from '../../utils/constants/pageIcons'
+import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
 import CardProgress from './Cards/CardProgress' // <FC> of card with progress
 import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
 import PageTitle from '../../components/common/PageTitle/PageTitle'
-import { primaryColor } from '../../utils/constants/commonStyles' // inline common styles
-import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
-import { dashboardPageIcons } from '../../utils/constants/pageIcons'
-import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
 import s from './Dashboard.module.scss' // css file with styles
 
 /**
@@ -71,13 +70,13 @@ const DashboardFC: React.FC = () => {
 
   if (dayWeatherData) {
     return (
-      <div>
+      <div className={s.page__dashboard} style={{ paddingBottom: '50px' }}>
         <PageTitle icon={<IconComponent />}>
           <span className={s.title__weather_descr}>{firstLetterUpperCase(weatherDesc)}</span>
           <span className={s.title__weather_location}>{selectedPlaceName}</span>
         </PageTitle>
 
-        <div className={s.wrapper}>
+        <div className={s.cards}>
           {cardStatisticData.map((data) => (
             <CardStatistic key={data.title} {...data} />
           ))}
@@ -91,6 +90,7 @@ const DashboardFC: React.FC = () => {
       </div>
     )
   }
+
   return <p>Please, wait..</p>
 }
 
