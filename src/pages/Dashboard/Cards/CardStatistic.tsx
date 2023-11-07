@@ -6,6 +6,7 @@ import { cardHeadStyle, statisticValueStyle } from '../../../utils/constants/das
 import isDegreeSymbolPresent from '../../../utils/isDegreeSymbolPresent' // checks if the suffix has the ° symbol in it
 import { ICardStatistic, IStatisticData } from '../../../types/types'
 import s from './Cards.module.scss' // css file with styles
+import { roundToTenths } from '../../../utils/roundToTenth'
 
 /**
  * A component that displays a card with statistical information.
@@ -38,6 +39,7 @@ const CardStatistic: React.FC<ICardStatistic> = ({
   fourthTitle = null,
   fourthData = null,
   wind = false,
+  temperature = false,
 }) => {
   // if there is no data, nothing will be displayed
   if (!firstData && !secondData && !thirdData && !fourthData) {
@@ -76,23 +78,22 @@ const CardStatistic: React.FC<ICardStatistic> = ({
       className={s.card}
       extra={icon}
     >
-      <Row gutter={[20, 20]}>
-        {/* rendering a Statistic components for each data object */}
+      {/* rendering a Statistic components for each data object */}
+      <div className={s.wrapper}>
         {statisticsData.map(({ title, value, suffix }) => {
+          const roundedValue = value ? roundToTenths(value) : undefined
           return value ? (
-            <Col key={title} span={12}>
-              <Statistic
-                title={<SubtitleCard>{title}</SubtitleCard>}
-                value={value}
-                className={s.statistic}
-                valueStyle={statisticValueStyle}
-                precision={title === 'Direction' ? 0 : 2}
-                suffix={<StatisticSuffix small={isDegreeSymbolPresent(suffix)}>{suffix}</StatisticSuffix>}
-              />
-            </Col>
+            <Statistic
+              title={<SubtitleCard>{title}</SubtitleCard>}
+              value={temperature ? roundedValue : value}
+              className={s.statistic}
+              valueStyle={statisticValueStyle}
+              precision={title === 'Direction' ? 0 : temperature ? 1 : 2}
+              suffix={<StatisticSuffix small={isDegreeSymbolPresent(suffix)}>{suffix}</StatisticSuffix>}
+            />
           ) : null
         })}
-      </Row>
+      </div>
     </Card>
   )
 }
