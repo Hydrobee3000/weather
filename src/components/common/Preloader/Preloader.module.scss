@@ -1,0 +1,14 @@
+.preloader__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .preloader {
+    font-size: 24px;
+
+    &__icon {
+      font-size: 6em;
+    }
+  }
+}
