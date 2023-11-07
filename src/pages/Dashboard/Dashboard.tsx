@@ -70,7 +70,7 @@ const DashboardFC: React.FC = () => {
 
   if (dayWeatherData) {
     return (
-      <div className={s.page__dashboard} style={{ paddingBottom: '50px' }}>
+      <div className={s.page__dashboard}>
         <PageTitle icon={<IconComponent />}>
           <span className={s.title__weather_descr}>{firstLetterUpperCase(weatherDesc)}</span>
           <span className={s.title__weather_location}>{selectedPlaceName}</span>
