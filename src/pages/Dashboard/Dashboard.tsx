@@ -77,7 +77,7 @@ const DashboardFC: React.FC = () => {
           <span className={s.title__weather_location}>{selectedPlaceName}</span>
         </PageTitle>
 
-        <Space size={40} align='start' className={s.dashboard}>
+        <div className={s.wrapper}>
           {cardStatisticData.map((data) => (
             <CardStatistic key={data.title} {...data} />
           ))}
@@ -87,7 +87,7 @@ const DashboardFC: React.FC = () => {
           ))}
 
           {/* <p>Pressure: {dayWeatherData.main.pressure}</p> */}
-        </Space>
+        </div>
       </div>
     )
   }
