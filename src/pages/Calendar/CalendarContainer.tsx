@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux' // redux hooks
-import Preloader from '../../components/common/Preloader' // preloader to wait for data to load
+import Preloader from '../../components/common/Preloader/Preloader' // preloader to wait for data to load
 import { IRootState } from '../../redux/store'
 import { IForecastData } from '../../types/types'
 import CalendarFC from './Calendar' // <FC> of calendar page

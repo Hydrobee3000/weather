@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux' // redux hooks
-import Preloader from '../../components/common/Preloader' // preloader to wait for data to load
+import Preloader from '../../components/common/Preloader/Preloader' // preloader to wait for data to load
 import { fetchDayWeatherData } from '../../redux/reducers/weatherReducer' // get weather data with selected location
 import { IRootState } from '../../redux/store'
 import { IDayWeatherData } from '../../types/types'

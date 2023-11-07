@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Preloader from '../../components/common/Preloader' // preloader to wait for data to load
+import Preloader from '../../components/common/Preloader/Preloader' // preloader to wait for data to load
 import Favorite from './Favorite'
 
 /**
