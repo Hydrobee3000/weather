@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Divider, Space } from 'antd' // antd components
+import { Divider } from 'antd' // antd components
 import { weatherAPI } from '../../api/api'
 import { IRootState } from '../../redux/store'
 import { setFavoritePlaces } from '../../redux/reducers/weatherReducer'

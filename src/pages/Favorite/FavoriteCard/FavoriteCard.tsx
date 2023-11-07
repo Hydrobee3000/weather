@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { IRootState } from '../../../redux/store'
 import { getIcon } from '../../../utils/getIcon'
 import { roundToTenths } from '../../../utils/roundToTenth'
-import s from '../Favorite.module.scss'
+import s from './FavoriteCard.module.scss'
 
 const { Text } = Typography
 
