@@ -34,7 +34,7 @@ const Favorite: React.FC = () => {
 
   // Renders cards with information for each selected place.
   const favoriteCards = () => {
-    return activeFavoritePlaces.map((place) => <FavoriteCard key={place} weatherData={weatherData[place]} />)
+    return activeFavoritePlaces.map((place) => <FavoriteCard key={place} weatherData={weatherData[place]} place={place} />)
   }
 
   // handle change value of selected option

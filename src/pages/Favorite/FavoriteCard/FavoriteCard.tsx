@@ -10,6 +10,7 @@ const { Text } = Typography
 
 interface IFavoriteCardProps {
   weatherData: any
+  place: string
 }
 
 /**
@@ -17,10 +18,11 @@ interface IFavoriteCardProps {
  *
  * @component
  * @param {Object} weatherData - Weather data object to be displayed.
+ * @param {string} place - Name of current place.
  * @returns {JSX.Element} Weather card component.
  */
 
-const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData }) => {
+const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData, place }) => {
   // weather
   const temperature: number = roundToTenths(weatherData?.main?.temp)
   const temperatureFeelsLike: number = roundToTenths(weatherData?.main?.feels_like)
@@ -31,7 +33,7 @@ const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData }) => {
   const icon: JSX.Element | null = getIcon(condition, isDarkMode, s.card__icon) // get icon with styles by condition
 
   return (
-    <Card className={s.card} title={<Text className={s.card__title}>{weatherData?.name}</Text>} extra={icon}>
+    <Card className={s.card} title={<Text className={s.card__title}>{weatherData && place}</Text>} extra={icon}>
       <Space size='large' direction='vertical' className={s.card__content}>
         {/* unit of temperature */}
         <Text className={s.card__content_temp}>
