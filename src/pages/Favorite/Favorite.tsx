@@ -10,6 +10,7 @@ import Preloader from '../../components/common/Preloader'
 import PageTitle from '../../components/common/PageTitle/PageTitle'
 import SelectPlace from '../../components/common/SelectPlace'
 import FavoriteCard from './FavoriteCard/FavoriteCard'
+import s from './Favorite.module.scss'
 
 interface IWeatherData {
   [city: string]: any
@@ -77,13 +78,7 @@ const Favorite: React.FC = () => {
       <SelectPlace selectedPlace={favoritePlaces} places={places} onChange={onChangePlace} mode='multiple' />
       <Divider />
 
-      {isLoading ? (
-        <Preloader />
-      ) : (
-        <Space wrap size={60}>
-          {favoriteCards()}
-        </Space>
-      )}
+      {isLoading ? <Preloader /> : <div className={s.cards}>{favoriteCards()}</div>}
     </>
   )
 }
