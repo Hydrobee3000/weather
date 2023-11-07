@@ -56,7 +56,7 @@ const CardStatistic: React.FC<ICardStatistic> = ({
     {
       title: secondTitle,
       value: secondData,
-      suffix: '°C',
+      suffix: wind ? '°' : '°C',
     },
     {
       title: thirdTitle,
