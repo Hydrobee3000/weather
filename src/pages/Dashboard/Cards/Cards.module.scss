@@ -7,11 +7,6 @@
   border: 1px solid #5a00cb;
   border-radius: 10px;
   padding: 10px !important;
-  // padding-left: 20px !important;
-  // padding-right: 20px !important;
-  // padding-top: 10px !important;
-  // padding-bottom: 10px !important;
-  // width: 140px;
 
   &:hover {
     background-color: #5b00cb1f;
@@ -21,7 +16,7 @@
 .progress {
   display: flex;
   justify-content: center;
-  // margin: 2.77em 1.8em;
+  margin: 2.7em 1.8em;
 
   &__value {
     margin: 0 !important;
@@ -40,8 +35,4 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 2rem;
-
-  // @media (max-width: 700px) {
-  //   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  // }
 }

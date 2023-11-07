@@ -20,18 +20,18 @@ const { Title } = Typography // title antd component
 const CardProgress: React.FC<ICardProgress> = ({ title, icon, data }) => {
   return (
     <Card
+      className={s.card}
       title={<TitleCard>{title}</TitleCard>}
       headStyle={cardHeadStyle}
       bodyStyle={cardBodyStyle}
-      className={s.card}
       extra={icon}
     >
       <Progress
         type='dashboard'
+        className={s.progress}
         strokeWidth={8} // line thickness
         strokeColor='#5a00cb' // filled part color
         trailColor='#5b00cb62' // unfilled part color
-        className={s.progress}
         format={() => {
           return (
             <Title className={s.progress__value}>
