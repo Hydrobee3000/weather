@@ -1,0 +1,9 @@
+.select__place {
+  min-width: 10em;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgb(122, 35, 215, 0.5);
+
+  &_header {
+    box-shadow: 4px 4px 5px rgb(122, 35, 215, 0.5);
+  }
+}
