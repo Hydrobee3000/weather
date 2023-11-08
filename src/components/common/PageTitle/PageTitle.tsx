@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
+import { useSelector } from 'react-redux'
 import { Divider, Typography } from 'antd' // antd components
+import { IRootState } from '../../../redux/store'
 import s from './PageTitle.module.scss'
 
 const { Title } = Typography
@@ -19,9 +21,10 @@ interface IProps {
  */
 
 const PageTitle: React.FC<IProps> = ({ children, icon }) => {
+  const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
   return (
     <>
-      <Title className={s.title}>
+      <Title className={`${s.title} ${!isDarkMode && s.title_light}`}>
         {icon && <span className={s.title__icon}>{icon}</span>}
         {children}
       </Title>

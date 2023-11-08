@@ -5,12 +5,16 @@
   font-weight: 400 !important;
   text-align: center !important;
 
-  @media (max-width: 700px) {
-    font-size: 24px !important;
+  &_light {
+    color: $color-primary;
   }
 
   &__icon {
     margin-right: 1.5rem;
     color: $color-primary;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 24px !important;
   }
 }
