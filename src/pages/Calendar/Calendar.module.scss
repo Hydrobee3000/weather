@@ -1,5 +1,9 @@
+@import '../../style/variables.scss';
+
 .calendar {
   margin-top: 1.75rem !important;
+  border-radius: 5px !important;
+  box-shadow: $card-shadow-outer-purple;
 }
 
 .card {
@@ -15,6 +19,7 @@
       display: flex;
       justify-content: center;
       margin: 0;
+      box-shadow: 2px 2px 3px $basic-shadow-color;
     }
   }
 }
