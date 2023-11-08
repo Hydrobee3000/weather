@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { IRootState } from '../../../redux/store'
 import { getIcon } from '../../../utils/getIcon'
 import { roundToTenths } from '../../../utils/roundToTenth'
+import Preloader from '../../../components/common/Preloader/Preloader'
 import s from './FavoriteCard.module.scss'
 
 const { Text } = Typography
@@ -31,6 +32,10 @@ const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData, place }) => {
 
   const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
   const icon: JSX.Element | null = getIcon(condition, isDarkMode, s.card__icon) // get icon with styles by condition
+
+  if (!weatherData?.weather[0]?.main) {
+    return <Preloader />
+  }
 
   return (
     <Card className={s.card} title={<Text className={s.card__title}>{weatherData && place}</Text>} extra={icon}>
