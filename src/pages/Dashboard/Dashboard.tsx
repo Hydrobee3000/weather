@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux' // hook for getting value from redux state
 import { IRootState } from '../../redux/store'
 import { TbWind, TbTemperature, TbCloud, TbDroplet } from 'react-icons/tb' // icons
+import { FloatButton } from 'antd'
 import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
 import { primaryColor } from '../../utils/constants/commonStyles' // inline common styles
 import { dashboardPageIcons } from '../../utils/constants/pageIcons'
@@ -87,6 +88,8 @@ const DashboardFC: React.FC = () => {
 
           {/* <p>Pressure: {dayWeatherData.main.pressure}</p> */}
         </div>
+
+        <FloatButton.BackTop className={s.body__float_button} type='primary' />
       </div>
     )
   }
