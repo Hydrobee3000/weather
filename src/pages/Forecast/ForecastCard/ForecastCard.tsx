@@ -34,19 +34,21 @@ const ForecastCard: React.FC<IProps> = ({ dailyData }) => {
   const weatherCondition: string = dailyData.weather[0].main // e.g. 'Clouds'
   const weatherDescription: string = dailyData.weather[0].description // e.g. 'overcast clouds'
   const weatherTemperature: number = dailyData.main.temp
+
   const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
 
   const icon: JSX.Element | null = getIcon(weatherCondition, isDarkMode, s.card__icon)
 
   return (
     <Card className={s.card} title={<Text className={s.card__title}>{weekDayName}</Text>} extra={icon}>
-      <Space size='large' direction='vertical' className={s.card__content}>
+      <Space className={s.card__content} direction='vertical' size='large'>
         {/* unit of temperature */}
-        <Text className={s.card__content_temp}>
-          {Math.round(weatherTemperature)} <span style={{ opacity: 0.7 }}>°C</span>
+        <Text className={`${s.card__content_temp} ${!isDarkMode && s.primary_color}`}>
+          {Math.round(weatherTemperature)} <span className={s.temp__unit}>°C</span>
         </Text>
+
         {/* description of weather */}
-        <Tag color='purple'>
+        <Tag className={isDarkMode ? undefined : s.tag_inner_shadow} color='purple'>
           <Text className={s.card__content_descr}>{weatherDescription}</Text>
         </Tag>
         <Text type={'secondary'} className={s.card__content_date}>

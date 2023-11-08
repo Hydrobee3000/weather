@@ -1,19 +1,26 @@
-.header__container {
-  width: 100%;
-}
+.menu__btn {
+  border: none;
+  &_pressed {
+    &_light {
+      box-shadow: inset 3px 3px 3px rgba(52, 1, 106, 0.3);
+    }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin: 5px 0;
-}
+    &_dark {
+      box-shadow: inset 3px 3px 3px rgba(52, 1, 106, 0.5);
+    }
+  }
 
-.header__menu_btn:hover {
-  opacity: 0.8;
-}
+  &_unpressed {
+    &_light {
+      box-shadow: inset 3px 3px 3px rgba(194, 140, 251, 0.5);
+    }
 
-@media (max-width: 600px) {
-  .select {
-    width: 4em;
+    &_dark {
+      box-shadow: inset 3px 3px 3px rgba(152, 59, 251, 0.5);
+    }
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 }

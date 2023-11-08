@@ -4,7 +4,6 @@ import { NavLink, useLocation } from 'react-router-dom' // link with active styl
 import { Menu, Layout } from 'antd' // antd components
 import { TabBar } from 'antd-mobile'
 import { IRootState } from '../../redux/store'
-import { primaryColor } from '../../utils/constants/commonStyles'
 import {
   calendarPageIcons,
   currentPageIcons,
@@ -83,18 +82,12 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
 
   const isTabActive = (tabKey: string) => tabKey === currentPath
 
-  const tabStyleLight = { boxShadow: 'inset 3px 3px 3px rgba(0, 0, 0, 0.3)' }
-  const tabStyleDark = {}
-
-  const tabStyle = isDarkMode ? tabStyleDark : tabStyleLight
-
   return (
     <>
       {!mobile ? (
         // Regular menu for larger screens
         <Sider
-          className={s.menu__container}
-          style={isDarkMode ? undefined : { backgroundColor: '#efefef' }}
+          className={isDarkMode ? s.menu__container_dark : s.menu__container_light}
           trigger={null}
           collapsible
           collapsed={collapsedMenu}
@@ -103,17 +96,21 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
             {menuTabs.map((tab) => (
               <Menu.Item
                 key={tab.key}
-                style={isTabActive(tab.key) ? tabStyle : undefined}
+                className={isTabActive(tab.key) ? (isDarkMode ? s.menu__item_dark : s.menu__item_light) : undefined}
                 icon={
                   isTabActive(tab.key) ? (
-                    <tab.filledIcon style={{ fontSize: '1.2rem' }} />
+                    <tab.filledIcon className={s.menu__item_font_size} />
                   ) : (
-                    <tab.icon style={{ fontSize: '1.2rem' }} />
+                    <tab.icon className={s.menu__item_font_size} />
                   )
                 }
               >
                 <NavLink end to={`/${tab.key}`}>
-                  {<p style={isTabActive(tab.key) ? primaryColor : { fontSize: '1.2rem' }}>{tab.title}</p>}
+                  {
+                    <p className={`${s.menu__item_font_size} ${isTabActive(tab.key) ? s.menu__item_active : undefined}`}>
+                      {tab.title}
+                    </p>
+                  }
                 </NavLink>
               </Menu.Item>
             ))}
@@ -121,12 +118,9 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
         </Sider>
       ) : (
         // Mobile menu for smaller screens
+
         <div
-          className={s.menu__container_mobile}
-          style={{
-            borderTop: isDarkMode ? '4px solid black' : '4px solid #f5f5f5',
-            backgroundColor: isDarkMode ? '#141414' : '#fff',
-          }}
+          className={`${s.menu_mobile__container} ${isDarkMode ? s.menu_mobile__container_dark : s.menu_mobile__container_light}`}
         >
           <TabBar>
             {menuTabs.map((tab) => (
@@ -134,7 +128,7 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
                 key={tab.key}
                 icon={
                   <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to={`/${tab.key}`}>
-                    {isTabActive(tab.key) ? <tab.filledIcon /> : <tab.icon style={{ fontSize: '1.2rem' }} />}
+                    {isTabActive(tab.key) ? <tab.filledIcon /> : <tab.icon />}
                   </NavLink>
                 }
               />

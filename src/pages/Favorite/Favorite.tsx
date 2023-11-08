@@ -8,7 +8,7 @@ import { favoritesPageIcons } from '../../utils/constants/pageIcons'
 import { favoritePlacesKeyLs, saveToLocalStorage } from '../../utils/localStorage'
 import Preloader from '../../components/common/Preloader/Preloader'
 import PageTitle from '../../components/common/PageTitle/PageTitle'
-import SelectPlace from '../../components/common/SelectPlace'
+import SelectPlace from '../../components/common/SelectPlace/SelectPlace'
 import FavoriteCard from './FavoriteCard/FavoriteCard'
 import s from './Favorite.module.scss'
 

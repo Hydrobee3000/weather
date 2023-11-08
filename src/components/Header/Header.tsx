@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Button, Space, theme } from 'antd'
 import { PageHeader } from '@ant-design/pro-layout'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
-import SelectPlace from '../common/SelectPlace'
-import SwitcherTheme from '../common/SwitcherTheme'
-import FormattedDate from '../common/DateFormat'
-import useWindowSize from '../../hooks/useWindowSize'
 import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
+import SelectPlace from '../common/SelectPlace/SelectPlace'
+import FormattedDate from '../common/DateFormat'
+import SwitcherTheme from '../common/SwitcherTheme/SwitcherTheme'
+import useWindowSize from '../../hooks/useWindowSize'
 import s from './Header.module.scss'
 
 // header component
@@ -19,6 +19,7 @@ const HeaderFC: React.FC = () => {
   const collapsedMenu: boolean = useSelector((state: IRootState) => state.weather.collapsedMenu) // is menu collapsed? (default = false)
   const activePlace: string = useSelector((state: IRootState) => state.weather.activePlace) // selected active place
   const places: string[] = useSelector((state: IRootState) => state.weather.places) // array of places
+  const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
 
   const {
     token: { colorBgContainer },
@@ -36,13 +37,25 @@ const HeaderFC: React.FC = () => {
 
   return (
     <PageHeader
-      className={s.header__container}
       style={{ backgroundColor: colorBgContainer }}
       title={
         //show only on large screens
         currentWidth &&
         currentWidth >= mobileBreakPointWidth && (
-          <Button key={'toggleMenu'} className={s.header__menu_btn} type='primary' onClick={toggleCollapsedMenu}>
+          <Button
+            key={'toggleMenu'}
+            className={`${s.menu__btn} ${
+              collapsedMenu
+                ? isDarkMode
+                  ? s.menu__btn_pressed_dark // pressed menu button with dark theme
+                  : s.menu__btn_pressed_light // pressed menu button with light theme
+                : isDarkMode
+                  ? s.menu__btn_unpressed_dark // unpressed menu button with dark theme
+                  : s.menu__btn_unpressed_light // unpressed menu button with light theme
+            }`}
+            type='primary'
+            onClick={toggleCollapsedMenu}
+          >
             {collapsedMenu ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           </Button>
         )

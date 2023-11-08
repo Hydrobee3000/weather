@@ -1,12 +1,14 @@
-import { Statistic, Card, Row, Col } from 'antd' // antd components
+import { useSelector } from 'react-redux'
+import { Statistic, Card } from 'antd' // antd components
+import { IRootState } from '../../../redux/store'
+import { ICardStatistic, IStatisticData } from '../../../types/types'
+import { cardHeadStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
+import { roundToTenths } from '../../../utils/roundToTenth'
 import TitleCard from '../../../components/common/DashboardCards/TitleCard' // title <FC> for cards
 import SubtitleCard from '../../../components/common/DashboardCards/SubtitleCard' // subtitle <FC> for statistic params
 import StatisticSuffix from '../../../components/common/DashboardCards/StatisticSuffix' // suffix <FC> for value of statistic params
-import { cardHeadStyle, statisticValueStyle } from '../../../utils/constants/dashboardCardsStyle' // styles objects
 import isDegreeSymbolPresent from '../../../utils/isDegreeSymbolPresent' // checks if the suffix has the ° symbol in it
-import { ICardStatistic, IStatisticData } from '../../../types/types'
 import s from './Cards.module.scss' // css file with styles
-import { roundToTenths } from '../../../utils/roundToTenth'
 
 /**
  * A component that displays a card with statistical information.
@@ -41,6 +43,8 @@ const CardStatistic: React.FC<ICardStatistic> = ({
   wind = false,
   temperature = false,
 }) => {
+  const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
+
   // if there is no data, nothing will be displayed
   if (!firstData && !secondData && !thirdData && !fourthData) {
     return null
@@ -73,9 +77,9 @@ const CardStatistic: React.FC<ICardStatistic> = ({
   return (
     <Card
       title={<TitleCard>{title}</TitleCard>}
+      className={`${s.card} ${isDarkMode ? s.card_dark : s.card_light}`}
       headStyle={cardHeadStyle}
       // bodyStyle={cardBodyStyle}
-      className={s.card}
       extra={icon}
     >
       {/* rendering a Statistic components for each data object */}
@@ -86,8 +90,9 @@ const CardStatistic: React.FC<ICardStatistic> = ({
             <Statistic
               title={<SubtitleCard>{title}</SubtitleCard>}
               value={temperature ? roundedValue : value}
-              className={s.statistic}
-              valueStyle={statisticValueStyle}
+              className={`${s.statistic} ${isDarkMode ? s.statistic_dark : s.statistic_light}
+              }`}
+              valueStyle={{ fontSize: '1.85em', textAlign: 'center', color: isDarkMode ? undefined : '#7b23d9' }}
               precision={title === 'Direction' ? 0 : temperature ? 1 : 2}
               suffix={<StatisticSuffix small={isDegreeSymbolPresent(suffix)}>{suffix}</StatisticSuffix>}
             />

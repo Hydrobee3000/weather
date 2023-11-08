@@ -1,12 +1,32 @@
+@import '../../../style/variables.scss';
+
 .card {
   border-radius: 15px !important;
   max-width: 380px;
+  box-shadow: $card-shadow-outer-purple;
+
+  &_dark {
+    background-color: #111;
+  }
+
+  &_light {
+    background-color: #fff;
+  }
 }
 
 .statistic {
-  border: 1px solid #5a00cb;
-  border-radius: 10px;
+  border-radius: 10px !important;
   padding: 10px !important;
+
+  &_dark {
+    background-color: #1f1f1f;
+    box-shadow: 3px 3px 3px $basic-shadow-color;
+  }
+
+  &_light {
+    background-color: #faf0ff;
+    box-shadow: inset 3px 3px 3px rgb(122, 35, 215, 0.4);
+  }
 
   &:hover {
     background-color: #5b00cb1f;

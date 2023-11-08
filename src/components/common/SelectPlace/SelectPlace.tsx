@@ -1,5 +1,6 @@
 import React from 'react'
 import { Select } from 'antd'
+import s from './SelectPlace.module.scss'
 
 const { Option } = Select
 
@@ -25,15 +26,15 @@ interface SelectPlaceProps {
 const SelectPlace: React.FC<SelectPlaceProps> = ({ selectedPlace, places, onChange, mode = undefined }) => {
   return (
     <Select
-      showSearch
-      style={{ minWidth: '10em' }}
+      className={`${s.select__place} ${!mode && s.select__place_header}`}
       placeholder='Select a place'
       value={selectedPlace}
-      allowClear
-      mode={mode}
       onChange={(value: string | string[]) => onChange(value)}
       optionFilterProp='children'
       filterOption={(input, option: any) => option.children.toLowerCase().includes(input.toLowerCase())}
+      mode={mode}
+      showSearch
+      allowClear
     >
       {places.map((place) => (
         <Option key={place} value={place}>
