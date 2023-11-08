@@ -38,11 +38,11 @@ const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData, place }) => {
         {/* unit of temperature */}
         <Text className={`${s.card__content_temp} ${!isDarkMode && s.primary_color}`}>
           {temperature}
-          <span style={{ opacity: 0.4 }}>°C</span>
+          <span style={{ paddingLeft: '4px', opacity: 0.4 }}>°C</span>
         </Text>
 
         {/* unit of feels like temperature */}
-        <Tag className={isDarkMode ? undefined : s.tag__feels_like}>
+        <Tag>
           <Text style={{ opacity: 0.8 }} type={'secondary'}>
             Feels like: {temperatureFeelsLike}
             <span style={{ paddingLeft: '4px', opacity: 0.5 }}>°C</span>
