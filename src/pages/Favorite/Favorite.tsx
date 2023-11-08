@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Divider } from 'antd' // antd components
+import { Divider, FloatButton } from 'antd' // antd components
 import { weatherAPI } from '../../api/api'
 import { IRootState } from '../../redux/store'
 import { setFavoritePlaces } from '../../redux/reducers/weatherReducer'
@@ -79,6 +79,8 @@ const Favorite: React.FC = () => {
       <Divider />
 
       {isLoading ? <Preloader /> : <div className={s.cards}>{favoriteCards()}</div>}
+
+      <FloatButton.BackTop className={s.body__float_button} type='primary' />
     </>
   )
 }

@@ -10,3 +10,7 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
+
+.body__float_button {
+  margin-bottom: $float-button-margin-bottom;
+}
