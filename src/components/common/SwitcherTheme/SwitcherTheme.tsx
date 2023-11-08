@@ -2,8 +2,9 @@ import React from 'react'
 import { Switch } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { MdLightMode, MdDarkMode } from 'react-icons/md'
-import { IRootState } from '../../redux/store'
-import { setIsDarkMode } from '../../redux/reducers/weatherReducer'
+import { IRootState } from '../../../redux/store'
+import { setIsDarkMode } from '../../../redux/reducers/weatherReducer'
+import s from './SwitcherTheme.module.scss'
 
 /**
  * Component for toggling between light and dark theme modes.
@@ -22,7 +23,7 @@ const SwitcherTheme: React.FC = () => {
 
   return (
     <Switch
-      style={isDarkMode ? { paddingTop: '1px', paddingLeft: '3px' } : { paddingTop: '1px', paddingRight: '3px' }}
+      className={isDarkMode ? s.switcher__theme_dark : s.switcher__theme_light}
       checkedChildren={<MdLightMode />}
       unCheckedChildren={<MdDarkMode />}
       defaultChecked={isDarkMode}
