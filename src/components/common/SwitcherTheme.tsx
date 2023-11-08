@@ -22,6 +22,7 @@ const SwitcherTheme: React.FC = () => {
 
   return (
     <Switch
+      style={isDarkMode ? { paddingTop: '1px', paddingLeft: '3px' } : { paddingTop: '1px', paddingRight: '3px' }}
       checkedChildren={<MdLightMode />}
       unCheckedChildren={<MdDarkMode />}
       defaultChecked={isDarkMode}
