@@ -36,17 +36,17 @@ const Current: React.FC = () => {
 
       <div className={s.info}>
         {/* unit of temperature */}
-        <Text className={s.info__temp}>
-          <span className={s.info__temp_value}>{temperature}</span>
-          <span className={s.info__temp_unit}>°С</span>
+        <Text className={s.temp}>
+          <span className={s.temp__value}>{temperature}</span>
+          <span className={s.temp__unit}>°С</span>
         </Text>
 
         {/* unit of feels like temperature */}
-        <Tag className={s.info__feels_like}>Feels like: {temperatureFeelsLike} °С</Tag>
+        <Tag className={`${s.feels_like} ${s.tag_shadow}`}>Feels like: {temperatureFeelsLike} °С</Tag>
 
         {/* description of weather */}
-        <Tag color='purple'>
-          <Text className={s.info__description}>{description}</Text>
+        <Tag color='purple' className={s.tag_shadow}>
+          <Text className={s.description__text}>{description}</Text>
         </Tag>
       </div>
 
