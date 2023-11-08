@@ -3,6 +3,7 @@
 .card {
   border-radius: 15px !important;
   width: 100%;
+  box-shadow: $card-shadow-outer-purple;
 
   &__title {
     display: flex;
@@ -53,8 +54,19 @@
         font-size: 1.4em;
       }
     }
-    &_date {
-      opacity: 0.8;
-    }
   }
+
+  .tag__feels_like {
+    box-shadow: inset 2px 2px 3px $basic-shadow-color;
+    border: none;
+  }
+
+  .tag__descr_light {
+    box-shadow: inset 3px 3px 3px $basic-shadow-color;
+    border: none;
+  }
+}
+
+.primary_color {
+  color: $color-primary;
 }
