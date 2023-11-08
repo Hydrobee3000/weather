@@ -3,6 +3,7 @@
 .card {
   border-radius: 15px !important;
   min-width: 24em !important;
+  box-shadow: $card-shadow-outer-purple;
 
   @media (max-width: 600px) {
     min-width: 250px !important;
@@ -48,6 +49,10 @@
     &_temp {
       font-size: 4em;
 
+      .temp__unit {
+        opacity: 0.7;
+      }
+
       @media (max-width: 600px) {
         font-size: 3em;
       }
@@ -64,4 +69,13 @@
       opacity: 0.6;
     }
   }
+}
+
+.primary_color {
+  color: $color-primary;
+}
+
+.tag_inner_shadow {
+  box-shadow: inset 3px 3px 5px rgb(122, 35, 215, 0.5);
+  border: none;
 }
