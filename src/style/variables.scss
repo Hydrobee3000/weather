@@ -1,7 +1,8 @@
 $color-primary: #7b23d9 !important;
 $color-purple-light: #faf0ff !important;
 
-$basic-shadow-color: rgb(122, 35, 215, 0.5);
-$card-shadow-outer-purple: 5px 5px 5px rgb(122, 35, 215, 0.5) !important;
+$basic-shadow-color: rgb(122, 35, 215, 0.5); // color of shadow
+$card-shadow-outer-purple: 5px 5px 5px rgb(122, 35, 215, 0.5) !important; // outer shadow of cards
 
-$float-button-margin-bottom: 20px;
+$tag-border-radius: 10px;
+$float-button-margin-bottom: 20px; // button back to top
