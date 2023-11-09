@@ -71,11 +71,13 @@ const CalendarFC: React.FC = () => {
               {
                 type: 'none',
                 content: (
-                  <div className={s.card}>
+                  <div className={`${s.card} ${s.card_active}`}>
                     <p className={`${s.card__content} ${s.bold}`}>{`${dayWeatherData.main.temp.toFixed(1)} °С`}</p>
-                    <Tag className={s.card__content_tag} color='purple'>
-                      {weatherDescr.main}
-                    </Tag>
+                    {currentWidth && currentWidth > mobileBreakPointWidth && (
+                      <Tag className={s.card__content_tag} color='purple'>
+                        {weatherDescr.main}
+                      </Tag>
+                    )}
                   </div>
                 ),
               },

@@ -4,16 +4,41 @@
   margin-top: 1.75rem !important;
   border-radius: 5px !important;
   box-shadow: $card-shadow-outer-purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: -90px;
+  margin-left: 50px;
+
+  @media (max-width: 1280px) {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  &_active {
+    color: $color-primary;
+  }
 
   &__content {
     margin-bottom: 5px;
     font-size: 1.3em;
+
+    @media (max-width: 850px) {
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+    @media (max-width: 850px) {
+      font-size: 10px;
+      margin-bottom: 0;
+    }
 
     &_tag {
       display: flex;
