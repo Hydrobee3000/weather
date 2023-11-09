@@ -37,7 +37,7 @@ const Current: React.FC = () => {
       <Card className={s.content}>
         <div className={s.info}>
           {/* unit of temperature */}
-          <Text className={s.temp}>
+          <Text className={`${s.temp} ${isDarkMode ? s.temp_dark : s.temp_light}`}>
             <span className={s.temp__value}>{temperature}</span>
             <span className={s.temp__unit}>°С</span>
           </Text>

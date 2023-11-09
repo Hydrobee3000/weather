@@ -17,7 +17,6 @@
     align-items: center;
     justify-content: space-evenly !important;
     border-radius: 15px !important;
-    box-shadow: $card-shadow-outer-purple;
   }
 
   .info {
@@ -28,15 +27,22 @@
     justify-content: space-evenly !important;
 
     .temp {
-      font-size: 7rem;
+      font-size: 6rem;
       margin-top: 3rem;
       margin-bottom: 2rem;
       padding: 5px 8px;
       color: $color-primary;
-
       border-radius: 15px;
-      box-shadow: inset 3px 3px 3px $basic-shadow-color;
-      background-color: $color-purple-light;
+
+      &_dark {
+        background-color: #0c0c0c;
+        box-shadow: -3px -3px 3px black;
+      }
+
+      &_light {
+        background-color: $color-purple-light;
+        box-shadow: inset 3px 3px 3px $basic-shadow-color;
+      }
 
       &__value {
         padding-right: 1rem;
