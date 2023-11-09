@@ -10,6 +10,7 @@ import Preloader from '../../components/common/Preloader/Preloader'
 import PageTitle from '../../components/common/PageTitle/PageTitle'
 import SelectPlace from '../../components/common/SelectPlace/SelectPlace'
 import FavoriteCard from './FavoriteCard/FavoriteCard'
+import useWindowSize from '../../hooks/useWindowSize'
 import s from './Favorite.module.scss'
 
 interface IWeatherData {
@@ -24,6 +25,7 @@ interface IWeatherData {
 
 const Favorite: React.FC = () => {
   const dispatch = useDispatch()
+  const { currentWidth } = useWindowSize()
   const places: string[] = useSelector((state: IRootState) => state.weather.places) // array of places
   const favoritePlaces: string[] = useSelector((state: IRootState) => state.weather.favoritePlaces) // selected active place
   const [activeFavoritePlaces, setActiveFavoritePlaces] = useState<string[]>(favoritePlaces)
@@ -34,7 +36,9 @@ const Favorite: React.FC = () => {
 
   // Renders cards with information for each selected place.
   const favoriteCards = () => {
-    return activeFavoritePlaces.map((place) => <FavoriteCard key={place} weatherData={weatherData[place]} place={place} />)
+    return activeFavoritePlaces.map((favPlace) => (
+      <FavoriteCard key={favPlace} weatherData={weatherData[favPlace]} place={favPlace} />
+    ))
   }
 
   // handle change value of selected option
@@ -78,7 +82,23 @@ const Favorite: React.FC = () => {
       <SelectPlace selectedPlace={favoritePlaces} places={places} onChange={onChangePlace} mode='multiple' />
       <Divider />
 
-      {isLoading ? <Preloader /> : <div className={s.cards}>{favoriteCards()}</div>}
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <div
+          className={s.cards}
+          style={{
+            gridTemplateColumns:
+              favoritePlaces.length < 3 && currentWidth && currentWidth > 1000
+                ? 'repeat(auto-fit, minmax(330px, 400px))' // < 3  and > 1200px
+                : currentWidth && currentWidth > 400
+                ? 'repeat(auto-fit, minmax(330px, 1fr))' // ( > 3 or < 1200px) && > 400px
+                : 'repeat(auto-fit, minmax(250px, 1fr))', // < 400px
+          }}
+        >
+          {favoriteCards()}
+        </div>
+      )}
 
       <FloatButton.BackTop className={s.body__float_button} type='primary' />
     </>
