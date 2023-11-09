@@ -33,7 +33,7 @@
       font-size: 6rem;
       margin-top: 3rem;
       margin-bottom: 2rem;
-      padding: 5px 8px;
+      padding: 5px 15px;
       color: $color-primary;
       border-radius: 15px;
 
@@ -60,7 +60,7 @@
         margin-bottom: 5rem;
       }
       @media (max-width: 350px) {
-        font-size: 3rem !important;
+        font-size: 4rem !important;
         margin-bottom: 5rem;
       }
     }
