@@ -31,7 +31,7 @@ const CardProgress: React.FC<ICardProgress> = ({ title, icon, data }) => {
     >
       <Progress
         type='dashboard'
-        className={s.progress}
+        className={`${s.progress} ${isDarkMode ? s.progress_dark : s.progress_light}`}
         strokeWidth={8} // line thickness
         strokeColor='#7b23d9' // filled part color
         trailColor='#5b00cb62' // unfilled part color

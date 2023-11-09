@@ -36,12 +36,19 @@
 .progress {
   display: flex;
   justify-content: center;
-  padding: 3em 1.8em;
-
-  border-radius: $tag-border-radius;
-  box-shadow: inset 3px 3px 3px $basic-shadow-color;
-  background-color: $color-purple-light;
+  padding: 3.1em 1.8em;
+  border-radius: 10px !important;
   border: none;
+
+  &_dark {
+    background-color: #1f1f1f;
+    box-shadow: 3px 3px 3px $basic-shadow-color;
+  }
+
+  &_light {
+    background-color: $color-purple-light;
+    box-shadow: inset 3px 3px 3px $basic-shadow-color;
+  }
 
   &__value {
     margin: 0 !important;
