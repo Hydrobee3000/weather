@@ -77,6 +77,7 @@
 }
 
 .tag_inner_shadow {
+  border-radius: $tag-border-radius;
   box-shadow: inset 3px 3px 5px rgb(122, 35, 215, 0.5);
   border: none;
 }
