@@ -1,22 +1,42 @@
 @import '../../style/variables';
 
 .current_page {
-  display: flex !important;
-  justify-content: space-around !important;
-  flex-direction: column !important;
-  text-align: center !important;
-  margin-bottom: 2em !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+
+  @media (max-width: 700px) {
+    min-height: 80vh;
+    margin-bottom: 1.5em !important;
+  }
+
+  .content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly !important;
+    border-radius: 15px !important;
+    box-shadow: $card-shadow-outer-purple;
+  }
 
   .info {
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly !important;
 
     .temp {
       font-size: 7rem;
       margin-top: 3rem;
       margin-bottom: 2rem;
+      padding: 5px 8px;
       color: $color-primary;
+
+      border-radius: 15px;
+      box-shadow: inset 3px 3px 3px $basic-shadow-color;
+      background-color: $color-purple-light;
 
       &__value {
         padding-right: 1rem;
@@ -27,16 +47,13 @@
       }
 
       @media (max-width: 700px) {
-        font-size: 5rem !important;
+        font-size: 4rem !important;
         margin-bottom: 5rem;
       }
-    }
-
-    .feels_like {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      padding: 5px 8px;
-      opacity: 0.5;
+      @media (max-width: 350px) {
+        font-size: 3rem !important;
+        margin-bottom: 5rem;
+      }
     }
 
     .description__text {
@@ -50,21 +67,39 @@
         font-size: 26px !important;
       }
     }
+
+    .tag__feels_like {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      padding: 5px 8px;
+      opacity: 0.5;
+      border-radius: $tag-border-radius;
+      box-shadow: inset 1px 1px 2px $basic-shadow-color;
+      border: none;
+    }
+
+    .tag__descr {
+      border-radius: $tag-border-radius;
+      &_light {
+        box-shadow: inset 3px 3px 3px $basic-shadow-color;
+        border: none;
+      }
+    }
   }
 
   .location {
     display: flex;
-    justify-content: center;
     align-items: center;
     font-size: 2em;
     margin-top: 2.5em;
+    margin-left: -15px;
 
     &__icon {
       color: $color-primary;
     }
 
     &__name {
-      margin-left: 10px;
+      margin-left: 5px;
     }
 
     @media (max-width: 700px) {
@@ -74,6 +109,7 @@
   }
 
   .tag_shadow {
-    box-shadow: 3px 3px 5px $basic-shadow-color;
+    border-radius: $tag-border-radius;
+    box-shadow: 4px 4px 5px $basic-shadow-color;
   }
 }

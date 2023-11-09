@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { IRootState } from '../../redux/store'
 import { IoLocationOutline } from 'react-icons/io5'
-import { Tag, Typography } from 'antd'
+import { Card, Tag, Typography } from 'antd'
 import { IDayWeatherData } from '../../types/types'
 import { currentPageIcons } from '../../utils/constants/pageIcons'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
@@ -24,6 +24,7 @@ const Current: React.FC = () => {
   const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state?.weather?.dayWeatherData) // weather data object
   const weatherDesc: string = useSelector((state: IRootState) => state?.weather?.dayWeatherData?.weather[0]?.description) // get description of weather ex: 'cloudy'
   const IconComponent: React.ElementType = currentPageIcons.outlined // page icon
+  const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
   // weather
   const temperature: number = roundToTenths(dayWeatherData?.main?.temp)
   const temperatureFeelsLike: number = roundToTenths(dayWeatherData?.main?.feels_like)
@@ -33,28 +34,29 @@ const Current: React.FC = () => {
   return (
     <div className={s.current_page}>
       <PageTitle icon={<IconComponent />}>Current conditions</PageTitle>
+      <Card className={s.content}>
+        <div className={s.info}>
+          {/* unit of temperature */}
+          <Text className={s.temp}>
+            <span className={s.temp__value}>{temperature}</span>
+            <span className={s.temp__unit}>°С</span>
+          </Text>
 
-      <div className={s.info}>
-        {/* unit of temperature */}
-        <Text className={s.temp}>
-          <span className={s.temp__value}>{temperature}</span>
-          <span className={s.temp__unit}>°С</span>
-        </Text>
+          {/* unit of feels like temperature */}
+          <Tag className={`${s.tag__feels_like} ${s.tag_shadow}`}>Feels like: {temperatureFeelsLike} °С</Tag>
 
-        {/* unit of feels like temperature */}
-        <Tag className={`${s.feels_like} ${s.tag_shadow}`}>Feels like: {temperatureFeelsLike} °С</Tag>
+          {/* description of weather */}
+          <Tag color='purple' className={`${s.tag__descr} ${!isDarkMode && s.tag__descr_light}`}>
+            <Text className={s.description__text}>{description}</Text>
+          </Tag>
 
-        {/* description of weather */}
-        <Tag color='purple' className={s.tag_shadow}>
-          <Text className={s.description__text}>{description}</Text>
-        </Tag>
-      </div>
-
-      {/* location */}
-      <Text className={s.location}>
-        <IoLocationOutline className={s.location__icon} />
-        <span className={s.location__name}>{location}</span>
-      </Text>
+          {/* location */}
+          <Text className={s.location}>
+            <IoLocationOutline className={s.location__icon} />
+            <span className={s.location__name}>{location}</span>
+          </Text>
+        </div>
+      </Card>
     </div>
   )
 }
