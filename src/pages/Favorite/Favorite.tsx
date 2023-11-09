@@ -5,7 +5,7 @@ import { weatherAPI } from '../../api/api'
 import { IRootState } from '../../redux/store'
 import { setFavoritePlaces } from '../../redux/reducers/weatherReducer'
 import { favoritesPageIcons } from '../../utils/constants/pageIcons'
-import { favoritePlacesKeyLs, saveToLocalStorage } from '../../utils/localStorage'
+import { FAVORITE_PLACES_KEY, saveToLocalStorage } from '../../utils/localStorage'
 import Preloader from '../../components/common/Preloader/Preloader'
 import PageTitle from '../../components/common/PageTitle/PageTitle'
 import SelectPlace from '../../components/common/SelectPlace/SelectPlace'
@@ -43,7 +43,7 @@ const Favorite: React.FC = () => {
 
   // handle change value of selected option
   const onChangePlace = (selectedPlaces: string[]): void => {
-    saveToLocalStorage(favoritePlacesKeyLs, selectedPlaces)
+    saveToLocalStorage(FAVORITE_PLACES_KEY, selectedPlaces)
     dispatch(setFavoritePlaces(selectedPlaces))
     setActiveFavoritePlaces(selectedPlaces)
   }

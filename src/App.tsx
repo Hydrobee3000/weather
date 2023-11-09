@@ -5,7 +5,7 @@ import { Layout, ConfigProvider, theme } from 'antd'
 import { IRootState } from './redux/store'
 import { primaryColor } from './utils/constants/commonStyles'
 import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
-import { favoritePlacesKeyLs, getFromLocalStorage } from './utils/localStorage'
+import { FAVORITE_PLACES_KEY, getFromLocalStorage } from './utils/localStorage'
 import AppRoutes from './Routes'
 import MenuFC from './components/Menu/Menu'
 import HeaderFC from './components/Header/Header'
@@ -41,7 +41,7 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
 
   // retrieve favorite places from local storage and update the state
   useEffect(() => {
-    const favoritePlaces: string[] | null = getFromLocalStorage(favoritePlacesKeyLs)
+    const favoritePlaces: string[] | null = getFromLocalStorage(FAVORITE_PLACES_KEY)
 
     favoritePlaces && dispatch(setFavoritePlaces(favoritePlaces))
   }, [])

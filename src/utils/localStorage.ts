@@ -1,4 +1,5 @@
-export const favoritePlacesKeyLs: string = 'favoritePlaces' // key in localStorage favorite places field
+export const FAVORITE_PLACES_KEY: string = 'favoritePlaces' // key in localStorage favorite places field
+export const IS_TOGGLED_MENU: string = 'favoritePlaces' // key in localStorage favorite places field
 
 /**
  * Gets a value from localStorage by key.
