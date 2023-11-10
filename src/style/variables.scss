@@ -2,7 +2,6 @@ $color-primary: #8830e5 !important;
 $color-purple-light: #faf0ff !important;
 
 $basic-shadow-color: rgb(122, 35, 215, 0.5); // color of shadow
-// $card-shadow-outer-purple: 0 0 20px rgb(122, 35, 215, 0.5) !important; // outer shadow of cards
 
 $tag-border-radius: 10px;
 $float-button-margin-bottom: 20px; // button back to top
@@ -11,7 +10,7 @@ $page-bottom-padding: 50px;
 
 // outer shadow of cards
 @mixin shadow-card-outer() {
-  box-shadow: 5px 5px 5px rgb(122, 35, 215, 0.5) !important;
+  box-shadow: 5px 5px 5px $basic-shadow-color;
 }
 
 // shadow with deep effect in light theme
