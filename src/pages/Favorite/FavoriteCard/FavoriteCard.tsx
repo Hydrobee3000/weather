@@ -41,7 +41,7 @@ const FavoriteCard: React.FC<IFavoriteCardProps> = ({ weatherData, place }) => {
     <Card className={s.card} title={<Text className={s.card__title}>{weatherData && place}</Text>} extra={icon}>
       <Space size='large' direction='vertical' className={s.card__content}>
         {/* unit of temperature */}
-        <Text className={`${s.card__content_temp} ${!isDarkMode && s.primary_color}`}>
+        <Text className={`${s.card__content_temp} ${isDarkMode ? s.card__content_temp_dark : s.card__content_temp_light}`}>
           {temperature}
           <span className={s.value_unit}>°C</span>
         </Text>
