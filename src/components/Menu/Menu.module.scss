@@ -1,9 +1,6 @@
 @import '../../style/variables.scss';
 
 .menu__container {
-  &_dark {
-  }
-
   &_light {
     background-color: #efefef !important;
   }
@@ -13,12 +10,11 @@
   font-size: 1.2em !important;
 
   &__item_dark {
-    box-shadow: inset 3px 3px 3px #000000 !important;
-    background-color: #0a0a0a !important;
+    @include shadow-deep-style-dark;
   }
 
   &__item_light {
-    box-shadow: inset 3px 3px 3px #0000004d !important;
+    @include shadow-deep-style-light;
   }
 
   &__item_active {
@@ -40,21 +36,30 @@
   z-index: 1000;
 
   &_dark {
-    border-top: 4px solid black;
+    border-top: 7px solid black;
     background-color: #141414;
   }
 
   &_light {
-    border-top: 4px solid f5f5f5;
-    background-color: #fff;
+    border-top: 7px solid #f5f5f5;
+    background-color: #fefefe;
+  }
+
+  .menu_mobile__item {
+    padding: 4px 18px;
+    border-radius: 10px;
+
+    &_dark {
+      @include shadow-deep-style-dark;
+      color: $color-primary;
+    }
+    &_light {
+      color: $color-primary;
+      @include shadow-deep-style-light;
+    }
   }
 }
 
-.nav__link_active {
-  color: #7b00ff !important;
-  color: #272727;
-}
-
 .nav__link {
-  color: #7b23d999 !important;
+  color: #7b23d9 !important;
 }

@@ -127,7 +127,15 @@ const MenuFC: React.FC<IMenu> = ({ mobile = false }) => {
               <TabBar.Item
                 key={tab.key}
                 icon={
-                  <NavLink className={({ isActive }) => (isActive ? s.nav__link_active : s.nav__link)} end to={`/${tab.key}`}>
+                  <NavLink
+                    className={
+                      isTabActive(tab.key)
+                        ? `${s.menu_mobile__item} ${isDarkMode ? s.menu_mobile__item_dark : s.menu_mobile__item_light}`
+                        : s.nav__link
+                    }
+                    end
+                    to={`/${tab.key}`}
+                  >
                     {isTabActive(tab.key) ? <tab.filledIcon /> : <tab.icon />}
                   </NavLink>
                 }
