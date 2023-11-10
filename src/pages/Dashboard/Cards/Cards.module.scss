@@ -19,13 +19,11 @@
   padding: 10px !important;
 
   &_dark {
-    background-color: #1f1f1f;
-    box-shadow: 3px 3px 3px $basic-shadow-color;
+    @include shadow-deep-style-dark;
   }
 
   &_light {
-    background-color: #faf0ff;
-    box-shadow: inset 3px 3px 3px rgb(122, 35, 215, 0.4);
+    @include shadow-deep-style-light;
   }
 
   &:hover {
@@ -37,17 +35,15 @@
   display: flex;
   justify-content: center;
   padding: 3.1em 1.8em;
-  border-radius: 10px !important;
+  border-radius: 15px !important;
   border: none;
 
   &_dark {
-    background-color: #1f1f1f;
-    box-shadow: 3px 3px 3px $basic-shadow-color;
+    @include shadow-deep-style-dark;
   }
 
   &_light {
-    background-color: $color-purple-light;
-    box-shadow: inset 3px 3px 3px $basic-shadow-color;
+    @include shadow-deep-style-light;
   }
 
   &__value {
