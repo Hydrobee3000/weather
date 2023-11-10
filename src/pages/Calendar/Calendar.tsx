@@ -106,10 +106,10 @@ const CalendarFC: React.FC = () => {
   }
 
   return (
-    <>
+    <div className={s.page}>
       <PageTitle icon={<IconComponent />}>Calendar</PageTitle>
       <Calendar className={s.calendar} dateCellRender={dateCellRender} />
-    </>
+    </div>
   )
 }
 
