@@ -48,7 +48,7 @@ const ForecastCard: React.FC<IProps> = ({ dailyData }) => {
         </Text>
 
         {/* description of weather */}
-        <Tag className={isDarkMode ? undefined : s.tag_inner_shadow} color='purple'>
+        <Tag className={s.tag__descr} color='purple'>
           <Text className={s.descr__text}>{weatherDescription}</Text>
         </Tag>
         <Text type={'secondary'} className={s.date}>

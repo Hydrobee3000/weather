@@ -10,7 +10,9 @@ $page-bottom-padding: 50px;
 
 // outer shadow of cards
 @mixin shadow-card-outer() {
-  box-shadow: 5px 5px 5px $basic-shadow-color;
+  //   box-shadow: 1px 1px 20px $basic-shadow-color, -1px -1px 20px $basic-shadow-color, 1px -1px 20px $basic-shadow-color,
+  //     -1px 1px 20px $basic-shadow-color;
+  box-shadow: 0 0 15px $basic-shadow-color;
 }
 
 // shadow with deep effect in light theme

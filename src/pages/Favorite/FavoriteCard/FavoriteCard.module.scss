@@ -44,12 +44,12 @@
       font-size: 4em;
       padding: 5px 15px;
       border-radius: 10px;
-      color: $color-primary;
 
       &_dark {
         @include shadow-deep-style-dark;
       }
       &_light {
+        color: $color-primary;
         @include shadow-deep-style-light;
       }
 

@@ -52,7 +52,6 @@
       font-size: 4em;
       padding: 5px 15px;
       border-radius: 10px;
-      color: $color-primary;
 
       &__unit {
         opacity: 0.7;
@@ -62,6 +61,7 @@
         @include shadow-deep-style-dark;
       }
       &_light {
+        color: $color-primary;
         @include shadow-deep-style-light;
       }
 
@@ -91,6 +91,6 @@
   color: $color-primary;
 }
 
-.tag_inner_shadow {
+.tag__descr {
   border-radius: $tag-border-radius;
 }
