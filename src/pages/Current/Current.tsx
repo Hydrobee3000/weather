@@ -46,7 +46,7 @@ const Current: React.FC = () => {
           <Tag className={`${s.tag__feels_like} ${s.tag_shadow}`}>Feels like: {temperatureFeelsLike} °С</Tag>
 
           {/* description of weather */}
-          <Tag color='purple' className={`${s.tag__descr} ${!isDarkMode && s.tag__descr_light}`}>
+          <Tag color='purple' className={`${s.tag__descr} ${isDarkMode ? s.tag__descr_dark : s.tag__descr_light}`}>
             <Text className={s.description__text}>{description}</Text>
           </Tag>
 
