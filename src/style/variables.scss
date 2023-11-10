@@ -8,3 +8,17 @@ $tag-border-radius: 10px;
 $float-button-margin-bottom: 20px; // button back to top
 
 $page-bottom-padding: 50px;
+
+@mixin shadow-deep-style-light() {
+  background-color: $color-purple-light;
+  box-shadow: inset 3px 3px 3px $basic-shadow-color;
+}
+
+@mixin shadow-deep-style-tag-light() {
+  box-shadow: inset 3px 3px 3px $basic-shadow-color;
+}
+
+@mixin shadow-deep-style-dark() {
+  background-color: #0c0c0c;
+  box-shadow: inset 3px 3px 3px black;
+}
