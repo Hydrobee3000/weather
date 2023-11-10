@@ -11,7 +11,7 @@ import { Layout, ConfigProvider, theme } from 'antd'
 import { IRootState } from './redux/store'
 import { primaryColor } from './utils/constants/commonStyles'
 import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
-import { FAVORITE_PLACES_KEY, IS_COLLAPSED_MENU_KEY, getFromLocalStorage } from './utils/localStorage'
+import { FAVORITE_PLACES_KEY, IS_COLLAPSED_MENU_KEY, IS_DARK_MODE_KEY, getFromLocalStorage } from './utils/localStorage'
 import AppRoutes from './Routes'
 import MenuFC from './components/Menu/Menu'
 import HeaderFC from './components/Header/Header'
@@ -48,10 +48,12 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
   // retrieve favorite places from local storage and update the state
   useEffect(() => {
     const favoritePlacesInit: string[] | null = getFromLocalStorage(FAVORITE_PLACES_KEY)
-    favoritePlacesInit && dispatch(setFavoritePlaces(favoritePlacesInit))
-
     const isCollapsedMenuInit: boolean | null = getFromLocalStorage(IS_COLLAPSED_MENU_KEY)
+    const isDarkModeInit: boolean | null = getFromLocalStorage(IS_DARK_MODE_KEY)
+
+    favoritePlacesInit && dispatch(setFavoritePlaces(favoritePlacesInit))
     dispatch(setCollapsedMenu(!!isCollapsedMenuInit))
+    dispatch(setIsDarkMode(!!isDarkModeInit))
   }, [])
 
   // set CSS variable for the slider background color based on the theme mode

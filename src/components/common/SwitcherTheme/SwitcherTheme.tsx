@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { MdLightMode, MdDarkMode } from 'react-icons/md'
 import { IRootState } from '../../../redux/store'
 import { setIsDarkMode } from '../../../redux/reducers/weatherReducer'
+import { IS_DARK_MODE_KEY, saveToLocalStorage } from '../../../utils/localStorage'
 import s from './SwitcherTheme.module.scss'
 
 /**
@@ -19,6 +20,7 @@ const SwitcherTheme: React.FC = () => {
 
   const toggleThemeMode = (): void => {
     dispatch(setIsDarkMode(!isDarkMode))
+    saveToLocalStorage(IS_DARK_MODE_KEY, !isDarkMode)
   }
 
   return (
@@ -26,7 +28,7 @@ const SwitcherTheme: React.FC = () => {
       className={isDarkMode ? s.switcher__theme_dark : s.switcher__theme_light}
       checkedChildren={<MdLightMode />}
       unCheckedChildren={<MdDarkMode />}
-      defaultChecked={isDarkMode}
+      checked={isDarkMode}
       onClick={toggleThemeMode}
     />
   )

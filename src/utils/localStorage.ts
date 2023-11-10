@@ -1,5 +1,6 @@
 export const FAVORITE_PLACES_KEY: string = 'favoritePlaces' // key in localStorage for array of favorite places
-export const IS_COLLAPSED_MENU_KEY: string = 'isCollapsedMenu' // key in local storage for menu toggle state (true for collapsed, false for open).
+export const IS_COLLAPSED_MENU_KEY: string = 'isCollapsedMenu' // key in local storage for menu toggle state (true for collapsed, false for open)
+export const IS_DARK_MODE_KEY: string = 'isDarkMode' // key for storing the dark mode preference in local storage
 
 /**
  * Gets a value from localStorage by key.
