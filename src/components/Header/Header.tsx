@@ -5,6 +5,7 @@ import { Button, Space, theme } from 'antd'
 import { PageHeader } from '@ant-design/pro-layout'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
+import { IS_COLLAPSED_MENU_KEY, saveToLocalStorage } from '../../utils/localStorage'
 import SelectPlace from '../common/SelectPlace/SelectPlace'
 import FormattedDate from '../common/DateFormat'
 import SwitcherTheme from '../common/SwitcherTheme/SwitcherTheme'
@@ -16,7 +17,7 @@ import s from './Header.module.scss'
 const HeaderFC: React.FC = () => {
   const dispatch = useDispatch()
   const { currentWidth } = useWindowSize()
-  const collapsedMenu: boolean = useSelector((state: IRootState) => state.weather.collapsedMenu) // is menu collapsed? (default = false)
+  const collapsedMenu: boolean = useSelector((state: IRootState) => state.weather.collapsedMenu) // is menu collapsed?
   const activePlace: string = useSelector((state: IRootState) => state.weather.activePlace) // selected active place
   const places: string[] = useSelector((state: IRootState) => state.weather.places) // array of places
   const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
@@ -28,6 +29,7 @@ const HeaderFC: React.FC = () => {
   // switches the menu display mode
   const toggleCollapsedMenu = () => {
     dispatch(setCollapsedMenu(!collapsedMenu))
+    saveToLocalStorage(IS_COLLAPSED_MENU_KEY, !collapsedMenu)
   }
 
   // handle change value of selected option
@@ -50,8 +52,8 @@ const HeaderFC: React.FC = () => {
                   ? s.menu__btn_pressed_dark // pressed menu button with dark theme
                   : s.menu__btn_pressed_light // pressed menu button with light theme
                 : isDarkMode
-                  ? s.menu__btn_unpressed_dark // unpressed menu button with dark theme
-                  : s.menu__btn_unpressed_light // unpressed menu button with light theme
+                ? s.menu__btn_unpressed_dark // unpressed menu button with dark theme
+                : s.menu__btn_unpressed_light // unpressed menu button with light theme
             }`}
             type='primary'
             onClick={toggleCollapsedMenu}

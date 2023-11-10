@@ -1,11 +1,17 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchDayWeatherData, fetchForecastData, setFavoritePlaces, setIsDarkMode } from './redux/reducers/weatherReducer'
+import {
+  fetchDayWeatherData,
+  fetchForecastData,
+  setCollapsedMenu,
+  setFavoritePlaces,
+  setIsDarkMode,
+} from './redux/reducers/weatherReducer'
 import { Layout, ConfigProvider, theme } from 'antd'
 import { IRootState } from './redux/store'
 import { primaryColor } from './utils/constants/commonStyles'
 import { mobileBreakPointWidth } from './utils/constants/mobileBreakPoint'
-import { FAVORITE_PLACES_KEY, getFromLocalStorage } from './utils/localStorage'
+import { FAVORITE_PLACES_KEY, IS_COLLAPSED_MENU_KEY, getFromLocalStorage } from './utils/localStorage'
 import AppRoutes from './Routes'
 import MenuFC from './components/Menu/Menu'
 import HeaderFC from './components/Header/Header'
@@ -41,9 +47,11 @@ const App: React.FC<IProps> = ({ isPreferDarkTheme }) => {
 
   // retrieve favorite places from local storage and update the state
   useEffect(() => {
-    const favoritePlaces: string[] | null = getFromLocalStorage(FAVORITE_PLACES_KEY)
+    const favoritePlacesInit: string[] | null = getFromLocalStorage(FAVORITE_PLACES_KEY)
+    favoritePlacesInit && dispatch(setFavoritePlaces(favoritePlacesInit))
 
-    favoritePlaces && dispatch(setFavoritePlaces(favoritePlaces))
+    const isCollapsedMenuInit: boolean | null = getFromLocalStorage(IS_COLLAPSED_MENU_KEY)
+    dispatch(setCollapsedMenu(!!isCollapsedMenuInit))
   }, [])
 
   // set CSS variable for the slider background color based on the theme mode
