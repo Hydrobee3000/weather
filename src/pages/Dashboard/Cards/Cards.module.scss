@@ -3,7 +3,8 @@
 .card {
   border-radius: 15px !important;
   max-width: 380px;
-  box-shadow: $card-shadow-outer-purple;
+
+  @include shadow-card-outer;
 
   &_dark {
     background-color: #111;

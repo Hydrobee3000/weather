@@ -1,23 +1,31 @@
-$color-primary: #7b23d9 !important;
+$color-primary: #8830e5 !important;
 $color-purple-light: #faf0ff !important;
 
 $basic-shadow-color: rgb(122, 35, 215, 0.5); // color of shadow
-$card-shadow-outer-purple: 5px 5px 5px rgb(122, 35, 215, 0.5) !important; // outer shadow of cards
+// $card-shadow-outer-purple: 0 0 20px rgb(122, 35, 215, 0.5) !important; // outer shadow of cards
 
 $tag-border-radius: 10px;
 $float-button-margin-bottom: 20px; // button back to top
 
 $page-bottom-padding: 50px;
 
+// outer shadow of cards
+@mixin shadow-card-outer() {
+  box-shadow: 5px 5px 5px rgb(122, 35, 215, 0.5) !important;
+}
+
+// shadow with deep effect in light theme
 @mixin shadow-deep-style-light() {
   background-color: $color-purple-light;
   box-shadow: inset 3px 3px 3px $basic-shadow-color;
 }
 
+// shadow with deep effect for tags in light theme
 @mixin shadow-deep-style-tag-light() {
   box-shadow: inset 3px 3px 3px $basic-shadow-color;
 }
 
+// shadow with deep effect in dark theme
 @mixin shadow-deep-style-dark() {
   background-color: #0c0c0c;
   box-shadow: inset 3px 3px 3px black;

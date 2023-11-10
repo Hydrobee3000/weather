@@ -3,7 +3,8 @@
 .card {
   border-radius: 15px !important;
   min-width: 24em !important;
-  box-shadow: $card-shadow-outer-purple;
+
+  @include shadow-card-outer;
 
   @media (max-width: 600px) {
     min-width: 250px !important;

@@ -8,11 +8,12 @@
   .calendar {
     margin-top: 1.75rem !important;
     border-radius: 5px !important;
-    box-shadow: $card-shadow-outer-purple;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include shadow-card-outer;
   }
 }
 .card {
