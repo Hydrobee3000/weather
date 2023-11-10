@@ -43,15 +43,15 @@ const ForecastCard: React.FC<IProps> = ({ dailyData }) => {
     <Card className={s.card} title={<Text className={s.card__title}>{weekDayName}</Text>} extra={icon}>
       <Space className={s.card__content} direction='vertical' size='large'>
         {/* unit of temperature */}
-        <Text className={`${s.card__content_temp} ${!isDarkMode && s.primary_color}`}>
-          {Math.round(weatherTemperature)} <span className={s.temp__unit}>°C</span>
+        <Text className={`${s.value} ${isDarkMode ? s.value_dark : s.value_light}`}>
+          {Math.round(weatherTemperature)} <span className={s.value__unit}>°C</span>
         </Text>
 
         {/* description of weather */}
         <Tag className={isDarkMode ? undefined : s.tag_inner_shadow} color='purple'>
-          <Text className={s.card__content_descr}>{weatherDescription}</Text>
+          <Text className={s.descr__text}>{weatherDescription}</Text>
         </Tag>
-        <Text type={'secondary'} className={s.card__content_date}>
+        <Text type={'secondary'} className={s.date}>
           {weekDayDate}
         </Text>
       </Space>

@@ -46,18 +46,31 @@
     align-items: center !important;
     justify-content: center !important;
 
-    &_temp {
+    //value of temperature
+    .value {
       font-size: 4em;
+      padding: 5px 15px;
+      border-radius: 10px;
+      color: $color-primary;
 
-      .temp__unit {
+      &__unit {
         opacity: 0.7;
+      }
+
+      &_dark {
+        @include shadow-deep-style-dark;
+      }
+      &_light {
+        @include shadow-deep-style-light;
       }
 
       @media (max-width: 600px) {
         font-size: 3em;
       }
     }
-    &_descr {
+
+    // description like 'cloudy'
+    .descr__text {
       font-size: 2em;
       color: $color-primary;
       padding: 0 5px;
@@ -66,7 +79,8 @@
         font-size: 1.4em;
       }
     }
-    &_date {
+
+    .date {
       opacity: 0.6;
     }
   }
@@ -78,6 +92,4 @@
 
 .tag_inner_shadow {
   border-radius: $tag-border-radius;
-  box-shadow: inset 3px 3px 5px rgb(122, 35, 215, 0.5);
-  border: none;
 }
