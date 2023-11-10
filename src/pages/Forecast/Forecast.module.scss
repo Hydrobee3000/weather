@@ -1,26 +1,18 @@
 @import '../../style/variables.scss';
 
-.title {
-  @media (max-width: 600px) {
-    font-size: 24px !important;
+.page {
+  @media (max-width: 700px) {
+    padding-bottom: $page-bottom-padding;
   }
-}
 
-.page__body {
-  display: flex;
-  padding-top: 0.28rem !important;
-  margin-bottom: 2rem !important;
-  text-align: center;
-  justify-content: center;
+  .page__body {
+    display: flex;
+    padding-top: 0.28rem !important;
+    text-align: center;
+    justify-content: center;
 
-  .cards__container {
-    @media (max-width: 700px) {
-      max-height: 100%;
-      padding-bottom: 2em;
+    .body__float_button {
+      margin-bottom: $float-button-margin-bottom;
     }
-  }
-
-  .body__float_button {
-    margin-bottom: $float-button-margin-bottom;
   }
 }

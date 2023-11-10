@@ -27,17 +27,17 @@ const Forecast: React.FC = () => {
   }
 
   return (
-    <>
+    <div className={s.page}>
       <PageTitle icon={<IconComponent />}>Forecast overview</PageTitle>
 
       <div className={s.page__body}>
-        <Space direction='vertical' className={s.cards__container} size={currentWidth && currentWidth > 700 ? 60 : 30}>
+        <Space direction='vertical' size={currentWidth && currentWidth > 700 ? 60 : 30}>
           {dailyFormatCards()}
         </Space>
 
         <FloatButton.BackTop className={s.body__float_button} type='primary' />
       </div>
-    </>
+    </div>
   )
 }
 
