@@ -76,7 +76,7 @@ const Favorite: React.FC = () => {
   }, [favoritePlaces])
 
   return (
-    <>
+    <div className={s.page}>
       <PageTitle icon={<IconComponent />}>Saved places</PageTitle>
 
       <SelectPlace selectedPlace={favoritePlaces} places={places} onChange={onChangePlace} mode='multiple' />
@@ -101,7 +101,7 @@ const Favorite: React.FC = () => {
       )}
 
       <FloatButton.BackTop className={s.body__float_button} type='primary' />
-    </>
+    </div>
   )
 }
 
