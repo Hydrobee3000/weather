@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux' // hook for getting value from redux state
 import { Badge, Calendar, Tag } from 'antd' // antd components
 import { IRootState } from '../../redux/store'
-import useWindowSize from '../../hooks/useWindowSize'
-import PageTitle from '../../components/common/PageTitle/PageTitle'
-import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
 import { IForecastData, IdailyForecastData } from '../../types/types'
 import { calendarPageIcons } from '../../utils/constants/pageIcons'
+import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
+import PageTitle from '../../components/common/PageTitle/PageTitle'
+import useWindowSize from '../../hooks/useWindowSize'
 import s from './Calendar.module.scss' // styles
 
 /**
