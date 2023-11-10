@@ -32,7 +32,7 @@ const Current: React.FC = () => {
   const location: string = dayWeatherData?.name
 
   return (
-    <div className={s.current_page}>
+    <div className={s.page}>
       <PageTitle icon={<IconComponent />}>Current conditions</PageTitle>
       <Card className={s.content}>
         <div className={s.info}>
