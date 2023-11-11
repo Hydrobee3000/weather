@@ -8,6 +8,7 @@ import { dashboardPageIcons } from '../../utils/constants/pageIcons'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
 import CardProgress from './Cards/CardProgress' // <FC> of card with progress
 import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
+import useWindowSize from '../../hooks/useWindowSize'
 import PageTitle from '../../components/common/PageTitle/PageTitle'
 import s from './Dashboard.module.scss' // css file with styles
 
@@ -19,6 +20,7 @@ import s from './Dashboard.module.scss' // css file with styles
  */
 
 const DashboardFC: React.FC = () => {
+  const { currentWidth } = useWindowSize()
   // description of weather for the day. (e.g. 'light snow')
   const weatherDesc: string = useSelector((state: IRootState) => state.weather.dayWeatherData.weather[0].description)
   const dayWeatherData: IDayWeatherData = useSelector((state: IRootState) => state.weather.dayWeatherData)
@@ -74,7 +76,7 @@ const DashboardFC: React.FC = () => {
       <div className={s.page}>
         <PageTitle icon={<IconComponent />}>
           <span className={s.title__weather_descr}>{firstLetterUpperCase(weatherDesc)}</span>
-          <span className={s.title__weather_location}>{selectedPlaceName}</span>
+          {currentWidth && currentWidth > 700 && <span className={s.title__weather_location}>{selectedPlaceName}</span>}
         </PageTitle>
 
         <div className={s.cards}>

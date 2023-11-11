@@ -16,12 +16,9 @@
   }
 
   .title__weather {
-    &_descr {
-      padding-right: 1.1rem !important;
-      border-right: 2px solid grey !important;
-    }
-
     &_location {
+      padding-left: 1.1rem !important;
+      border-left: 2px solid grey !important;
       margin-left: 1.4rem !important;
       color: $color-primary;
     }
