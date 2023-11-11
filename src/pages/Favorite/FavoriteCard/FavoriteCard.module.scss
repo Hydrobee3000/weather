@@ -45,6 +45,10 @@
       padding: 5px 15px;
       border-radius: 10px;
 
+      &:hover {
+        background-color: #5b00cb1f !important;
+      }
+
       &_dark {
         @include shadow-deep-style-dark;
       }

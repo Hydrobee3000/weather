@@ -19,16 +19,16 @@
   border-radius: 10px !important;
   padding: 10px !important;
 
+  &:hover {
+    background-color: #5b00cb1f !important;
+  }
+
   &_dark {
     @include shadow-deep-style-dark;
   }
 
   &_light {
     @include shadow-deep-style-light;
-  }
-
-  &:hover {
-    background-color: #5b00cb1f;
   }
 }
 
@@ -38,6 +38,10 @@
   padding: 3.1em 1.8em;
   border-radius: 15px !important;
   border: none;
+
+  &:hover {
+    background-color: #5b00cb1f !important;
+  }
 
   &_dark {
     @include shadow-deep-style-dark;

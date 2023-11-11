@@ -34,10 +34,13 @@
       padding: 5px 15px;
       border-radius: 15px;
 
+      &:hover {
+        background-color: #5b00cb1f !important;
+      }
+
       &_dark {
         @include shadow-deep-style-dark;
       }
-
       &_light {
         color: $color-primary;
         background-color: $color-purple-light;

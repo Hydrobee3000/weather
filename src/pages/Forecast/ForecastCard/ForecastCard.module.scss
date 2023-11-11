@@ -53,6 +53,10 @@
       padding: 5px 15px;
       border-radius: 10px;
 
+      &:hover {
+        background-color: #5b00cb1f !important;
+      }
+
       &__unit {
         opacity: 0.7;
       }
