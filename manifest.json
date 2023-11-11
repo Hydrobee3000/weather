@@ -29,6 +29,11 @@
     },
     {
       "src": "icon-cloud-100-100.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-cloud-100-100.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
