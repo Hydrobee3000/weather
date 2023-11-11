@@ -26,8 +26,9 @@ The application is hosted on https://hydrobee3000.github.io/weather/#/
 
 - `Typescript`
 - `React`
+- `react-router-dom`
 - `Redux`
-- `Redux-thunk`
+- `redux-thunk`
 - `Ant Design`
 - `Axios`
 - `SCSS`
