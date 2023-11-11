@@ -1,6 +1,7 @@
 import React from 'react'
 import { Select } from 'antd'
 import s from './SelectPlace.module.scss'
+import useWindowSize from '../../../hooks/useWindowSize'
 
 const { Option } = Select
 
@@ -24,6 +25,8 @@ interface SelectPlaceProps {
  */
 
 const SelectPlace: React.FC<SelectPlaceProps> = ({ selectedPlace, places, onChange, mode = undefined }) => {
+  const { currentWidth } = useWindowSize()
+
   return (
     <Select
       className={`${s.select__place} ${!mode && s.select__place_header}`}
@@ -33,7 +36,7 @@ const SelectPlace: React.FC<SelectPlaceProps> = ({ selectedPlace, places, onChan
       optionFilterProp='children'
       filterOption={(input, option: any) => option.children.toLowerCase().includes(input.toLowerCase())}
       mode={mode}
-      showSearch
+      showSearch={currentWidth && currentWidth > 700 ? true : false}
       allowClear
     >
       {places.map((place) => (
