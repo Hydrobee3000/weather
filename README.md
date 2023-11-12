@@ -1,4 +1,4 @@
-# [Weather app 🔗](https://hydrobee3000.github.io/weather/#/)
+# [<span><img width="35px" src="./public/favicon.svg" /></span> Weather app](https://hydrobee3000.github.io/weather/#/)
 
 This is a simple weather forecast app that allows users to view current weather conditions and add their favorite places to track the weather.
 
