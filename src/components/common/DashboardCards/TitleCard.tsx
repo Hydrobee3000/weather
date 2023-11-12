@@ -15,7 +15,7 @@ interface IProps {
  */
 
 const TitleCard: React.FC<IProps> = ({ children }) => {
-  return <Text style={{ color: '#783fdb', fontSize: '1.1em' }}>{children}</Text>
+  return <Text style={{ color: '#a34cff', fontSize: '1.1em' }}>{children}</Text>
 }
 
 export default TitleCard

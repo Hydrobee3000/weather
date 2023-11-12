@@ -1,3 +1,5 @@
+import { primaryColor } from '../../../utils/constants/commonStyles'
+
 interface IProps {
   children: string | null
 }
@@ -11,7 +13,7 @@ interface IProps {
  */
 
 const SubtitleCard: React.FC<IProps> = ({ children }) => {
-  return <span style={{ color: '#783fdbe2' }}>{children}</span>
+  return <span style={{ color: primaryColor.color, opacity: 0.8 }}>{children}</span>
 }
 
 export default SubtitleCard

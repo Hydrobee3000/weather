@@ -1,4 +1,4 @@
-export const primaryColor = { color: '#7b23d9' } as const
+export const primaryColor = { color: '#9a3bff' } as const
 
 export const pageTitle = {
   margin: '0 auto',
