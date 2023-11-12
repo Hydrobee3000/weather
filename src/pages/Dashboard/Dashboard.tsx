@@ -5,6 +5,7 @@ import { FloatButton } from 'antd'
 import { ICardProgress, ICardStatistic, IDayWeatherData } from '../../types/types'
 import { primaryColor } from '../../utils/constants/commonStyles' // inline common styles
 import { dashboardPageIcons } from '../../utils/constants/pageIcons'
+import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
 import CardProgress from './Cards/CardProgress' // <FC> of card with progress
 import CardStatistic from './Cards/CardStatistic' // <FC> of card with statistic
@@ -76,7 +77,9 @@ const DashboardFC: React.FC = () => {
       <div className={s.page}>
         <PageTitle icon={<IconComponent />}>
           <span className={s.title__weather_descr}>{firstLetterUpperCase(weatherDesc)}</span>
-          {currentWidth && currentWidth > 700 && <span className={s.title__weather_location}>{selectedPlaceName}</span>}
+          {currentWidth && currentWidth > mobileBreakPointWidth && (
+            <span className={s.title__weather_location}>{selectedPlaceName}</span>
+          )}
         </PageTitle>
 
         <div className={s.cards}>

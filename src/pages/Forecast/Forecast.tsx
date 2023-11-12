@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux' // redux hooks
 import { IRootState } from '../../redux/store'
 import { Space, FloatButton } from 'antd' // antd components
 import { forecastPageIcons } from '../../utils/constants/pageIcons'
+import { mobileBreakPointWidth } from '../../utils/constants/mobileBreakPoint'
 import { IForecastData, IdailyForecastData } from '../../types/types'
 import ForecastCard from './ForecastCard/ForecastCard' // <FC> of forecast card on week
 import PageTitle from '../../components/common/PageTitle/PageTitle'
@@ -31,7 +32,7 @@ const Forecast: React.FC = () => {
       <PageTitle icon={<IconComponent />}>Forecast overview</PageTitle>
 
       <div className={s.page__body}>
-        <Space direction='vertical' size={currentWidth && currentWidth > 700 ? 60 : 30}>
+        <Space direction='vertical' size={currentWidth && currentWidth > mobileBreakPointWidth ? 60 : 30}>
           {dailyFormatCards()}
         </Space>
 

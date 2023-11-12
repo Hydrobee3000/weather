@@ -1,7 +1,8 @@
 import React from 'react'
 import { Select } from 'antd'
-import s from './SelectPlace.module.scss'
+import { mobileBreakPointWidth } from '../../../utils/constants/mobileBreakPoint'
 import useWindowSize from '../../../hooks/useWindowSize'
+import s from './SelectPlace.module.scss'
 
 const { Option } = Select
 
@@ -36,7 +37,7 @@ const SelectPlace: React.FC<SelectPlaceProps> = ({ selectedPlace, places, onChan
       optionFilterProp='children'
       filterOption={(input, option: any) => option.children.toLowerCase().includes(input.toLowerCase())}
       mode={mode}
-      showSearch={currentWidth && currentWidth > 700 ? true : false}
+      showSearch={currentWidth && currentWidth > mobileBreakPointWidth ? true : false}
       allowClear
     >
       {places.map((place) => (
