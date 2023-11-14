@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux'
 import { IRootState } from '../../redux/store'
-import { IoLocationOutline } from 'react-icons/io5'
 import { Card, Tag, Typography } from 'antd'
+import { IoLocationOutline } from 'react-icons/io5'
 import { IDayWeatherData } from '../../types/types'
+import { roundToTenths } from '../../utils/roundToTenth'
 import { currentPageIcons } from '../../utils/constants/pageIcons'
 import firstLetterUpperCase from '../../utils/firstLetterUpperCase' // function makes first letter in uppercase style
 import PageTitle from '../../components/common/PageTitle/PageTitle'
-import { roundToTenths } from '../../utils/roundToTenth'
 import s from './Current.module.scss' // styles
 
 const { Text } = Typography
