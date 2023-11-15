@@ -6,18 +6,7 @@
   height: 100%;
 
   @media (max-width: 700px) {
-    padding-bottom: $page-bottom-padding;
-  }
-
-  .content {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly !important;
-    border-radius: 15px !important;
-
-    @include shadow-card-outer;
+    height: calc(100vh - 140px) !important;
   }
 
   .info {
@@ -26,12 +15,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly !important;
+    border-radius: 15px !important;
 
+    @include shadow-card-outer;
+
+    &_dark {
+      background-color: #141414;
+    }
+    &_light {
+      background-color: #fff;
+    }
     .temp {
       font-size: 6rem;
       margin-top: 3rem;
       margin-bottom: 2rem;
-      padding: 5px 15px;
+      padding: 15px 15px;
       border-radius: 15px;
 
       &:hover {
@@ -60,8 +58,8 @@
         margin-bottom: 5rem;
       }
       @media (max-width: 350px) {
-        font-size: 3rem !important;
-        margin-bottom: 5rem;
+        font-size: 3.5rem !important;
+        // margin-bottom: 5rem;
       }
     }
 

@@ -34,29 +34,27 @@ const Current: React.FC = () => {
   return (
     <div className={s.page}>
       <PageTitle icon={<IconComponent />}>Current conditions</PageTitle>
-      <Card className={s.content}>
-        <div className={s.info}>
-          {/* unit of temperature */}
-          <Text className={`${s.temp} ${isDarkMode ? s.temp_dark : s.temp_light}`}>
-            <span className={s.temp__value}>{temperature}</span>
-            <span className={s.temp__unit}>°С</span>
-          </Text>
+      <div className={`${s.info} ${isDarkMode ? s.info_dark : s.info_light}`}>
+        {/* unit of temperature */}
+        <Text className={`${s.temp} ${isDarkMode ? s.temp_dark : s.temp_light}`}>
+          <span className={s.temp__value}>{temperature}</span>
+          <span className={s.temp__unit}>°С</span>
+        </Text>
 
-          {/* unit of feels like temperature */}
-          <Tag className={`${s.tag__feels_like} ${s.tag_shadow}`}>Feels like: {temperatureFeelsLike} °С</Tag>
+        {/* unit of feels like temperature */}
+        <Tag className={`${s.tag__feels_like} ${s.tag_shadow}`}>Feels like: {temperatureFeelsLike} °С</Tag>
 
-          {/* description of weather */}
-          <Tag color='purple' className={`${s.tag__descr} ${isDarkMode ? s.tag__descr_dark : s.tag__descr_light}`}>
-            <Text className={s.description__text}>{description}</Text>
-          </Tag>
+        {/* description of weather */}
+        <Tag color='purple' className={`${s.tag__descr} ${isDarkMode ? s.tag__descr_dark : s.tag__descr_light}`}>
+          <Text className={s.description__text}>{description}</Text>
+        </Tag>
 
-          {/* location */}
-          <Text className={s.location}>
-            <IoLocationOutline className={s.location__icon} />
-            <span className={s.location__name}>{location}</span>
-          </Text>
-        </div>
-      </Card>
+        {/* location */}
+        <Text className={s.location}>
+          <IoLocationOutline className={s.location__icon} />
+          <span className={s.location__name}>{location}</span>
+        </Text>
+      </div>
     </div>
   )
 }
