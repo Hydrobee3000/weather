@@ -4,6 +4,11 @@
   &_light {
     background-color: #efefef !important;
   }
+
+  &_dark {
+    background-color: #0c0c0c !important;
+    border-right: 2px solid #ffffff1b;
+  }
 }
 
 .menu {
