@@ -47,7 +47,7 @@ The application is hosted on ***https://hydrobee3000.github.io/weather/***
 >    git clone https://github.com/Hydrobee3000/weather.git
 >    ```
 >    
-> Install NPM packages
+> Install npm packages
 >    ```sh
 >    npm install
 >    ```
