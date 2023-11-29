@@ -22,6 +22,7 @@ interface IProps {
 
 const PageTitle: React.FC<IProps> = ({ children, icon }) => {
   const isDarkMode: boolean = useSelector((state: IRootState) => state.weather.isDarkMode) // theme
+
   return (
     <>
       <Title className={`${s.title} ${!isDarkMode && s.title_light}`}>
