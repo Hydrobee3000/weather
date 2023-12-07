@@ -18,6 +18,7 @@ const CalendarContainer = () => {
   if (!forecastData) {
     return <Preloader />
   }
+
   return <CalendarFC />
 }
 
