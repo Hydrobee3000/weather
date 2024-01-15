@@ -49,11 +49,11 @@ const HeaderFC: React.FC = () => {
             className={`${s.menu__btn} ${
               collapsedMenu
                 ? isDarkMode
-                  ? s.menu__btn_pressed_dark // pressed menu button with dark theme
-                  : s.menu__btn_pressed_light // pressed menu button with light theme
+                  ? s.menu__btn_pressed_dark
+                  : s.menu__btn_pressed_light
                 : isDarkMode
-                ? s.menu__btn_unpressed_dark // unpressed menu button with dark theme
-                : s.menu__btn_unpressed_light // unpressed menu button with light theme
+                ? s.menu__btn_unpressed_dark
+                : s.menu__btn_unpressed_light
             }`}
             type='primary'
             onClick={toggleCollapsedMenu}
